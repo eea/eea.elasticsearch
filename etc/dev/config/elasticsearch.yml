@@ -1,0 +1,7 @@
+path:
+  logs: /var/log/elasticsearch-dev
+  data: /var/local/es-dev/elasticsearch/data
+
+http:
+  port: 9200
+

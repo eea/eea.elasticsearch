@@ -1,0 +1,20 @@
+<configure
+  xmlns="http://namespaces.zope.org/zope"
+  xmlns:browser="http://namespaces.zope.org/browser"
+  i18n_domain="eea">
+
+  <include package="Products.CMFCore" file="permissions.zcml"/>
+
+  <browser:page
+    name="elasticsearch-controlpanel"
+    for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+    class=".settings.ControlPanel"
+    permission="cmf.ManagePortal"
+    />
+
+  <adapter
+    for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+    provides="eea.elasticsearch.interfaces.ISettings"
+    factory=".settings.ControlPanelAdapter" />
+
+</configure>
