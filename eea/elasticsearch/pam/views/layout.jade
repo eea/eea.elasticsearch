@@ -1,6 +1,7 @@
 doctype 5
 html
   head
+    include ../external_templates/head.html
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
     link(rel='stylesheet', href='/stylesheets/facetview.css')
@@ -13,4 +14,6 @@ html
     script(type='text/javascript', src='/javascripts/jquery-ui-1.8.18.custom.min.js')
     script(type='text/javascript', src='/javascripts/pam.facetview.js')
   body
+    include ../external_templates/header.html
     block content
+    include ../external_templates/footer.html

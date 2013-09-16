@@ -41,3 +41,9 @@ h4 {
   margin-bottom: 10px;
 }
 
+
+.facetview_morefacetvals,
+.facetview_learnmore,
+.facetview_sort {
+    display: none! important;
+}
