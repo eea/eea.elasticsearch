@@ -1,0 +1,11 @@
+path:
+  logs: /var/log/elasticsearch
+  data: /var/local/es/data
+
+http:
+  port: 9400
+
+transport:
+  tcp:
+    port: 9500
+
