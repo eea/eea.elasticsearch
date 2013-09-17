@@ -3,17 +3,19 @@ function addheaders(){
 }
 jQuery(document).ready(function($) {
     $('.facet-view-simple').facetview({
-        search_url: 'http://centaurus.eea.europa.eu/elasticsearch/rdfdata/_search?',
+        search_url: 'http://centaurus.eea.europa.eu/elasticsearch/pamdata/resources/_search?',
         search_index: 'elasticsearch',
         initial_search: false,
         post_search_callback: addheaders,
+//        pushstate : false,
         facets: [
+            {'field':'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#PAMID', 'display': 'pamid', 'size':'50', 'order': 'term'},
             {'field':'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#Country_with_EU', 'display': 'Country', 'size':'50', 'order': 'term'},
-            {'field':'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#Sector_List', 'display': 'Sector'},
-            {'field':'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#Policy_Type_List', 'display': 'Policy Type'},
-            {'field':'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#GHG_affected', 'display': 'GHG Affected'},
-            {'field':'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#Status', 'display': 'Status'},
-            {'field':'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#Projections_scenario_in_which_the_PAM_is_included', 'display': 'Scenario'}
+            {'field':'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#Sector_List', 'display': 'Sector', 'size':'50', 'order': 'term'},
+            {'field':'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#Policy_Type_List', 'display': 'Policy Type', 'size':'50', 'order': 'term'},
+            {'field':'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#GHG_affected', 'display': 'GHG Affected', 'size':'50', 'order': 'term'},
+            {'field':'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#Status', 'display': 'Status', 'size':'50', 'order': 'term'},
+            {'field':'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#Projections_scenario_in_which_the_PAM_is_included', 'display': 'Scenario', 'size':'50', 'order': 'term'}
         ],
 
         result_display: [
@@ -28,15 +30,22 @@ jQuery(document).ready(function($) {
                     'post': '</td>',
 
                 },
+
                 {
                     'pre': '<td>',
                     'field': "http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#Projections_scenario_in_which_the_PAM_is_included",
                     'post': '</td>',
                 },
+
                 {
-                    'pre': '<td>',
+                    'pre': '<td><a href="/details?pamid=',
+                    'field':'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#PAMID',
+                    'post': '">',
+                },
+
+                {
                     'field': "http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#Name_of_PAM",
-                    'post': '</td>',
+                    'post': '</a></td>',
                 },
                 {
                     'pre': '<td>',
@@ -52,11 +61,6 @@ jQuery(document).ready(function($) {
                     'pre': '<td>',
                     'field':'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#Status',
                     'post': '</td>',
-                },
-                {
-                    'pre': '<td><a href="/details?pamid=',
-                    'field':'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#PAMID',
-                    'post': '">Details</a>',
                 },
             ],
         ],
