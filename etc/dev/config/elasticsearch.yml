@@ -1,7 +1,11 @@
 path:
   logs: /var/log/elasticsearch-dev
-  data: /var/local/es-dev/elasticsearch/data
+  data: /var/local/es-dev/data
 
 http:
   port: 9200
+
+transport:
+  tcp:
+    port: 9300
 
