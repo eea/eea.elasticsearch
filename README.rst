@@ -37,7 +37,7 @@ This packages specifically includes:
 Live demos
 ==========
 
-* `Facetview visualisation <https://centaurus-dev.eea.europa.eu>`_ installed
+* `Facetview visualisation <http://centaurus-dev.eea.europa.eu>`_ installed
   on development instance, on EEA Centaurus server.
 
 
