@@ -96,7 +96,7 @@ EEA_ - European Environment Agency (EU)
 .. _`Semantic Data Service`: http://semantic.eea.europa.eu/
 .. _EEA: http://www.eea.europa.eu/
 .. _`EEA elasticsearch`: http://eea.github.com/docs/eea.elasticsearch
-.. |elasticsearch logo| image:: http://daviz.eionet.europa.eu/learn-more/davizdiagram.png/image_large
+.. |elasticsearch logo| image:: http://www.elasticsearch.org/content/themes/elasticsearch-org/images/logo.png
 .. _elasticsearch: http://elasticsearch.org
 .. _`RDF River Plugin`: https://github.com/eea/eea.elasticsearch.river.rdf
 .. _`Jetty Plugin`: https://github.com/sonian/elasticsearch-jetty
