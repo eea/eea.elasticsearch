@@ -26,6 +26,7 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
+app.get('/', routes.index);
 app.get('/index', routes.index);
 app.get('/details', routes.details);
 
