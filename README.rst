@@ -22,9 +22,9 @@ The setup is composed of the following:
 1. An elasticsearch_ instance flavoured with following plugins
 2. EEA ElasticSearch `RDF River Plugin`_
 3. `Jetty Plugin`_
-4. EEA fork of FacetView_, a pure
-   JavaScript library for browsing data using an elasticsearch endpoint
-5. EEA fork of `elasticsearch service-wrapper <https://github.com/eea/elasticsearch-servicewrapper>`_,
+4. FacetView_, a pure JavaScript library
+   for browsing data using an elasticsearch endpoint
+5. `elasticsearch service-wrapper <https://github.com/eea/elasticsearch-servicewrapper>`_,
    a script for running elasticsearch using Java Service Wrapper.
 
 This packages specifically includes:
