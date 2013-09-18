@@ -7,7 +7,7 @@ jQuery(document).ready(function($) {
         search_index: 'elasticsearch',
         initial_search: false,
         post_search_callback: addheaders,
-//        pushstate : false,
+        pushstate : false,
         facets: [
             {'field':'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#PAMID', 'display': 'pamid', 'size':'50', 'order': 'term'},
             {'field':'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#Country_with_EU', 'display': 'Country', 'size':'50', 'order': 'term'},
@@ -38,7 +38,7 @@ jQuery(document).ready(function($) {
                 },
 
                 {
-                    'pre': '<td><a href="/details?pamid=',
+                    'pre': '<td><a href="/pam/details?pamid=',
                     'field':'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#PAMID',
                     'post': '">',
                 },
