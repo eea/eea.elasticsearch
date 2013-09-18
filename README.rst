@@ -37,7 +37,7 @@ This packages specifically includes:
 Live demos
 ==========
 
-* `Facetview visualisation <https://centaurus-dev.eea.europa.eu>` installed
+* `Facetview visualisation <https://centaurus-dev.eea.europa.eu>`_ installed
   on development instance, on EEA Centaurus server.
 
 
@@ -98,6 +98,7 @@ EEA_ - European Environment Agency (EU)
 .. _`EEA elasticsearch`: http://eea.github.com/docs/eea.elasticsearch
 .. |elasticsearch logo| image:: http://www.elasticsearch.org/content/themes/elasticsearch-org/images/logo.png
 .. _elasticsearch: http://elasticsearch.org
+.. _`eea.elasticsearch`: https://github.com/eea/eea.elasticsearch
 .. _`RDF River Plugin`: https://github.com/eea/eea.elasticsearch.river.rdf
 .. _`Jetty Plugin`: https://github.com/sonian/elasticsearch-jetty
 .. _FacetView: https://github.com/eea/facetview
