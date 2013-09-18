@@ -4,14 +4,14 @@
  */
 
 var fieldsMapping = [
-    {'name':'2015_EU_ETS_kt_CO2', 'field': 'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#2015_EU_ETS_kt_CO2', 'title': '2015_EU_ETS_kt_CO2'},
-    {'name':'2015_non_ETS_kt_CO2', 'field': 'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#2015_non_ETS_kt_CO2', 'title': '2015_non_ETS_kt_CO2'},
-    {'name':'2015_total_kt_CO2_equivalent_per_year', 'field': 'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#2015_total_kt_CO2_equivalent_per_year', 'title': '2015_total_kt_CO2_equivalent_per_year'},
-    {'name':'2020_EU_ETS_kt_CO2', 'field': 'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#2020_EU_ETS_kt_CO2', 'title': '2020_EU_ETS_kt_CO2'},
-    {'name':'2020_non_ETS_kt_CO2', 'field': 'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#2020_non_ETS_kt_CO2', 'title': '2020_non_ETS_kt_CO2'},
-    {'name':'2020_total_kt_CO2', 'field': 'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#2020_total_kt_CO2', 'title': '2020_total_kt_CO2'},
-    {'name':'2025_total_kt_CO2', 'field': 'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#2025_total_kt_CO2', 'title': '2025_total_kt_CO2'},
-    {'name':'2030_total_kt_CO2', 'field': 'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#2030_total_kt_CO2', 'title': '2030_total_kt_CO2'},
+    {'name':'pam_2015_EU_ETS_kt_CO2', 'field': 'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#2015_EU_ETS_kt_CO2', 'title': '2015_EU_ETS_kt_CO2'},
+    {'name':'pam_2015_non_ETS_kt_CO2', 'field': 'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#2015_non_ETS_kt_CO2', 'title': '2015_non_ETS_kt_CO2'},
+    {'name':'pam_2015_total_kt_CO2_equivalent_per_year', 'field': 'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#2015_total_kt_CO2_equivalent_per_year', 'title': '2015_total_kt_CO2_equivalent_per_year'},
+    {'name':'pam_2020_EU_ETS_kt_CO2', 'field': 'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#2020_EU_ETS_kt_CO2', 'title': '2020_EU_ETS_kt_CO2'},
+    {'name':'pam_2020_non_ETS_kt_CO2', 'field': 'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#2020_non_ETS_kt_CO2', 'title': '2020_non_ETS_kt_CO2'},
+    {'name':'pam_2020_total_kt_CO2', 'field': 'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#2020_total_kt_CO2', 'title': '2020_total_kt_CO2'},
+    {'name':'pam_2025_total_kt_CO2', 'field': 'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#2025_total_kt_CO2', 'title': '2025_total_kt_CO2'},
+    {'name':'pam_2030_total_kt_CO2', 'field': 'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#2030_total_kt_CO2', 'title': '2030_total_kt_CO2'},
     {'name':'Absolute_costs_per_year_in_EUR_specify_year_cost_has_been_calculated_for', 'field': 'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#Absolute_costs_per_year_in_EUR_specify_year_cost_has_been_calculated_for', 'title': 'Absolute_costs_per_year_in_EUR_specify_year_cost_has_been_calculated_for'},
     {'name':'Average_emission_reduction_kt_CO2', 'field': 'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#Average_emission_reduction_kt_CO2', 'title': 'Average_emission_reduction_kt_CO2'},
     {'name':'Brief_description', 'field': 'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#Brief_description', 'title': 'Brief_description'},
