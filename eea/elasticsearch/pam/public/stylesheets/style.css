@@ -2,10 +2,6 @@
   *   Generic Mods to Bootstrap
   *********************************************/
 
-html, body {
-  background-color: #eee;
-}
-
 .content {
   background-color: #fff;
   padding: 20px;
