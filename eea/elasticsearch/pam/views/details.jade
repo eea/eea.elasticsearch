@@ -101,10 +101,6 @@ block content
             tr
                 th= data.pam_2030_total_kt_CO2.label
                 td= data.pam_2030_total_kt_CO2.value
-        if(data.Absolute_costs_per_year_in_EUR_specify_year_cost_has_been_calculated_for)
-            tr
-                th= data.Absolute_costs_per_year_in_EUR_specify_year_cost_has_been_calculated_for.label
-                td= data.Absolute_costs_per_year_in_EUR_specify_year_cost_has_been_calculated_for.value
         if(data.Average_emission_reduction_kt_CO2)
             tr
                 th= data.Average_emission_reduction_kt_CO2.label
@@ -112,19 +108,68 @@ block content
 
     h2 Explanation of emission reduction estimate
     table(class="pam_detail_table datatable")
+        colgroup
+            col(style="width: 25%")
+            col(style="width: 75%")
         if(data.Explanation_of_the__mitigation_estimates)
             tr
                 th= data.Explanation_of_the__mitigation_estimates.label
                 td= data.Explanation_of_the__mitigation_estimates.value
-
-        if(data.Check_of_mandatory_reporting)
+        if(data.Factors_affected_by_PAM)
             tr
-                th= data.Check_of_mandatory_reporting.label
-                td= data.Check_of_mandatory_reporting.value
+                th= data.Factors_affected_by_PAM.label
+                td= data.Factors_affected_by_PAM.value
+        if(data.Estimate_include_reductions_related_to_common_and_coordinated_policies_and_measures)
+            tr
+                th= data.Estimate_include_reductions_related_to_common_and_coordinated_policies_and_measures.label
+                td= data.Estimate_include_reductions_related_to_common_and_coordinated_policies_and_measures.value
+        if(data.Documentation_Source_of_estimation)
+            tr
+                th= data.Documentation_Source_of_estimation.label
+                td= data.Documentation_Source_of_estimation.value
         if(data.Comment_relevant_to_the_PAM)
             tr
                 th= data.Comment_relevant_to_the_PAM.label
                 td= data.Comment_relevant_to_the_PAM.value
+        if(data.Reference_source_of_estimation)
+            tr
+                th= data.Reference_source_of_estimation.label
+                td= data.Reference_source_of_estimation.value
+
+    h2 Description of mitigation impact of measure on Non-Greenhouse Gases (e.g. Sox, NOx, NMVOC, Particulates)
+    table(class="pam_detail_table datatable")
+        colgroup
+            col(style="width: 25%")
+            col(style="width: 75%")
+
+    h2 Information on costs
+    table(class="pam_detail_table datatable")
+        colgroup
+            col(style="width: 25%")
+            col(style="width: 75%")
+        if(data.Costs_in_EUR_per_tonne_CO2_eq_reduced_sequestered)
+            tr
+                th= data.Costs_in_EUR_per_tonne_CO2_eq_reduced_sequestered.label
+                td= data.Costs_in_EUR_per_tonne_CO2_eq_reduced_sequestered.value
+        if(data.Absolute_costs_per_year_in_EUR_specify_year_cost_has_been_calculated_for)
+            tr
+                th= data.Absolute_costs_per_year_in_EUR_specify_year_cost_has_been_calculated_for.label
+                td= data.Absolute_costs_per_year_in_EUR_specify_year_cost_has_been_calculated_for.value
+        if(data.Description_of_cost_estimates_Basis_for_cost_estimate)
+            tr
+                th= data.Description_of_cost_estimates_Basis_for_cost_estimate.label
+                td= data.Description_of_cost_estimates_Basis_for_cost_estimate.value
+        if(data.Documentation_Source_of_cost_estimation)
+            tr
+                th= data.Documentation_Source_of_cost_estimation.label
+                td= data.Documentation_Source_of_cost_estimation.value
+
+    h2 Other information
+        table(class="pam_detail_table datatable")
+        if(data.Check_of_mandatory_reporting)
+            tr
+                th= data.Check_of_mandatory_reporting.label
+                td= data.Check_of_mandatory_reporting.value
         if(data.Comments_by_MS)
             tr
                 th= data.Comments_by_MS.label
@@ -137,38 +182,15 @@ block content
             tr
                 th= data.Companies_businesses_industrial_associations.label
                 td= data.Companies_businesses_industrial_associations.value
-        if(data.Costs_in_EUR_per_tonne_CO2_eq_reduced_sequestered)
-            tr
-                th= data.Costs_in_EUR_per_tonne_CO2_eq_reduced_sequestered.label
-                td= data.Costs_in_EUR_per_tonne_CO2_eq_reduced_sequestered.value
+
         if(data.Description_and_units)
             tr
                 th= data.Description_and_units.label
                 td= data.Description_and_units.value
-        if(data.Description_of_cost_estimates_Basis_for_cost_estimate)
-            tr
-                th= data.Description_of_cost_estimates_Basis_for_cost_estimate.label
-                td= data.Description_of_cost_estimates_Basis_for_cost_estimate.value
-        if(data.Documentation_Source_of_cost_estimation)
-            tr
-                th= data.Documentation_Source_of_cost_estimation.label
-                td= data.Documentation_Source_of_cost_estimation.value
-        if(data.Documentation_Source_of_estimation)
-            tr
-                th= data.Documentation_Source_of_estimation.label
-                td= data.Documentation_Source_of_estimation.value
         if(data.EU_ETS_non_EU_ETS)
             tr
                 th= data.EU_ETS_non_EU_ETS.label
                 td= data.EU_ETS_non_EU_ETS.value
-        if(data.Estimate_include_reductions_related_to_common_and_coordinated_policies_and_measures)
-            tr
-                th= data.Estimate_include_reductions_related_to_common_and_coordinated_policies_and_measures.label
-                td= data.Estimate_include_reductions_related_to_common_and_coordinated_policies_and_measures.value
-        if(data.Factors_affected_by_PAM)
-            tr
-                th= data.Factors_affected_by_PAM.label
-                td= data.Factors_affected_by_PAM.value
         if(data.Information_about_non_GHG_mitigation_benefits_of_policies_and_measures)
             tr
                 th= data.Information_about_non_GHG_mitigation_benefits_of_policies_and_measures.label
@@ -201,10 +223,7 @@ block content
             tr
                 th= data.Primary_EU_policy_responsible_objectives.label
                 td= data.Primary_EU_policy_responsible_objectives.value
-        if(data.Reference_source_of_estimation)
-            tr
-                th= data.Reference_source_of_estimation.label
-                td= data.Reference_source_of_estimation.value
+
         if(data.Regional_entities)
             tr
                 th= data.Regional_entities.label
@@ -225,12 +244,3 @@ block content
             tr
                 th= data.Years_for_which_reduction_applies.label
                 td= data.Years_for_which_reduction_applies.value
-
-
-
-
-
-
-
-
-
