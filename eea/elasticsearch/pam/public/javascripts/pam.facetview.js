@@ -9,7 +9,6 @@ jQuery(document).ready(function($) {
         post_search_callback: addheaders,
         pushstate : false,
         facets: [
-            {'field':'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#PAMID', 'display': 'pamid', 'size':'50', 'order': 'term'},
             {'field':'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#Country_with_EU', 'display': 'Country', 'size':'50', 'order': 'term'},
             {'field':'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#Sector_List', 'display': 'Sector', 'size':'50', 'order': 'term'},
             {'field':'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#Policy_Type_List', 'display': 'Policy Type', 'size':'50', 'order': 'term'},
