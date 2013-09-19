@@ -118,10 +118,9 @@ exports.invalidate_templates = function(req, res){
     fs.writeFile("external_templates/head.html","");
 
     var http = require('http');
-
     var head_options = {
         host: 'www.eea.europa.eu',
-        path: '/templates/v2/getRequiredHead'
+        path: '/templates/v2/getRequiredHead?jsdisable=all'
     }
     var head_request = http.request(head_options, function (res) {
         var data = '';
@@ -139,7 +138,7 @@ exports.invalidate_templates = function(req, res){
 
     var header_options = {
         host: 'www.eea.europa.eu',
-        path: '/templates/v2/getHeader'
+        path: '/templates/v2/getHeader?jsdisable=all'
     }
     var header_request = http.request(header_options, function (res) {
         var data = '';
