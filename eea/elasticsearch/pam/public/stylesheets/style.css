@@ -74,3 +74,7 @@ h4 {
 #content .facet-view-simple table td{
     border-top: 1px solid #ddd
 }
+
+#content .facetview_freetext {
+  height: 24px;
+}
