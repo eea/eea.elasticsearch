@@ -58,6 +58,7 @@ h4 {
 
 #content {
     width:100% !important;
+    margin-top: 0 !important;
 }
 
 #content .facet-view-simple .pagination li {
@@ -73,4 +74,8 @@ h4 {
 
 #content .facetview_freetext {
   height: 24px;
+}
+
+#content #portal-breadcrumbs{
+  padding-bottom: 10px;
 }

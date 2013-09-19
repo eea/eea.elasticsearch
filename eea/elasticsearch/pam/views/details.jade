@@ -1,6 +1,18 @@
 extends layout
 
 block content
+    div(id="portal-breadcrumbs")
+        span(id="breadcrumbs-you-are-here") You are here: 
+        span(id="breadcrumbs-home")
+            a(href="http://www.eea.europa.eu/") Home
+            span(class="breadcrumbSeparator")  / 
+        span(id="breadcrumbs-1")
+            a(href="/pam") Climate change policies and measures in Europe
+            span(class="breadcrumbSeparator")  / 
+        span(id="breadcrumbs-2")
+            span(class="breadcrumbs-current")=  data.Name_of_PAM.value
+        
+
     h1= data.Name_of_PAM.value
     table(class="pam_detail_table datatable")
         colgroup
