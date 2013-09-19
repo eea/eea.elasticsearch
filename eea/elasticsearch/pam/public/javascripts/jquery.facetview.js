@@ -820,20 +820,21 @@ search box - the end user will not know they are happening.
                 for ( var object = 0; object < display[lineitem].length; object++ ) {
                     var thekey = display[lineitem][object]['field'];
                     var thevalue = getvalue(record, thekey);
-                    if (thevalue && thevalue.toString().length) {
-                        display[lineitem][object]['pre']
-                            ? line += display[lineitem][object]['pre'] : false;
-                        if ( typeof(thevalue) == 'object' ) {
-                            for ( var val = 0; val < thevalue.length; val++ ) {
-                                val != 0 ? line += ', ' : false;
-                                line += thevalue[val];
-                            }
-                        } else {
-                            line += thevalue;
+                    if (!thevalue || !thevalue.toString().length)
+                        thevalue = '';
+                    display[lineitem][object]['pre']
+                        ? line += display[lineitem][object]['pre'] : false;
+                    if ( typeof(thevalue) == 'object' ) {
+                        for ( var val = 0; val < thevalue.length; val++ ) {
+                            val != 0 ? line += ', ' : false;
+                            line += thevalue[val];
                         }
-                        display[lineitem][object]['post'] 
-                            ? line += display[lineitem][object]['post'] : line += ' ';
+                    } else {
+                        line += thevalue;
                     }
+                    display[lineitem][object]['post'] 
+                        ? line += display[lineitem][object]['post'] : line += ' ';
+
                 }
                 if (line) {
                     lines += line.replace(/^\s/,'').replace(/\s$/,'').replace(/\,$/,'') + "<br />";
