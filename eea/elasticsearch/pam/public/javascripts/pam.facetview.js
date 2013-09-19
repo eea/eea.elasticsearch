@@ -1,5 +1,5 @@
 function addheaders(){
-    $("#facetview_results").append("<thead><tr><th>Country</th><th>Sector</th><th>Projection Scenario</th><th>Name</th><th>Type</th><th>GHG</th><th>Status</th><th></th></tr></thead>");
+    $("#facetview_results").append("<thead><tr><th>Country</th><th>Sector</th><th>Projection Scenario</th><th>Name</th><th>Type</th><th>GHG</th><th>Status</th></tr></thead>");
 }
 jQuery(document).ready(function($) {
     $('.facet-view-simple').facetview({
