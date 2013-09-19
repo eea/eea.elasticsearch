@@ -29,6 +29,7 @@ if ('development' == app.get('env')) {
 app.get('/', routes.index);
 app.get('/index', routes.index);
 app.get('/details', routes.details);
+app.get('/invalidate_templates', routes.invalidate_templates);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

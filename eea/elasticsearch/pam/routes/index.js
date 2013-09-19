@@ -105,8 +105,73 @@ exports.details = function(req, res){
     });
   });
   request.on('error', function (e) {
-//    console.log(e.message);
+    console.log(e.message);
   });
   request.end();
 
+}
+
+exports.invalidate_templates = function(req, res){
+    var fs = require("fs");
+    fs.writeFile("external_templates/footer.html","");
+    fs.writeFile("external_templates/header.html","");
+    fs.writeFile("external_templates/head.html","");
+
+    var http = require('http');
+
+    var head_options = {
+        host: 'www.eea.europa.eu',
+        path: '/templates/v2/getRequiredHead'
+    }
+    var head_request = http.request(head_options, function (res) {
+        var data = '';
+        res.on('data', function (chunk) {
+            data += chunk;
+        });
+        res.on('end', function () {
+            fs.writeFile("external_templates/head.html",data);
+        });
+    });
+    head_request.on('error', function (e) {
+        console.log(e.message);
+    });
+    head_request.end();
+
+    var header_options = {
+        host: 'www.eea.europa.eu',
+        path: '/templates/v2/getHeader'
+    }
+    var header_request = http.request(header_options, function (res) {
+        var data = '';
+        res.on('data', function (chunk) {
+            data += chunk;
+        });
+        res.on('end', function () {
+            fs.writeFile("external_templates/header.html",data);
+        });
+    });
+    header_request.on('error', function (e) {
+        console.log(e.message);
+    });
+    header_request.end();
+
+    var footer_options = {
+        host: 'www.eea.europa.eu',
+        path: '/templates/v2/getFooter'
+    }
+    var footer_request = http.request(footer_options, function (res) {
+        var data = '';
+        res.on('data', function (chunk) {
+            data += chunk;
+        });
+        res.on('end', function () {
+            fs.writeFile("external_templates/footer.html",data);
+        });
+    });
+    footer_request.on('error', function (e) {
+        console.log(e.message);
+    });
+    footer_request.end();
+
+    res.send("done")
 }
