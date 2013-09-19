@@ -21,7 +21,8 @@ do_start()
 {
         if [ ! -f "$LOCK_FILE" ] ; then
                 echo -n $"Starting $SERVER: "
-                runuser -l "$USER" -c "$DAEMON $SERVER >> $LOG_FILE &" && echo_success || echo_failure
+                cd $ROOT_DIR
+                runuser -m "$USER" -c "$DAEMON $SERVER >> $LOG_FILE &" && echo_success || echo_failure
                 RETVAL=$?
                 echo
                 [ $RETVAL -eq 0 ] && touch $LOCK_FILE
