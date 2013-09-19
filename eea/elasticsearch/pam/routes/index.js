@@ -30,7 +30,7 @@ var fieldsMapping = [
     {'name':'EU_ETS_non_EU_ETS', 'field': 'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#EU_ETS_non_EU_ETS', 'title': 'EU ETS/non ETS'},
     {'name':'End_year_of_implementation', 'field': 'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#End_year_of_implementation', 'title': 'End year of implementation'},
     {'name':'Estimate_include_reductions_related_to_common_and_coordinated_policies_and_measures', 'field': 'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#Estimate_include_reductions_related_to_common_and_coordinated_policies_and_measures', 'title': 'Does the estimate include reductions related to common and coordinated policies and measures?'},
-    {'name':'Explanation_of_the__mitigation_estimates', 'field': 'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#Explanation_of_the__mitigation_estimates', 'title': 'Explanation of the basis for  the mitigation estimates'},
+    {'name':'Explanation_of_the__mitigation_estimates', 'field': 'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#Explanation_of_the__mitigation_estimates', 'title': 'Explanation of the basis for the mitigation estimates'},
     {'name':'Factors_affected_by_PAM', 'field': 'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#Factors_affected_by_PAM', 'title': 'Factors affected by PAM'},
     {'name':'GHG_affected', 'field': 'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#GHG_affected', 'title': 'GHG affected'},
     {'name':'Information_about_non_GHG_mitigation_benefits_of_policies_and_measures', 'field': 'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#Information_about_non_GHG_mitigation_benefits_of_policies_and_measures', 'title': 'Information about non-GHG mitigation benefits of policies and measures'},

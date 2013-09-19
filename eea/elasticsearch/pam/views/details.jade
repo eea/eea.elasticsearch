@@ -1,7 +1,7 @@
 extends layout
 
 block content
-    h3 Detailed results for 
+    h1 Detailed results for 
         span= data.Name_of_PAM.value
     table(class="pam_detail_table datatable")
         colgroup
@@ -112,6 +112,11 @@ block content
 
     h2 Explanation of emission reduction estimate
     table(class="pam_detail_table datatable")
+        if(data.Explanation_of_the__mitigation_estimates)
+            tr
+                th= data.Explanation_of_the__mitigation_estimates.label
+                td= data.Explanation_of_the__mitigation_estimates.value
+
         if(data.Check_of_mandatory_reporting)
             tr
                 th= data.Check_of_mandatory_reporting.label
@@ -160,10 +165,6 @@ block content
             tr
                 th= data.Estimate_include_reductions_related_to_common_and_coordinated_policies_and_measures.label
                 td= data.Estimate_include_reductions_related_to_common_and_coordinated_policies_and_measures.value
-        if(data.Explanation_of_the__mitigation_estimates)
-            tr
-                th= data.Explanation_of_the__mitigation_estimates.label
-                td= data.Explanation_of_the__mitigation_estimates.value
         if(data.Factors_affected_by_PAM)
             tr
                 th= data.Factors_affected_by_PAM.label
