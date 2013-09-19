@@ -1,6 +1,14 @@
 extends layout
 
 block content
+    div(id="portal-breadcrumbs")
+        span(id="breadcrumbs-you-are-here") You are here: 
+        span(id="breadcrumbs-home")
+            a(href="http://www.eea.europa.eu/") Home
+            span(class="breadcrumbSeparator")  / 
+        span(id="breadcrumbs-1")
+            span(class="breadcrumbs-current")  Climate change policies and measures in Europe
+
     h1 Climate change policies and measures in Europe
     p The following search engine gives access to a list of policies and measures (PAM) that European countries have implemented or planned to reduce greenhouse gas emissions. All these PAM have been officially reported to the European Commission or under the United Framework Convention on Climate Change (UNFCCC). In some cases, countries have provided an estimate of the expected reduction of greenhouse gas emissions resulting from a specific PAM.
     p This database of climate change policies and measures in Europe includes policies and measures reported by European Member States to the Commission or under the UNFCCC. The database covers the relevant sectors energy, industrial processes, agriculture, forestry, waste and cross-cutting policies and provides detailed and complete information on Member States' actions on climate change.
