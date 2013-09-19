@@ -79,3 +79,16 @@ h4 {
 #content #portal-breadcrumbs{
   padding-bottom: 10px;
 }
+
+#content .btn{
+  border: 1px solid #ccc !important;
+  border-bottom-color: #bbb !important;
+}
+
+.pagination a{
+  border: 1px solid #ddd !important;
+}
+
+#content table {
+  display: table !important;
+}
