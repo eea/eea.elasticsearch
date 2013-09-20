@@ -47,6 +47,7 @@ Installation
 ============
 
 1. Clone project
+
      git clone git@github.com:eea/eea.elasticsearch.git
 
 2. Install elasticsearch_, e.g. in /var/local/elasticsearch
@@ -58,9 +59,11 @@ Installation
      bin/plugin --url https://github.com/eea/eea.elasticsearch.river.rdf/raw/master/target/releases/eea-rdf-river-plugin-1.0.zip
      --install eea-rdf-river-1.0
 5. Install `Jetty Plugin`_ in the same manner:
+
       bin/plugin --url https://oss-es-plugins.s3.amazonaws.com/elasticsearch-jetty/elasticsearch-jetty-0.90.0.zip
       --install elasticsearch-jetty-0.90.0
 6. Install and configure elasticsearch-service wrapper:
+
       git clone git@github.com:eea/elasticsearch-servicewrapper.git
       cd elasticsearch-servicewrapper/service
       vim elasticsearch.conf # configure path to elasticsearch
@@ -69,12 +72,15 @@ Installation
    eea.elasticsearch/etc/production/config/realm.properties, see
    `Adding Basic Authentication <https://github.com/sonian/elasticsearch-jetty#adding-basic-authentication>`_.
 8. Start elasticsearch service
+
       service elasticsearch start
 9. Install facetview
+
       git clone git@github.com:eea/facetview.git
 10. Link eea.elasticsearch/etc/production/httpd.elasticsearch.conf in
     /etc/httpd/conf.d and check settings
 11. Reload Apache
+
      service httpd reload
 
 
