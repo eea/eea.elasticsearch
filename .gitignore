@@ -1,2 +1,8 @@
 /eea/elasticsearch/pam/external_templates
 /eea/elasticsearch/pam/node_modules/
+*.egg-info
+*.pyc
+*.mo
+*.wpr
+*.wpu
+*.lol
