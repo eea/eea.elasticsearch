@@ -1,5 +1,5 @@
 ==================
-EEA elasticsearch
+EEA ElasticSearch
 ==================
 |elasticsearch logo|
 
