@@ -92,3 +92,8 @@ h4 {
 #content table {
   display: table !important;
 }
+
+#facetview_results th {
+    vertical-align:middle;
+    text-align:center;
+}

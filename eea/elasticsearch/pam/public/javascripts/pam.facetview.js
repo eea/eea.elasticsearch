@@ -1,3 +1,5 @@
+var field_base = 'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#';
+
 function replaceNumbers(){
     var possibleContainers = ['a', 'td', 'th'];
     var chemsMapping = {'CH4':'CH<sub>4</sub>',
@@ -25,7 +27,7 @@ function replaceNumbers(){
 }
 
 function addHeaders(){
-    $("#facetview_results").append("<thead><tr><th>Country</th><th>Sector</th><th>Projection Scenario</th><th>Name</th><th>Type</th><th>GHG</th><th>Status</th></tr></thead>");
+    $("#facetview_results").append("<thead><tr><th>Country</th><th>Sector</th><th>Name</th><th>Status</th><th>Projection Scenario</th><th>Total GHG savings by 2020 (in kt CO2 equivalent)</th></tr></thead>");
 }
 
 function viewReady(){
@@ -41,56 +43,54 @@ jQuery(document).ready(function($) {
         post_search_callback: viewReady,
         pushstate : false,
         facets: [
-            {'field':'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#Country_with_EU', 'display': 'Country', 'size':'50', 'order': 'term'},
-            {'field':'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#Sector_List', 'display': 'Sector', 'size':'50', 'order': 'term'},
-            {'field':'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#Policy_Type_List', 'display': 'Policy Type', 'size':'50', 'order': 'term'},
-            {'field':'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#GHG_affected', 'display': 'GHG Affected', 'size':'50', 'order': 'term'},
-            {'field':'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#Status', 'display': 'Status', 'size':'50', 'order': 'term'},
-            {'field':'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#Projections_scenario_in_which_the_PAM_is_included', 'display': 'Scenario', 'size':'50', 'order': 'term'}
+            {'field':field_base + 'Country_with_EU', 'display': 'Country', 'size':'50', 'order': 'term'},
+//link
+            {'field':field_base + 'Sector_List', 'display': 'Sector', 'size':'50', 'order': 'term'},
+            {'field':field_base + 'GHG_affected', 'display': 'GHG Affected', 'size':'50', 'order': 'term'},
+            {'field':field_base + 'Status', 'display': 'Status', 'size':'50', 'order': 'term'},
+            {'field':field_base + 'Projections_scenario_in_which_the_PAM_is_included', 'display': 'Projection Scenario', 'size':'50', 'order': 'term'},
+            {'field':field_base + 'Policy_Type_List', 'display': 'Policy Type', 'size':'50', 'order': 'term'},
+//            {'field':field_base + 'Primary_EU_policy_responsible_objectives', 'display': 'Related EU Policies', 'size':'50', 'order': 'term'},
+//entities
         ],
 
         result_display: [
             [
                 {
-                    'field': "http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#Country",
+                    'field': field_base + "Country",
                     'post': '</td>',
                 },
+//link
                 {
                     'pre': '<td>',
-                    'field': "http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#Sector_List",
+                    'field': field_base + "Sector_List",
                     'post': '</td>',
 
                 },
-
-                {
-                    'pre': '<td>',
-                    'field': "http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#Projections_scenario_in_which_the_PAM_is_included",
-                    'post': '</td>',
-                },
-
                 {
                     'pre': '<td><a href="/pam/details?pamid=',
-                    'field':'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#PAMID',
+                    'field':field_base + 'PAMID',
                     'post': '">',
                 },
 
                 {
-                    'field': "http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#Name_of_PAM",
+                    'field': field_base + "Name_of_PAM",
                     'post': '</a></td>',
                 },
                 {
                     'pre': '<td>',
-                    'field':'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#Policy_Type_List',
+                    'field':field_base + 'Status',
+                    'post': '</td>',
+                },
+
+                {
+                    'pre': '<td>',
+                    'field': field_base + "Projections_scenario_in_which_the_PAM_is_included",
                     'post': '</td>',
                 },
                 {
                     'pre': '<td>',
-                    'field':'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#GHG_affected',
-                    'post': '</td>',
-                },
-                {
-                    'pre': '<td>',
-                    'field':'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#Status',
+                    'field':field_base + '2020_total_kt_CO2',
                     'post': '</td>',
                 },
             ],
@@ -101,7 +101,7 @@ jQuery(document).ready(function($) {
             size: 10
         },
 /*        predefined_filters: {
-            'pamid': {'term':{'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#PAMID':'tra'}}
+            'pamid': {'term':{field_base + 'PAMID':'tra'}}
         }*/
     });
     replaceNumbers(); 
