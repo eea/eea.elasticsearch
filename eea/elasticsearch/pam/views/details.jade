@@ -21,26 +21,10 @@ block content
             tr
                 th= data.Name_of_PAM.label
                 td= data.Name_of_PAM.value
-        if(data.PAMID)
-            tr
-                th= data.PAMID.label
-                td= data.PAMID.value
-        if(data.PAM_No)
-            tr
-                th= data.PAM_No.label
-                td= data.PAM_No.value
         if(data.Country)
             tr
                 th= data.Country.label
                 td= data.Country.value
-        if(data.Country_with_EU)
-            tr
-                th= data.Country_with_EU.label
-                td= data.Country_with_EU.value
-        if(data.Projections_scenario_in_which_the_PAM_is_included)
-            tr
-                th= data.Projections_scenario_in_which_the_PAM_is_included.label
-                td= data.Projections_scenario_in_which_the_PAM_is_included.value
         if(data.Objective)
             tr
                 th= data.Objective.label
@@ -49,14 +33,6 @@ block content
             tr
                 th= data.Brief_description.label
                 td= data.Brief_description.value
-        if(data.Sector_List)
-            tr
-                th= data.Sector_List.label
-                td= data.Sector_List.value
-        if(data.GHG_affected)
-            tr
-                th= data.GHG_affected.label
-                td= data.GHG_affected.value
         if(data.Policy_Type_List)
             tr
                 th= data.Policy_Type_List.label
@@ -65,6 +41,35 @@ block content
             tr
                 th= data.Status.label
                 td= data.Status.value
+        if(data.Projections_scenario_in_which_the_PAM_is_included)
+            tr
+                th= data.Projections_scenario_in_which_the_PAM_is_included.label
+                td= data.Projections_scenario_in_which_the_PAM_is_included.value
+        //-
+            if(data.PAMID)
+                tr
+                    th= data.PAMID.label
+                    td= data.PAMID.value
+            if(data.PAM_No)
+                tr
+                    th= data.PAM_No.label
+                    td= data.PAM_No.value
+            if(data.Country_with_EU)
+                tr
+                    th= data.Country_with_EU.label
+                    td= data.Country_with_EU.value
+
+
+        if(data.Sector_List)
+            tr
+                th= data.Sector_List.label
+                td= data.Sector_List.value
+        if(data.GHG_affected)
+            tr
+                th= data.GHG_affected.label
+                td= data.GHG_affected.value
+
+
         if(data.Start_year_of_implementation)
             tr
                 th= data.Start_year_of_implementation.label
