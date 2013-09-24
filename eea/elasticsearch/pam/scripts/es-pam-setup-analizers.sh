@@ -16,7 +16,7 @@ curl -XPUT 'http://centaurus.eea.europa.eu/elasticsearch/pamdata' -d '{
    "mappings" : {
       "resources" : {
          "properties" : { 
-        "http://semantic.eea.europa.eu/project/pam/pam_v10.csv#Country_with_EU" : {
+        "http://semantic.eea.europa.eu/project/pam/pam_v10.csv#Country" : {
            "type" : "string", 
            "analyzer" : "coma" 
         },
