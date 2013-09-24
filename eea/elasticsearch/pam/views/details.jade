@@ -1,5 +1,17 @@
 extends layout
 
+mixin tr_th_td(item)
+    if(item)
+        tr
+            th= item.label
+            td= item.value
+
+mixin td(item)
+    if(item)
+        td= item.value
+    else
+        td 
+
 block content
     div(id="portal-breadcrumbs")
         span(id="breadcrumbs-you-are-here") You are here: 
@@ -17,248 +29,135 @@ block content
         colgroup
             col(style="width: 25%")
             col(style="width: 75%")
-        if(data.Name_of_PAM)
-            tr
-                th= data.Name_of_PAM.label
-                td= data.Name_of_PAM.value
-        if(data.Country)
-            tr
-                th= data.Country.label
-                td= data.Country.value
-        if(data.Objective)
-            tr
-                th= data.Objective.label
-                td= data.Objective.value
-        if(data.Brief_description)
-            tr
-                th= data.Brief_description.label
-                td= data.Brief_description.value
-        if(data.Policy_Type_List)
-            tr
-                th= data.Policy_Type_List.label
-                td= data.Policy_Type_List.value
-        if(data.Status)
-            tr
-                th= data.Status.label
-                td= data.Status.value
-        if(data.Projections_scenario_in_which_the_PAM_is_included)
-            tr
-                th= data.Projections_scenario_in_which_the_PAM_is_included.label
-                td= data.Projections_scenario_in_which_the_PAM_is_included.value
+        +tr_th_td(data.Name_of_PAM)
+        +tr_th_td(data.Country)
+        +tr_th_td(data.Objective)
+        +tr_th_td(data.Brief_description)
+        +tr_th_td(data.Policy_Type_List)
+        +tr_th_td(data.Status)
+        +tr_th_td(data.Projections_scenario_in_which_the_PAM_is_included)
+
         //-
-            if(data.PAMID)
-                tr
-                    th= data.PAMID.label
-                    td= data.PAMID.value
-            if(data.PAM_No)
-                tr
-                    th= data.PAM_No.label
-                    td= data.PAM_No.value
-            if(data.Country_with_EU)
-                tr
-                    th= data.Country_with_EU.label
-                    td= data.Country_with_EU.value
+            +tr_th_td(data.PAMID)
+            +tr_th_td(data.PAM_No)
+            +tr_th_td(data.Country_with_EU)
+
+        +tr_th_td(data.Sector_List)
+        +tr_th_td(data.Start_year_of_implementation)
+        +tr_th_td(data.End_year_of_implementation)
 
 
-        if(data.Sector_List)
-            tr
-                th= data.Sector_List.label
-                td= data.Sector_List.value
-        if(data.GHG_affected)
-            tr
-                th= data.GHG_affected.label
-                td= data.GHG_affected.value
-
-
-        if(data.Start_year_of_implementation)
-            tr
-                th= data.Start_year_of_implementation.label
-                td= data.Start_year_of_implementation.value
-        if(data.End_year_of_implementation)
-            tr
-                th= data.End_year_of_implementation.label
-                td= data.End_year_of_implementation.value
-
-    h2 Estimate of GHG emission reduction effect or sequestration effect in Gg CO2 eq per year
+    h2 Policy coverage
     table(class="pam_detail_table datatable")
         colgroup
             col(style="width: 25%")
             col(style="width: 75%")
-        if (data.pam_2015_EU_ETS_kt_CO2)
-            tr
-                th= data.pam_2015_EU_ETS_kt_CO2.label
-                td= data.pam_2015_EU_ETS_kt_CO2.value
-        if(data.pam_2015_non_ETS_kt_CO2)
-            tr
-                th= data.pam_2015_non_ETS_kt_CO2.label
-                td= data.pam_2015_non_ETS_kt_CO2.value
-        if(data.pam_2015_total_kt_CO2_equivalent_per_year)
-            tr
-                th= data.pam_2015_total_kt_CO2_equivalent_per_year.label
-                td= data.pam_2015_total_kt_CO2_equivalent_per_year.value
-        if(data.pam_2020_EU_ETS_kt_CO2)
-            tr
-                th= data.pam_2020_EU_ETS_kt_CO2.label
-                td= data.pam_2020_EU_ETS_kt_CO2.value
-        if(data.pam_2020_non_ETS_kt_CO2)
-            tr
-                th= data.pam_2020_non_ETS_kt_CO2.label
-                td= data.pam_2020_non_ETS_kt_CO2.value
-        if(data.pam_2020_total_kt_CO2)
-            tr
-                th= data.pam_2020_total_kt_CO2.label
-                td= data.pam_2020_total_kt_CO2.value
-        if(data.pam_2025_total_kt_CO2)
-            tr
-                th= data.pam_2025_total_kt_CO2.label
-                td= data.pam_2025_total_kt_CO2.value
-        if(data.pam_2030_total_kt_CO2)
-            tr
-                th= data.pam_2030_total_kt_CO2.label
-                td= data.pam_2030_total_kt_CO2.value
-        if(data.Average_emission_reduction_kt_CO2)
-            tr
-                th= data.Average_emission_reduction_kt_CO2.label
-                td= data.Average_emission_reduction_kt_CO2.value
+        +tr_th_td(data.GHG_affected)
+        +tr_th_td(data.EU_ETS_non_EU_ETS)
 
-    h2 Explanation of emission reduction estimate
+    h2 Policy interactions
     table(class="pam_detail_table datatable")
         colgroup
             col(style="width: 25%")
             col(style="width: 75%")
-        if(data.Explanation_of_the__mitigation_estimates)
-            tr
-                th= data.Explanation_of_the__mitigation_estimates.label
-                td= data.Explanation_of_the__mitigation_estimates.value
-        if(data.Factors_affected_by_PAM)
-            tr
-                th= data.Factors_affected_by_PAM.label
-                td= data.Factors_affected_by_PAM.value
-        if(data.Estimate_include_reductions_related_to_common_and_coordinated_policies_and_measures)
-            tr
-                th= data.Estimate_include_reductions_related_to_common_and_coordinated_policies_and_measures.label
-                td= data.Estimate_include_reductions_related_to_common_and_coordinated_policies_and_measures.value
-        if(data.Documentation_Source_of_estimation)
-            tr
-                th= data.Documentation_Source_of_estimation.label
-                td= data.Documentation_Source_of_estimation.value
-        if(data.Comment_relevant_to_the_PAM)
-            tr
-                th= data.Comment_relevant_to_the_PAM.label
-                td= data.Comment_relevant_to_the_PAM.value
-        if(data.Reference_source_of_estimation)
-            tr
-                th= data.Reference_source_of_estimation.label
-                td= data.Reference_source_of_estimation.value
 
-    h2 Description of mitigation impact of measure on Non-Greenhouse Gases (e.g. Sox, NOx, NMVOC, Particulates)
+    h2 Policy monitoring and evaluation
     table(class="pam_detail_table datatable")
         colgroup
             col(style="width: 25%")
             col(style="width: 75%")
+
+    h2 'Ex-ante' estimate of the (projected) effect on GHG emissions and removals
+    p Annual savings [kt CO
+        sub 2 
+        equivalent per year]
+    table(class="pam_detail_table datatable")
+        colgroup
+            col(style="width: 25%")
+            col(style="width: 25%")
+            col(style="width: 25%")
+            col(style="width: 25%")
+        tr
+            th Year
+            th Total emissions
+            th ETS sectors
+            th Non-ETS sectors
+        tr
+            th 2010
+            td
+            td
+            td
+        tr
+            th 2015
+            +td(data.pam_2015_total_kt_CO2_equivalent_per_year)
+            +td(data.pam_2015_EU_ETS_kt_CO2)
+            +td(data.pam_2015_non_ETS_kt_CO2)
+        tr
+            th 2020
+            +td(data.pam_2020_total_kt_CO2)
+            +td(data.pam_2020_EU_ETS_kt_CO2)
+            +td(data.pam_2020_non_ETS_kt_CO2)
+        tr
+            th 2025
+            +td(data.pam_2025_total_kt_CO2)
+            +td(data.pam_2025_EU_ETS_kt_CO2)
+            +td(data.pam_2025_non_ETS_kt_CO2)
+        tr
+            th 2030
+            +td(data.pam_2030_total_kt_CO2)
+            +td(data.pam_2030_EU_ETS_kt_CO2)
+            +td(data.pam_2030_non_ETS_kt_CO2)
+
+    table(class="pam_detail_table datatable")
+        colgroup
+            col(style="width: 25%")
+            col(style="width: 75%")
+        +tr_th_td(data.Reference_source_of_estimation)
+
+    h2 'Ex-post' estimate of the (current) effect on GHG emissions and removals
+    table(class="pam_detail_table datatable")
+        colgroup
+            col(style="width: 25%")
+            col(style="width: 75%")
+        +tr_th_td(data.Years_for_which_reduction_applies)
+        +tr_th_td(data.Average_emission_reduction_kt_CO2)
+        +tr_th_td(data.Explanation_of_the__mitigation_estimates)
+        +tr_th_td(data.Factors_affected_by_PAM)
+        +tr_th_td(data.Estimate_include_reductions_related_to_common_and_coordinated_policies_and_measures)
+        +tr_th_td(data.Documentation_Source_of_estimation)
 
     h2 Information on costs
     table(class="pam_detail_table datatable")
         colgroup
             col(style="width: 25%")
             col(style="width: 75%")
-        if(data.Costs_in_EUR_per_tonne_CO2_eq_reduced_sequestered)
-            tr
-                th= data.Costs_in_EUR_per_tonne_CO2_eq_reduced_sequestered.label
-                td= data.Costs_in_EUR_per_tonne_CO2_eq_reduced_sequestered.value
-        if(data.Absolute_costs_per_year_in_EUR_specify_year_cost_has_been_calculated_for)
-            tr
-                th= data.Absolute_costs_per_year_in_EUR_specify_year_cost_has_been_calculated_for.label
-                td= data.Absolute_costs_per_year_in_EUR_specify_year_cost_has_been_calculated_for.value
-        if(data.Description_of_cost_estimates_Basis_for_cost_estimate)
-            tr
-                th= data.Description_of_cost_estimates_Basis_for_cost_estimate.label
-                td= data.Description_of_cost_estimates_Basis_for_cost_estimate.value
-        if(data.Documentation_Source_of_cost_estimation)
-            tr
-                th= data.Documentation_Source_of_cost_estimation.label
-                td= data.Documentation_Source_of_cost_estimation.value
+        +tr_th_td(data.Costs_in_EUR_per_tonne_CO2_eq_reduced_sequestered)
+        +tr_th_td(data.Absolute_costs_per_year_in_EUR_specify_year_cost_has_been_calculated_for)
+        +tr_th_td(data.Description_of_cost_estimates_Basis_for_cost_estimate)
+        +tr_th_td(data.Documentation_Source_of_cost_estimation)
+
 
     h2 Other information
     table(class="pam_detail_table datatable")
         colgroup
             col(style="width: 25%")
             col(style="width: 75%")
-        if(data.Check_of_mandatory_reporting)
-            tr
-                th= data.Check_of_mandatory_reporting.label
-                td= data.Check_of_mandatory_reporting.value
-        if(data.Comments_by_MS)
-            tr
-                th= data.Comments_by_MS.label
-                td= data.Comments_by_MS.value
-        if(data.Comments_relevant_to_the_policy)
-            tr
-                th= data.Comments_relevant_to_the_policy.label
-                td= data.Comments_relevant_to_the_policy.value
-        if(data.Companies_businesses_industrial_associations)
-            tr
-                th= data.Companies_businesses_industrial_associations.label
-                td= data.Companies_businesses_industrial_associations.value
+        +tr_th_td(data.Comment_relevant_to_the_PAM)
+        +tr_th_td(data.Check_of_mandatory_reporting)
+        +tr_th_td(data.Comments_by_MS)
+        +tr_th_td(data.Comments_relevant_to_the_policy)
+        +tr_th_td(data.Companies_businesses_industrial_associations)
+        +tr_th_td(data.Description_and_units)
+        +tr_th_td(data.Information_about_non_GHG_mitigation_benefits_of_policies_and_measures)
+        +tr_th_td(data.Local_government)
+        +tr_th_td(data.Measure_interact_with_other_policies_and_measures_at_the_national_or_EU_level)
+        +tr_th_td(data.Name_or_organisation)
+        +tr_th_td(data.National_government)
+        +tr_th_td(data.Others_not_listed)
+        +tr_th_td(data.Policy_interactions_explanation)
+        +tr_th_td(data.Primary_EU_policy_responsible_objectives)
+        +tr_th_td(data.Regional_entities)
+        +tr_th_td(data.Research_institutions)
+        +tr_th_td(data.Secondary_EU_policy_responsible_objectives)
+        +tr_th_td(data.Tertiary_EU_policy_responsible_objectives)
 
-        if(data.Description_and_units)
-            tr
-                th= data.Description_and_units.label
-                td= data.Description_and_units.value
-        if(data.EU_ETS_non_EU_ETS)
-            tr
-                th= data.EU_ETS_non_EU_ETS.label
-                td= data.EU_ETS_non_EU_ETS.value
-        if(data.Information_about_non_GHG_mitigation_benefits_of_policies_and_measures)
-            tr
-                th= data.Information_about_non_GHG_mitigation_benefits_of_policies_and_measures.label
-                td= data.Information_about_non_GHG_mitigation_benefits_of_policies_and_measures.value
-        if(data.Local_government)
-            tr
-                th= data.Local_government.label
-                td= data.Local_government.value
-        if(data.Measure_interact_with_other_policies_and_measures_at_the_national_or_EU_level)
-            tr
-                th= data.Measure_interact_with_other_policies_and_measures_at_the_national_or_EU_level.label
-                td= data.Measure_interact_with_other_policies_and_measures_at_the_national_or_EU_level.value
-        if(data.Name_or_organisation)
-            tr
-                th= data.Name_or_organisation.label
-                td= data.Name_or_organisation.value
-        if(data.National_government)
-            tr
-                th= data.National_government.label
-                td= data.National_government.value
-        if(data.Others_not_listed)
-            tr
-                th= data.Others_not_listed.label
-                td= data.Others_not_listed.value
-        if(data.Policy_interactions_explanation)
-            tr
-                th= data.Policy_interactions_explanation.label
-                td= data.Policy_interactions_explanation.value
-        if(data.Primary_EU_policy_responsible_objectives)
-            tr
-                th= data.Primary_EU_policy_responsible_objectives.label
-                td= data.Primary_EU_policy_responsible_objectives.value
-
-        if(data.Regional_entities)
-            tr
-                th= data.Regional_entities.label
-                td= data.Regional_entities.value
-        if(data.Research_institutions)
-            tr
-                th= data.Research_institutions.label
-                td= data.Research_institutions.value
-        if(data.Secondary_EU_policy_responsible_objectives)
-            tr
-                th= data.Secondary_EU_policy_responsible_objectives.label
-                td= data.Secondary_EU_policy_responsible_objectives.value
-        if(data.Tertiary_EU_policy_responsible_objectives)
-            tr
-                th= data.Tertiary_EU_policy_responsible_objectives.label
-                td= data.Tertiary_EU_policy_responsible_objectives.value
-        if(data.Years_for_which_reduction_applies)
-            tr
-                th= data.Years_for_which_reduction_applies.label
-                td= data.Years_for_which_reduction_applies.value
