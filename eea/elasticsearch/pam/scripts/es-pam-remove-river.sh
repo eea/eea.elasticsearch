@@ -1,0 +1,1 @@
+curl -XDELETE 'http://centaurus.eea.europa.eu/elasticsearch/_river/new_pam'

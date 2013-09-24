@@ -1,4 +1,4 @@
-field_base = http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#';
+var field_base = 'http://semantic.eea.europa.eu/home/szabozo0/v11_removed_empty_column_and_parantheses_from_titles.csv#';
 /*
  * GET home page.
  */

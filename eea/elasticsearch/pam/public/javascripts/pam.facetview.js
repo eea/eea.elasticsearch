@@ -1,4 +1,5 @@
-var field_base = 'http://semantic.eea.europa.eu/home/szabozo0/pam1.csv#';
+var field_base = 'http://semantic.eea.europa.eu/home/szabozo0/v11_removed_empty_column_and_parantheses_from_titles.csv#';
+
 
 function replaceNumbers(){
     var possibleContainers = ['a', 'td', 'th'];
@@ -27,7 +28,7 @@ function replaceNumbers(){
 }
 
 function addHeaders(){
-    $("#facetview_results").append("<thead><tr><th>Country</th><th>Sector</th><th>Name</th><th>Status</th><th>Projection Scenario</th><th>Total GHG savings by 2020 (in kt CO2 equivalent)</th></tr></thead>");
+    $("#facetview_results").append("<thead><tr><th>Country</th><th>Link to EU Emissions Trading Scheme (EU ETS)</th><th>Sector</th><th>Name</th><th>Status</th><th>Projection Scenario</th><th>Total GHG savings by 2020 (in kt CO2 equivalent)</th></tr></thead>");
 }
 
 function viewReady(){
@@ -43,16 +44,17 @@ jQuery(document).ready(function($) {
         post_search_callback: viewReady,
         pushstate : false,
         facets: [
-            {'field':field_base + 'Country_with_EU', 'display': 'Country', 'size':'50', 'order': 'term'},
-//link
+            {'field':field_base + 'Country', 'display': 'Country', 'size':'50', 'order': 'term'},
+            {'field':field_base + 'Link_to_EU_Emissions_Trading_Scheme_EU_ETS', 'display': 'Link to EU Emissions Trading Scheme (EU ETS)', 'size':'50', 'order': 'term'},
             {'field':field_base + 'Sector_List', 'display': 'Sector', 'size':'50', 'order': 'term'},
             {'field':field_base + 'GHG_affected', 'display': 'GHG Affected', 'size':'50', 'order': 'term'},
             {'field':field_base + 'Status', 'display': 'Status', 'size':'50', 'order': 'term'},
             {'field':field_base + 'Projections_scenario_in_which_the_PAM_is_included', 'display': 'Projection Scenario', 'size':'50', 'order': 'term'},
             {'field':field_base + 'Policy_Type_List', 'display': 'Policy Type', 'size':'50', 'order': 'term'},
-//            {'field':field_base + 'Primary_EU_policy_responsible_objectives', 'display': 'Related EU Policies', 'size':'50', 'order': 'term'},
-//entities
+            {'field':field_base + 'Primary_EU_policy_responsible_objectives', 'display': 'Related EU Policies', 'size':'50', 'order': 'term'},
+            {'field':field_base + 'Implementing_entities_List', 'display': 'Implementing entities', 'size':'50', 'order': 'term'},
         ],
+
 
         result_display: [
             [
@@ -60,12 +62,15 @@ jQuery(document).ready(function($) {
                     'field': field_base + "Country",
                     'post': '</td>',
                 },
-//link
+                {
+                    'pre': '<td>',
+                    'field': field_base + "Link_to_EU_Emissions_Trading_Scheme_EU_ETS",
+                    'post': '</td>',
+                },
                 {
                     'pre': '<td>',
                     'field': field_base + "Sector_List",
                     'post': '</td>',
-
                 },
                 {
                     'pre': '<td><a href="/pam/details?pamid=',
