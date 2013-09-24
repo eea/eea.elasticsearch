@@ -97,3 +97,8 @@ h4 {
     vertical-align:middle;
     text-align:center;
 }
+
+#portal-searchbox > a {
+    display: block;
+    margin: 0;
+}
