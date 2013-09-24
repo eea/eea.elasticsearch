@@ -70,7 +70,7 @@ exports.details = function(req, res){
 
   var http = require('http');
 
-  var query = '{"query":{"bool":{"must":[{"term":{field_base + "PAMID":"'+req.query.pamid+'"}}]}}}';
+  var query = '{"query":{"bool":{"must":[{"term":{"'+field_base + 'PAMID":"'+req.query.pamid+'"}}]}}}';
   query = encodeURIComponent(query)
   var options = {
     host: 'centaurus.eea.europa.eu',
