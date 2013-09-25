@@ -38,7 +38,7 @@ function viewReady(){
 
 jQuery(document).ready(function($) {
     $('.facet-view-simple').facetview({
-        search_url: 'http://centaurus.eea.europa.eu/elasticsearch/pamdata/resources/_search?',
+        search_url: 'http://centaurus-dev.eea.europa.eu/elasticsearch/pamdata/resources/_search?',
         search_index: 'elasticsearch',
         initial_search: false,
         post_search_callback: viewReady,
