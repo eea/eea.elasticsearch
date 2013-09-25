@@ -1,11 +1,11 @@
 ################################### Cluster ###################################
-cluster.name: dev
+cluster.name: development
 
 ################################# Jetty Plugin ################################
 http.type: com.sonian.elasticsearch.http.jetty.JettyHttpServerTransportModule
 sonian.elasticsearch.http.jetty:
     config: jetty.xml,jetty-hash-auth.xml,jetty-restrict-writes.xml
-    
+
 #################################### Index ####################################
 index:
   analysis:
