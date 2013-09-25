@@ -20,14 +20,20 @@
 
   <link rel="stylesheet" href="css/style.css">
 
+  <style type="text/css">
+    .facetview_morefacetvals {
+      display: none;
+    }
+  </style>
   <script type="text/javascript">
 jQuery(document).ready(function($) {
   $('.facet-view-simple').facetview({
     search_url: 'http://centaurus-dev.eea.europa.eu/elasticsearch/rdfdata/_search?',
     search_index: 'elasticsearch',
     facets: [
-        {'field':'http://www.w3.org/1999/02/22-rdf-syntax-ns#type', 'display': 'Product Type'},
-        {'field':'http://purl.org/dc/terms/issued', 'display': 'Filter by publishing date'}
+	{'field': 'language', 'display': 'Change language', 'size':'50', 'order': 'term'},
+        {'field': 'http://www.w3.org/1999/02/22-rdf-syntax-ns#type', 'display': 'Product Type', 'size':'50', 'order': 'term'},
+        {'field': 'http://purl.org/dc/terms/issued', 'display': 'Filter by publishing date', 'size':'50', 'order': 'term'}
     ],
     result_display: [
 	      [
