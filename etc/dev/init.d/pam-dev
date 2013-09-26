@@ -14,6 +14,7 @@ ROOT_DIR="/var/local/es-dev/eea.elasticsearch/eea/elasticsearch/pam"
 
 SERVER="$ROOT_DIR/pam.js"
 LOG_FILE="/var/log/pam-dev.js.log"
+ERR_FILE="/var/log/pam-dev.err.log"
 
 LOCK_FILE="/var/lock/subsys/node-pam-dev"
 
@@ -22,7 +23,7 @@ do_start()
         if [ ! -f "$LOCK_FILE" ] ; then
                 echo -n $"Starting $SERVER: "
                 cd $ROOT_DIR
-                runuser -m "$USER" -c "$DAEMON $SERVER >> $LOG_FILE &" && echo_success || echo_failure
+                runuser -m "$USER" -c "$DAEMON $SERVER >> $LOG_FILE 2>> $ERR_FILE &" && echo_success || echo_failure
                 RETVAL=$?
                 echo
                 [ $RETVAL -eq 0 ] && touch $LOCK_FILE
