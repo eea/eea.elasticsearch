@@ -1,4 +1,4 @@
-var field_base = 'http://semantic.eea.europa.eu/home/szabozo0/v11_removed_empty_column_and_parantheses_from_titles.csv#';
+var field_base = 'http://semantic.eea.europa.eu/project/pam/pam.csv#';
 /*
  * GET home page.
  */
@@ -17,30 +17,31 @@ var fieldsMapping = [
     {'name':'Brief_description', 'field': field_base + 'Brief_description', 'title': 'Description'},
     {'name':'Check_of_mandatory_reporting', 'field': field_base + 'Check_of_mandatory_reporting', 'title': 'Check of mandatory reporting'},
     {'name':'Comment_relevant_to_the_PAM', 'field': field_base + 'Comment_relevant_to_the_PAM', 'title': 'General Comment'},
+    {'name':'Comment_start_year', 'field': field_base + 'Comment_start_year', 'title': 'Comment start year'},
     {'name':'Comments_by_MS', 'field': field_base + 'Comments_by_MS', 'title': 'Comments by MS'},
     {'name':'Comments_relevant_to_the_policy', 'field': field_base + 'Comments_relevant_to_the_policy', 'title': 'Comments relevant to the policy'},
     {'name':'Companies_businesses_industrial_associations', 'field': field_base + 'Companies_businesses_industrial_associations', 'title': 'Companies / businesses / industrial associations'},
     {'name':'Costs_in_EUR_per_tonne_CO2_eq_reduced_sequestered', 'field': field_base + 'Costs_in_EUR_per_tonne_CO2_eq_reduced_sequestered', 'title': 'Costs in EUR per tonne CO2 eq reduced/ sequestered'},
     {'name':'Country', 'field': field_base + 'Country', 'title': 'Country'},
-    {'name':'Country_with_EU', 'field': field_base + 'Country_with_EU', 'title': 'Country, EU membership'},
+    {'name':'CountryCode', 'field': field_base + 'CountryCode', 'title': 'Country Code'},
     {'name':'Description_and_units', 'field': field_base + 'Description_and_units', 'title': 'Description and units'},
     {'name':'Description_of_cost_estimates_Basis_for_cost_estimate', 'field': field_base + 'Description_of_cost_estimates_Basis_for_cost_estimate', 'title': 'Basis for cost estimate'},
     {'name':'Documentation_Source_of_cost_estimation', 'field': field_base + 'Documentation_Source_of_cost_estimation', 'title': 'Documentation/ Source of cost estimation'},
-    {'name':'Documentation_Source_of_estimation', 'field': field_base + 'Documentation_Source_of_estimation', 'title': 'Documentation/ Source of estimation if available'},
-    {'name':'EU_ETS_non_EU_ETS', 'field': field_base + 'EU_ETS_non_EU_ETS', 'title': 'EU ETS coverage'},
     {'name':'End_year_of_implementation', 'field': field_base + 'End_year_of_implementation', 'title': 'End year'},
     {'name':'Estimate_include_reductions_related_to_common_and_coordinated_policies_and_measures', 'field': field_base + 'Estimate_include_reductions_related_to_common_and_coordinated_policies_and_measures', 'title': 'Does the estimate include reductions related to common and coordinated policies and measures?'},
     {'name':'Explanation_of_the__mitigation_estimates', 'field': field_base + 'Explanation_of_the__mitigation_estimates', 'title': 'Basis for estimate'},
     {'name':'Factors_affected_by_PAM', 'field': field_base + 'Factors_affected_by_PAM', 'title': 'Factors affected by PAM'},
     {'name':'GHG_affected', 'field': field_base + 'GHG_affected', 'title': 'Affected GHG'},
+    {'name':'Impact_included_in_other_policy___policy_package', 'field': field_base + 'Impact_included_in_other_policy___policy_package', 'title': 'Impact included in other policy/policy package?'},
+    {'name':'Implementing_entities_List', 'field': field_base + 'Implementing_entities_List', 'title': 'Implementing entities'},
     {'name':'Information_about_non_GHG_mitigation_benefits_of_policies_and_measures', 'field': field_base + 'Information_about_non_GHG_mitigation_benefits_of_policies_and_measures', 'title': 'Information about non-GHG mitigation benefits of policies and measures'},
-    {'name':'Local_government', 'field': field_base + 'Local_government', 'title': 'Local government'},
+    {'name':'Link_to_EU_Emissions_Trading_Scheme_EU_ETS', 'field': field_base + 'Link_to_EU_Emissions_Trading_Scheme_EU_ETS', 'title': 'Link to EU Emissions Trading Scheme (EU ETS)'},
     {'name':'Measure_interact_with_other_policies_and_measures_at_the_national_or_EU_level', 'field': field_base + 'Measure_interact_with_other_policies_and_measures_at_the_national_or_EU_level', 'title': 'Does the policy or measure interact with other policies and measures at the national or EU level?'},
     {'name':'Name_of_PAM', 'field': field_base + 'Name_of_PAM', 'title': 'Name'},
+    {'name':'Name_of_implementing_entities', 'field': field_base + 'Name_of_implementing_entities', 'title': 'Name of implementing entities'},
     {'name':'Name_or_organisation', 'field': field_base + 'Name_or_organisation', 'title': 'Name or organisation'},
-    {'name':'National_government', 'field': field_base + 'National_government', 'title': 'National government'},
     {'name':'Objective', 'field': field_base + 'Objective', 'title': 'Objective'},
-    {'name':'Others_not_listed', 'field': field_base + 'Others_not_listed', 'title': 'Others not listed'},
+    {'name':'Other_policy___policy_package_in_which_the_impact_is_included', 'field': field_base + 'Other_policy___policy_package_in_which_the_impact_is_included', 'title': 'Other policy/policy package in which the impact is included'},
     {'name':'PAMID', 'field': field_base + 'PAMID', 'title': 'Internal PaM identifier'},
     {'name':'PAM_No', 'field': field_base + 'PAM_No', 'title': 'PaM-No'},
     {'name':'Policy_Type_List', 'field': field_base + 'Policy_Type_List', 'title': 'Type of instrument'},
@@ -48,8 +49,7 @@ var fieldsMapping = [
     {'name':'Primary_EU_policy_responsible_objectives', 'field': field_base + 'Primary_EU_policy_responsible_objectives', 'title': 'Primary EU policy responsible for the implementation of the national policy or where national objectives are aimed directly at meeting EU objectives of'},
     {'name':'Projections_scenario_in_which_the_PAM_is_included', 'field': field_base + 'Projections_scenario_in_which_the_PAM_is_included', 'title': 'Projection scenario'},
     {'name':'Reference_source_of_estimation', 'field': field_base + 'Reference_source_of_estimation', 'title': 'Reference / source of estimation '},
-    {'name':'Regional_entities', 'field': field_base + 'Regional_entities', 'title': 'Regional entities'},
-    {'name':'Research_institutions', 'field': field_base + 'Research_institutions', 'title': 'Research institutions'},
+    {'name':'Related_EU_policies', 'field': field_base + 'Related_EU_policies', 'title': 'Related EU policies'},
     {'name':'Secondary_EU_policy_responsible_objectives', 'field': field_base + 'Secondary_EU_policy_responsible_objectives', 'title': 'Other/secondary EU policy responsible for the implementation of the national policy or where national objectives are aimed directly at meeting EU objectives of:'},
     {'name':'Sector_List', 'field': field_base + 'Sector_List', 'title': 'Sector(s) targeted'},
     {'name':'Start_year_of_implementation', 'field': field_base + 'Start_year_of_implementation', 'title': 'Start year'},
@@ -73,7 +73,7 @@ exports.details = function(req, res){
   var query = '{"query":{"bool":{"must":[{"term":{"'+field_base + 'PAMID":"'+req.query.pamid+'"}}]}}}';
   query = encodeURIComponent(query)
   var options = {
-    host: 'centaurus.eea.europa.eu',
+    host: 'centaurus-dev.eea.europa.eu',
     path: '/elasticsearch/pamdata/resources/_search?&source=' +query
   }
   var request = http.request(options, function (result) {

@@ -1,4 +1,4 @@
-var field_base = 'http://semantic.eea.europa.eu/home/szabozo0/v11_removed_empty_column_and_parantheses_from_titles.csv#';
+var field_base = 'http://semantic.eea.europa.eu/project/pam/pam.csv#';
 
 
 function replaceNumbers(){
@@ -51,7 +51,7 @@ jQuery(document).ready(function($) {
             {'field':field_base + 'Status', 'display': 'Status', 'size':'50', 'order': 'term'},
             {'field':field_base + 'Projections_scenario_in_which_the_PAM_is_included', 'display': 'Projection Scenario', 'size':'50', 'order': 'term'},
             {'field':field_base + 'Policy_Type_List', 'display': 'Policy Type', 'size':'50', 'order': 'term'},
-            {'field':field_base + 'Primary_EU_policy_responsible_objectives', 'display': 'Related EU Policies', 'size':'50', 'order': 'term'},
+            {'field':field_base + 'Related_EU_policies', 'display': 'Related EU Policies', 'size':'50', 'order': 'term'},
             {'field':field_base + 'Implementing_entities_List', 'display': 'Implementing entities', 'size':'50', 'order': 'term'},
         ],
 
