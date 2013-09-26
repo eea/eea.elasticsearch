@@ -35,16 +35,16 @@ block content
         +tr_th_td(data.Brief_description)
         +tr_th_td(data.Policy_Type_List)
         +tr_th_td(data.Status)
+        +tr_th_td(data.Start_year_of_implementation)
+        +tr_th_td(data.End_year_of_implementation)
         +tr_th_td(data.Projections_scenario_in_which_the_PAM_is_included)
+        +tr_th_td(data.Implementing_entities_List)
 
         //-
             +tr_th_td(data.PAMID)
             +tr_th_td(data.PAM_No)
-            +tr_th_td(data.Country)
+            +tr_th_td(data.CountryCode)
 
-        +tr_th_td(data.Sector_List)
-        +tr_th_td(data.Start_year_of_implementation)
-        +tr_th_td(data.End_year_of_implementation)
 
 
     h2 Policy coverage
@@ -53,6 +53,7 @@ block content
             col(style="width: 25%")
             col(style="width: 75%")
         +tr_th_td(data.GHG_affected)
+        +tr_th_td(data.Sector_List)
         +tr_th_td(data.Link_to_EU_Emissions_Trading_Scheme_EU_ETS)
 
     h2 Policy interactions
@@ -60,6 +61,7 @@ block content
         colgroup
             col(style="width: 25%")
             col(style="width: 75%")
+        +tr_th_td(data.Related_EU_policies)
 
     h2 Policy monitoring and evaluation
     table(class="pam_detail_table datatable")
@@ -124,7 +126,6 @@ block content
         +tr_th_td(data.Explanation_of_the__mitigation_estimates)
         +tr_th_td(data.Factors_affected_by_PAM)
         +tr_th_td(data.Estimate_include_reductions_related_to_common_and_coordinated_policies_and_measures)
-        +tr_th_td(data.Documentation_Source_of_estimation)
 
     h2 Information on costs
     table(class="pam_detail_table datatable")
@@ -149,15 +150,15 @@ block content
         +tr_th_td(data.Companies_businesses_industrial_associations)
         +tr_th_td(data.Description_and_units)
         +tr_th_td(data.Information_about_non_GHG_mitigation_benefits_of_policies_and_measures)
-        +tr_th_td(data.Local_government)
         +tr_th_td(data.Measure_interact_with_other_policies_and_measures_at_the_national_or_EU_level)
         +tr_th_td(data.Name_or_organisation)
         +tr_th_td(data.National_government)
         +tr_th_td(data.Others_not_listed)
         +tr_th_td(data.Policy_interactions_explanation)
         +tr_th_td(data.Primary_EU_policy_responsible_objectives)
-        +tr_th_td(data.Regional_entities)
-        +tr_th_td(data.Research_institutions)
         +tr_th_td(data.Secondary_EU_policy_responsible_objectives)
         +tr_th_td(data.Tertiary_EU_policy_responsible_objectives)
-
+        +tr_th_td(data.Impact_included_in_other_policy___policy_package)
+        +tr_th_td(data.Other_policy___policy_package_in_which_the_impact_is_included)
+        +tr_th_td(data.Link_to_EU_Emissions_Trading_Scheme_EU_ETS)
+        +tr_th_td(data.Comment_start_year)
