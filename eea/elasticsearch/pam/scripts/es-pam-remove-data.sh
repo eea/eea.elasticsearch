@@ -1,1 +1,1 @@
-curl -XDELETE 'http://centaurus.eea.europa.eu/elasticsearch/pamdata'
+curl -u eea:eea -XDELETE 'http://centaurus.eea.europa.eu/elasticsearch/pamdata'
