@@ -1,7 +1,12 @@
-var field_base = 'http://semantic.eea.europa.eu/project/pam/pam.csv#';
 /*
  * GET home page.
  */
+
+var nconf = require('nconf');
+nconf.file({file:'config.json'});
+var field_base = nconf.get("es:field_base");
+var es_host = nconf.get("es:host");
+var es_path = nconf.get("es:path");
 
 var fieldsMapping = [
     {'name':'pam_2015_EU_ETS_kt_CO2', 'field': field_base + '2015_EU_ETS_kt_CO2', 'title': '2015 EU ETS (kt CO2-equivalent per year)'},
@@ -59,7 +64,7 @@ var fieldsMapping = [
 ];
 
 exports.index = function(req, res){
-  res.render('index', { title: 'PAM' });
+  res.render('index', { title: 'PAM', es_host:es_host, es_path:es_path, field_base:field_base});
 };
 
 exports.details = function(req, res){
@@ -73,8 +78,8 @@ exports.details = function(req, res){
   var query = '{"query":{"bool":{"must":[{"term":{"'+field_base + 'PAMID":"'+req.query.pamid+'"}}]}}}';
   query = encodeURIComponent(query)
   var options = {
-    host: 'centaurus-dev.eea.europa.eu',
-    path: '/elasticsearch/pamdata/resources/_search?&source=' +query
+    host: es_host,
+    path: es_path + "?source="+ query
   }
   var request = http.request(options, function (result) {
     var data = '';
@@ -96,10 +101,10 @@ exports.details = function(req, res){
                                                     'value':tmp_resultobj["records"][0][fieldsMapping[idx]['field']]};
             }
 
-            res.render('details', {data: resultobj});
+            res.render('details', {data: resultobj, es_host:es_host, es_path:es_path, field_base:field_base});
         }
         catch(err){
-            res.render('details', {data: ""});
+            res.render('details', {data: "", es_host:es_host, es_path:es_path, field_base:field_base});
         }
 
     });
@@ -108,7 +113,6 @@ exports.details = function(req, res){
     console.log(e.message);
   });
   request.end();
-
 }
 
 exports.invalidate_templates = function(req, res){
@@ -119,8 +123,8 @@ exports.invalidate_templates = function(req, res){
 
     var http = require('http');
     var head_options = {
-        host: 'www.eea.europa.eu',
-        path: '/templates/v2/getRequiredHead?jsdisable=all'
+        host: nconf.get("external_templates:host"),
+        path: nconf.get("external_templates:head_path")
     }
     var head_request = http.request(head_options, function (res) {
         var data = '';
@@ -137,8 +141,8 @@ exports.invalidate_templates = function(req, res){
     head_request.end();
 
     var header_options = {
-        host: 'www.eea.europa.eu',
-        path: '/templates/v2/getHeader?jsdisable=all'
+        host: nconf.get("external_templates:host"),
+        path: nconf.get("external_templates:header_path")
     }
     var header_request = http.request(header_options, function (res) {
         var data = '';
@@ -155,8 +159,8 @@ exports.invalidate_templates = function(req, res){
     header_request.end();
 
     var footer_options = {
-        host: 'www.eea.europa.eu',
-        path: '/templates/v2/getFooter'
+        host: nconf.get("external_templates:host"),
+        path: nconf.get("external_templates:footer_path")
     }
     var footer_request = http.request(footer_options, function (res) {
         var data = '';

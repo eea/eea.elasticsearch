@@ -7,11 +7,15 @@ var express = require('express');
 var routes = require('./routes');
 var http = require('http');
 var path = require('path');
+var nconf = require('nconf');
 
 var app = express();
 
+// configuration from config.json
+nconf.file({file:'config.json'})
+
 // all environments
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || nconf.get("http:port"));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 app.use(express.favicon());

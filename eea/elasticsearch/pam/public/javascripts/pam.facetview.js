@@ -1,6 +1,3 @@
-var field_base = 'http://semantic.eea.europa.eu/project/pam/pam.csv#';
-
-
 function replaceNumbers(){
     var possibleContainers = ['a', 'td', 'th'];
     var chemsMapping = {'CH4':'CH<sub>4</sub>',
@@ -38,7 +35,7 @@ function viewReady(){
 
 jQuery(document).ready(function($) {
     $('.facet-view-simple').facetview({
-        search_url: 'http://centaurus-dev.eea.europa.eu/elasticsearch/pamdata/resources/_search?',
+        search_url: 'http://' + es_host + es_path,
         search_index: 'elasticsearch',
         initial_search: false,
         post_search_callback: viewReady,
@@ -105,9 +102,6 @@ jQuery(document).ready(function($) {
             from: 0,
             size: 10
         },
-/*        predefined_filters: {
-            'pamid': {'term':{field_base + 'PAMID':'tra'}}
-        }*/
     });
     replaceNumbers(); 
 });
