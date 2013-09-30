@@ -328,6 +328,9 @@ search box - the end user will not know they are happening.
 */
 
 
+function sortNumber(a,b){
+    return a-b;
+}
 // now the facetview function
 (function($){
     $.fn.facetview = function(options) {
@@ -590,9 +593,12 @@ search box - the end user will not know they are happening.
             var values = [];
             var valsobj = $( '[id="facetview_' + eea_rel +'"]', obj );
             valsobj.find('.facetview_filterchoice', obj).each(function() {
-                values.push( $(this).attr('href') );
+                var eea_val = parseFloat($(this).attr('href'));
+                if (!isNaN(eea_val)){
+                    values.push(eea_val);
+                }
             });
-            values = values.sort();
+            values = values.sort(sortNumber);
             $( "#facetview_slider_" + rel, obj ).slider({
                 range: true,
                 min: 0,
