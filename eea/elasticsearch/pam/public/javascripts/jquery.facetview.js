@@ -882,6 +882,18 @@ function sortNumber(a,b){
                 var facet_filter = $('[id="facetview_'+facetclean+'"]', obj);
                 facet_filter.children().find('.facetview_filtervalue').remove();
                 var records = data["facets"][ facet ];
+                var tmp_records = {};
+                for (var item in records){
+                    if (item === 'Not available'){
+                        tmp_records[item] = records[item];
+                    }
+                }
+                for (var item in records){
+                    if (item !== 'Not available'){
+                        tmp_records[item] = records[item];
+                    }
+                }
+                records = tmp_records;
                 for ( var item in records ) {
                     var append = '<tr class="facetview_filtervalue" style="display:none;"><td><a class="facetview_filterchoice' +
                         '" rel="' + facet + '" href="' + item + '">' + item +
