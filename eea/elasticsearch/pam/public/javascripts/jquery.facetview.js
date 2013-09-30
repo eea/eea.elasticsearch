@@ -563,7 +563,16 @@ search box - the end user will not know they are happening.
             // should perhaps also remove any selections already made on that facet
             event.preventDefault();
             var rel = $(this).attr('rel');
+            if ($("#facetview_rangeplaceholder_" + rel).length !== 0){
+                $('#facetview_rangeresults_' + rel, obj).remove();
+                $('#facetview_rangeplaceholder_' + rel, obj).remove();
+                dosearch();
+                return;
+            }
+            var eea_rel = $($(this).parent().parent().find("a")[0]).attr("rel");
+            var eea_title = $($(this).parent().parent().find("a")[0]).text();
             var rangeselect = '<div id="facetview_rangeplaceholder_' + rel + '" class="facetview_rangecontainer clearfix"> \
+                <h3>' + eea_title + '</h3>\
                 <div class="clearfix"> \
                 <h3 id="facetview_rangechoices_' + rel + '" style="margin-left:10px; margin-right:10px; float:left; clear:none;" class="clearfix"> \
                 <span class="facetview_lowrangeval_' + rel + '">...</span> \
@@ -579,7 +588,7 @@ search box - the end user will not know they are happening.
             $('.facetview_facetrange_remove', obj).unbind('click',clearfacetrange);
             $('.facetview_facetrange_remove', obj).bind('click',clearfacetrange);
             var values = [];
-            var valsobj = $( '#facetview_' + $(this).attr('href').replace(/\./gi,'_'), obj );
+            var valsobj = $( '[id="facetview_' + eea_rel +'"]', obj );
             valsobj.find('.facetview_filterchoice', obj).each(function() {
                 values.push( $(this).attr('href') );
             });

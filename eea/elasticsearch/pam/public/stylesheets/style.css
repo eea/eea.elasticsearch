@@ -106,3 +106,11 @@ h4 {
     display: block;
     margin: 0;
 }
+
+.facetview_facetrange {
+    display:none;
+}
+
+[id='facetview_http_//semantic_eea_europa_eu/project/pam/pam_csv#2020_total_kt_CO2'] a.facetview_facetrange{
+    display:block;
+}

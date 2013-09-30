@@ -38,6 +38,7 @@ jQuery(document).ready(function($) {
         search_url: 'http://' + es_host + es_path,
         search_index: 'elasticsearch',
         initial_search: false,
+        enable_rangeselect: true,
         post_search_callback: viewReady,
         pushstate : false,
         facets: [
@@ -50,6 +51,7 @@ jQuery(document).ready(function($) {
             {'field':field_base + 'Policy_Type_List', 'display': 'Policy Type', 'size':'50', 'order': 'term'},
             {'field':field_base + 'Related_EU_policies', 'display': 'Related EU Policies', 'size':'50', 'order': 'term'},
             {'field':field_base + 'Implementing_entities_List', 'display': 'Implementing entities', 'size':'50', 'order': 'term'},
+            {'field':field_base + '2020_total_kt_CO2', 'display': 'Total GHG savings by 2020 (in kt CO2 equivalent)', 'size':'50', 'order': 'term'},
         ],
 
 
