@@ -54,7 +54,7 @@ curl -u eea:eea -XPUT 'http://centaurus.eea.europa.eu/elasticsearch/pamdata' -d 
         },
 		"http://semantic.eea.europa.eu/project/pam/pam.csv#Related_EU_policies" : {
           "type" : "string",
-          "analyzer" : "coma"
+          "analyzer" : "semicolon"
         }
       }
     }
