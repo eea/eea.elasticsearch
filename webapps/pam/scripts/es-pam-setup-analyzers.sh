@@ -5,11 +5,16 @@ curl -u eea:eea -XPUT 'http://centaurus.eea.europa.eu/elasticsearch/pamdata' -d 
         "none" : {
           "type" : "keyword"
         },
-          "coma" : {
-            "type" : "pattern",
-            "lowercase" : false,
-            "pattern" : ", "
-          }
+        "coma" : {
+          "type" : "pattern",
+          "lowercase" : false,
+          "pattern" : ", "
+        },
+        "semicolon" : {
+          "type" : "pattern",
+          "lowercase" : false,
+          "pattern" : "; "
+        }
       }
     }
   },
