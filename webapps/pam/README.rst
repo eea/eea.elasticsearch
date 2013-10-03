@@ -44,20 +44,23 @@ Nodejs required modules
 The following modules are required by the PAM application:
 
 1. express - web application framework for node (http://expressjs.com/2x)
-Install with:
+
+Install:
     npm install -g express
 
     inside the nodejs pam directory (eea.elasticsearch/eea/elasticsearch/pam)
     npm install express
 
 2. jade - node template engine (http://jade-lang.com/)
+
 Install:
     inside the nodejs pam directory (eea.elasticsearch/eea/elasticsearch/pam)
-    inside the pam application
     npm install jade
-3. nconf - Hierarchical node.js configuration with files, environment variables,
-    command-line arguments, and atomic object merging 
-    (https://github.com/flatiron/nconf)
 
+3. nconf - Hierarchical node.js configuration with files, environment variables, 
+command-line arguments, and atomic object merging 
+(https://github.com/flatiron/nconf)
+
+Install:
     inside the nodejs pam directory (eea.elasticsearch/eea/elasticsearch/pam)
     npm install nconf
