@@ -1,5 +1,5 @@
-/eea/elasticsearch/pam/external_templates
-/eea/elasticsearch/pam/node_modules/
+/webapps/pam/external_templates
+/webapps/pam/node_modules/
 *.egg-info
 *.pyc
 *.mo
