@@ -10,7 +10,7 @@
 USER="root"
 
 DAEMON="/var/local/nodejs/bin/node"
-ROOT_DIR="/var/local/es-dev/eea.elasticsearch/eea/elasticsearch/pam"
+ROOT_DIR="/var/local/es-dev/eea.elasticsearch/webapps/elasticsearch/pam"
 
 SERVER="$ROOT_DIR/pam.js"
 LOG_FILE="/var/log/pam-dev.js.log"
