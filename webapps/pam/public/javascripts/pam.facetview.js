@@ -25,7 +25,7 @@ function replaceNumbers(){
 }
 
 function addHeaders(){
-    $("#facetview_results").append("<thead><tr><th>Country</th><th>Link to EU Emissions Trading Scheme (EU ETS)</th><th>Sector</th><th>Name</th><th>Status</th><th>Projection Scenario</th><th>Total GHG savings by 2020 (in kt CO2 equivalent)</th></tr></thead>");
+    $("#facetview_results").append("<thead><tr><th>Country</th><th>Link to EU Emissions Trading Scheme (ETS)</th><th>Targeted sectors</th><th>Name</th><th>Status</th><th>Projection scenario in which the PAM is included</th><th>Total GHG savings by 2020 (in kt CO2 equivalent)</th></tr></thead>");
 }
 
 function viewReady(){
@@ -43,14 +43,14 @@ jQuery(document).ready(function($) {
         pushstate : false,
         facets: [
             {'field':field_base + 'Country', 'display': 'Country', 'size':'50', 'order': 'term'},
-            {'field':field_base + 'Link_to_EU_Emissions_Trading_Scheme_EU_ETS', 'display': 'Link to EU Emissions Trading Scheme (EU ETS)', 'size':'50', 'order': 'term'},
-            {'field':field_base + 'Sector_List', 'display': 'Sector', 'size':'50', 'order': 'term'},
-            {'field':field_base + 'GHG_affected', 'display': 'GHG Affected', 'size':'50', 'order': 'term'},
+            {'field':field_base + 'Link_to_EU_Emissions_Trading_Scheme_ETS', 'display': 'Link to EU Emissions Trading Scheme (ETS)', 'size':'50', 'order': 'term'},
+            {'field':field_base + 'Targeted_sectors', 'display': 'Targeted sectors', 'size':'50', 'order': 'term'},
+            {'field':field_base + 'Affected_GHG', 'display': 'Affected GHG', 'size':'50', 'order': 'term'},
             {'field':field_base + 'Status', 'display': 'Status', 'size':'50', 'order': 'term'},
-            {'field':field_base + 'Projections_scenario_in_which_the_PAM_is_included', 'display': 'Projection Scenario', 'size':'50', 'order': 'term'},
-            {'field':field_base + 'Policy_Type_List', 'display': 'Policy Type', 'size':'50', 'order': 'term'},
+            {'field':field_base + 'Projection_scenario_in_which_the_PAM_is_included', 'display': 'Projection scenario in which the PAM is included', 'size':'50', 'order': 'term'},
+            {'field':field_base + 'Type_of_instrument', 'display': 'Type of instrument', 'size':'50', 'order': 'term'},
             {'field':field_base + 'Related_EU_policies', 'display': 'Related EU Policies', 'size':'50', 'order': 'term'},
-            {'field':field_base + 'Implementing_entities_List', 'display': 'Implementing entities', 'size':'50', 'order': 'term'},
+            {'field':field_base + 'Type_of_implementing_entities', 'display': 'Type of implementing entities', 'size':'50', 'order': 'term'},
             {'field':field_base + '2020_total_kt_CO2', 'display': 'Total GHG savings by 2020 (in kt CO2 equivalent)', 'size':'50', 'order': 'term'},
         ],
 
@@ -63,12 +63,12 @@ jQuery(document).ready(function($) {
                 },
                 {
                     'pre': '<td>',
-                    'field': field_base + "Link_to_EU_Emissions_Trading_Scheme_EU_ETS",
+                    'field': field_base + "Link_to_EU_Emissions_Trading_Scheme_ETS",
                     'post': '</td>',
                 },
                 {
                     'pre': '<td>',
-                    'field': field_base + "Sector_List",
+                    'field': field_base + "Targeted_sectors",
                     'post': '</td>',
                 },
                 {
@@ -78,7 +78,7 @@ jQuery(document).ready(function($) {
                 },
 
                 {
-                    'field': field_base + "Name_of_PAM",
+                    'field': field_base + "Name",
                     'post': '</a></td>',
                 },
                 {
@@ -89,7 +89,7 @@ jQuery(document).ready(function($) {
 
                 {
                     'pre': '<td>',
-                    'field': field_base + "Projections_scenario_in_which_the_PAM_is_included",
+                    'field': field_base + "Projection_scenario_in_which_the_PAM_is_included",
                     'post': '</td>',
                 },
                 {
