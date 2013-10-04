@@ -24,35 +24,31 @@ curl -u eea:eea -XPUT 'http://centaurus.eea.europa.eu/elasticsearch/pamdata' -d 
           "type" : "string",
           "analyzer" : "none"
         },
-        "http://semantic.eea.europa.eu/project/pam/pam.csv#Policy_Type_List" : {
+        "http://semantic.eea.europa.eu/project/pam/pam.csv#Type_of_instrument" : {
           "type" : "string",
           "analyzer" : "coma"
         },
-        "http://semantic.eea.europa.eu/project/pam/pam.csv#GHG_affected" : {
+        "http://semantic.eea.europa.eu/project/pam/pam.csv#Affected_GHG" : {
           "type" : "string",
           "analyzer" : "coma"
         },
-        "http://semantic.eea.europa.eu/project/pam/pam.csv#Sector_List" : {
+        "http://semantic.eea.europa.eu/project/pam/pam.csv#Targeted_sectors" : {
           "type" : "string",
           "analyzer" : "coma"
         },
-        "http://semantic.eea.europa.eu/project/pam/pam.csv#Projections_scenario_in_which_the_PAM_is_included" : {
+        "http://semantic.eea.europa.eu/project/pam/pam.csv#Projection_scenario_in_which_the_PAM_is_included" : {
           "type" : "string",
           "analyzer" : "coma"
         },
-        "http://semantic.eea.europa.eu/project/pam/pam.csv#Link_to_EU_Emissions_Trading_Scheme_EU_ETS" : {
+        "http://semantic.eea.europa.eu/project/pam/pam.csv#Link_to_EU_Emissions_Trading_Scheme_ETS" : {
           "type" : "string",
           "analyzer" : "coma"
         },
-        "http://semantic.eea.europa.eu/project/pam/pam.csv#Implementing_entities_List" : {
+        "http://semantic.eea.europa.eu/project/pam/pam.csv#Type_of_implementing_entities" : {
           "type" : "string",
           "analyzer" : "coma"
         },
-        "http://semantic.eea.europa.eu/project/pam/pam.csv#Primary_EU_policy_responsible_objectives" : {
-          "type" : "string",
-          "analyzer" : "none"
-        },
-		"http://semantic.eea.europa.eu/project/pam/pam.csv#Related_EU_policies" : {
+        "http://semantic.eea.europa.eu/project/pam/pam.csv#Related_EU_policies" : {
           "type" : "string",
           "analyzer" : "semicolon"
         }
