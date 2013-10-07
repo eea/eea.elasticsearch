@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>FacetView</title>
+
+  <script type="text/javascript" src="/vendor/jquery/1.7.1/jquery-1.7.1.min.js"></script>
+
+  <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css">
+  <script type="text/javascript" src="/vendor/bootstrap/js/bootstrap.min.js"></script>  
+
+  <script type="text/javascript" src="/vendor/linkify/1.0/jquery.linkify-1.0-min.js"></script>  
+  
+  <link rel="stylesheet" href="/vendor/jquery-ui-1.8.18.custom/jquery-ui-1.8.18.custom.css">
+  <script type="text/javascript" src="/vendor/jquery-ui-1.8.18.custom/jquery-ui-1.8.18.custom.min.js"></script>
+
+  <script type="text/javascript" src="/jquery.facetview.js"></script>
+
+  <link rel="stylesheet" href="/css/facetview.css">
+
+  <link rel="stylesheet" href="/css/style.css">
+
+  <style type="text/css">
+    #facetview_results,
+    .facetview_morefacetvals {
+    }
+    .facetview_metadata{
+      clear: both;
+    }
+    #facetview{
+      width: 910px;
+    }
+    .facetview_orderby{
+      width: 120px;
+    }
+
+    /* @group Album view classes */
+.photoAlbumEntry {
+    float: left;
+    position:relative;
+    overflow: hidden;
+    height: 185px;
+    width: 143px;
+    margin: 0em;
+    padding: 0px 6px 0px 9px;
+    text-align: center;
+    box-shadow: 0px 1px 2px #CCCCCC;
+}
+.photoAlbumEntry img {
+    display: block;
+    margin: 0 auto;
+}
+.photoAlbumEntryWrapper {
+    /*display: block;*/
+    height: 130px;
+    width: 128px;
+    margin-bottom: 7px;
+}
+.photoAlbumEntry a {
+    display: block;
+    text-decoration: none;
+    font-size: 90%;
+    height: 169px;
+    width: 130px;
+    margin: 16px auto 0px;
+}
+.photoAlbumEntryTitle {
+    color: #76797c;
+    display: block;
+    width: 128px;
+    height: 3.6em;
+}
+
+/* @end */
+
+
+/* @group Album view classes */
+.photoAlbumEntry {
+    border: 0px;
+    background-color: transparent;
+    background-image: none;
+    float: left;
+    height: 125px;
+    width: 129px;
+    margin: 0 3px 7px 3px;
+    padding: 0px;
+    box-shadow: 0px 1px 2px #CCCCCC;
+    z-index: 3;
+}
+
+.photoAlbumEntry img {
+    max-height: 71px;
+    border: 0;
+}
+
+/* #13639 don't limit height of figure album entries */
+.figuresPhotoAlbumEntry .photoAlbumEntryWrapper {
+    max-height: 100%;
+}
+
+.photoAlbumEntryWrapper {
+    display: block;
+    background: white;
+    max-height: 71px;
+    height: 100%;
+    width: 128px;
+    margin-bottom: 0px;
+    overflow: hidden;
+    border: 0;
+}
+
+a.video-fancybox .photoAlbumEntryWrapper {
+    position: relative;
+    background: url(http://www.eea.europa.eu/play-button-cloud.png) no-repeat 2px center;
+}
+.photoAlbumEntry a {
+    font-size: 85%;
+    height: 128px;
+    width: 128px;
+    margin: 10px 0px;
+    overflow: hidden;
+}
+
+.photoAlbumFolder {
+    background: transparent;
+}
+
+.photoAlbumEntryTitle {
+    overflow: hidden;
+    height: 3.2em;
+    margin-top: 0.4em;
+    font-weight: bold;
+}
+/* our additional photoAlbumEntry styles */
+.photoAlbumEntry:hover {
+    background: transparent;
+    box-shadow: 0px 2px 3px #ACACAC;
+}
+
+#whatsnew-gallery .photoAlbumEntry,
+#whatsnew-gallery .photoAlbumEntry:hover{
+    background: transparent;
+    box-shadow: none;
+    padding: 0px;
+    z-index: 3;
+}
+
+.photoAlbumEntry a.video-fancybox img {
+    position: relative;
+    z-index: -1;
+    margin-top: 0;
+}
+.photoAlbumEntry a.video-fancybox img, .photoAlbumEntry a.animation-fancybox img {
+    max-height: 128px;
+}
+
+.photoAlbumEntryPreview,
+.photoAlbumEntryPreview a,
+.photoAlbumEntryPreview .photoAlbumEntryTitle {
+    height: auto;
+    width: auto;
+    background-image: none;
+    margin: 0.5em  0 2em 0;
+}
+
+.photoAlbumEntryDescription {
+    display:none;
+}
+
+/* bigger title for products section */
+.section-products .photoAlbumEntryTitle {
+    font-size:160%;
+}
+/* @end @group Album view classes */
+
+  </style>
+  <script type="text/javascript">
+jQuery(document).ready(function($) {
+  window.facetview_ob = $('.facet-view-simple').facetview({
+    search_url: 'http://centaurus-dev.eea.europa.eu/elasticsearch/voiddata/_search?',
+    search_index: 'elasticsearch',
+    facets: [
+	{'field': 'language', 'display': 'Change language', 'size':'50', 'order': 'term'},
+        {'field': 'http://purl.org/dc/terms/creator', 'display': 'Creator', 'size':'10', 'order': 'term'},
+        {'field': 'http://purl.org/dc/terms/subject', 'display': 'Subject', 'size':'20', 'order': 'count'},
+        {'field': 'http://www.w3.org/1999/02/22-rdf-syntax-ns#type', 'display': 'Product Type', 'size':'50', 'order': 'term'},
+    ],
+    search_sortby: [
+      {'field': 'http://purl.org/dc/terms/issued', 'display': 'Publishing date'},
+      {'field': 'http://purl.org/dc/terms/title', 'display': 'Title'}
+    ],
+    result_display: [
+	      [
+                {
+                'pre': '<strong>',
+                'field': 'http://purl.org/dc/terms/creator',
+                'post': '</strong>'
+                }, 
+		{
+		'pre': '<h3><a href="',
+		'field': 'http://xmlns.com/foaf/0.1/isPrimaryTopicOf',
+		'post': '">'
+                },
+		{
+		'field': 'http://www.w3.org/2000/01/rdf-schema#label',
+		'post': '</a></h3>'
+		},
+              ],
+	      [{'field': 'http://purl.org/dc/terms/description'}]
+    ],
+    linkify: false,
+    paging: {
+      from: 0,
+      size: 20
+    }
+  });
+
+});
+  </script>
+</head>
+
+<body>
+<div class="container"> 
+  <div class="content">
+    <div class="page-header">
+      <h1>
+	Data search (void)
+      </h1>
+    </div>
+    <div class="facet-view-simple"></div>
+  </div>
+</div>
+</body>
+</html>
