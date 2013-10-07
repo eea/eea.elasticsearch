@@ -16,6 +16,12 @@ via a typical web server like Apache. Nodejs must also be installed on the serve
 The PAM application client connects to a ElasticSearch endpoint which must have
 a EEA RDF River plugin installed (eea.elasticsearch).
 
+Configuration
+=============
+Configuration of PAM service is available in `etc/dev/pam` and in
+`etc/production/pam` of this package.
+Required `config.json` needs to be symlinked in pam folder.
+
 How to update the PAM db
 ========================
 
