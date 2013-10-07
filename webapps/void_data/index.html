@@ -180,10 +180,9 @@ jQuery(document).ready(function($) {
     search_url: 'http://centaurus-dev.eea.europa.eu/elasticsearch/voiddata/_search?',
     search_index: 'elasticsearch',
     facets: [
-	{'field': 'language', 'display': 'Change language', 'size':'50', 'order': 'term'},
         {'field': 'http://purl.org/dc/terms/creator', 'display': 'Creator', 'size':'10', 'order': 'term'},
-        {'field': 'http://purl.org/dc/terms/subject', 'display': 'Subject', 'size':'20', 'order': 'count'},
-        {'field': 'http://www.w3.org/1999/02/22-rdf-syntax-ns#type', 'display': 'Product Type', 'size':'50', 'order': 'term'},
+        {'field': 'http://purl.org/dc/terms/publisher', 'display': 'Publisher', 'size':'10', 'order': 'term'},
+        {'field': 'http://purl.org/dc/terms/subject', 'display': 'Subject', 'size':'20', 'order': 'count'}
     ],
     search_sortby: [
       {'field': 'http://purl.org/dc/terms/issued', 'display': 'Publishing date'},

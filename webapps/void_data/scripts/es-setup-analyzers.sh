@@ -16,46 +16,18 @@ curl -u eea:eea -XPUT 'http://centaurus-dev.eea.europa.eu/elasticsearch/voiddata
   "mappings" : {
     "resources" : {
       "properties" : {
-        "http://semantic.eea.europa.eu/project/pam/pam.csv#Country" : {
-          "type" : "string",
-          "analyzer" : "coma"
-        },
-        "http://semantic.eea.europa.eu/project/pam/pam.csv#PAMID"  : {
+        "http://purl.org/dc/terms/creator" : {
           "type" : "string",
           "analyzer" : "none"
         },
-        "http://semantic.eea.europa.eu/project/pam/pam.csv#Policy_Type_List" : {
-          "type" : "string",
-          "analyzer" : "coma"
-        },
-        "http://semantic.eea.europa.eu/project/pam/pam.csv#GHG_affected" : {
-          "type" : "string",
-          "analyzer" : "coma"
-        },
-        "http://semantic.eea.europa.eu/project/pam/pam.csv#Sector_List" : {
-          "type" : "string",
-          "analyzer" : "coma"
-        },
-        "http://semantic.eea.europa.eu/project/pam/pam.csv#Projections_scenario_in_which_the_PAM_is_included" : {
-          "type" : "string",
-          "analyzer" : "coma"
-        },
-        "http://semantic.eea.europa.eu/project/pam/pam.csv#Link_to_EU_Emissions_Trading_Scheme_EU_ETS" : {
-          "type" : "string",
-          "analyzer" : "coma"
-        },
-        "http://semantic.eea.europa.eu/project/pam/pam.csv#Implementing_entities_List" : {
-          "type" : "string",
-          "analyzer" : "coma"
-        },
-        "http://semantic.eea.europa.eu/project/pam/pam.csv#Primary_EU_policy_responsible_objectives" : {
+        "http://purl.org/dc/terms/subject"  : {
           "type" : "string",
           "analyzer" : "none"
         },
-		"http://semantic.eea.europa.eu/project/pam/pam.csv#Related_EU_policies" : {
+        "http://purl.org/dc/terms/publisher" : {
           "type" : "string",
-          "analyzer" : "semicolon"
-        }
+          "analyzer" : "none"
+         }
       }
     }
   }
