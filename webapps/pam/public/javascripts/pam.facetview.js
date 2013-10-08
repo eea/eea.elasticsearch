@@ -51,7 +51,7 @@ jQuery(document).ready(function($) {
             {'field':field_base + 'Type_of_instrument', 'display': 'Type of instrument', 'size':'50', 'order': 'term'},
             {'field':field_base + 'Related_EU_policies', 'display': 'Related EU Policies', 'size':'50', 'order': 'term'},
             {'field':field_base + 'Type_of_implementing_entities', 'display': 'Type of implementing entities', 'size':'50', 'order': 'term'},
-            {'field':field_base + '2020_total_kt_CO2', 'display': 'Total GHG savings by 2020 (in kt CO2 equivalent)', 'size':'50', 'order': 'term'},
+            {'field':field_base + '2020_total_kt_CO2', 'display': 'Total GHG savings by 2020 (in kt CO2 equivalent)', 'size':'1600', 'order': 'term'},
         ],
 
 
@@ -106,4 +106,12 @@ jQuery(document).ready(function($) {
         },
     });
     replaceNumbers(); 
+    $('[id="facetview_http_//semantic_eea_europa_eu/project/pam/pam_csv#2020_total_kt_CO2"]').delegate("a.facetview_filtershow","click", function(event){
+        if ($('[id="facetview_http_//semantic_eea_europa_eu/project/pam/pam_csv#2020_total_kt_CO2"]').find("a.facetview_filtershow").hasClass("facetview_open")){
+            $('[id="facetview_http_//semantic_eea_europa_eu/project/pam/pam_csv#2020_total_kt_CO2"]').find("a.facetview_facetrange").click();
+        }
+        else{
+            $('.facetview_facetrange_remove').click();
+        }
+    });
 });
