@@ -1,0 +1,2 @@
+    # include this in your VH section
+    ProxyPass /data-and-maps/pam http://localhost:3001 retry=0

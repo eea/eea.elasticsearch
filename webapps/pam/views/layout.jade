@@ -9,19 +9,21 @@ html
             var es_path="#{es_path}";
             var field_base="#{field_base}";
         link(rel="shortcut icon", type="image/x-icon", href="http://www.eea.europa.eu/favicon.ico")
-        link(rel='stylesheet', href='/pam/stylesheets/bootstrap.min.css')
-        link(rel='stylesheet', href='/pam/stylesheets/facetview.css')
-        link(rel='stylesheet', href='/pam/stylesheets/style.css')
+        link(rel='stylesheet', href='#{base_path}stylesheets/bootstrap.min.css')
+        link(rel='stylesheet', href='#{base_path}stylesheets/facetview.css')
+        link(rel='stylesheet', href='#{base_path}stylesheets/style.css')
 
-        link(rel='stylesheet', href='/pam/stylesheets/jquery-ui-1.8.18.custom.css')
+        link(rel='stylesheet', href='#{base_path}stylesheets/jquery-ui-1.8.18.custom.css')
 
-        script(type='text/javascript', src='/pam/javascripts/jquery-1.7.1.min.js')
-        script(type='text/javascript', src='/pam/javascripts/bootstrap.min.js')
-        script(type='text/javascript', src='/pam/javascripts/jquery.tools.min.js')
-        script(type='text/javascript', src='/pam/javascripts/jquery.facetview.js')
-        script(type='text/javascript', src='/pam/javascripts/jquery.linkify-1.0-min.js')
-        script(type='text/javascript', src='/pam/javascripts/jquery-ui-1.8.18.custom.min.js')
-        script(type='text/javascript', src='/pam/javascripts/pam.facetview.js')
+        script(type='text/javascript', src='#{base_path}javascripts/jquery-1.7.1.min.js')
+        script(type='text/javascript', src='#{base_path}javascripts/bootstrap.min.js')
+        script(type='text/javascript', src='#{base_path}javascripts/jquery.tools.min.js')
+        script(type='text/javascript', src='#{base_path}javascripts/jquery.facetview.js')
+        script(type='text/javascript', src='#{base_path}javascripts/jquery.linkify-1.0-min.js')
+        script(type='text/javascript', src='#{base_path}javascripts/jquery-ui-1.8.18.custom.min.js')
+        script(type='text/javascript').
+            var base_path = "#{base_path}";
+        script(type='text/javascript', src='#{base_path}javascripts/pam.facetview.js')
     body
         include ../external_templates/header.html
         div(id="visual-portal-wrapper")

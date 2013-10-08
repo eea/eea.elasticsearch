@@ -1,6 +1,7 @@
 {
     "http":{
-        "port":3000
+        "port":3000,
+        "base_path": "/pam/"
     },
     "es":{
         "host":"centaurus-dev.eea.europa.eu",

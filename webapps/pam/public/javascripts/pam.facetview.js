@@ -72,7 +72,7 @@ jQuery(document).ready(function($) {
                     'post': '</td>',
                 },
                 {
-                    'pre': '<td><a href="/pam/details?pamid=',
+                    'pre': '<td><a href="' + base_path + 'details?pamid=',
                     'field':field_base + 'PAMID',
                     'post': '">',
                 },

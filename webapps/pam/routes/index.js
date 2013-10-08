@@ -7,6 +7,7 @@ nconf.file({file:'config.json'});
 var field_base = nconf.get("es:field_base");
 var es_host = nconf.get("es:host");
 var es_path = nconf.get("es:path");
+var base_path = nconf.get("http:base_path");
 
 var fieldsMapping = [
     {'name' : 'pam_2015_EU_ETS_kt_CO2', 'field' : field_base + '2015_EU_ETS_kt_CO2', 'title' : '2015 EU ETS (kt CO2-equivalent per year)'},
@@ -63,7 +64,11 @@ var fieldsMapping = [
 ];
 
 exports.index = function(req, res){
-  res.render('index', { title: 'PAM', es_host:es_host, es_path:es_path, field_base:field_base});
+  res.render('index', {title: 'PAM',
+                       base_path: base_path,
+                       es_host: es_host,
+                       es_path: es_path,
+                       field_base: field_base});
 };
 
 exports.details = function(req, res){
@@ -100,10 +105,18 @@ exports.details = function(req, res){
                                                     'value':tmp_resultobj["records"][0][fieldsMapping[idx]['field']]};
             }
 
-            res.render('details', {data: resultobj, es_host:es_host, es_path:es_path, field_base:field_base});
+            res.render('details', {data: resultobj,
+                                   base_path: base_path,
+                                   es_host: es_host,
+                                   es_path: es_path,
+                                   field_base: field_base});
         }
         catch(err){
-            res.render('details', {data: "", es_host:es_host, es_path:es_path, field_base:field_base});
+            res.render('details', {data: "",
+                                   base_path: base_path,
+                                   es_host: es_host,
+                                   es_path: es_path,
+                                   field_base: field_base});
         }
 
     });
