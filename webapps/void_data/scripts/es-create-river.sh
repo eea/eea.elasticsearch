@@ -7,4 +7,4 @@ curl -u eea:eea -XPUT 'http://centaurus-dev.eea.europa.eu/elasticsearch/_river/v
    },
    "index" : {
       "index" : "voiddata",
-      "type" : "dataset"}}'
+      "type" : "resource"}}'

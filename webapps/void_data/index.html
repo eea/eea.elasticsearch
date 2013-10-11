@@ -197,7 +197,7 @@ jQuery(document).ready(function($) {
                 }, 
 		{
 		'pre': '<h3><a href="',
-		'field': 'http://xmlns.com/foaf/0.1/isPrimaryTopicOf',
+		'field': 'http://www.w3.org/1999/02/22-rdf-syntax-ns#about',
 		'post': '">'
                 },
 		{
@@ -205,6 +205,14 @@ jQuery(document).ready(function($) {
 		'post': '</a></h3>'
 		},
               ],
+              [{'pre':'<a href="http://semantic.eea.europa.eu/factsheet.action?uri=',
+                'field':'http://www.w3.org/1999/02/22-rdf-syntax-ns#about',
+                'post':'">Dataset description on EEA SDS</a><br>'
+              },
+               {'pre':' <a href="',
+                'field':'http://www.w3.org/1999/02/22-rdf-syntax-ns#about',
+                'post':'">Dataset source webpage</a><br>'
+              }],
 	      [{'field': 'http://purl.org/dc/terms/description'}]
     ],
     linkify: false,

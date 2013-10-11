@@ -14,7 +14,7 @@ curl -u eea:eea -XPUT 'http://centaurus-dev.eea.europa.eu/elasticsearch/voiddata
     }
   },
   "mappings" : {
-    "resources" : {
+    "resource" : {
       "properties" : {
         "http://purl.org/dc/terms/creator" : {
           "type" : "string",
