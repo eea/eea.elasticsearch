@@ -1,1 +1,1 @@
-curl -u eea:eea -XDELETE 'http://centaurus-dev.eea.europa.eu/elasticsearch/rdfdata'
+curl -u eea:eea -XDELETE 'http://centaurus.eea.europa.eu/elasticsearch/rdfdata'

@@ -1,4 +1,4 @@
-curl -u eeaes:aiN1mee7 -XPUT 'http://centaurus.eea.europa.eu/elasticsearch/pamdata' -d '{
+curl -u eea:eea -XPUT 'http://centaurus.eea.europa.eu/elasticsearch/pamdata' -d '{
   "settings" : {
     "analysis" : {
       "analyzer" : {
