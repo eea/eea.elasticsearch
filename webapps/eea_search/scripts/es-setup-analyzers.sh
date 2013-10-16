@@ -1,4 +1,4 @@
-curl -u eea:eea -XPUT 'http://centaurus.eea.europa.eu/elasticsearch/rdfdata' -d '{
+curl -u eea:eea -XPUT 'http://centaurus-dev.eea.europa.eu/elasticsearch/rdfdata' -d '{
   "settings" : {
     "analysis" : {
       "analyzer" : {
@@ -9,9 +9,13 @@ curl -u eea:eea -XPUT 'http://centaurus.eea.europa.eu/elasticsearch/rdfdata' -d 
     }
   },
   "mappings" : {
-    "resources" : {
+    "resource" : {
       "properties" : {
         "language" : {
+          "type" : "string",
+          "analyzer" : "none"
+        },
+        "topic" : {
           "type" : "string",
           "analyzer" : "none"
         },
@@ -19,7 +23,6 @@ curl -u eea:eea -XPUT 'http://centaurus.eea.europa.eu/elasticsearch/rdfdata' -d 
           "type" : "string",
           "analyzer" : "none"
         }
-
       }
     }
   }
