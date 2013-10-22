@@ -191,30 +191,32 @@ jQuery(document).ready(function($) {
     result_display: [
 	      [
                 {
-                'pre': '<strong>',
+                'pre': 'Creator: <strong>',
                 'field': 'http://purl.org/dc/terms/creator',
                 'post': '</strong>'
-                }, 
-		{
-		'pre': '<h3><a href="',
-		'field': 'http://www.w3.org/1999/02/22-rdf-syntax-ns#about',
-		'post': '">'
+                },
+                {
+                'pre': '&nbsp;Publisher: <strong>',
+                'field': 'http://purl.org/dc/terms/publisher',
+                'post': '</strong>'
                 },
 		{
+		'pre': '<h3>',
 		'field': 'http://www.w3.org/2000/01/rdf-schema#label',
-		'post': '</a></h3>'
+		'post': '</h3>'
 		},
               ],
-              [{'pre':'<a href="http://semantic.eea.europa.eu/factsheet.action?uri=',
+              [{'pre':'URI: ',
                 'field':'http://www.w3.org/1999/02/22-rdf-syntax-ns#about',
-                'post':'">Dataset description on EEA SDS</a><br>'
+                'post':'<br>'
               },
                {'pre':' <a href="',
-                'field':'http://www.w3.org/1999/02/22-rdf-syntax-ns#about',
-                'post':'">Dataset source webpage</a><br>'
-              }],
+                'field':'http://xmlns.com/foaf/0.1/isPrimaryTopicOf',
+                'post':'">Dataset source (foaf:isPrimaryTopicOf)</a><br>'
+              }
+              ],
 	      [{'field': 'http://purl.org/dc/terms/description'}]
-    ],
+              ],
     linkify: false,
     paging: {
       from: 0,
