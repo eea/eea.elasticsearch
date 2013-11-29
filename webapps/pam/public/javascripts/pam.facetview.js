@@ -94,7 +94,7 @@ jQuery(document).ready(function($) {
                 },
                 {
                     'pre': '<td>',
-                    'field':field_base + '2020_total_kt_CO2',
+                    'field':field_base + '2020_total_kt_CO2'
                 }
             ]
         ],
