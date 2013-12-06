@@ -8,8 +8,8 @@ function replaceNumbers(){
         var elems = jQuery(container);
         jQuery.each(elems, function(idx, elem){
             if ((jQuery(elem).children().length === 0) || (container === 'a')){
-                var shouldReplace = false
-                var replacedText = jQuery(elem).html()
+                var shouldReplace = false;
+                var replacedText = jQuery(elem).html();
                 jQuery.each(chemsMapping, function(key, value){
                     if (replacedText.indexOf(key) !== -1){
                         replacedText = replacedText.replace(key, value);
@@ -51,7 +51,7 @@ jQuery(document).ready(function($) {
             {'field':field_base + 'Type_of_instrument', 'display': 'Type of instrument', 'size':'50', 'order': 'term'},
             {'field':field_base + 'Related_EU_policies', 'display': 'Related EU Policies', 'size':'50', 'order': 'term'},
             {'field':field_base + 'Type_of_implementing_entities', 'display': 'Type of implementing entities', 'size':'50', 'order': 'term'},
-            {'field':field_base + '2020_total_kt_CO2', 'display': 'Total GHG savings by 2020 (in kt CO2 equivalent)', 'size':'1600', 'order': 'term'},
+            {'field':field_base + '2020_total_kt_CO2', 'display': 'Total GHG savings by 2020 (in kt CO2 equivalent)', 'size':'1600', 'order': 'term'}
         ],
 
 
@@ -59,51 +59,50 @@ jQuery(document).ready(function($) {
             [
                 {
                     'field': field_base + "Country",
-                    'post': '</td>',
+                    'post': '</td>'
                 },
                 {
                     'pre': '<td>',
                     'field': field_base + "Link_to_EU_Emissions_Trading_Scheme_ETS",
-                    'post': '</td>',
+                    'post': '</td>'
                 },
                 {
                     'pre': '<td>',
                     'field': field_base + "Targeted_sectors",
-                    'post': '</td>',
+                    'post': '</td>'
                 },
                 {
                     'pre': '<td><a href="' + base_path + 'details?pamid=',
                     'field':field_base + 'PAMID',
-                    'post': '">',
+                    'post': '">'
                 },
 
                 {
                     'field': field_base + "Name",
-                    'post': '</a></td>',
+                    'post': '</a></td>'
                 },
                 {
                     'pre': '<td>',
                     'field':field_base + 'Status',
-                    'post': '</td>',
+                    'post': '</td>'
                 },
 
                 {
                     'pre': '<td>',
                     'field': field_base + "Projection_scenario_in_which_the_PAM_is_included",
-                    'post': '</td>',
+                    'post': '</td>'
                 },
                 {
                     'pre': '<td>',
-                    'field':field_base + '2020_total_kt_CO2',
-                    'post': '</td>',
-                },
-            ],
+                    'field':field_base + '2020_total_kt_CO2'
+                }
+            ]
         ],
 
         paging: {
             from: 0,
             size: 10
-        },
+        }
     });
     replaceNumbers(); 
     $('[id="facetview_http_//semantic_eea_europa_eu/project/pam/pam_csv#2020_total_kt_CO2"]').delegate("a.facetview_filtershow","click", function(event){
