@@ -7,14 +7,16 @@
   <script type="text/javascript" src="/vendor/jquery/1.7.1/jquery-1.7.1.min.js"></script>
 
   <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css">
-  <script type="text/javascript" src="/vendor/bootstrap/js/bootstrap.min.js"></script>  
+  <script type="text/javascript" src="/vendor/bootstrap/js/bootstrap.min.js"></script>
 
-  <script type="text/javascript" src="/vendor/linkify/1.0/jquery.linkify-1.0-min.js"></script>  
-  
+  <script type="text/javascript" src="/vendor/linkify/1.0/jquery.linkify-1.0-min.js"></script>
+
   <link rel="stylesheet" href="/vendor/jquery-ui-1.8.18.custom/jquery-ui-1.8.18.custom.css">
   <script type="text/javascript" src="/vendor/jquery-ui-1.8.18.custom/jquery-ui-1.8.18.custom.min.js"></script>
 
   <script type="text/javascript" src="/jquery.facetview.js"></script>
+
+  <script type="text/javascript" src="js/search.js"></script>
 
   <link rel="stylesheet" href="/css/facetview.css">
 
@@ -175,56 +177,10 @@ a.video-fancybox .photoAlbumEntryWrapper {
 /* @end @group Album view classes */
 
   </style>
-  <script type="text/javascript">
-jQuery(document).ready(function($) {
-  window.facetview_ob = $('.facet-view-simple').facetview({
-    search_url: 'http://centaurus-dev.eea.europa.eu/elasticsearch/rdfdata/_search?',
-    search_index: 'elasticsearch',
-    facets: [
-	{'field': 'language', 'display': 'Change language', 'size':'50', 'order': 'term'},
-        {'field': 'http://www.w3.org/1999/02/22-rdf-syntax-ns#type', 'display': 'Product Type', 'size':'50', 'order': 'term'},
-        {'field': 'topic', 'display': 'EEA Topic', 'size':'50', 'order':'term'},
-        {'field': 'http://purl.org/dc/terms/spatial', 'display': 'Spatial coverage', 'size':'50', 'order':'count'}
-    ],
-    search_sortby: [
-      {'field': 'http://purl.org/dc/terms/issued', 'display': 'Publishing date'},
-      {'field': 'http://purl.org/dc/terms/title', 'display': 'Title'}
-    ],
-    result_display: [],
-    post_search_callback: function(){
-      $(".photoAlbumEntry").remove();
-      var data = $.fn.facetview.options.data;
-      var prependto = $(".facetview_metadata");
-      for(var i = 0; i < data.records.length; i++){
-	var element = data.records[i];
-	var title = element['http://purl.org/dc/terms/title'];
-	var url = element['http://www.w3.org/1999/02/22-rdf-syntax-ns#about'];
-	var result = $("<div class='photoAlbumEntry'></div>");
-	var a = $("<a href='" + url + "'></a>");
-	result.append(a);
-	a.append(
-	  $("<span class='photoAlbumEntryWrapper'></span>").append(
-		      $("<img src='" + url + "/image_thumb' />")));
-	a.append(
-	  $("<span class='photoAlbumEntryTitle'>" + title + "</span>")
-							     );
-	
-	prependto.before(result);
-      }
-    },
-    linkify: false,
-    paging: {
-      from: 0,
-      size: 20
-    }
-  });
-
-});
-  </script>
 </head>
 
 <body>
-<div class="container"> 
+<div class="container">
   <div class="content">
     <div class="page-header">
       <h1>
