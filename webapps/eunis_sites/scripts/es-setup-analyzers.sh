@@ -16,38 +16,18 @@ curl -u eea:eea -XPUT 'http://centaurus-dev.eea.europa.eu/elasticsearch/eunis_si
   "mappings" : {
     "resource" : {
       "properties" : {
-        "http://purl.org/dc/terms/creator" : {
+        "http://eunis.eea.europa.eu/rdf/species-schema.rdf#speciesGroup" : {
           "type" : "string",
           "analyzer" : "none"
         },
-        "http://purl.org/dc/terms/subject"  : {
+        "http://rs.tdwg.org/dwc/terms/genus" : {
           "type" : "string",
           "analyzer" : "none"
         },
-        "http://purl.org/dc/terms/publisher" : {
+        "http://rs.tdwg.org/dwc/terms/scientificName"  : {
           "type" : "string",
           "analyzer" : "none"
-         },
-        "http://eunis.eea.europa.eu/rdf/sites-schema.rdf#inCountry" : {
-          "type" : "string",
-          "analyzer" : "none"
-         },
-        "http://eunis.eea.europa.eu/rdf/sites-schema.rdf#designationDate" : {
-          "type" : "string",
-          "analyzer" : "none"
-         },
-        "http://eunis.eea.europa.eu/rdf/sites-schema.rdf#sourceDb" : {
-          "type" : "string",
-          "analyzer" : "none"
-         },
-        "http://eunis.eea.europa.eu/rdf/sites-schema.rdf#hasHabitatType" : {
-          "type" : "string",
-          "analyzer" : "none"
-         },
-        "http://eunis.eea.europa.eu/rdf/sites-schema.rdf#hasSpecies" : {
-          "type" : "string",
-          "analyzer" : "none"
-         }
+        }
       }
     }
   }

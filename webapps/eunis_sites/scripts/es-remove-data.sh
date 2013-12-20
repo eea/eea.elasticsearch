@@ -1,1 +1,1 @@
-curl -u eea:eea -XDELETE 'http://centaurus-dev.eea.europa.eu/elasticsearch/eunis_sites'
+curl -u eea:eea -XDELETE 'http://centaurus-dev.eea.europa.eu/elasticsearch/eunis'
