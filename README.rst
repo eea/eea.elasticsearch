@@ -3,6 +3,8 @@ EEA ElasticSearch
 ==================
 |elasticsearch logo|
 
+.. image:: http://ci.eionet.europa.eu/job/Elasticsearch%20RDF%20River%20Plugin/badge/icon
+  :target: http://ci.eionet.europa.eu/job/Elasticsearch%20RDF%20River%20Plugin/lastBuild
 
 Introduction
 ============
@@ -39,8 +41,7 @@ Live demos
 
 * `Facetview visualisation <http://centaurus-dev.eea.europa.eu>`_ installed
   on development instance, on EEA Centaurus server.
-* `Climate change policies and measures in Europe Demo <http://centaurus-dev.eea.europa.eu/pam>`_
-   installed on development instance, on EEA Centaurus server.
+* `Climate change policies and measures in Europe Demo <http://www.eea.europa.eu/data-and-maps/pam/>`_
 
 
 Installation
