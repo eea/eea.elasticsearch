@@ -5,6 +5,7 @@ $(function($) {
       $("[href='" + toHide[i] + "']").parent().hide();
     }
   };
+
   function display_results() {
     $(".photoAlbumEntry").remove();
     var data = $.fn.facetview.options.data;
@@ -30,7 +31,6 @@ $(function($) {
     search_url: 'http://centaurus-dev.eea.europa.eu/elasticsearch/rdfdata/_search?',
     search_index: 'elasticsearch',
     facets: [
-      {'field': 'language', 'display': 'Change language', 'size':'50', 'order': 'term'},
       {'field': 'http://www.w3.org/1999/02/22-rdf-syntax-ns#type', 'display': 'Product Type', 'size':'50', 'order': 'term'},
       {'field': 'http://www.eea.europa.eu/portal_types#topic', 'display': 'EEA Topic', 'size':'50', 'order':'term'},
       {'field': 'http://purl.org/dc/terms/spatial', 'display': 'Spatial coverage', 'size':'50', 'order':'count'}
@@ -39,7 +39,14 @@ $(function($) {
       {'field': 'http://purl.org/dc/terms/issued', 'display': 'Publishing date'},
       {'field': 'http://purl.org/dc/terms/title', 'display': 'Title'}
     ],
+    static_filters: [
+        {'field': 'language', 'display': 'Language', 'size': '50', 'values':
+        [{'display': 'English', 'value': 'en'}, {'display': 'French', 'value':
+        'fr'}, {'display': 'Romanian', 'value': 'ro'}], 'type': {'value':
+        'oneorless'}}
+    ],
     result_display: [],
+    add_undefined: true,
     post_search_callback: function(){
       display_results();
       hide_unused_options();

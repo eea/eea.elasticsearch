@@ -15,7 +15,7 @@ curl -u eea:eea -XPUT 'http://centaurus-dev.eea.europa.eu/elasticsearch/rdfdata'
           "type" : "string",
           "analyzer" : "none"
         },
-        "topic" : {
+        "http://www.eea.europa.eu/portal_types#topic" : {
           "type" : "string",
           "analyzer" : "none"
         },
