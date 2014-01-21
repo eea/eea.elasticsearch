@@ -3,6 +3,8 @@ EEA ElasticSearch
 ==================
 |elasticsearch logo|
 
+.. image:: http://ci.eionet.europa.eu/job/Elasticsearch%20RDF%20River%20Plugin/badge/icon
+  :target: http://ci.eionet.europa.eu/job/Elasticsearch%20RDF%20River%20Plugin/lastBuild
 
 Introduction
 ============
@@ -39,8 +41,7 @@ Live demos
 
 * `Facetview visualisation <http://centaurus-dev.eea.europa.eu>`_ installed
   on development instance, on EEA Centaurus server.
-* `Climate change policies and measures in Europe Demo <http://centaurus-dev.eea.europa.eu/pam>`_
-   installed on development instance, on EEA Centaurus server.
+* `Climate change policies and measures in Europe Demo <http://www.eea.europa.eu/data-and-maps/pam/>`_
 
 
 Installation
@@ -48,21 +49,27 @@ Installation
 
 1. Clone project
 
-     git clone git@github.com:eea/eea.elasticsearch.git
+   git clone git@github.com:eea/eea.elasticsearch.git
 
 2. Install elasticsearch_, e.g. in /var/local/elasticsearch
 3. Replace its `config` folder with a symlink to
    eea.elasticsearch/etc/production/config
 4. Install `RDF River Plugin`_, using elasticsearch plugin script inside its
    bin folder:
-
+   
+   ::
+   
      bin/plugin --url https://github.com/eea/eea.elasticsearch.river.rdf/raw/master/target/releases/eea-rdf-river-plugin-1.0.zip
      --install eea-rdf-river-1.0
 5. Install `Jetty Plugin`_ in the same manner:
+   
+   ::
 
       bin/plugin --url https://oss-es-plugins.s3.amazonaws.com/elasticsearch-jetty/elasticsearch-jetty-0.90.0.zip
       --install elasticsearch-jetty-0.90.0
 6. Install useful plugins for monitoring and debugging:
+    
+   ::
 
       bin/plugin -install mobz/elasticsearch-head
       bin/plugin -install lukas-vlcek/bigdesk
@@ -70,6 +77,8 @@ Installation
       bin/plugin -install polyfractal/elasticsearch-inquisitor
 
 7. Install and configure elasticsearch-service wrapper:
+   
+   ::
 
       git clone git@github.com:eea/elasticsearch-servicewrapper.git
       cd elasticsearch-servicewrapper/service
@@ -79,14 +88,20 @@ Installation
    eea.elasticsearch/etc/production/config/realm.properties, see
    `Adding Basic Authentication <https://github.com/sonian/elasticsearch-jetty#adding-basic-authentication>`_.
 9. Start elasticsearch service
+   
+   ::
 
       service elasticsearch start
 10. Install facetview
+
+    ::
 
       git clone git@github.com:eea/facetview.git
 11. Link eea.elasticsearch/etc/production/httpd.elasticsearch.conf in
     /etc/httpd/conf.d and check settings
 12. Reload Apache
+
+    ::
 
      service httpd reload
 
