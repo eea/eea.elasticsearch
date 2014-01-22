@@ -16,17 +16,23 @@ $(function($) {
       var url = element['http://www.w3.org/1999/02/22-rdf-syntax-ns#about'];
       var date = element['http://purl.org/dc/terms/issued'];
       if(date === undefined) {
-        date = "";
+        date = element['http://purl.org/dc/terms/modified'];
+        if(date === undefined) {
+          date = "";
+        }
       }
+      date = date.substring(0,10);
       var result = $("<div class='photoAlbumEntry'></div>");
       var a = $("<a href='" + url + "'></a>");
       result.append(a);
       a.append(
-        $("<span title='" + date + "' class='photoAlbumEntryWrapper'></span>").append(
+        $("<span class='photoAlbumEntryWrapper'></span>").append(
           $("<img src='" + url + "/image_thumb' />")));
       a.append(
         $("<span title='" + title + "'class='photoAlbumEntryTitle'>" + title + "</span>")
 			     );
+      a.append(
+        $("<p style='background-color:#f0f0f0'>" + date + "</p>"));
       prependto.before(result);
     }
   };
@@ -40,8 +46,8 @@ $(function($) {
       {'field': 'http://purl.org/dc/terms/spatial', 'display': 'Spatial coverage', 'size':'50', 'order':'count'}
     ],
     search_sortby: [
-      {'field': 'http://purl.org/dc/terms/issued', 'display': 'Publishing date'},
-      {'field': 'http://purl.org/dc/terms/title', 'display': 'Title'}
+      {'field': 'http://purl.org/dc/terms/title', 'display': 'Title'},
+      {'field': 'http://purl.org/dc/terms/issued', 'display': 'Publishing date'}
     ],
     static_filters: [
         {'field': 'language', 'display': 'Language', 'size': '50', 'values':
