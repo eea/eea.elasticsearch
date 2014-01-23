@@ -51,9 +51,22 @@ $(function($) {
     ],
     static_filters: [
         {'field': 'language', 'display': 'Language', 'size': '50', 'values':
-        [{'display': 'English', 'value': 'en'}, {'display': 'French', 'value':
-        'fr'}, {'display': 'Romanian', 'value': 'ro'}], 'type': {'value':
-        'oneorless'}}
+        [{'display': 'Bulgarian', 'value': 'bg'}, {'display': 'Czech',
+        'value': 'cs'}, {'display': 'Croatian', 'value': 'hr'}, {'display':
+        'Danish', 'value': 'da'}, {'display': 'Dutch', 'value': 'nl'},
+        {'display': 'English', 'value': 'en'}, {'display': 'Greek', 'value' :
+        'el'}, {'display': 'Estonian', 'value': 'et'}, {'display': 'Finnish',
+        'value': 'fi'}, {'display': 'French', 'value': 'fr'}, {'display':
+        'German', 'value': 'de'}, {'display': 'Hungarian', 'value': 'hu'},
+        {'display': 'Icelandic', 'value': 'is'}, {'display': 'Italian', 'value':
+        'it'}, {'display': 'Latvian', 'value': 'lv'}, {'display': 'Lithuanian',
+        'value': 'lt'}, {'display': 'Maltese', 'value': 'mt'}, {'display':
+        'Norwegian', 'value': 'no'}, {'display': 'Polish', 'value': 'pl'},
+        {'display': 'Portuguese', 'value': 'pt'},{'display': 'Romanian',
+        'value': 'ro'}, {'display': 'Slovak', 'value': 'sk'}, {'display':
+        'Slovenian', 'value': 'sl'}, {'display': 'Spanish', 'value': 'es'},
+        {'display': 'Swedish', 'value': 'sv'}, {'display': 'Turkish', 'value':
+        'tr'}], 'type': {'value': 'oneorless'}}
     ],
     result_display: [],
     add_undefined: true,
