@@ -18,10 +18,14 @@ $(function($) {
       if(date === undefined) {
         date = element['http://purl.org/dc/terms/modified'];
         if(date === undefined) {
-          date = "";
+          date = element['http://purl.org/dc/terms/created'];
+          if(date === undefined) {
+             date = "";
+          }
         }
       }
-      date = date.substring(0,10);
+      //date = date.substring(0,10);
+      date = $.datepicker.formatDate( "dd M yy", new Date(date) );
       var result = $("<div class='photoAlbumEntry'></div>");
       var a = $("<a href='" + url + "'></a>");
       result.append(a);
@@ -32,7 +36,7 @@ $(function($) {
         $("<span title='" + title + "'class='photoAlbumEntryTitle'>" + title + "</span>")
 			     );
       a.append(
-        $("<p style='background-color:#f0f0f0'>" + date + "</p>"));
+        $("<span class='date'>" + date + "</span>"));
       prependto.before(result);
     }
   };
