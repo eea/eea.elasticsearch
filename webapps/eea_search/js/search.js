@@ -43,31 +43,13 @@ $(function($) {
     facets: [
       {'field': 'http://www.w3.org/1999/02/22-rdf-syntax-ns#type', 'display': 'Product Type', 'size':'50', 'order': 'term'},
       {'field': 'http://www.eea.europa.eu/portal_types#topic', 'display': 'EEA Topic', 'size':'50', 'order':'term'},
-      {'field': 'http://purl.org/dc/terms/spatial', 'display': 'Spatial coverage', 'size':'50', 'order':'count'}
+      {'field': 'http://purl.org/dc/terms/spatial', 'display': 'Spatial coverage', 'size':'50', 'order':'count'},
+      {'field': 'http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState', 'display': 'Workflow State', 'size': '50', 'order': 'count'}
     ],
     search_sortby: [
       {'field': 'http://purl.org/dc/terms/title', 'display': 'Title'},
       {'field': 'http://purl.org/dc/terms/issued', 'display': 'Publishing date'}
-    ],
-    static_filters: [
-        {'field': 'language', 'display': 'Language', 'size': '50', 'values':
-        [{'display': 'Bulgarian', 'value': 'bg'}, {'display': 'Czech',
-        'value': 'cs'}, {'display': 'Croatian', 'value': 'hr'}, {'display':
-        'Danish', 'value': 'da'}, {'display': 'Dutch', 'value': 'nl'},
-        {'display': 'English', 'value': 'en'}, {'display': 'Greek', 'value' :
-        'el'}, {'display': 'Estonian', 'value': 'et'}, {'display': 'Finnish',
-        'value': 'fi'}, {'display': 'French', 'value': 'fr'}, {'display':
-        'German', 'value': 'de'}, {'display': 'Hungarian', 'value': 'hu'},
-        {'display': 'Icelandic', 'value': 'is'}, {'display': 'Italian', 'value':
-        'it'}, {'display': 'Latvian', 'value': 'lv'}, {'display': 'Lithuanian',
-        'value': 'lt'}, {'display': 'Maltese', 'value': 'mt'}, {'display':
-        'Norwegian', 'value': 'no'}, {'display': 'Polish', 'value': 'pl'},
-        {'display': 'Portuguese', 'value': 'pt'},{'display': 'Romanian',
-        'value': 'ro'}, {'display': 'Slovak', 'value': 'sk'}, {'display':
-        'Slovenian', 'value': 'sl'}, {'display': 'Spanish', 'value': 'es'},
-        {'display': 'Swedish', 'value': 'sv'}, {'display': 'Turkish', 'value':
-        'tr'}], 'type': {'value': 'oneorless'}}
-    ],
+    ]
     result_display: [],
     add_undefined: true,
     post_search_callback: function(){

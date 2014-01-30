@@ -26,6 +26,10 @@ curl -u eea:eea -XPUT 'http://centaurus-dev.eea.europa.eu/elasticsearch/rdfdata'
         "http://purl.org/dc/terms/spatial" : {
           "type" : "string",
           "analyzer" : "none"
+        },
+        "http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState" : {
+          "type" : "string",
+          "analyzer" : "none"
         }
       }
     }
