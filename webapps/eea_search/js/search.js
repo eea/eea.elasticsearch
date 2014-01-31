@@ -53,7 +53,7 @@ $(function($) {
     search_sortby: [
       {'field': 'http://purl.org/dc/terms/title', 'display': 'Title'},
       {'field': 'http://purl.org/dc/terms/issued', 'display': 'Publishing date'}
-    ]
+    ],
     result_display: [],
     add_undefined: true,
     post_search_callback: function(){
