@@ -24,16 +24,16 @@ $(function($) {
           }
         }
       }
-      //date = date.substring(0,10);
       date = $.datepicker.formatDate( "dd M yy", new Date(date) );
       var result = $("<div class='photoAlbumEntry'></div>");
       var a = $("<a href='" + url + "'></a>");
+      a.attr('title',title);
       result.append(a);
       a.append(
         $("<span class='photoAlbumEntryWrapper'></span>").append(
           $("<img src='" + url + "/image_thumb' />")));
       a.append(
-        $("<span title='" + title + "'class='photoAlbumEntryTitle'>" + title + "</span>")
+        $("<span class='photoAlbumEntryTitle'>" + title + "</span>")
 			     );
       a.append(
         $("<span class='date'>" + date + "</span>"));

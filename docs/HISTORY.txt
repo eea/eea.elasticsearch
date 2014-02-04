@@ -3,6 +3,8 @@ Changelog
 
 1.1-dev - (unreleased)
 ----------------------
+* Bug fix: properly escape title in advanced search album view
+  [demarant refs #16693]
 * Bug fix: removed wrongly added blockquotes within README.rst
   [ichim-david refs #18064]
 
