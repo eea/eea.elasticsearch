@@ -58,6 +58,8 @@ $(function($) {
     ],
     result_display: [],
     add_undefined: true,
+    predefined_filters: [{'term': {'language':'en'}}
+    ],
     post_search_callback: function(){
       display_results();
       hide_unused_options();
