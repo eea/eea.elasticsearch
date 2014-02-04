@@ -54,6 +54,8 @@ $(function($) {
       {'field': 'http://purl.org/dc/terms/title', 'display': 'Title'},
       {'field': 'http://purl.org/dc/terms/issued', 'display': 'Publishing date'}
     ],
+    sort: [{'http://purl.org/dc/terms/issued':{'order': 'desc'}}
+    ],
     result_display: [],
     add_undefined: true,
     post_search_callback: function(){
