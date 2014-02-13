@@ -1,8 +1,8 @@
 Changelog
 =========
 
-1.1-dev - (unreleased)
-----------------------
+1.1 - (2014-02-13)
+------------------
 * Bug fix: properly escape title in advanced search album view
   [demarant refs #16693]
 * Bug fix: removed wrongly added blockquotes within README.rst
@@ -12,3 +12,4 @@ Changelog
 ------------------
 - Initial release
   [mihneasim]
+
