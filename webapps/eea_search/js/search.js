@@ -5,6 +5,13 @@ $(function($) {
       $("[href='" + toHide[i] + "']").parent().hide();
     }
   };
+  function hide_img_error() {
+    $("img").error(function(){
+      var album_entry = $(this).parents('.photoAlbumEntry');
+      album_entry.hide();
+    });
+    return true;
+  };
 
   function display_results() {
     $(".photoAlbumEntry").remove();
@@ -63,6 +70,7 @@ $(function($) {
     post_search_callback: function(){
       display_results();
       hide_unused_options();
+      hide_img_error();
     },
     linkify:  false,
               paging: {
