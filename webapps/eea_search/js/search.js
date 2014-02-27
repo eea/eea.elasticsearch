@@ -1,9 +1,17 @@
 $(function($) {
   function hide_unused_options() {
-    var toHide = ["option1", "Report"];
+    var toHide = ["option1", "Report", "Output from Annual Management Plan", "http://www.eea.europa.eu/portal_types/SimpleVocabularyTerm#SimpleVocabularyTerm", "http://www.eea.europa.eu/portal_types/TreeVocabularyTerm#TreeVocabularyTerm", "http://www.eea.europa.eu/soer/1.0#DataFile", "http://www.eea.europa.eu/soer/1.0#NationalStory", "http://www.eea.europa.eu/portal_vocabularies/themes/climate change", "visible", "draft", "pending", "new", "submitted", "marked_for_deletion", "retracted", "published_internally", "content_pending", "rejected", "undefined"];
     for(var i = 0; i < toHide.length; i++){
       $("[href='" + toHide[i] + "']").parent().hide();
     }
+  };
+  
+  function hide_img_error() {
+    $("img").error(function(){
+      var album_entry = $(this).parents('.photoAlbumEntry');
+      album_entry.hide();
+    });
+    return true;
   };
 
   function display_results() {
@@ -47,8 +55,7 @@ $(function($) {
     facets: [
       {'field': 'http://www.w3.org/1999/02/22-rdf-syntax-ns#type', 'display': 'Product Type', 'size':'50', 'order': 'term'},
       {'field': 'http://www.eea.europa.eu/portal_types#topic', 'display': 'EEA Topic', 'size':'50', 'order':'term'},
-      {'field': 'http://purl.org/dc/terms/spatial', 'display': 'Spatial coverage', 'size':'50', 'order':'count'},
-      {'field': 'http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState', 'display': 'Workflow State', 'size': '50', 'order': 'count'}
+      {'field': 'http://purl.org/dc/terms/spatial', 'display': 'Spatial coverage', 'size':'50', 'order':'count'}
     ],
     search_sortby: [
       {'field': 'http://purl.org/dc/terms/title', 'display': 'Title'},
@@ -58,11 +65,12 @@ $(function($) {
     ],
     result_display: [],
     add_undefined: true,
-    predefined_filters: [{'term': {'language':'en'}}
+    predefined_filters: [{'term': {'language':'en'}},{'term':{'http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState':'published'}}
     ],
     post_search_callback: function(){
       display_results();
       hide_unused_options();
+      hide_img_error();
     },
     linkify:  false,
               paging: {
