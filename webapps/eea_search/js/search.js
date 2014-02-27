@@ -5,7 +5,7 @@ $(function($) {
       $("[href='" + toHide[i] + "']").parent().hide();
     }
   };
-  
+
   function hide_img_error() {
     $("img").error(function(){
       var album_entry = $(this).parents('.photoAlbumEntry');
