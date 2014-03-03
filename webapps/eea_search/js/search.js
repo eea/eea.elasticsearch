@@ -51,7 +51,7 @@ $(function($) {
 
   var url = $(location).attr('href');
   var position = url.indexOf('/search/');
-  var language = url.substring(position-2, position);
+  var language = url[position-3] === '/' ? url.substring(position-2, position) : 'en';
 
   var facetview_ob = $('.facet-view-simple').facetview({
     search_url: 'http://centaurus-dev.eea.europa.eu/elasticsearch/rdfdata/_search?',
@@ -69,7 +69,7 @@ $(function($) {
     ],
     result_display: [],
     add_undefined: true,
-    predefined_filters: [{'term': {'language':'en'}},{'term':{'http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState':'published'}}
+    predefined_filters: [{'term': {'language':language}},{'term':{'http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState':'published'}}
     ],
     post_search_callback: function(){
       display_results();
