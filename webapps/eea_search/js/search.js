@@ -48,6 +48,10 @@ $(function($) {
     }
   };
 
+  var url = $(location).attr('href');
+  var position = url.indexOf('/search/');
+  var language = url.substring(position-2, position);
+
   var facetview_ob = $('.facet-view-simple').facetview({
     search_url: 'http://centaurus-dev.eea.europa.eu/elasticsearch/rdfdata/_search?',
     search_index: 'elasticsearch',
@@ -65,7 +69,7 @@ $(function($) {
     ],
     result_display: [],
     add_undefined: true,
-    predefined_filters: [{'term': {'language':'en'}}
+    predefined_filters: [{'term': {'language': language}}
     ],
     post_search_callback: function(){
       display_results();
