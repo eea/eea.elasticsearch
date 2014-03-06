@@ -1,5 +1,21 @@
 $(function($) {
 
+  window.hide_unused_options = function(blackList, whiteList) {
+    var filters = $('a.facetview_filterchoice');
+    for (filter in filters) {
+      var thisFilter = filters[filter];
+      var toHide = blackList[thisFilter.rel];
+      if (toHide == undefined) {
+        continue;
+      }
+      var value = thisFilter.href.substring(thisFilter.href.lastIndexOf('/') + 1, thisFilter.href.length);
+      if(toHide.indexOf(value) >=0) {
+          $(thisFilter.parentNode).hide();
+      }
+      
+    }
+  };
+
   window.add_iframe = function() {
     if (window.embed) {
       var url = $(location).attr('href');
