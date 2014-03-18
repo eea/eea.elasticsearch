@@ -1,8 +1,20 @@
 $(function($) {
+
   function hide_unused_options() {
-    var toHide = ["option1", "Report", "Output from Annual Management Plan", "http://www.eea.europa.eu/portal_types/SimpleVocabularyTerm#SimpleVocabularyTerm", "http://www.eea.europa.eu/portal_types/TreeVocabularyTerm#TreeVocabularyTerm", "http://www.eea.europa.eu/soer/1.0#DataFile", "http://www.eea.europa.eu/soer/1.0#NationalStory", "http://www.eea.europa.eu/portal_vocabularies/themes/climate change", "visible", "draft", "pending", "new", "submitted", "marked_for_deletion", "retracted", "published_internally", "content_pending", "rejected", "undefined"];
-    for(var i = 0; i < toHide.length; i++){
-      $("[href='" + toHide[i] + "']").parent().hide();
+    var blackList = ["option1", "Report", "Output from Annual Management Plan", "http://www.eea.europa.eu/portal_types/SimpleVocabularyTerm#SimpleVocabularyTerm", "http://www.eea.europa.eu/portal_types/TreeVocabularyTerm#TreeVocabularyTerm", "http://www.eea.europa.eu/soer/1.0#DataFile", "http://www.eea.europa.eu/soer/1.0#NationalStory", "http://www.eea.europa.eu/portal_vocabularies/themes/climate change", "visible", "draft", "pending", "new", "submitted", "marked_for_deletion", "retracted", "published_internally", "content_pending", "rejected", "undefined"];
+    var whiteList = {"http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : ["Article"]};
+    for (var i in whiteList) {
+      var values = 'facetview_' + whiteList[i];
+      var filters = $('.facetview_filtershow');
+      for (var j = 0; j < filters.length; j++) {
+	var filter = filters[j];
+	if(i.trim === filter.text.trim) {
+	  break;
+	}
+      }
+    }
+    for(var i = 0; i < blackList.length; i++){
+      $("[href='" + blackList[i] + "']").parent().hide();
     }
   };
 
