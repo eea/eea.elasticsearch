@@ -1,17 +1,16 @@
 $(function($) {
 
-    var url = $(location).attr('href');
-    var position = url.indexOf('embed=');
-    var embed = position > 0 ? true: false;
+  window.add_iframe = function() {
+    if (window.embed) {
+      var url = $(location).attr('href');
+      var position = url.indexOf('?');
+      url = url.substring(0, position);
+      var width = $('.facet-embed')[0].offsetWidth;
+      var height = $('.content').height();
 
-    if (embed) {
-        url = url.substring(0, position-1);
-        var width = $('.facet-embed')[0].offsetWidth;
-        var height = $('.content').height();
-
-        var button = '<button class="btn btn-small btn-lg" data-toggle="modal"' +
-            'data-target="#myModal" style="float:right">' + 'Embed' + ' </button>';
-        var popup = '<div class="modal fade" id="myModal" tabindex="-1"' +
+      var button = '<button class="btn btn-small btn-lg" data-toggle="modal"' +
+          'data-target="#myModal" style="float:right">' + 'Embed' + ' </button>';
+      var popup = '<div class="modal fade" id="myModal" tabindex="-1"' +
             'role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">' +
             '<div class="modal-dialog">' + '<div class="modal-content">' +
             '<div class="modal-header">' + '<button type="button" class="close"' +
@@ -21,8 +20,9 @@ $(function($) {
             '<iframe width="' + width + '" height="' + height + '" src="' + url +
             '"></iframe></textarea></div></div></div></div></div>';
 
-        $('.facet-embed').append(button + popup);
+      $('.facet-embed').append(button + popup);
 
     }
+  }
 
 });

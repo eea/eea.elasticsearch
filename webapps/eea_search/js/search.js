@@ -87,6 +87,7 @@ $(function($) {
       display_results();
       hide_unused_options();
       hide_img_error();
+      window.add_iframe();
     },
     linkify:  false,
               paging: {
