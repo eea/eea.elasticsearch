@@ -9,7 +9,7 @@ $(function($) {
       var height = $('.content').height();
 
       var button = '<button class="btn btn-small btn-lg" data-toggle="modal"' +
-          'data-target="#myModal" style="float:right">' + 'Embed' + ' </button>';
+          'data-target="#myModal">' + 'Embed' + ' </button>';
       var popup = '<div class="modal fade" id="myModal" tabindex="-1"' +
             'role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">' +
             '<div class="modal-dialog">' + '<div class="modal-content">' +
