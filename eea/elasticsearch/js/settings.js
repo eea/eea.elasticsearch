@@ -4,12 +4,13 @@ $(function($) {
     var position = url.indexOf('embed=');
     var embed = position > 0 ? true: false;
 
-    console.log(embed);
-
     if (embed) {
         url = url.substring(0, position-1);
-        var button = '<button class="btn btn-primary btn-lg" data-toggle="modal"' +
-            'data-target="#myModal">' + 'Embed' + ' </button>';
+        var width = $('.facet-embed')[0].offsetWidth;
+        var height = $('.content').height();
+
+        var button = '<button class="btn btn-small btn-lg" data-toggle="modal"' +
+            'data-target="#myModal" style="float:right">' + 'Embed' + ' </button>';
         var popup = '<div class="modal fade" id="myModal" tabindex="-1"' +
             'role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">' +
             '<div class="modal-dialog">' + '<div class="modal-content">' +
@@ -17,8 +18,8 @@ $(function($) {
             'data-dismiss="modal" aria-hidden="true">&times;</button>' +
             ' <h4 class="modal-title" id="myModalLabel">Embed code</h4>' +
             '<div class="modal-body"> <textarea style="width:95%" rows="3">' +
-            '<iframe width="1856" height="814" src="' + url + '"></iframe>' +
-            '</textarea></div></div></div></div></div>';
+            '<iframe width="' + width + '" height="' + height + '" src="' + url +
+            '"></iframe></textarea></div></div></div></div></div>';
 
         $('.facet-embed').append(button + popup);
 
