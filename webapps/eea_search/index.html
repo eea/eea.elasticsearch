@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8" />
+
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+  <!-- Enable responsive view on mobile devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>EEA Advanced search - Global catalogue</title>
 
   <script type="text/javascript" src="/vendor/jquery/1.7.1/jquery-1.7.1.min.js"></script>
@@ -31,160 +36,140 @@
     .facetview_metadata{
       clear: both;
     }
-    #facetview{
-      width: 910px;
-    }
     .facetview_orderby{
       width: 120px;
     }
 
-    /* @group Album view classes */
-.photoAlbumEntry {
-    float: left;
-    position:relative;
-    overflow: hidden;
-    height: 185px;
-    width: 143px;
-    margin: 0em;
-    padding: 0px 6px 0px 9px;
-    text-align: center;
-    box-shadow: 0px 1px 2px #CCCCCC;
-}
-.photoAlbumEntry img {
-    display: block;
-    margin: 0 auto;
-}
-.photoAlbumEntryWrapper {
-    /*display: block;*/
-    height: 145px;
-    width: 128px;
-    margin-bottom: 7px;
-}
-.photoAlbumEntry a {
-    display: block;
-    text-decoration: none;
-    font-size: 90%;
-    height: 169px;
-    width: 130px;
-    margin: 16px auto 0px;
-}
-.photoAlbumEntryTitle {
-    color: #76797c;
-    display: block;
-    width: 128px;
-    height: 3.6em;
-}
+    body {
+      margin: 0;
+      padding: 0;
+      background: #EEE;
+      //font: 10px/13px 'Lucida Sans',sans-serif;
+      font: 100% Verdana, Arial, Helvetica, sans-serif;
+    }
+    .wrap {
+      overflow: hidden;
+      margin: 10px;
+    }
+    .box {
+      float: left;
+      position: relative;
+      width: 50%;
+      padding-bottom: 20%;
+    }
+    .boxInner {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      top: 10px;
+      bottom: 10px;
+      overflow: hidden;
+      box-shadow: 0px 1px 2px #CCCCCC;
+    }
+    .boxInner img {
+      width: 40%;
+      float: right;
+      padding-top: 0.5em;
+    }
+    .boxInner .titleBox {
+      margin-bottom: 0px;
+      overflow: hidden;
+      font-weight: bold;
+      height: 5em;
+      padding: 0em 0.5em 0.5em 10px;
+      font-size: 110%;
+      line-height: 1.2em;
+    }
+    .boxInner .boxType {
+      padding: 0.5em 0.5em 0.5em 10px;
+      max-width: 45%;
+      font-size: 100%;
+      color: #999;
+    }
+    .boxInner .boxTopic {
+      display: none;
+      position:absolute;
+      top:0px;
+      right:0px;
+      padding: 0.5em;
+      font-size: 100%;
+      max-width: 45%;
+      color: #999;
 
-/* @end */
+    }
+    .boxInner .boxIssued {
+      position:absolute;
+      padding: 0.5em 0.5em 0.5em 10px;
+      bottom:0px;
+      left:0px;
+      font-size: 100%;
+      max-width: 45%;
+      color: #999;
+    }
 
-
-/* @group Album view classes */
-.photoAlbumEntry {
-    border: 0px;
-    background-color: transparent;
-    background-image: none;
-    float: left;
-    height: 140px;
-    width: 129px;
-    margin: 0 3px 7px 3px;
-    padding: 0px;
-    box-shadow: 0px 1px 2px #CCCCCC;
-    z-index: 3;
-}
-
-.photoAlbumEntry img {
-    max-height: 71px;
-    border: 0;
-}
-
-/* #13639 don't limit height of figure album entries */
-.figuresPhotoAlbumEntry .photoAlbumEntryWrapper {
-    max-height: 100%;
-}
-
-.photoAlbumEntryWrapper {
-    display: block;
-    background: white;
-    max-height: 71px;
-    height: 100%;
-    width: 128px;
-    margin-bottom: 0px;
-    overflow: hidden;
-    border: 0;
-}
-
-a.video-fancybox .photoAlbumEntryWrapper {
-    position: relative;
-    background: url(http://www.eea.europa.eu/play-button-cloud.png) no-repeat 2px center;
-}
-.photoAlbumEntry a {
-    font-size: 85%;
-    height: 128px;
-    width: 128px;
-    margin: 10px 0px;
-    overflow: hidden;
-}
-
-.photoAlbumEntry span.date {
-    color:#999999;
-}
-
-.photoAlbumFolder {
-    background: transparent;
-}
-
-.photoAlbumEntryTitle {
-    overflow: hidden;
-    height: 3.2em;
-    margin-top: 0.4em;
-    font-weight: bold;
-}
-/* our additional photoAlbumEntry styles */
-.photoAlbumEntry:hover {
-    background: transparent;
-    box-shadow: 0px 2px 3px #ACACAC;
-}
-
-#whatsnew-gallery .photoAlbumEntry,
-#whatsnew-gallery .photoAlbumEntry:hover{
-    background: transparent;
-    box-shadow: none;
-    padding: 0px;
-    z-index: 3;
-}
-
-.photoAlbumEntry a.video-fancybox img {
-    position: relative;
-    z-index: -1;
-    margin-top: 0;
-}
-.photoAlbumEntry a.video-fancybox img, .photoAlbumEntry a.animation-fancybox img {
-    max-height: 128px;
-}
-
-.photoAlbumEntryPreview,
-.photoAlbumEntryPreview a,
-.photoAlbumEntryPreview .photoAlbumEntryTitle {
-    height: auto;
-    width: auto;
-    background-image: none;
-    margin: 0.5em  0 2em 0;
-}
-
-.photoAlbumEntryDescription {
-    display:none;
-}
-
-/* bigger title for products section */
-.section-products .photoAlbumEntryTitle {
-    font-size:160%;
-}
-/* @end @group Album view classes */
-
+    @media only screen and (max-width : 480px) {
+      /* Smartphone view: 1 tile */
+      body {
+        font-size: 80%;
+      }
+      .box {
+        width: 100%;
+        padding-bottom: 50%;
+      }
+      .boxInner .titleBox {
+        height:3em;
+        //line-height:1.3em;
+      }
+    }
+    @media only screen and (max-width : 650px) and (min-width : 481px) {
+      /* Tablet view: 2 tiles */
+      body {
+       	font-size: 80%;
+      }
+      .box {
+        width: 100%;
+        padding-bottom: 30%;
+      }
+      .boxInner .titleBox {
+        //font-size:80%;
+        height:3em;
+        //line-height:1.5em;
+      }
+    }
+    @media only screen and (max-width : 1050px) and (min-width : 651px) {
+      /* Small desktop / ipad view: 2 tiles */
+      body {
+       	font-size: 80%;
+      }
+      .box {
+        width: 50%;
+        padding-bottom: 20%;
+      }
+      .boxInner .titleBox {
+        //font-size:110%;
+        height:3em;
+        //line-height:1.5em;
+      }
+    }
+    @media only screen and (max-width : 1290px) and (min-width : 1051px) {
+      /* Medium desktop: 2 tiles */
+      body {
+	font-size: 80%;
+      }
+      .box {
+        width: 50%;
+        padding-bottom: 20%;
+      }
+    }
   </style>
+  <!-- Enable media queries for old IE -->
+  <!--[if lt IE 9]>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+  <![endif]-->
+
 </head>
 
-<body>
+<body class="no-touch">
 <div class="container">
   <div class="content">
     <div class="page-header">
@@ -197,5 +182,6 @@ a.video-fancybox .photoAlbumEntryWrapper {
 
   </div>
 </div>
+
 </body>
 </html>

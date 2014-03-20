@@ -5,14 +5,14 @@ $(function($) {
 
   function hide_img_error() {
     $("img").error(function(){
-      var album_entry = $(this).parents('.photoAlbumEntry');
-      album_entry.hide();
+      var box_entry = $(this).parents('.box');
+      box_entry.hide();
     });
     return true;
   };
 
   function display_results() {
-    $(".photoAlbumEntry").remove();
+    $(".box").remove();
     var data = $.fn.facetview.options.data;
     var prependto = $(".facetview_metadata");
     for(var i = 0; i < data.records.length; i++){
@@ -20,6 +20,14 @@ $(function($) {
       var title = element['http://purl.org/dc/terms/title'];
       var url = element['http://www.w3.org/1999/02/22-rdf-syntax-ns#about'];
       var date = element['http://purl.org/dc/terms/issued'];
+      var types = element['http://www.w3.org/1999/02/22-rdf-syntax-ns#type'];
+      if (!(types instanceof Array)) {
+         types = [types]
+      }
+      var topics = element['http://www.eea.europa.eu/portal_types#topic'];
+      if (!(topics instanceof Array)) {
+         topics = [topics]
+      }
       if(date === undefined) {
         date = element['http://purl.org/dc/terms/modified'];
         if(date === undefined) {
@@ -30,18 +38,23 @@ $(function($) {
         }
       }
       date = $.datepicker.formatDate( "dd M yy", new Date(date) );
-      var result = $("<div class='photoAlbumEntry'></div>");
+
+      var result = $("<div class='box'></div>");
+      var inner = $("<div class='boxInner'></div>");
       var a = $("<a href='" + url + "'></a>");
       a.attr('title',title);
-      result.append(a);
-      a.append(
-        $("<span class='photoAlbumEntryWrapper'></span>").append(
-          $("<img src='" + url + "/image_thumb' />")));
-      a.append(
-        $("<span class='photoAlbumEntryTitle'>" + title + "</span>")
-			     );
-      a.append(
-        $("<span class='date'>" + date + "</span>"));
+      var img = $("<img src='" + url + "/image_mini' />");
+      result.append(inner);
+      inner.append($("<span class='boxType'>"+types[types.length-1]+"</span>"));
+      var titleinfo = $("<p class='titleBox'>"+title+"</p>");
+      a.append(img);
+      a.append(titleinfo);
+      inner.append(a);
+      if (topics[0] != undefined) {
+         inner.append($("<span class='boxTopic'>"+topics[0]+"</span>"));
+      }
+      inner.append($("<span class='boxIssued'>"+date+"</span>"));
+      
       prependto.before(result);
     }
   };
