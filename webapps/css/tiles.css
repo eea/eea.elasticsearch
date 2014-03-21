@@ -1,0 +1,132 @@
+    #facetview_results,
+    .facetview_morefacetvals {
+      display: none;
+    }
+    .facetview_metadata{
+      clear: both;
+    }
+    .facetview_orderby{
+      width: 120px;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: #EEE;
+      //font: 10px/13px 'Lucida Sans',sans-serif;
+      font: 100% Verdana, Arial, Helvetica, sans-serif;
+    }
+    .wrap {
+      overflow: hidden;
+      margin: 10px;
+    }
+    .box {
+      float: left;
+      position: relative;
+      width: 50%;
+      padding-bottom: 20%;
+    }
+    .boxInner {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      top: 10px;
+      bottom: 10px;
+      overflow: hidden;
+      box-shadow: 0px 1px 2px #CCCCCC;
+    }
+    .boxInner img {
+      width: 40%;
+      float: right;
+      padding-top: 0.5em;
+    }
+    .boxInner .titleBox {
+      margin-bottom: 0px;
+      overflow: hidden;
+      font-weight: bold;
+      height: 5em;
+      padding: 0em 0.5em 0.5em 10px;
+      font-size: 110%;
+      line-height: 1.2em;
+    }
+    .boxInner .boxType {
+      padding: 0.5em 0.5em 0.5em 10px;
+      max-width: 45%;
+      font-size: 100%;
+      color: #999;
+    }
+    .boxInner .boxTopic {
+      display: none;
+      position:absolute;
+      top:0px;
+      right:0px;
+      padding: 0.5em;
+      font-size: 100%;
+      max-width: 45%;
+      color: #999;
+
+    }
+    .boxInner .boxIssued {
+      position:absolute;
+      padding: 0.5em 0.5em 0.5em 10px;
+      bottom:0px;
+      left:0px;
+      font-size: 100%;
+      max-width: 45%;
+      color: #999;
+    }
+
+    @media only screen and (max-width : 480px) {
+      /* Smartphone view: 1 tile */
+      body {
+        font-size: 80%;
+      }
+      .box {
+        width: 100%;
+        padding-bottom: 50%;
+      }
+      .boxInner .titleBox {
+        height:3em;
+        //line-height:1.3em;
+      }
+    }
+    @media only screen and (max-width : 650px) and (min-width : 481px) {
+      /* Tablet view: 2 tiles */
+      body {
+       	font-size: 80%;
+      }
+      .box {
+        width: 100%;
+        padding-bottom: 30%;
+      }
+      .boxInner .titleBox {
+        //font-size:80%;
+        height:3em;
+        //line-height:1.5em;
+      }
+    }
+    @media only screen and (max-width : 1050px) and (min-width : 651px) {
+      /* Small desktop / ipad view: 2 tiles */
+      body {
+       	font-size: 80%;
+      }
+      .box {
+        width: 50%;
+        padding-bottom: 20%;
+      }
+      .boxInner .titleBox {
+        //font-size:110%;
+        height:3em;
+        //line-height:1.5em;
+      }
+    }
+    @media only screen and (max-width : 1290px) and (min-width : 1051px) {
+      /* Medium desktop: 2 tiles */
+      body {
+	font-size: 80%;
+      }
+      .box {
+        width: 50%;
+        padding-bottom: 20%;
+      }
+    }
