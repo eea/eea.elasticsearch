@@ -4,13 +4,24 @@ $(function($) {
     var filters = $('a.facetview_filterchoice');
     for (filter in filters) {
       var thisFilter = filters[filter];
-      var toHide = blackList[thisFilter.rel];
-      if (toHide == undefined) {
-        continue;
+      var value = undefined;
+      if (thisFilter.href) {
+        value = thisFilter.href.substring(thisFilter.href.lastIndexOf('/') + 1, thisFilter.href.length);
       }
-      var value = thisFilter.href.substring(thisFilter.href.lastIndexOf('/') + 1, thisFilter.href.length);
-      if(toHide.indexOf(value) >=0) {
+      if (!whiteList.isEmptyObject) {
+        var toKeep = whiteList[thisFilter.rel];
+        if(toKeep && toKeep.indexOf(value) == -1) {
           $(thisFilter.parentNode).hide();
+        }
+
+      } else {
+        var toHide = blackList[thisFilter.rel];
+        if (toHide == undefined) {
+          continue;
+        }
+        if(toHide.indexOf(value) >=0) {
+          $(thisFilter.parentNode).hide();
+        }  
       }
       
     }
