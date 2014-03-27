@@ -11,7 +11,7 @@ $(function($) {
       if (!whiteList.isEmptyObject) {
         var toKeep = whiteList[thisFilter.rel];
         if(toKeep && toKeep.indexOf(value) == -1) {
-          $(thisFilter.parentNode).hide();
+          hidden = $(thisFilter.parentNode).remove();
         }
 
       } else {
@@ -20,7 +20,7 @@ $(function($) {
           continue;
         }
         if(toHide.indexOf(value) >=0) {
-          $(thisFilter.parentNode).hide();
+          $(thisFilter.parentNode).remove();
         }  
       }
       
