@@ -3,7 +3,7 @@ curl -u eea:eea -XPUT 'http://centaurus-dev.eea.europa.eu/elasticsearch/_river/s
   "eeaRDF" : {
     "endpoint" : "http://semantic.eea.europa.eu/sparql",
     "queryType" : "construct",
-    "query" : "CONSTRUCT {?s ?p ?o} WHERE { { ?s a <http://www.eea.europa.eu/portal_types/DavizVisualization#DavizVisualization> . ?s ?p ?o} UNION { ?s a <http://www.eea.europa.eu/portal_types/Document#Document> . ?s ?p ?o } }",
+    "query" : "CONSTRUCT {?s ?p ?o} WHERE { graph ?g { ?s ?p ?o } . FILTER (str(?g) = concat(str(?s),"/@@rdf")) .  {{ ?s a <http://www.eea.europa.eu/portal_types/DavizVisualization#DavizVisualization> } UNION { ?s a <http://www.eea.europa.eu/portal_types/Document#Document>}}}",
 	"proplist" : ["http://purl.org/dc/terms/spatial", "http://purl.org/dc/terms/creator", "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "http://purl.org/dc/terms/issued", "http://purl.org/dc/terms/modified", "http://purl.org/dc/terms/title", "http://www.w3.org/1999/02/22-rdf-syntax-ns#about", "language", "http://www.eea.europa.eu/portal_types#topic", "http://purl.org/dc/terms/description", "http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState"],
     "listtype" : "white",
     "normProp" : {},
