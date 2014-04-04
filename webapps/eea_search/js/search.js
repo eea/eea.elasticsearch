@@ -11,6 +11,16 @@ $(function($) {
     return true;
   };
 
+  function getToday() {
+    var d = new Date();
+    var month = d.getMonth()+1;
+    var day = d.getDate();
+
+    var output = d.getFullYear() + '-' + (month<10 ? '0' : '') + month + '-' +
+      (day<10 ? '0' : '') + day;
+    return output;
+  };
+
   function display_results() {
     $(".box").remove();
     var data = $.fn.facetview.options.data;
@@ -54,7 +64,7 @@ $(function($) {
          inner.append($("<span class='boxTopic'>"+topics[0]+"</span>"));
       }
       inner.append($("<span class='boxIssued'>"+date+"</span>"));
-      
+
       prependto.before(result);
     }
   };
@@ -62,6 +72,7 @@ $(function($) {
   var url = $(location).attr('href');
   var position = url.indexOf('/search/');
   var language = url[position-3] === '/' ? url.substring(position-2, position) : 'en';
+  var today = getToday();
 
   var facetview_ob = $('.facet-view-simple').facetview({
     search_url: 'http://centaurus-dev.eea.europa.eu/elasticsearch/rdfdata/_search?',
@@ -79,7 +90,11 @@ $(function($) {
     ],
     result_display: [],
     add_undefined: true,
-    predefined_filters: [{'term': {'language':language}},{'term':{'http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState':'published'}}
+    predefined_filters: [
+      {'term':{'language':language}},
+      {'term':{'http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState':'published'}},
+      {'range':{'http://purl.org/dc/terms/issued':{'lt': today}}}//,
+    //  {'range':{'http://purl.org/dc/terms/expires':{'gte': today}}}
     ],
     post_search_callback: function(){
       display_results();
@@ -94,4 +109,4 @@ $(function($) {
               }
   });
 });
-    
+
