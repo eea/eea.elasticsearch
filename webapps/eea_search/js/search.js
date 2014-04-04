@@ -96,6 +96,12 @@ $(function($) {
       {'range':{'http://purl.org/dc/terms/issued':{'lt': today}}}//,
     //  {'range':{'http://purl.org/dc/terms/expires':{'gte': today}}}
     ],
+    filter:{
+      'or': [
+        {'missing':{'field':'http://purl.org/dc/terms/expires'}},
+        {'range':{'http://purl.org/dc/terms/expires':{'gte': today}}}
+      ]
+    },
     post_search_callback: function(){
       display_results();
       window.hide_unused_options(blackList, whiteList);
