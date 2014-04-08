@@ -3,7 +3,9 @@ Changelog
 
 1.2-dev - (unreleased)
 ----------------------
-* Bug fix: hid deleted resources
+* Feature: responsive tile design
+  [demarant fixes #18710]
+* Bug fix: hide deleted resources
   [pasoviul refs #18500]
 
 1.1 - (2014-02-13)

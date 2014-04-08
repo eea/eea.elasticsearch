@@ -1,7 +1,7 @@
 $(function($) {
 
   var blackList = {"http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : ["Article", "Report", "Output from Annual Management Plan", "http://www.eea.europa.eu/portal_types/SimpleVocabularyTerm#SimpleVocabularyTerm", "http://www.eea.europa.eu/portal_types/TreeVocabularyTerm#TreeVocabularyTerm", "http://www.eea.europa.eu/soer/1.0#DataFile"]};
-  var whiteList = {"http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : ["Article"]};
+  var disabled_whiteList = {"http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : ["Article","Report","Highlight","EEAFigure","Data","DavizVisualization","Assessment"]};
 
   function hide_img_error() {
     $("img").error(function(){
@@ -39,21 +39,25 @@ $(function($) {
       }
       date = $.datepicker.formatDate( "dd M yy", new Date(date) );
 
-      var result = $("<div class='box'></div>");
-      var inner = $("<div class='boxInner'></div>");
-      var a = $("<a href='" + url + "'></a>");
-      a.attr('title',title);
+      var result = $("<div class='eea-tile'></div>");
+      var inner = $("<div class='eea-tileInner'></div>");
+      var aimg = $("<a href='" + url + "'></a>");
+      var atitle = $("<a href='" + url + "'></a>");
+      aimg.attr('title',title);
+      atitle.attr('title',title);
       var img = $("<img src='" + url + "/image_mini' />");
+      var typelabel = $("<span class='eea-tileType'>"+types[types.length-1]+"</span>")
       result.append(inner);
-      inner.append($("<span class='boxType'>"+types[types.length-1]+"</span>"));
-      var titleinfo = $("<p class='titleBox'>"+title+"</p>");
-      a.append(img);
-      a.append(titleinfo);
-      inner.append(a);
+      var titleinfo = $("<span class='eea-titleTile'>"+title+"</span>");
+      aimg.append(img);
+      atitle.append(titleinfo);
+      inner.append(aimg);
+      inner.append(typelabel);
+      inner.append(atitle);
       if (topics[0] != undefined) {
-         inner.append($("<span class='boxTopic'>"+topics[0]+"</span>"));
+         inner.append($("<span class='eea-tileTopic'>"+topics[0]+"</span>"));
       }
-      inner.append($("<span class='boxIssued'>"+date+"</span>"));
+      inner.append($("<span class='eea-tileIssued'>"+date+"</span>"));
       
       prependto.before(result);
     }
