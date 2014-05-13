@@ -1,6 +1,9 @@
 Changelog
 =========
 
+1.3-dev - (unreleased)
+----------------------
+
 1.2 - (2014-05-13)
 ------------------
 * Feature: responsive tile design
