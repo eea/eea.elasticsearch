@@ -1,8 +1,8 @@
 Changelog
 =========
 
-1.2-dev - (unreleased)
-----------------------
+1.2 - (2014-05-13)
+------------------
 * Feature: responsive tile design
   [demarant fixes #18710]
 * Bug fix: hide deleted resources
