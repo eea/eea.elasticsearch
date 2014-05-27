@@ -1,8 +1,26 @@
 $(function($) {
 
   var blackList = {"http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : ["Article", "Report", "Output from Annual Management Plan", "http://www.eea.europa.eu/portal_types/SimpleVocabularyTerm#SimpleVocabularyTerm", "http://www.eea.europa.eu/portal_types/TreeVocabularyTerm#TreeVocabularyTerm", "http://www.eea.europa.eu/soer/1.0#DataFile"]};
-  var whiteList = {"http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : ["Article"]};
-
+  var whiteList = false;
+  var appHierarchy = {
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" :
+      [
+        {"News and Announcements" :
+          ["Highlight", "Press Release", "Event", "Promotion"],
+        "Articles and Summaries" : ["Article", "Eco-Tip"],
+        "Audiovisuals": ["Image", "Video"],
+        "Publications" : ["Report"],
+        "Data and Indicators" :
+          ["Data",
+            {"Data Visualisations": ["Data Visualisation"],
+              "Indicators" : [
+                "Indicator Specification",
+                "Indicator factsheet",
+                "Indicator assessment"]}],
+          "Generic" : ["Page", "Link", "Data File"]}],
+          "http://www.eea.europa.eu/portal_types#topic" : [],
+          "http://purl.org/dc/terms/spatial" : []
+        };
   function hide_img_error() {
     $("img").error(function(){
       var box_entry = $(this).parents('.box');
@@ -47,8 +65,11 @@ $(function($) {
           }
         }
       }
-      date = $.datepicker.formatDate( "dd M yy", new Date(date) );
+      try {
+        date = $.datepicker.formatDate( "dd M yy", new Date(date) );
+      } catch (err){
 
+      }
       var result = $("<div class='box'></div>");
       var inner = $("<div class='boxInner'></div>");
       var a = $("<a href='" + url + "'></a>");
@@ -102,6 +123,8 @@ $(function($) {
         {'range':{'http://purl.org/dc/terms/expires':{'gte': today}}}
       ]
     },
+    hierarchy: appHierarchy,
+    permanent_filters: true,
     post_search_callback: function(){
       display_results();
       window.hide_unused_options(blackList, whiteList);
