@@ -13,20 +13,19 @@
       margin: 0;
       padding: 0;
       background: #EEE;
-      //font: 10px/13px 'Lucida Sans',sans-serif;
       font: 100% Verdana, Arial, Helvetica, sans-serif;
     }
-    .wrap {
+    .eea-wrap {
       overflow: hidden;
       margin: 10px;
     }
-    .box {
+    .eea-tile {
       float: left;
       position: relative;
-      width: 50%;
-      padding-bottom: 20%;
+      width: 25%;
+      padding-bottom: 35%;
     }
-    .boxInner {
+    .eea-tileInner {
       position: absolute;
       left: 10px;
       right: 10px;
@@ -35,27 +34,35 @@
       overflow: hidden;
       box-shadow: 0px 1px 2px #CCCCCC;
     }
-    .boxInner img {
-      width: 40%;
-      float: right;
-      padding-top: 0.5em;
+    .eea-tileInner img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+      padding-top: 0.8em;
     }
-    .boxInner .titleBox {
+    .eea-tileInner .eea-titleTile {
       margin-bottom: 0px;
       overflow: hidden;
-      font-weight: bold;
+      background: #fff;
+      padding: 0.3em 0.5em 0.3em 10px;
+      position:absolute;
+      top:55%;
       height: 5em;
-      padding: 0em 0.5em 0.5em 10px;
       font-size: 110%;
-      line-height: 1.2em;
+      line-height: 1.05em;
     }
-    .boxInner .boxType {
+    .eea-tileInner .eea-tileType {
       padding: 0.5em 0.5em 0.5em 10px;
-      max-width: 45%;
-      font-size: 100%;
+      position: absolute;
+      top: 48%;
+      overflow: hidden;
+      height: 1.1em;
+      font-size: 80%;
       color: #999;
+      background: #fff;
     }
-    .boxInner .boxTopic {
+    .eea-tileInner .eea-tileTopic {
       display: none;
       position:absolute;
       top:0px;
@@ -66,14 +73,14 @@
       color: #999;
 
     }
-    .boxInner .boxIssued {
+    .eea-tileInner .eea-tileIssued {
       position:absolute;
       padding: 0.5em 0.5em 0.5em 10px;
       bottom:0px;
       left:0px;
-      font-size: 100%;
-      max-width: 45%;
+      font-size: 80%;
       color: #999;
+      background: #fff;
     }
 
     @media only screen and (max-width : 480px) {
@@ -81,13 +88,12 @@
       body {
         font-size: 80%;
       }
-      .box {
+      .eea-tile {
         width: 100%;
-        padding-bottom: 50%;
+        padding-bottom: 140%;
       }
-      .boxInner .titleBox {
+      .eea-tileInner .eea-titleTile {
         height:3em;
-        //line-height:1.3em;
       }
     }
     @media only screen and (max-width : 650px) and (min-width : 481px) {
@@ -95,14 +101,12 @@
       body {
        	font-size: 80%;
       }
-      .box {
-        width: 100%;
-        padding-bottom: 30%;
+      .eea-tile {
+        width: 50%;
+        padding-bottom: 70%;
       }
-      .boxInner .titleBox {
-        //font-size:80%;
+      .eea-tileInner .eea-titleTile {
         height:3em;
-        //line-height:1.5em;
       }
     }
     @media only screen and (max-width : 1050px) and (min-width : 651px) {
@@ -110,23 +114,26 @@
       body {
        	font-size: 80%;
       }
-      .box {
-        width: 50%;
-        padding-bottom: 20%;
+      .eea-tile {
+        width: 25%;
+        padding-bottom: 35%;
       }
-      .boxInner .titleBox {
-        //font-size:110%;
+      .eea-tileInner .eea-titleTile {
         height:3em;
-        //line-height:1.5em;
+        font-size:100%;
+        top:58%;
       }
     }
     @media only screen and (max-width : 1290px) and (min-width : 1051px) {
-      /* Medium desktop: 2 tiles */
+      /* Medium desktop: 4 tiles */
       body {
 	font-size: 80%;
       }
-      .box {
-        width: 50%;
-        padding-bottom: 20%;
+      .eea-tile {
+        width: 25%;
+        padding-bottom: 35%;
+      }
+      .eea-tileInner .eea-titleTile {
+        font-size:100%;
       }
     }
