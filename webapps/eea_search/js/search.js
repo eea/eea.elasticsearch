@@ -18,20 +18,33 @@ $(function($) {
                 "Indicator Specification",
                 "Indicator factsheet",
                 "Indicator assessment"]}],
-          "Generic" : ["Page", "Link", "Data File"]}],
+          "Generic" : ["Page", "Link", "Data File"],
+          "Assessment part" : [],
+          "Dataset" : [],
+          "Distribution" : [],
+          "EEA Job Vacancy" : [],
+          "Epub File" : [],
+          "External Data Reference" : [],
+          "Eyewitness story" : [],
+          "Figure File" : [],
+          "File" : [],
+          "GIS Map Application" : [],
+          "Methodology Reference" : [],
+          "Organization" : [],
+          "Output from Annual Management Plan" : [],
+          "Policy Question" : [],
+          "Rationale Reference" : [],
+          "SOER Key fact" : [],
+          "SOER Message" : [],
+          "Speech" : [],
+          "Text" : [],
+          "Work Item" : []
+        }],
           "http://www.eea.europa.eu/portal_types#topic" : [],
           "http://purl.org/dc/terms/spatial" : []
         };
 
   var disabled_whiteList = {"http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : ["Article","Report","Highlight","EEAFigure","Data","DavizVisualization","Assessment"]};
-
-  function hide_img_error() {
-      $("img").error(function(){
-          var tile_entry = $(this).parents('.eea-tile');
-           tile_entry.hide();
-      });
-      return true;
-  };
 
   function getToday() {
     var d = new Date();
@@ -109,8 +122,8 @@ $(function($) {
     search_index: 'elasticsearch',
     facets: [
       {'field': 'http://www.w3.org/1999/02/22-rdf-syntax-ns#type', 'display': 'Product Type', 'size':'50000', 'min_size':'10', 'order': 'term'},
-      {'field': 'http://www.eea.europa.eu/portal_types#topic', 'display': 'EEA Topic', 'size':'50000', 'min_size':'10', 'order':'term'},
-      {'field': 'http://purl.org/dc/terms/spatial', 'display': 'Spatial coverage', 'size':'1000', 'min_size':'10', 'order':'count'}
+      {'field': 'http://www.eea.europa.eu/portal_types#topic', 'display': 'EEA Topic', 'size':'20', 'min_size':'10', 'order':'term'},
+      {'field': 'http://purl.org/dc/terms/spatial', 'display': 'Spatial coverage', 'size':'20', 'min_size':'10', 'order':'count'}
     ],
     search_sortby: [
       {'field': 'http://purl.org/dc/terms/title', 'display': 'Title'},
@@ -137,7 +150,6 @@ $(function($) {
     post_search_callback: function(){
       display_results();
       window.hide_unused_options(blackList, whiteList);
-      hide_img_error();
       window.add_iframe();
     },
     linkify:  false,
