@@ -17,7 +17,7 @@ interfaces and widgets to be used in a CMS.
 .. contents::
 
 Components
-=============  
+=============
 
 The setup is composed of the following:
 
@@ -56,19 +56,19 @@ Installation
    eea.elasticsearch/etc/production/config
 4. Install `RDF River Plugin`_, using elasticsearch plugin script inside its
    bin folder:
-   
+
    ::
-   
+
      bin/plugin --url https://github.com/eea/eea.elasticsearch.river.rdf/raw/master/target/releases/eea-rdf-river-plugin-1.0.zip
      --install eea-rdf-river-1.0
 5. Install `Jetty Plugin`_ in the same manner:
-   
+
    ::
 
       bin/plugin --url https://oss-es-plugins.s3.amazonaws.com/elasticsearch-jetty/elasticsearch-jetty-0.90.0.zip
       --install elasticsearch-jetty-0.90.0
 6. Install useful plugins for monitoring and debugging:
-    
+
    ::
 
       bin/plugin -install mobz/elasticsearch-head
@@ -77,7 +77,7 @@ Installation
       bin/plugin -install polyfractal/elasticsearch-inquisitor
 
 7. Install and configure elasticsearch-service wrapper:
-   
+
    ::
 
       git clone git@github.com:eea/elasticsearch-servicewrapper.git
@@ -88,7 +88,7 @@ Installation
    eea.elasticsearch/etc/production/config/realm.properties, see
    `Adding Basic Authentication <https://github.com/sonian/elasticsearch-jetty#adding-basic-authentication>`_.
 9. Start elasticsearch service
-   
+
    ::
 
       service elasticsearch start
