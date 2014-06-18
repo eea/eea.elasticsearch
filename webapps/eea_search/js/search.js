@@ -121,9 +121,9 @@ $(function($) {
     search_url: 'http://centaurus-dev.eea.europa.eu/elasticsearch/rdfdata/_search?',
     search_index: 'elasticsearch',
     facets: [
-      {'field': 'http://www.w3.org/1999/02/22-rdf-syntax-ns#type', 'display': 'Product Type', 'size':'50000', 'min_size':'10', 'order': 'term'},
-      {'field': 'http://www.eea.europa.eu/portal_types#topic', 'display': 'EEA Topic', 'size':'100', 'min_size':'10', 'order':'term'},
-      {'field': 'http://purl.org/dc/terms/spatial', 'display': 'Spatial coverage', 'size':'100', 'min_size':'10', 'order':'count'}
+      {'field': 'http://www.w3.org/1999/02/22-rdf-syntax-ns#type', 'display': 'Product Type', 'size':'50000', 'min_size':'10', 'order': 'term', 'operator': 'OR'},
+      {'field': 'http://www.eea.europa.eu/portal_types#topic', 'display': 'EEA Topic', 'size':'100', 'min_size':'10', 'order':'term', 'operator': 'AND'},
+      {'field': 'http://purl.org/dc/terms/spatial', 'display': 'Spatial coverage', 'size':'100', 'min_size':'10', 'order':'count', 'operator': 'AND'}
     ],
     search_sortby: [
       {'field': 'http://purl.org/dc/terms/title', 'display': 'Title'},
