@@ -135,16 +135,30 @@ $(function($) {
     add_undefined: true,
     predefined_filters: [
       {'term':{'language':language}},
-      {'term':{'http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState':'published'}},
-      {'range':{'http://purl.org/dc/terms/issued':{'lt': today}}}//,
+     // {'term':{'http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState':'http://www.eea.europa.eu/portal_workflow/eea_data_workflow/states/published'}}
+      {'range':{'http://purl.org/dc/terms/issued':{'lt': today}}}
     //  {'range':{'http://purl.org/dc/terms/expires':{'gte': today}}}
     ],
     filter:{
+      'and' : [{
       'or': [
         {'missing':{'field':'http://purl.org/dc/terms/expires'}},
         {'range':{'http://purl.org/dc/terms/expires':{'gte': today}}}
-      ]
-    },
+      ]},
+      {'or': [
+        {'term':{'http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState':'http://www.eea.europa.eu/portal_workflow/daviz_workflow/states/published'}},
+        {'term':{'http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState':'http://www.eea.europa.eu/portal_workflow/eea_simple_approval/states/published'}},
+        {'term':{'http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState':'http://www.eea.europa.eu/portal_workflow/one_state_workflow/states/published'}},
+        {'term':{'http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState':'http://www.eea.europa.eu/portal_workflow/eea_simple_public_approval/states/published'}},
+        {'term':{'http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState':'http://www.eea.europa.eu/portal_workflow/plone_workflow/states/published'}},
+        {'term':{'http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState':'http://www.eea.europa.eu/portal_workflow/indicators_workflow/states/published'}},
+        {'term':{'http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState':'http://www.eea.europa.eu/portal_workflow/folder_workflow/states/published'}},
+        {'term':{'http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState':'http://www.eea.europa.eu/portal_workflow/linguaflow/states/published'}},
+        {'term':{'http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState':'http://www.eea.europa.eu/portal_workflow/eea_default_workflow/states/published'}},
+        {'term':{'http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState':'http://www.eea.europa.eu/portal_vocabularies/workflow_states/published'}},
+        {'term':{'http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState':'http://www.eea.europa.eu/portal_workflow/eea_data_workflow/states/published'}}
+      ]}
+    ]},
     hierarchy: appHierarchy,
     permanent_filters: true,
     post_search_callback: function(){
