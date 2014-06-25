@@ -136,7 +136,7 @@ $(function($) {
     predefined_filters: [
       {'term':{'language':language}},
      // {'term':{'http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState':'http://www.eea.europa.eu/portal_workflow/eea_data_workflow/states/published'}}
-      {'range':{'http://purl.org/dc/terms/issued':{'lt': today}}}
+      {'range':{'http://purl.org/dc/terms/issued':{'lte': today}}}
     //  {'range':{'http://purl.org/dc/terms/expires':{'gte': today}}}
     ],
     filter:{
