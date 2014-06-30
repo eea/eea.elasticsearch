@@ -1,8 +1,8 @@
 Changelog
 =========
 
-1.4-dev - (unreleased)
-----------------------
+1.4 - (2014-06-30)
+------------------
 * Feature: Added support for predefined operators
   [pasoviul refs #20005]
 
