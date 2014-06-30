@@ -1,6 +1,9 @@
 Changelog
 =========
 
+1.5-dev - (unreleased)
+----------------------
+
 1.4 - (2014-06-30)
 ------------------
 * Feature: Added support for predefined operators
