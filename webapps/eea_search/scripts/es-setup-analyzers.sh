@@ -30,6 +30,13 @@ curl -u eea:eea -XPUT 'http://centaurus-dev.eea.europa.eu/elasticsearch/rdfdata'
         "http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState" : {
           "type" : "string",
           "analyzer" : "none"
+        },
+        "http://purl.org/dc/terms/title" : {
+          "type" : "multi_field",
+          "fields" : {
+            "sort" : {"type" : "string", "analyzer" : "default"},
+            "index" : {"type" : "string", "analyzer" : "none"}
+          }
         }
       }
     }
