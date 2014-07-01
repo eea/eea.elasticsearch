@@ -3,6 +3,8 @@ Changelog
 
 1.5-dev - (unreleased)
 ----------------------
+* Feature: Changed title display
+  [pasoviul refs #18190]
 
 1.4 - (2014-06-30)
 ------------------
