@@ -1,15 +1,18 @@
 Changelog
 =========
 
-1.4-dev - (unreleased)
+1.5-dev - (unreleased)
 ----------------------
+
+1.4 - (2014-06-30)
+------------------
 * Feature: Added support for predefined operators
   [pasoviul refs #20005]
 
 1.3 - (2014-06-10)
 ------------------
 * Feature: Added support for hierarchic facets
- [pasoviul refs #18878]
+  [pasoviul refs #18878]
 
 1.2 - (2014-05-13)
 ------------------
