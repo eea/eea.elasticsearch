@@ -74,7 +74,7 @@ $(function($) {
     var prependto = $('.facetview_metadata');
     for (var i = 0; i < data.records.length; i++) {
       var element = data.records[i];
-      var title = element['http://purl.org/dc/terms/title'].fields.index;
+      var title = element['http://purl.org/dc/terms/title'];
       var url = element['http://www.w3.org/1999/02/22-rdf-syntax-ns#about'];
       var date = element['http://purl.org/dc/terms/issued'];
       var types = element['http://www.w3.org/1999/02/22-rdf-syntax-ns#type'];
@@ -169,8 +169,14 @@ $(function($) {
       }
     ],
     search_sortby: [
-      {'field': 'http://purl.org/dc/terms/title', 'display': 'Title'},
-      {'field': 'http://purl.org/dc/terms/issued', 'display': 'Publishing date'}
+      {
+        'field': 'http://purl.org/dc/terms/title',
+        'display': 'Title'
+      },
+      {
+        'field': 'http://purl.org/dc/terms/issued',
+        'display': 'Publishing date'
+      }
     ],
     sort: [{'http://purl.org/dc/terms/issued': {'order': 'desc'}}
     ],

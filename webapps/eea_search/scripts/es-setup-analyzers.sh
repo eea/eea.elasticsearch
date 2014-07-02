@@ -42,3 +42,23 @@ curl -u eea:eea -XPUT 'http://centaurus-dev.eea.europa.eu/elasticsearch/rdfdata'
     }
   }
 }'
+
+curl -u eea:eea -XPUT 'http://centaurus-dev.eea.europa.eu/elasticsearch/rdfdata/resource/_mapping' -d '{
+  "resource": {
+    "properties": {
+      "http://purl.org/dc/terms/title" : {
+        "type": "multi_field",
+        "fields" : {
+          "http://purl.org/dc/terms/title" : {
+            "type" : "string",
+            "index" : "not_analyzed"
+          },
+          "toindex" : {
+            "type" : "string",
+            "analyzer" : "default"
+          }
+        }
+      }
+    }
+  }
+}'
