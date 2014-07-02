@@ -132,7 +132,7 @@ $(function($) {
   var today = getToday();
 
   var facetview_ob = $('.facet-view-simple').facetview({
-    search_url: 'http://localhost:9200/_search?',
+    search_url: 'http://centaurus-dev.eea.europa.eu/elasticsearch/_search?',
     search_index: 'elasticsearch',
     facets: [
       {
