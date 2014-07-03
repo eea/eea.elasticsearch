@@ -33,7 +33,6 @@ $(function($) {
           'GIS Map Application' : [],
           'Methodology Reference' : [],
           'Organization' : [],
-          'Output from Annual Management Plan' : [],
           'Policy Question' : [],
           'Rationale Reference' : [],
           'SOER Key fact' : [],
@@ -43,8 +42,7 @@ $(function($) {
           'Work Item' : []
         }],
           'http://www.eea.europa.eu/portal_types#topic' : [],
-          'http://purl.org/dc/terms/spatial' : [],
-          'http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState' : []
+          'http://purl.org/dc/terms/spatial' : []
         };
 
 //  var disabled_whiteList = {
@@ -184,7 +182,9 @@ $(function($) {
     add_undefined: true,
     predefined_filters: [
       {'term': {'language': language}},
-     // {'term':{'http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState':'http://www.eea.europa.eu/portal_workflow/eea_data_workflow/states/published'}}
+      {'term': {
+        'http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState': 'public'}
+      },
       {'range': {'http://purl.org/dc/terms/issued': {'lte': today}}}
    //   {'range':{'http://purl.org/dc/terms/expires':{'gte': today}}}
     ],
