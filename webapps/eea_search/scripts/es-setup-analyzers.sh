@@ -1,4 +1,5 @@
-curl -u eea:eea -XPUT 'http://centaurus-dev.eea.europa.eu/elasticsearch/rdfdata' -d '{
+#!/bin/bash
+curl -u eea:eea -XPUT $1'/rdfdata' -d '{
   "settings" : {
     "analysis" : {
       "analyzer" : {
@@ -43,7 +44,7 @@ curl -u eea:eea -XPUT 'http://centaurus-dev.eea.europa.eu/elasticsearch/rdfdata'
   }
 }'
 
-curl -u eea:eea -XPUT 'http://centaurus-dev.eea.europa.eu/elasticsearch/rdfdata/resource/_mapping' -d '{
+curl -u eea:eea -XPUT $1'/rdfdata/resource/_mapping' -d '{
   "resource": {
     "properties": {
       "http://purl.org/dc/terms/title" : {

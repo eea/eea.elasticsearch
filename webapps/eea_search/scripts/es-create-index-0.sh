@@ -1,4 +1,5 @@
-curl -u eea:eea -XPUT 'http://centaurus-dev.eea.europa.eu/elasticsearch/_river/search0/_meta' -d '{
+#!/bin/bash
+curl -u eea:eea -XPUT $1'/_river/search0/_smeta' -d '{
   "type": "eeaRDF",
   "eeaRDF" : {
     "endpoint" : "http://semantic.eea.europa.eu/sparql",
