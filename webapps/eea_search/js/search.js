@@ -45,11 +45,6 @@ $(function($) {
           'http://purl.org/dc/terms/spatial' : []
         };
 
-//  var disabled_whiteList = {
-//    'http://www.w3.org/1999/02/22-rdf-syntax-ns#type' : [
-//        'Article','Report','Highlight','EEAFigure','Data',
-//        'DavizVisualization','Assessment']};
-
   function getToday() {
     var d = new Date();
     var month = d.getMonth() + 1;
@@ -129,82 +124,80 @@ $(function($) {
       'en';
   var today = getToday();
 
-  var facetview_ob = $('.facet-view-simple').facetview({
-    search_url: 'http://centaurus-dev.eea.europa.eu/elasticsearch/_search?',
-    search_index: 'elasticsearch',
-    facets: [
-      {
-        'field': 'http://www.w3.org/1999/02/22-rdf-syntax-ns#type',
-        'display': 'Product Type',
-        'size': '50000',
-        'min_size': '10',
-        'order': 'term',
-        'operator': 'OR'
-      },
-      {
-        'field': 'http://www.eea.europa.eu/portal_types#topic',
-        'display': 'EEA Topic',
-        'size': '100',
-        'min_size': '10',
-        'order': 'term',
-        'operator': 'AND'
-      },
-      {
-        'field': 'http://purl.org/dc/terms/spatial',
-        'display': 'Spatial coverage',
-        'size': '100',
-        'min_size': '10',
-        'order': 'count',
-        'operator': 'AND'
-      },
-      {
-        'field': 'http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState',
-        'display' : 'State',
-        'size': '100',
-        'min_size': '10',
-        'order': 'count',
-        'operator': 'AND'
-      }
-    ],
-    search_sortby: [
-      {
-        'field': 'http://purl.org/dc/terms/title',
-        'display': 'Title'
-      },
-      {
-        'field': 'http://purl.org/dc/terms/issued',
-        'display': 'Publishing date'
-      }
-    ],
-    sort: [{'http://purl.org/dc/terms/issued': {'order': 'desc'}}
-    ],
-    result_display: [],
-    add_undefined: true,
-    predefined_filters: [
-      {'term': {'language': language}},
-      {'term': {
-        'http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState': 'public'}
-      },
-      {'range': {'http://purl.org/dc/terms/issued': {'lte': today}}}
+//TODO iulia is here
+  var s_url = '';
+  var jsoninfo = $.getJSON('config.json', function(data) {
+    s_url = data.es.host + data.es.path;
+    var facetview_ob = $('.facet-view-simple').facetview({
+      search_url: s_url,
+      search_index: 'elasticsearch',
+      facets: [
+        {
+          'field': 'http://www.w3.org/1999/02/22-rdf-syntax-ns#type',
+          'display': 'Product Type',
+          'size': '50000',
+          'min_size': '10',
+          'order': 'term',
+          'operator': 'OR'
+        },
+        {
+          'field': 'http://www.eea.europa.eu/portal_types#topic',
+          'display': 'EEA Topic',
+          'size': '100',
+          'min_size': '10',
+          'order': 'term',
+          'operator': 'AND'
+        },
+        {
+          'field': 'http://purl.org/dc/terms/spatial',
+          'display': 'Spatial coverage',
+          'size': '100',
+          'min_size': '10',
+          'order': 'count',
+          'operator': 'AND'
+        }
+      ],
+      search_sortby: [
+        {
+          'field': 'http://purl.org/dc/terms/title',
+          'display': 'Title'
+        },
+        {
+          'field': 'http://purl.org/dc/terms/issued',
+          'display': 'Publishing date'
+        }
+      ],
+      sort: [{'http://purl.org/dc/terms/issued': {'order': 'desc'}}
+      ],
+      result_display: [],
+      add_undefined: true,
+      predefined_filters: [
+        {'term': {'language': language}},
+//       {'term': {
+//         'http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState': 'public'}
+//        },
+        {'range': {'http://purl.org/dc/terms/issued': {'lte': today}}}
    //   {'range':{'http://purl.org/dc/terms/expires':{'gte': today}}}
-    ],
-    filter: {
-      'or': [
-        {'missing': {'field': 'http://purl.org/dc/terms/expires'}},
-        {'range': {'http://purl.org/dc/terms/expires': {'gte': today}}}
-      ]
-    },
-    hierarchy: appHierarchy,
-    permanent_filters: true,
-    post_search_callback: function() {
-      display_results();
-      window.hide_unused_options(blackList, whiteList);
-      window.add_iframe();
-    },
-    linkify: false,
+      ],
+      filter: {
+        'or': [
+          {'missing': {'field': 'http://purl.org/dc/terms/expires'}},
+          {'range': {'http://purl.org/dc/terms/expires': {'gte': today}}}
+        ]
+      },
+      hierarchy: appHierarchy,
+      permanent_filters: true,
+      post_search_callback: function() {
+        display_results();
+        window.hide_unused_options(blackList, whiteList);
+        window.add_iframe();
+      },
+      linkify: false,
              paging: {
                 from: 0,
                 size: 20
               }
+    });
   });
+
 });
