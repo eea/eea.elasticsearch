@@ -1,5 +1,5 @@
 #!/bin/bash
-curl -u eea:eea -XPUT $1'/_river/search/_smeta' -d '{
+curl -u eea:eea -XPUT $1'/_river/search/_meta' -d '{
   "type": "eeaRDF",
   "eeaRDF" : {
     "endpoint" : "http://semantic.eea.europa.eu/sparql",
