@@ -87,9 +87,7 @@ $(function($) {
           }
         }
       }
-      try {
-        date = $.datepicker.formatDate('dd M yy', new Date(date));
-      } catch (err) {}
+      date = $.datepicker.formatDate('dd M yy', new Date(date));
 
       var result = $('<div class="eea-tile"></div>');
       var inner = $('<div class="eea-tileInner"></div>');
