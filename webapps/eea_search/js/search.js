@@ -122,7 +122,6 @@ $(function($) {
       'en';
   var today = getToday();
 
-//TODO iulia is here
   var s_url = '';
   var jsoninfo = $.getJSON('config.json', function(data) {
     s_url = data.es.host + data.es.path;
