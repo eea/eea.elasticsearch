@@ -170,9 +170,6 @@ $(function($) {
       add_undefined: true,
       predefined_filters: [
         {'term': {'language': language}},
-        {'term': {
-          'http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState': 'public'}
-        },
         {'range': {'http://purl.org/dc/terms/issued': {'lte': today}}},
        // {'range': {'http://purl.org/dc/terms/expires': {'gte': today}}},
         {'constant_score': {
@@ -180,6 +177,18 @@ $(function($) {
             'or': [
               {'missing': {'field': 'http://purl.org/dc/terms/expires'}},
               {'range': {'http://purl.org/dc/terms/expires': {'gte': today}}}
+            ]
+          }}
+        },
+        {'constant_score': {
+          'filter': {
+            'or': [
+              {'term': {
+                'http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState':
+                  'published'}
+              },
+              {'missing': {'field':
+                'http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState'}}
             ]
           }
         }}
