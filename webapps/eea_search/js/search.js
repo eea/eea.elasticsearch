@@ -42,7 +42,8 @@ $(function($) {
           'Work Item' : []
         }],
           'http://www.eea.europa.eu/portal_types#topic' : [],
-          'http://purl.org/dc/terms/spatial' : []
+          'http://purl.org/dc/terms/spatial' : [],
+          'http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState' : []
         };
 
   function getToday() {
@@ -59,6 +60,34 @@ $(function($) {
       (day < 10 ? '0' : ''),
       day].join('');
     return output;
+  }
+
+  function hide_unused_options(blackList, whiteList) {
+    var filters = $('a.facetview_filterchoice');
+    for (var filter in filters) {
+      var thisFilter = filters[filter];
+      var value;
+      if (thisFilter.href) {
+        value = thisFilter.href.substring(
+          thisFilter.href.lastIndexOf('/') + 1,
+          thisFilter.href.length);
+      }
+      if (!whiteList.isEmptyObject) {
+        var toKeep = whiteList[thisFilter.rel];
+        if (toKeep && toKeep.indexOf(value) === -1) {
+          hidden = $(thisFilter.parentNode).remove();
+        }
+
+      } else {
+        var toHide = blackList[thisFilter.rel];
+        if (toHide === undefined) {
+          continue;
+        }
+        if (toHide.indexOf(value) >= 0) {
+          $(thisFilter.parentNode).remove();
+        }
+      }
+    }
   }
 
   function display_results() {
@@ -152,6 +181,14 @@ $(function($) {
           'min_size': '10',
           'order': 'count',
           'operator': 'AND'
+        },
+        {
+          'field': 'http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState',
+          'display': 'Workflow State',
+          'size': '100',
+          'min_size': '10',
+          'order': 'term',
+          'operator': 'AND'
         }
       ],
       search_sortby: [
@@ -179,27 +216,14 @@ $(function($) {
               {'range': {'http://purl.org/dc/terms/expires': {'gte': today}}}
             ]
           }}
-        },
-        {'constant_score': {
-          'filter': {
-            'or': [
-              {'term': {
-                'http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState':
-                  'published'}
-              },
-              {'missing': {'field':
-                'http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState'}}
-            ]
-          }
-        }}
+        }
       ],
 
       hierarchy: appHierarchy,
       permanent_filters: true,
       post_search_callback: function() {
         display_results();
-        window.hide_unused_options(blackList, whiteList);
-        window.add_iframe();
+        hide_unused_options(blackList, whiteList);
       },
       linkify: false,
              paging: {

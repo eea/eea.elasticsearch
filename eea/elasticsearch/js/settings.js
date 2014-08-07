@@ -1,34 +1,6 @@
 $(function($) {
 
-  window.hide_unused_options = function(blackList, whiteList) {
-    var filters = $('a.facetview_filterchoice');
-    for (var filter in filters) {
-      var thisFilter = filters[filter];
-      var value;
-      if (thisFilter.href) {
-        value = thisFilter.href.substring(
-          thisFilter.href.lastIndexOf('/') + 1,
-          thisFilter.href.length);
-      }
-      if (!whiteList.isEmptyObject) {
-        var toKeep = whiteList[thisFilter.rel];
-        if (toKeep && toKeep.indexOf(value) === -1) {
-          hidden = $(thisFilter.parentNode).remove();
-        }
-
-      } else {
-        var toHide = blackList[thisFilter.rel];
-        if (toHide === undefined) {
-          continue;
-        }
-        if (toHide.indexOf(value) >= 0) {
-          $(thisFilter.parentNode).remove();
-        }
-      }
-    }
-  };
-
-  window.add_iframe = function() {
+  function add_iframe() {
     if (window.embed) {
       var url = $(location).attr('href');
       var position = url.indexOf('?');
@@ -60,6 +32,27 @@ $(function($) {
       $('.facet-embed').append(button + popup);
 
     }
-  };
+  }
+
+  if (window.hastemplate === undefined) {
+    window.hastemplate = true;
+    add_iframe();
+    $.get('external_templates/head.html', function(data) {
+      var oldhead = $('head').html();
+      //if (oldhead.indexOf('  <!-- EEA Template below -->') == -1) {
+      //  $('head').html('  <!-- EEA Template below -->' + data + oldhead);
+      // }
+
+      //  $('head').append('  <!-- EEA Template below -->');
+        $('head').append(data);
+      });
+    $.get('external_templates/header.html', function(data) {
+      $('header').html(data);
+    });
+
+    $.get('external_templates/footer.html', function(data) {
+      $('footer').html(data);
+    });
+  }
 
 });
