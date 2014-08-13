@@ -38,20 +38,15 @@ $(function($) {
     window.hastemplate = true;
     add_iframe();
     $.get('external_templates/head.html', function(data) {
-      var oldhead = $('head').html();
-      //if (oldhead.indexOf('  <!-- EEA Template below -->') == -1) {
-      //  $('head').html('  <!-- EEA Template below -->' + data + oldhead);
-      // }
-
-      //  $('head').append('  <!-- EEA Template below -->');
-        $('head').append(data);
-      });
+      $('head').append(data);
+    });
     $.get('external_templates/header.html', function(data) {
-      $('header').html(data);
+      $('body').prepend($(data).filter('#header-holder'));
+      $('head').append($(data).filter('script'));
     });
 
     $.get('external_templates/footer.html', function(data) {
-      $('footer').html(data);
+      $('.footer').append(data);
     });
   }
 
