@@ -3,6 +3,8 @@ Changelog
 
 1.6-dev - (unreleased)
 ----------------------
+* Bug fix: Removed all references of QuickEvent
+  [pasoviul refs #21123]
 
 1.5 - (2014-07-15)
 ------------------
