@@ -7,43 +7,45 @@ $(function($) {
   var appHierarchy = {
     'http://www.w3.org/1999/02/22-rdf-syntax-ns#type' :
       [{
-        'News and Announcements' : [
-                'Highlight', 'Press Release', 'Event', 'Promotion'
-        ],
-        'Articles and Summaries' : ['Article', 'Eco-Tip'],
-        'Audiovisuals': ['Image', 'Video'],
-        'Publications' : ['Report'],
-        'Data and Indicators' :
-          ['Data',
-            {'Data Visualisations': ['Data Visualisation'],
-              'Indicators' : [
-                'Indicator Specification',
-                'Indicator factsheet',
-                'Indicator assessment']}],
-          'Generic' : ['Page', 'Link', 'Data File'],
-          'Assessment part' : [],
-          'Dataset' : [],
-          'Distribution' : [],
-          'EEA Job Vacancy' : [],
-          'Epub File' : [],
-          'External Data Reference' : [],
-          'Eyewitness story' : [],
-          'Figure File' : [],
-          'File' : [],
-          'GIS Map Application' : [],
-          'Methodology Reference' : [],
-          'Organization' : [],
-          'Policy Question' : [],
-          'Rationale Reference' : [],
-          'SOER Key fact' : [],
-          'SOER Message' : [],
-          'Speech' : [],
-          'Text' : [],
-          'Work Item' : []
+        'Highlight' : [],
+        'Press Release' : [],
+        'Event' : [],
+        'Promotion' : [],
+        'Article' : [],
+        'Eco-Tip' : [],
+        'Image' : [],
+        'Video' : [],
+        'Report' : [],
+        'Data' : [],
+        'Data Visualisation' : [],
+        'Indicator Specification' : [],
+        'Indicator factsheet' : [],
+        'Indicator assessment' : [],
+        'Page': [],
+        'Link' : [],
+        'Data File' : [],
+        'Assessment part' : [],
+        'Dataset' : [],
+        'Distribution' : [],
+        'EEA Job Vacancy' : [],
+        'Epub File' : [],
+        'External Data Reference' : [],
+        'Eyewitness story' : [],
+        'Figure File' : [],
+        'File' : [],
+        'GIS Map Application' : [],
+        'Methodology Reference' : [],
+        'Organization' : [],
+        'Policy Question' : [],
+        'Rationale Reference' : [],
+        'SOER Key fact' : [],
+        'SOER Message' : [],
+        'Speech' : [],
+        'Text' : [],
+        'Work Item' : []
         }],
           'http://www.eea.europa.eu/portal_types#topic' : [],
-          'http://purl.org/dc/terms/spatial' : [],
-          'http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState' : []
+          'http://purl.org/dc/terms/spatial' : []
         };
 
   function getToday() {
@@ -180,14 +182,6 @@ $(function($) {
           'size': '100',
           'min_size': '10',
           'order': 'count',
-          'operator': 'AND'
-        },
-        {
-          'field': 'http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState',
-          'display': 'Workflow State',
-          'size': '100',
-          'min_size': '10',
-          'order': 'term',
           'operator': 'AND'
         }
       ],
