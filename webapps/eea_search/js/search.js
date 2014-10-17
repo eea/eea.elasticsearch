@@ -181,7 +181,7 @@ $(function($) {
           'display': 'Spatial coverage',
           'size': '100',
           'min_size': '10',
-          'order': 'count',
+          'order': 'term',
           'operator': 'AND'
         }
       ],
