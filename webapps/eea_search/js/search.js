@@ -200,7 +200,9 @@ $(function($) {
       result_display: [],
       add_undefined: true,
       predefined_filters: [
-        {'term': {'language': language}},
+        {'term': {'language':language}},
+        {'term':{'http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState':
+                    'published'}},
         {'range': {'http://purl.org/dc/terms/issued': {'lte': today}}},
        // {'range': {'http://purl.org/dc/terms/expires': {'gte': today}}},
         {'constant_score': {
