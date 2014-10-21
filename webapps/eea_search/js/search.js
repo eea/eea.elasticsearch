@@ -17,7 +17,7 @@ $(function($) {
         'Video' : [],
         'Report' : [],
         'Data' : [],
-        'Data Visualisation' : [],
+        'Daviz Visualization' : [],
         'Indicator Specification' : [],
         'Indicator factsheet' : [],
         'Indicator assessment' : [],
