@@ -166,7 +166,8 @@ $(function($) {
           'size': '50000',
           'min_size': '10',
           'order': 'term',
-          'operator': 'OR'
+          'operator': 'OR',
+          'facet_display_options': ['sort', 'checkbox']
         },
         {
           'field': 'http://www.eea.europa.eu/portal_types#topic',
@@ -174,7 +175,8 @@ $(function($) {
           'size': '100',
           'min_size': '10',
           'order': 'term',
-          'operator': 'AND'
+          'operator': 'AND',
+          'facet_display_options': ['sort', 'checkbox']
         },
         {
           'field': 'http://purl.org/dc/terms/spatial',
@@ -182,7 +184,8 @@ $(function($) {
           'size': '100',
           'min_size': '10',
           'order': 'term',
-          'operator': 'AND'
+          'operator': 'AND',
+          'facet_display_options': ['sort', 'checkbox']
         }
       ],
       search_sortby: [
