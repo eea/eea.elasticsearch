@@ -97,7 +97,7 @@ $(function($) {
         .addClass('eea-accordion-panels collapsed-by-default non-exclusive');
     $('.facetview_filter').addClass('eea-accordion-panel');
     $('.facetview_showtree').addClass('notoc eea-icon-right-container');
-    $('<span class="eea-icon eea-icon-right">').appendTo('.facetview_showtree');
+    $('.facetview_arrow_right').addClass('eea-icon eea-icon-right');
   }
 
   function display_results() {
