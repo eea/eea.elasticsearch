@@ -92,6 +92,14 @@ $(function($) {
     }
   }
 
+  function add_accordion_settings() {
+    $('#facetview_trees')
+        .addClass('eea-accordion-panels collapsed-by-default non-exclusive');
+    $('.facetview_filter').addClass('eea-accordion-panel');
+    $('.facetview_showtree').addClass('notoc eea-icon-right-container');
+    $('<span class="eea-icon eea-icon-right">').appendTo('.facetview_showtree');
+  }
+
   function display_results() {
     $('.eea-tile').remove();
     var data = $.fn.facetview.options.data;
@@ -223,6 +231,7 @@ $(function($) {
       post_search_callback: function() {
         display_results();
         hide_unused_options(blackList, whiteList);
+        add_accordion_settings();
       },
       linkify: false,
              paging: {
