@@ -208,6 +208,7 @@ $(function($) {
       ],
       sort: [{'http://purl.org/dc/terms/issued': {'order': 'desc'}}
       ],
+      default_operator: 'AND',
       result_display: [],
       add_undefined: true,
       predefined_filters: [
