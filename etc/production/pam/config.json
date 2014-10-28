@@ -1,12 +1,12 @@
 {
     "http":{
         "port":3001,
-        "base_path": "/data-and-maps/pam/"
+        "base_path": "/"
     },
     "es":{
-        "host":"centaurus.eea.europa.eu",
-        "path":"/elasticsearch/pamdata/resources/_search",
-        "field_base":"http://semantic.eea.europa.eu/project/pam/pam.csv#"
+        "host":"centaurus-dev.eea.europa.eu",
+        "path":"/elasticsearch/pamdata-test/resources/_search",
+        "field_base":"http://semantic.eea.europa.eu/project/pam/pam-test.csv#"
     },
     "external_templates":{
         "host" : "www.eea.europa.eu",
