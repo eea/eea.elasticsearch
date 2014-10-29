@@ -18,7 +18,7 @@ var fieldsMapping = [
     {'name' : 'pam_2020_total_kt_CO2', 'field' : field_base + '2020_total_kt_CO2', 'title' : '2020 total (kt CO2-equivalent per year)'},
     {'name' : 'pam_2025_total_kt_CO2', 'field' : field_base + '2025_total_kt_CO2', 'title' : '2025 total (kt CO2-equivalent per year)'},
     {'name' : 'pam_2030_total_kt_CO2', 'field' : field_base + '2030_total_kt_CO2', 'title' : '2030 total (kt CO2-equivalent per year)'},
-    {'name' : 'Absolute_costs_per_year_in_EUR', 'field' : field_base + 'Absolute_costs_per_year_in_EUR', 'title' : 'Absolute costs per year in EUR'},
+    {'name' : 'Absolute_costs_per_year_in_million_EUR', 'field' : field_base + 'Absolute_costs_per_year_in_million_EUR', 'title' : 'Absolute costs per year in million EUR'},
     {'name' : 'Additional_comment', 'field' : field_base + 'Additional_comment', 'title' : 'Additional comment'},
     {'name' : 'Affected_GHG', 'field' : field_base + 'Affected_GHG', 'title' : 'Affected GHG'},
     {'name' : 'Average_emission_reduction_kt_CO2', 'field' : field_base + 'Average_emission_reduction_kt_CO2', 'title' : 'Average emission reduction'},
