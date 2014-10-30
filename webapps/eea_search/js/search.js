@@ -31,7 +31,7 @@ $(function($) {
         'Epub File' : [],
         'External Data Reference' : [],
         'Eyewitness story' : [],
-        'Figure File' : [],
+        'Figure' : [],
         'File' : [],
         'GIS Map Application' : [],
         'Methodology Reference' : [],
