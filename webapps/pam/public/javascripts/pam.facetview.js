@@ -34,7 +34,6 @@ function viewReady(){
 }
 
 jQuery(document).ready(function($) {
-        debugger;
     $('.facet-view-simple').facetview({
         search_url: 'http://' + es_host + es_path,
         search_index: 'elasticsearch',
