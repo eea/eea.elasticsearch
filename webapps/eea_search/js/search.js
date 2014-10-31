@@ -45,7 +45,8 @@ $(function($) {
         'Work Item' : []
         }],
           'http://www.eea.europa.eu/portal_types#topic' : [],
-          'http://purl.org/dc/terms/spatial' : []
+          'http://purl.org/dc/terms/spatial' : [],
+          'http://www.eea.europa.eu/ontologies.rdf#objectProvides' : []
         };
 
   function getToday() {
@@ -193,6 +194,15 @@ $(function($) {
           'min_size': '10',
           'order': 'term',
           'operator': 'AND',
+          'facet_display_options': ['sort', 'checkbox']
+        },
+        {
+          'field' : 'http://www.eea.europa.eu/ontologies.rdf#objectProvides',
+          'display' : 'Interface',
+          'size' : '100',
+          'min_size': '10',
+          'order': 'term',
+          'operator' : 'AND',
           'facet_display_options': ['sort', 'checkbox']
         }
       ],
