@@ -1,6 +1,6 @@
 {
     "http":{
-        "port":3000,
+        "port":3001,
         "base_path": "/eea_search/"
     },
     "es":{
