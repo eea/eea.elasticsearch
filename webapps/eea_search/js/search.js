@@ -46,7 +46,7 @@ $(function($) {
         }],
           'http://www.eea.europa.eu/portal_types#topic' : [],
           'http://purl.org/dc/terms/spatial' : [],
-          'git@github.com:eea/eea.elasticsearch.git' : []
+          'http://www.eea.europa.eu/ontologies.rdf#objectProvides' : []
         };
 
   function getToday() {
