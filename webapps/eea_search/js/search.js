@@ -209,7 +209,7 @@ $(function($) {
       sort: [{'http://purl.org/dc/terms/issued': {'order': 'desc'}}
       ],
       default_operator: 'AND',
-      default_freetext_fuzzify: '*',
+      default_freetext_fuzzify: '~',
       result_display: [],
       add_undefined: true,
       predefined_filters: [
