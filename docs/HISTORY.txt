@@ -4,9 +4,9 @@ Changelog
 1.7-dev - (unreleased)
 ----------------------
 * Feature: Added diacritics support
-  [pasoviul refs #21412]
+  [pasoviul refs #21415]
 * Bugfix: removed wildcard from search box
-  [pasoviul refs #21412]
+  [pasoviul refs #21415]
 * Feature: Added checkbox option to facets
   [pasoviul refs #21412]
 
