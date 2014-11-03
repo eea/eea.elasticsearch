@@ -24,6 +24,10 @@ curl -u eea:eea -XPUT $1'/rdfdata' -d '{
           "type" : "string",
           "analyzer" : "none"
         },
+        "http://www.eea.europa.eu/ontologies.rdf#objectProvides" : {
+          "type" : "string",
+          "analyzer" : "none"
+        },
         "http://purl.org/dc/terms/spatial" : {
           "type" : "string",
           "analyzer" : "none"
