@@ -93,18 +93,39 @@ $(function($) {
     }
   }
 
-  function add_accordion_settings() {
+  function add_EEA_settings() {
+    //Accordion settings
     $('#facetview_trees')
         .addClass('eea-accordion-panels collapsed-by-default non-exclusive');
     $('.facetview_filter').addClass('eea-accordion-panel');
     $('.facetview_showtree').addClass('notoc eea-icon-right-container');
     $('.facetview_arrow_right').addClass('eea-icon eea-icon-right');
+    //Remove results button
+    $('.facetview_howmany').hide();
+    //Remove facetview help
+    $('.facetview_learnmore').hide();
+    //Style buttons
+    $('.btn').addClass('standardButton');
+    //replace share icon
+    $('.icon-share-alt').addClass('eea-icon eea-icon-share-alt');
+    $('.eea-icon-share-alt').removeClass('icon-share-alt');
+    //replace remove icon
+    $('.icon-remove').addClass('eea-icon eea-icon-times');
+    $('.eea-icon-times').removeClass('icon-remove');
+    //change pagination
+    $('.pagination').addClass('paginator listingBar');
+
+
   }
 
   function display_results() {
     $('.eea-tile').remove();
     var data = $.fn.facetview.options.data;
     var prependto = $('.facetview_metadata');
+    var pagers = prependto.length;
+    if (prependto.length == 2) {
+      prependto = $(prependto[1]);
+    }
     for (var i = 0; i < data.records.length; i++) {
       var element = data.records[i];
       var title = element['http://purl.org/dc/terms/title'];
@@ -239,11 +260,12 @@ $(function($) {
       ],
 
       hierarchy: appHierarchy,
+      pager_on_top: true,
       permanent_filters: true,
       post_search_callback: function() {
         display_results();
         hide_unused_options(blackList, whiteList);
-        add_accordion_settings();
+        add_EEA_settings();
       },
       linkify: false,
              paging: {
