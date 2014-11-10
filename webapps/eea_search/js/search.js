@@ -31,7 +31,7 @@ $(function($) {
         'Epub File' : [],
         'External Data Reference' : [],
         'Eyewitness story' : [],
-        'Figure File' : [],
+        'Figure' : [],
         'File' : [],
         'GIS Map Application' : [],
         'Methodology Reference' : [],
@@ -45,7 +45,8 @@ $(function($) {
         'Work Item' : []
         }],
           'http://www.eea.europa.eu/portal_types#topic' : [],
-          'http://purl.org/dc/terms/spatial' : []
+          'http://purl.org/dc/terms/spatial' : [],
+          'http://www.eea.europa.eu/ontologies.rdf#objectProvides' : []
         };
 
   function getToday() {
@@ -92,18 +93,39 @@ $(function($) {
     }
   }
 
-  function add_accordion_settings() {
+  function add_EEA_settings() {
+    //Accordion settings
     $('#facetview_trees')
         .addClass('eea-accordion-panels collapsed-by-default non-exclusive');
     $('.facetview_filter').addClass('eea-accordion-panel');
     $('.facetview_showtree').addClass('notoc eea-icon-right-container');
     $('.facetview_arrow_right').addClass('eea-icon eea-icon-right');
+    //Remove results button
+    $('.facetview_howmany').hide();
+    //Remove facetview help
+    $('.facetview_learnmore').hide();
+    //Style buttons
+    $('.btn').addClass('standardButton');
+    //replace share icon
+    $('.icon-share-alt').addClass('eea-icon eea-icon-share-alt');
+    $('.eea-icon-share-alt').removeClass('icon-share-alt');
+    //replace remove icon
+    $('.icon-remove').addClass('eea-icon eea-icon-times');
+    $('.eea-icon-times').removeClass('icon-remove');
+    //change pagination
+    $('.pagination').addClass('paginator listingBar');
+
+
   }
 
   function display_results() {
     $('.eea-tile').remove();
     var data = $.fn.facetview.options.data;
     var prependto = $('.facetview_metadata');
+    var pagers = prependto.length;
+    if (prependto.length == 2) {
+      prependto = $(prependto[1]);
+    }
     for (var i = 0; i < data.records.length; i++) {
       var element = data.records[i];
       var title = element['http://purl.org/dc/terms/title'];
@@ -194,6 +216,15 @@ $(function($) {
           'order': 'term',
           'operator': 'AND',
           'facet_display_options': ['sort', 'checkbox']
+        },
+        {
+          'field' : 'http://www.eea.europa.eu/ontologies.rdf#objectProvides',
+          'display' : 'Interface',
+          'size' : '100',
+          'min_size': '10',
+          'order': 'term',
+          'operator' : 'AND',
+          'facet_display_options': ['sort', 'checkbox']
         }
       ],
       search_sortby: [
@@ -209,7 +240,7 @@ $(function($) {
       sort: [{'http://purl.org/dc/terms/issued': {'order': 'desc'}}
       ],
       default_operator: 'AND',
-      default_freetext_fuzzify: '*',
+      default_freetext_fuzzify: '~',
       result_display: [],
       add_undefined: true,
       predefined_filters: [
@@ -229,11 +260,12 @@ $(function($) {
       ],
 
       hierarchy: appHierarchy,
+      pager_on_top: true,
       permanent_filters: true,
       post_search_callback: function() {
         display_results();
         hide_unused_options(blackList, whiteList);
-        add_accordion_settings();
+        add_EEA_settings();
       },
       linkify: false,
              paging: {

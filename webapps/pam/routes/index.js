@@ -60,7 +60,7 @@ var fieldsMapping = [
     {'name' : 'Tertiary_EU_policy_responsible_objectives', 'field' : field_base + 'Tertiary_EU_policy_responsible_objectives', 'title' : ''},
     {'name' : 'Type_of_implementing_entities', 'field' : field_base + 'Type_of_implementing_entities', 'title' : 'Type of implementing entities'},
     {'name' : 'Type_of_instrument', 'field' : field_base + 'Type_of_instrument', 'title' : 'Type of instrument'},
-    {'name' : 'Years_for_which_the_reduction_applies', 'field' : field_base + 'Years_for_which_the_reduction_applies', 'title' : 'Year(s) for which the reduction applies'},
+    {'name' : 'Years_for_which_the_reduction_applies', 'field' : field_base + 'Years_for_which_the_reduction_applies', 'title' : 'Year(s) for which the reduction applies'}
 ];
 
 exports.index = function(req, res){
@@ -80,11 +80,11 @@ exports.details = function(req, res){
   var http = require('http');
 
   var query = '{"query":{"bool":{"must":[{"term":{"'+field_base + 'PAMID":"'+req.query.pamid+'"}}]}}}';
-  query = encodeURIComponent(query)
+  query = encodeURIComponent(query);
   var options = {
     host: es_host,
     path: es_path + "?source="+ query
-  }
+  };
   var request = http.request(options, function (result) {
     var data = '';
     result.on('data', function (chunk) {
@@ -93,13 +93,13 @@ exports.details = function(req, res){
     result.on('end', function () {
         try{
             data = JSON.parse(data);
-            tmp_resultobj = new Object();
-            tmp_resultobj["records"] = new Array();
+            tmp_resultobj = {};
+            tmp_resultobj["records"] = [];
 
             for ( var item = 0; item < data.hits.hits.length; item++ ) {
                 tmp_resultobj["records"].push(data.hits.hits[item]._source);
             }
-            resultobj = new Object();
+            resultobj = {};
             for (var idx = 0; idx < fieldsMapping.length; idx++) {
                 resultobj[fieldsMapping[idx]['name']] = {'label':fieldsMapping[idx]['title'],
                                                     'value':tmp_resultobj["records"][0][fieldsMapping[idx]['field']]};
@@ -125,7 +125,7 @@ exports.details = function(req, res){
     console.log(e.message);
   });
   request.end();
-}
+};
 
 exports.invalidate_templates = function(req, res){
     var fs = require("fs");
@@ -137,7 +137,7 @@ exports.invalidate_templates = function(req, res){
     var head_options = {
         host: nconf.get("external_templates:host"),
         path: nconf.get("external_templates:head_path")
-    }
+    };
     var head_request = http.request(head_options, function (res) {
         var data = '';
         res.on('data', function (chunk) {
@@ -155,7 +155,7 @@ exports.invalidate_templates = function(req, res){
     var header_options = {
         host: nconf.get("external_templates:host"),
         path: nconf.get("external_templates:header_path")
-    }
+    };
     var header_request = http.request(header_options, function (res) {
         var data = '';
         res.on('data', function (chunk) {
@@ -173,7 +173,7 @@ exports.invalidate_templates = function(req, res){
     var footer_options = {
         host: nconf.get("external_templates:host"),
         path: nconf.get("external_templates:footer_path")
-    }
+    };
     var footer_request = http.request(footer_options, function (res) {
         var data = '';
         res.on('data', function (chunk) {
@@ -188,5 +188,5 @@ exports.invalidate_templates = function(req, res){
     });
     footer_request.end();
 
-    res.send("done")
-}
+    res.send("done");
+};

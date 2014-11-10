@@ -4,7 +4,13 @@ curl -u eea:eea -XPUT $1'/rdfdata' -d '{
     "analysis" : {
       "analyzer" : {
         "none" : {
-          "type" : "keyword"
+          "type" : "keyword",
+          "filter":  [ "lowercase", "asciifolding" ]
+        },
+        "default" : {
+          "type" : "custom",
+          "tokenizer": "standard",
+          "filter":  [ "lowercase", "stop", "asciifolding" ]
         }
       }
     }
@@ -21,6 +27,10 @@ curl -u eea:eea -XPUT $1'/rdfdata' -d '{
           "analyzer" : "none"
         },
         "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : {
+          "type" : "string",
+          "analyzer" : "none"
+        },
+        "http://www.eea.europa.eu/ontologies.rdf#objectProvides" : {
           "type" : "string",
           "analyzer" : "none"
         },
