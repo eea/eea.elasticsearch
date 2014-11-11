@@ -107,6 +107,7 @@ jQuery(document).ready(function($) {
     replaceNumbers();
     var clean_base = field_base.replace(/\./gi,'_').replace(/\:/gi,'_');
     var facet = $('[id="facetview_' + clean_base + '2020_total_kt_CO2"]')
+    facet.addClass("facet_range_only");
     facet.delegate("a.facetview_filtershow","click", function(event){
         if (facet.find("a.facetview_filtershow").hasClass("facetview_open")){
             facet.find("a.facetview_facetrange").click();
