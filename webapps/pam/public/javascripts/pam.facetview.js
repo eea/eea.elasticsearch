@@ -104,10 +104,13 @@ jQuery(document).ready(function($) {
             size: 10
         }
     });
-    replaceNumbers(); 
-    $('[id="facetview_http_//semantic_eea_europa_eu/project/pam/pam_csv#2020_total_kt_CO2"]').delegate("a.facetview_filtershow","click", function(event){
-        if ($('[id="facetview_http_//semantic_eea_europa_eu/project/pam/pam_csv#2020_total_kt_CO2"]').find("a.facetview_filtershow").hasClass("facetview_open")){
-            $('[id="facetview_http_//semantic_eea_europa_eu/project/pam/pam_csv#2020_total_kt_CO2"]').find("a.facetview_facetrange").click();
+    replaceNumbers();
+    var clean_base = field_base.replace(/\./gi,'_').replace(/\:/gi,'_');
+    var facet = $('[id="facetview_' + clean_base + '2020_total_kt_CO2"]')
+    facet.addClass("facet_range_only");
+    facet.delegate("a.facetview_filtershow","click", function(event){
+        if (facet.find("a.facetview_filtershow").hasClass("facetview_open")){
+            facet.find("a.facetview_facetrange").click();
         }
         else{
             $('.facetview_facetrange_remove').click();
