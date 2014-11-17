@@ -9,6 +9,16 @@
 
  .eea-accordion-panels .eea-accordion-panel > h2 {
     background-color: #fff;
+    border-bottom: none;
+    border-left-style: none;
+    border-right-style: none;
+ }
+
+ .facetview_filter_options {
+    padding-top: 5px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
  }
 
  .facet_order {
@@ -23,6 +33,11 @@
     color: #000 !important;
     float: none;
     text-shadow: none;
+    border-color: rgba(0, 0, 0, 0.25);
+    padding-top: 2px;
+    padding-bottom: 2px;
+    -webkit-border-bottom-left-radius: 4px;
+    -webkit-border-top-left-radius: 4px;
  }
 
  .facet_cond .standardButton {
@@ -32,4 +47,9 @@
     color: #000 !important;
     float: none;
     text-shadow: none;
+    border-color: rgba(0, 0, 0, 0.25);
+    padding-top: 2px;
+    padding-bottom: 2px;
+    -webkit-border-bottom-left-radius: 4px;
+    -webkit-border-top-left-radius: 4px;
  }
