@@ -6,3 +6,30 @@
 
       width: 286px;
  }
+
+ .eea-accordion-panels .eea-accordion-panel > h2 {
+    background-color: #fff;
+ }
+
+ .facet_order {
+    float:left;
+ }
+
+ .facet_order .facetview_sort {
+    background-color: #fff;
+    background-image: none;
+    float: none;
+    font-weight: none;
+    color: #000 !important;
+    float: none;
+    text-shadow: none;
+ }
+
+ .facet_cond .standardButton {
+    background-color: #fff;
+    background-image: none;
+    font-weight: none;
+    color: #000 !important;
+    float: none;
+    text-shadow: none;
+ }
