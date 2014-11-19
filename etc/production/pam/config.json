@@ -6,7 +6,7 @@
     "es":{
         "host":"centaurus.eea.europa.eu",
         "path":"/elasticsearch/pamdata/resources/_search",
-        "field_base":"http://semantic.eea.europa.eu/project/pam/pam.csv#"
+        "field_base":"http://semantic.eea.europa.eu/project/pam/pam2014.csv#",
     },
     "external_templates":{
         "host" : "www.eea.europa.eu",
