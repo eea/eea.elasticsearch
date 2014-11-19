@@ -53,3 +53,41 @@
     -webkit-border-bottom-left-radius: 4px;
     -webkit-border-top-left-radius: 4px;
  }
+
+.facetview_selection {
+    width: 100%;
+    float:left;
+}
+
+.facetview_selected .rel-between {
+    padding-top: 0px;
+    padding-bottom: 2px;
+    padding-left: 0px;
+    padding-right: 0px;
+    display: none;
+}
+
+.facetview_selected .facetview_clear {
+    padding: 1px;
+    background: none;
+    background-color: #999999;
+    border-color: #999999;
+}
+
+.facet-rel-between .facet_operator, .facet_operator:hover {
+    cursor: auto;
+    width: 100%;
+    background: none;
+    background-color: #e6e6e6;
+    padding-top: 0px;
+    padding-bottom: 2px;
+    padding-left: 0px;
+    padding-right: 0px;
+    display:none;
+}
+
+.facetview_filterselected .eea-icon {
+    color: #fff;
+    text-shadow: none;
+
+}

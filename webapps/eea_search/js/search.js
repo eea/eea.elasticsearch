@@ -104,11 +104,10 @@ $(function($) {
     $('.facetview_howmany').hide();
     //Remove facetview help
     $('.facetview_learnmore').hide();
-    //Style buttons
-    $('.btn').addClass('standardButton');
     //replace share icon
     $('.icon-share-alt').addClass('eea-icon eea-icon-share-alt');
     $('.eea-icon-share-alt').removeClass('icon-share-alt');
+    $('.share-icon').addClass('eea-icon eea-icon-share-alt');
     //replace remove icon
     $('.icon-remove').addClass('eea-icon eea-icon-times');
     $('.eea-icon-times').removeClass('icon-remove');
