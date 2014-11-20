@@ -3,6 +3,8 @@ Changelog
 
 1.8-dev - (unreleased)
 ----------------------
+* Change: mark new egg release
+  [ghicaale refs #21453]
 
 1.7 - (2014-11-20)
 ------------------
