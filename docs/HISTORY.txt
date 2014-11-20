@@ -1,6 +1,9 @@
 Changelog
 =========
 
+1.9-dev - (unreleased)
+----------------------
+
 1.8 - (2014-11-20)
 ------------------
 * Change: mark new egg release
