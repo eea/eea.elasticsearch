@@ -1,6 +1,9 @@
 Changelog
 =========
 
+1.8-dev - (unreleased)
+----------------------
+
 1.7 - (2014-11-20)
 ------------------
 * Feature: Added diacritics support
