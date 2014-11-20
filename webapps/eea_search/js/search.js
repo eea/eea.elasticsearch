@@ -239,7 +239,7 @@ $(function($) {
       sort: [{'http://purl.org/dc/terms/issued': {'order': 'desc'}}
       ],
       default_operator: 'AND',
-      //default_freetext_fuzzify: '~',
+      default_freetext_fuzzify: '~1',
       no_results_message: 'Your search did not return any results',
       result_display: [],
       add_undefined: true,
