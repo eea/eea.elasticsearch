@@ -25,6 +25,10 @@
     float:left;
  }
 
+ .content .page-header {
+    background-color: #fff;
+ }
+
  .facet_order .facetview_sort {
     background-color: #fff;
     background-image: none;
@@ -89,5 +93,20 @@
 .facetview_filterselected .eea-icon {
     color: #fff;
     text-shadow: none;
+}
 
+.facetview_top .order-by {
+    margin-left: 0px;
+    float: right;
+}
+
+.order-by .orderby {
+}
+
+.facetview_top .top-pagination {
+    margin: 0px;
+}
+
+.top-pagination .facetview_metadata .pagination {
+    margin: 0px;
 }
