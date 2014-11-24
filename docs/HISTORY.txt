@@ -1,8 +1,16 @@
 Changelog
 =========
 
-1.7-dev - (unreleased)
+1.9-dev - (unreleased)
 ----------------------
+
+1.8 - (2014-11-20)
+------------------
+* Change: mark new egg release
+  [ghicaale refs #21453]
+
+1.7 - (2014-11-20)
+------------------
 * Feature: Added diacritics support
   [pasoviul refs #21415]
 * Bugfix: removed wildcard from search box
