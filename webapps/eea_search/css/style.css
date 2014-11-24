@@ -27,7 +27,13 @@
 
  .content .page-header {
     background-color: #fff;
+    display: inline;
+    border-bottom-color: #fff;
  }
+
+.page-header h1 {
+    border-bottom-color: #fff;
+}
 
  .facet_order .facetview_sort {
     background-color: #fff;
@@ -110,3 +116,12 @@
 .top-pagination .facetview_metadata .pagination {
     margin: 0px;
 }
+
+.facet-share {
+    float:right;
+}
+
+.clear-all {
+    float:right;
+}
+
