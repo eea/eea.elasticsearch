@@ -2,6 +2,12 @@
 curl -u eea:eea -XPUT $1'/rdfdata' -d '{
   "settings" : {
     "analysis" : {
+      "filter" : {
+        "english_stemmer": {
+          "type": "stemmer",
+          "language":   "english"
+        }
+      },
       "analyzer" : {
         "none" : {
           "type" : "keyword",
@@ -10,7 +16,7 @@ curl -u eea:eea -XPUT $1'/rdfdata' -d '{
         "default" : {
           "type" : "custom",
           "tokenizer": "standard",
-          "filter":  [ "lowercase", "stop", "asciifolding" ]
+          "filter":  [ "lowercase", "stop", "asciifolding", "english_stemmer" ]
         }
       }
     }
