@@ -106,14 +106,20 @@
     float: right;
 }
 
-.order-by .orderby {
-}
-
-.facetview_top .top-pagination {
+.top-pagination .facetview_metadata .pagination, .facetview_top .top-pagination  {
     margin: 0px;
+    padding: 0px;
 }
 
-.top-pagination .facetview_metadata .pagination {
+.facetview_metadata .pagination, .facetview_metadata .pagination .next {
+    padding: 0px;
+    margin : 0px;
+}
+
+.facetview_metadata .pagination .active a:hover, .facetview_metadata .pagination .active a{
+    color: #999999;
+    cursor: default;
+    padding: 0px;
     margin: 0px;
 }
 
@@ -124,4 +130,6 @@
 .clear-all {
     float:right;
 }
+
+
 
