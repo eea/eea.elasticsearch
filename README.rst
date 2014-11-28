@@ -50,7 +50,7 @@ Development instalation using Vagrant
 We provide most of the setup steps in a Vagrant box for a clean install
 in a virtual machine.
 
-In the __same__ directory clone these projects::
+In the **same** directory clone these projects::
 
     git clone https://github.com/eea/eea.elasticsearch
 
@@ -58,7 +58,9 @@ In the __same__ directory clone these projects::
 
     git clone git@github.com:eea/elasticsearch-servicewrapper.git
 
-Follow instructions in vagrant/README.rst
+Follow instructions in `vagrant/README.rst`_
+
+.. _`vagrant/README.rst`: vagrant/README.rst
 
 If you want a local setup follow the instructions in the next section.
 
