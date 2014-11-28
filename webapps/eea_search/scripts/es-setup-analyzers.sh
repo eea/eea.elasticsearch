@@ -11,7 +11,7 @@ curl -u eea:eea -XPUT $1'/rdfdata' -d '{
       "analyzer" : {
         "none" : {
           "type" : "keyword",
-          "filter":  [ "lowercase", "asciifolding" ]
+          "filter":  [ "lowercase" ]
         },
         "default" : {
           "type" : "custom",
