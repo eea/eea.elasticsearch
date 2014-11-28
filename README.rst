@@ -44,6 +44,25 @@ Live demos
 * `Climate change policies and measures in Europe Demo <http://www.eea.europa.eu/data-and-maps/pam/>`_
 
 
+Development instalation using Vagrant
+=====================================
+
+We provide most of the setup steps in a Vagrant box for a clean install
+in a virtual machine.
+
+In the __same__ directory clone these projects::
+
+    git clone https://github.com/eea/eea.elasticsearch
+
+    git clone git clone https://github.com/eea/facetview.git
+
+    git clone git@github.com:eea/elasticsearch-servicewrapper.git
+
+Follow instructions in vagrant/README.rst
+
+If you want a local setup follow the instructions in the next section.
+
+
 Installation
 ============
 
