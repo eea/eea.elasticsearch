@@ -5,6 +5,7 @@
 /webapps/eea_search/external_templates
 /eea/external_templates
 .DS_STORE
+.vagrant
 *.egg-info
 *.pyc
 *.mo
