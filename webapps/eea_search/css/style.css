@@ -1,41 +1,22 @@
- #portal-searchbox form {
-      margin: 0;
+#portal-searchbox form {
+    margin: 0;
 }
 
- #portal-searchbox form input {
+#portal-searchbox form input {
+    width: 286px;
+}
 
-      width: 286px;
- }
-
- .eea-accordion-panels .eea-accordion-panel > h2 {
-    background-color: #fff;
-    border-bottom: none;
-    border-left-style: none;
-    border-right-style: none;
- }
-
- .facetview_filter_options {
-    padding-top: 5px;
-    padding-bottom: 10px;
-    padding-left: 5px;
-    padding-right: 5px;
- }
-
- .facet_order {
-    float:left;
- }
-
- .content .page-header {
+.content .page-header {
     background-color: #fff;
     display: inline;
     border-bottom-color: #fff;
- }
+}
 
 .page-header h1 {
     border-bottom-color: #fff;
 }
 
- .facet_order .facetview_sort {
+.facet_order .facetview_sort {
     background-color: #fff;
     background-image: none;
     float: none;
@@ -48,9 +29,9 @@
     padding-bottom: 2px;
     -webkit-border-bottom-left-radius: 4px;
     -webkit-border-top-left-radius: 4px;
- }
+}
 
- .facet_cond .standardButton {
+.facet_cond .standardButton {
     background-color: #fff;
     background-image: none;
     font-weight: none;
@@ -62,7 +43,7 @@
     padding-bottom: 2px;
     -webkit-border-bottom-left-radius: 4px;
     -webkit-border-top-left-radius: 4px;
- }
+}
 
 .facetview_selection {
     width: 100%;
@@ -127,9 +108,122 @@
     float:right;
 }
 
+
+
+
+
+/* stupid style fixes */
+.eea-icon:before { margin: auto; }
+.jstree-default a.jstree-anchor { white-space: nowrap; }
+
+/* tile clearing */
+.facetview_top:after {
+    content: '';
+    display: table;
+    clear: both;
+}
+.facetview_top .top-pagination,
+.facetview_top .order-by {
+    width: auto;
+    line-height: 26px;
+}
+
+/* tile */
+.eea-tileInner img {
+    padding-top: 0;
+}
+.eea-tileInner .eea-titleTile {
+    line-height: 1;
+}
+
+/* pagination */
+.pagination {
+    height: auto;
+}
+/*.pagination li, */
+.facetview_metadata .pagination .prev,
+.facetview_metadata .pagination .next {
+    min-width: 0;
+}
+.pagination a {
+    float: none;
+}
+
+/* filter group */
+.eea-accordion-panels .eea-accordion-panel > h2 {
+    background-color: #fff;
+    border-bottom: none;
+    border-left-style: none;
+    border-right-style: none;
+}
+.eea-accordion-panel .facetview_open .eea-icon:before {
+    content: "\f078";
+}
+.eea-accordion-panel .facetview_open:hover .eea-icon:before {
+    content: "\f053";
+}
+
+/* filter group container */
+.facetview_tree {
+    margin: -1px;
+    border-color: #DDD!important;
+    box-shadow: inset 0 2px 3px -1px rgba(0,0,0,.1);
+}
+
+/* filter group sort */
+.facetview_filter_options {
+    padding-top: 5px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.facetview_filter_options .facet_order {
+    float:left;
+}
+.facetview_filter_options .facet_order .facetview_sort {
+    float: right;
+    margin-left: 4px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.facetview_filter_options .facet_cond .facetview_or {
+    margin-right: 4px;
+}
+.facetview_filter_options .facet_cond .facetview_or,
+.facetview_filter_options .facet_order .facetview_sort {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.facetview_filter_options i {
+    margin-top: auto;
+    vertical-align: -3px;
+}
+
+
+/* current filters */
+.filters-header,
+.facetview-filter-values {
+    margin-bottom: 5px;
+    overflow: hidden;
+}
+.facetview_selection {
+    margin-bottom: 3px;
+}
+.facetview_selection .facetview_filterselected {
+    float: none;
+    margin-right: 3px;
+    padding: 0;
+    vertical-align: baseline;
+}
+.facetview_selection .facetview_filterselected i {
+    margin-top: auto;
+}
 .clear-all {
     float:right;
 }
 
-
-
+/* overall alignment */
+.facet-view-simple h1,
+.facet-view-simple h2 {
+    margin-top: auto;
+}
