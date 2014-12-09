@@ -6,6 +6,7 @@ apt-get upgrade
 sudo apt-get install unzip -y
 sudo apt-get install openjdk-7-jre-headless -y
 
+echo -n "Installing elasticsearch..."
 if [ ! -d /root/elasticsearch ]; then
     rm -f elasticsearch-0.9.0.zip
     rm -rf elasticsearch-0.9.0
@@ -18,7 +19,10 @@ if [ ! -d /root/elasticsearch ]; then
     rm -rf /root/elasticsearch/config
     ln -s /home/vagrant/eea.elasticsearch/etc/dev/config /root/elasticsearch/config
 fi
+echo "Done"
 
+
+echo -n "Installing elasticsearch plugins..."
 if [ ! -d /root/elasticsearch/plugins/eea-rdf-river-1.4.2 ]; then
     /root/elasticsearch/bin/plugin --url https://github.com/eea/eea.elasticsearch.river.rdf/raw/master/target/releases/eea-rdf-river-plugin-1.4.2.zip --install eea-rdf-river-1.4.2
 fi
@@ -35,6 +39,7 @@ fi
 if [ ! -d /root/elasticsearch/plugins/head ]; then
     /root/elasticsearch/bin/plugin -install mobz/elasticsearch-head
 fi
+echo "Done"
 
 sudo apt-get install apache2 -y
 a2enmod proxy_http
