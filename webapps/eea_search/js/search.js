@@ -289,6 +289,7 @@ $(function($) {
       ],
       default_operator: 'AND',
       default_freetext_fuzzify: '',
+      querystr_filtered_chars: ':',
       no_results_message: 'Your search did not return any results',
       result_display: [],
       add_undefined: true,
