@@ -16,33 +16,8 @@
     border-bottom-color: #fff;
 }
 
-.facet_order .facetview_sort {
-    background-color: #fff;
-    background-image: none;
-    float: none;
-    font-weight: none;
-    color: #000 !important;
-    float: none;
-    text-shadow: none;
-    border-color: rgba(0, 0, 0, 0.25);
-    padding-top: 2px;
-    padding-bottom: 2px;
-    -webkit-border-bottom-left-radius: 4px;
-    -webkit-border-top-left-radius: 4px;
-}
-
-.facet_cond .standardButton {
-    background-color: #fff;
-    background-image: none;
-    font-weight: none;
-    color: #000 !important;
-    float: none;
-    text-shadow: none;
-    border-color: rgba(0, 0, 0, 0.25);
-    padding-top: 2px;
-    padding-bottom: 2px;
-    -webkit-border-bottom-left-radius: 4px;
-    -webkit-border-top-left-radius: 4px;
+#facetview_filters > h2 {
+    font-size: 120%;
 }
 
 .facetview_selection {
@@ -61,8 +36,8 @@
 .facetview_selected .facetview_clear {
     padding: 1px;
     background: none;
-    background-color: #999999;
-    border-color: #999999;
+    background-color: #f0f0f0;
+    border-color: #ccc;
 }
 
 .facet-rel-between .facet_operator, .facet_operator:hover {
@@ -78,7 +53,7 @@
 }
 
 .facetview_filterselected .eea-icon {
-    color: #fff;
+    color: #aaa;
     text-shadow: none;
 }
 
@@ -155,6 +130,7 @@
     border-bottom: none;
     border-left-style: none;
     border-right-style: none;
+    font-size: 100%;
 }
 .eea-accordion-panel .facetview_open .eea-icon:before {
     content: "\f078";
@@ -177,23 +153,42 @@
     padding-left: 5px;
     padding-right: 5px;
 }
-.facetview_filter_options .facet_order {
-    float:left;
+
+.facetview_filter_options > * {
+    display: inline-block;
 }
-.facetview_filter_options .facet_order .facetview_sort {
-    float: right;
-    margin-left: 4px;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
+
+.facetview_filter_options span {
+    border: 1px solid;
+    border-right: 0;
+    padding-top: 1px;
+    padding-bottom: 3px;
+    padding-left: 6px;
+    padding-right: 6px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    background-color: #f0f0f0;
+    border-color: rgba(0, 0, 0, 0.05);
 }
-.facetview_filter_options .facet_cond .facetview_or {
+
+.facetview_filter_options .btn {
     margin-right: 4px;
+    border-left: 0;
+    color: #000 !important;
+    background-color: #fff;
+    background-image: none;
+    float: none;
+    font-weight: bold;
+    float: none;
+    text-shadow: none;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 3px;
+    padding-right: 3px;
+    box-shadow: none;
+    border-color: rgba(0, 0, 0, 0.05);
 }
-.facetview_filter_options .facet_cond .facetview_or,
-.facetview_filter_options .facet_order .facetview_sort {
-    padding-top: 0;
-    padding-bottom: 0;
-}
+
 .facetview_filter_options i {
     margin-top: auto;
     vertical-align: -3px;
@@ -215,8 +210,9 @@
     padding: 0;
     vertical-align: baseline;
 }
-.facetview_selection .facetview_filterselected i {
-    margin-top: auto;
+.facetview_selection i {
+    width: 17px;
+    background-image: none !important;
 }
 .clear-all {
     float:right;
