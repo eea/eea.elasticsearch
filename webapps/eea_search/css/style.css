@@ -166,37 +166,38 @@
 
 .facetview_filter_options > * {
     display: inline-block;
+    border: 1px solid;
+    border-color: #ccc;
+    border-radius: 4px;
+}
+
+.facetview_filter_options span,
+.facetview_filter_options .btn {
+    border: 0 !important;
+    color: #000 !important;
+    background-image: none;
+    float: none;
+    text-shadow: none;
+    display: inline-block;
+    font-size: 11px;
+    padding: 2px 10px 2px 4px !important;
+    box-shadow: none;
+    vertical-align: middle !important;
+    line-height: 16px;
 }
 
 .facetview_filter_options span {
-    border: 1px solid;
-    border-right: 0;
-    padding-top: 1px;
-    padding-bottom: 3px;
-    padding-left: 6px;
-    padding-right: 6px;
+    margin: 0;
+    background-color: #f0f0f0;
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
-    background-color: #f0f0f0;
-    border-color: rgba(0, 0, 0, 0.05);
 }
 
 .facetview_filter_options .btn {
-    margin-right: 4px;
-    border-left: 0;
-    color: #000 !important;
     background-color: #fff;
-    background-image: none;
-    float: none;
     font-weight: bold;
-    float: none;
-    text-shadow: none;
-    padding-top: 1px;
-    padding-bottom: 1px;
-    padding-left: 3px;
-    padding-right: 3px;
-    box-shadow: none;
-    border-color: rgba(0, 0, 0, 0.05);
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
 }
 
 .facetview_filter_options i {
