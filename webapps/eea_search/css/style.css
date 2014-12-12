@@ -6,6 +6,13 @@
     width: 286px;
 }
 
+.facetview_freetext {
+    height: 24px;
+    font-size: 18px;
+    margin-top: 26px;
+    padding: 4px;
+}
+
 .content .page-header {
     background-color: #fff;
     display: inline;
@@ -65,6 +72,7 @@
 .top-pagination .facetview_metadata .pagination, .facetview_top .top-pagination  {
     margin: 0px;
     padding: 0px;
+    font-size: 14px;
 }
 
 .facetview_metadata .pagination, .facetview_metadata .pagination .next {
@@ -109,6 +117,8 @@
 }
 .eea-tileInner .eea-titleTile {
     line-height: 1;
+    padding-bottom: 0;
+    font-size: 100%;
 }
 
 /* pagination */
