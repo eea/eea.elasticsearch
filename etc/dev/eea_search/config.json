@@ -4,7 +4,7 @@
         "base_path": "/eea_search/"
     },
     "es":{
-        "host":"http://eea-es-dev",
+        "host":"http://centaurus-dev.eea.europa.eu",
         "path":"/elasticsearch/rdfdata/resource/_search?"
     }
 }
