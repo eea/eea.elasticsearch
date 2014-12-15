@@ -144,6 +144,14 @@
     float: none;
 }
 
+.pagination li {
+    float: none !important;
+}
+
+.pagination ul {
+    box-shadow: none !important;
+}
+
 /* filter group */
 .eea-accordion-panels .eea-accordion-panel > h2 {
     background-color: #fff;
