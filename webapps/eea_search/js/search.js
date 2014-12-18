@@ -279,7 +279,7 @@ $(function($) {
         {
           'field': 'http://purl.org/dc/terms/title',
           'display_asc': 'Title a-z',
-          'display_desc': 'Title a-z'
+          'display_desc': 'Title z-a'
         },
         {
           'field': 'http://purl.org/dc/terms/issued',
