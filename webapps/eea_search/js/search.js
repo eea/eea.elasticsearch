@@ -278,11 +278,13 @@ $(function($) {
       search_sortby: [
         {
           'field': 'http://purl.org/dc/terms/title',
-          'display': 'Title'
+          'display_asc': 'Title a-z',
+          'display_desc': 'Title a-z'
         },
         {
           'field': 'http://purl.org/dc/terms/issued',
-          'display': 'Publishing date'
+          'display_asc': 'Oldest',
+          'display_desc': 'Newest'
         }
       ],
       sort: [{'http://purl.org/dc/terms/issued': {'order': 'desc'}}
