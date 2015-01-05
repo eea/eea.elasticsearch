@@ -1,4 +1,4 @@
-#!/var/local/nodejs/bin/nodejs
+#!/var/local/nodejs/bin/node
 
 var options = {
     'es_host': process.argv[2],
