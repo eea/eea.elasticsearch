@@ -50,6 +50,7 @@ var normObj = {
     "Russia" : "Russian Federation",
     "Kosovo (UNSCR 1244/99)" : "Kosovo",
     "Macedonia (FYR)" : "Macedonia",
+    "Default" : "Various other issues",
     "http://www.eea.europa.eu/portal_vocabularies/themes/acidification" : "Air Pollution",
     "http://www.eea.europa.eu/portal_vocabularies/themes/air_quality" : "Air pollution",
     "http://www.eea.europa.eu/portal_vocabularies/themes/nature" : "Biodiversity",
@@ -70,6 +71,11 @@ var normObj = {
     "http://www.eea.europa.eu/portal_workflow/eea_default_workflow/states/published": "published",
     "http://www.eea.europa.eu/portal_workflow/eea_data_workflow/states/published": "published"
 };
+
+var normMissing = {
+    "http://purl.org/dc/terms/spatial": "Other",
+    "http://www.eea.europa.eu/portal_types#topic": "Various other issues"
+}
 
 var req_body = {
   "type": "eeaRDF",
@@ -95,6 +101,7 @@ var req_body = {
     "proplist" : proplist,
     "listtype" : "white",
     "normProp" : normalisedProperties,
+    "normMissing" : normMissing,
     "blackMap" : blackMap,
     "whiteMap" : whiteMap,
     "normObj" : normObj

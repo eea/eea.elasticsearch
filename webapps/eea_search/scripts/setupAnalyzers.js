@@ -30,6 +30,7 @@ var rdfdataMappings = {
     },
     'http://www.eea.europa.eu/portal_types#topic' : {
       'type' : 'string',
+      'null_value' : 'Various other issues',
       'analyzer' : 'none'
     },
     'http://www.w3.org/1999/02/22-rdf-syntax-ns#type' : {
