@@ -1,4 +1,4 @@
-var api = require('./util/esAPI.js');
+var api = require('../../common/lib/esAPI.js');
 
 // User defined filters for both query and index _tokens_
 var filters = {
