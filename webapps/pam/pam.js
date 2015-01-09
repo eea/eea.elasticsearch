@@ -7,6 +7,7 @@ var routes = require('./routes');
 var http = require('http');
 var path = require('path');
 var nconf = require('nconf');
+var template = require('../common/lib/template')
 
 var app = express();
 
@@ -14,6 +15,8 @@ var app = express();
 nconf.file({file:'config.json'})
 
 // all environments
+console.log(nconf.get("http:port"));
+console.log("penis");
 app.set('port', process.env.PORT || nconf.get("http:port"));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
@@ -32,7 +35,7 @@ if ('development' == app.get('env')) {
 app.get('/', routes.index);
 app.get('/index', routes.index);
 app.get('/details', routes.details);
-app.get('/invalidate_templates', routes.invalidate_templates);
+app.get('/invalidate_templates', template.invalidate_templates(nconf));
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
