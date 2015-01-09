@@ -5,6 +5,27 @@ apt-get upgrade
 
 sudo apt-get install unzip -y
 sudo apt-get install openjdk-7-jre-headless -y
+sudo apt-get install nodejs -y
+
+mkdir -p /var/local/nodejs/bin
+
+if [ ! -L /var/local/nodejs/bin/node ]; then
+    ln -s /usr/bin/nodejs /var/local/nodejs/bin/node
+fi
+
+mkdir -p /var/lock/subsys/
+
+mkdir -p /etc/rc.d/init.d/
+echo "echo_success()" >> /etc/rc.d/init.d/functions
+echo "{"              >> /etc/rc.d/init.d/functions
+echo "echo 'OK'"      >> /etc/rc.d/init.d/functions
+echo "return 0"       >> /etc/rc.d/init.d/functions
+echo "}"              >> /etc/rc.d/init.d/functions
+echo "echo_failure()" >> /etc/rc.d/init.d/functions
+echo "{"              >> /etc/rc.d/init.d/functions
+echo "echo 'FAIL'"    >> /etc/rc.d/init.d/functions
+echo "return 1"       >> /etc/rc.d/init.d/functions
+echo "}"              >> /etc/rc.d/init.d/functions
 
 echo -n "Installing elasticsearch..."
 if [ ! -d /root/elasticsearch ]; then
@@ -23,8 +44,9 @@ echo "Done"
 
 
 echo -n "Installing elasticsearch plugins..."
-if [ ! -d /root/elasticsearch/plugins/eea-rdf-river-1.4.2 ]; then
-    /root/elasticsearch/bin/plugin --url https://github.com/eea/eea.elasticsearch.river.rdf/raw/master/target/releases/eea-rdf-river-plugin-1.4.2.zip --install eea-rdf-river-1.4.2
+if [ ! -d /root/elasticsearch/plugins/eea-rdf-river-1.4.3 ]; then
+    rm -rf /root/elasticsearch/plugins/eea-rdf-river-1.4.2
+    /root/elasticsearch/bin/plugin --url https://github.com/eea/eea.elasticsearch.river.rdf/raw/master/target/releases/eea-rdf-river-plugin-1.4.3.zip --install eea-rdf-river-1.4.3
 fi
 
 if [ ! -d /root/elasticsearch/plugins/elasticsearch-jetty-0.90.0 ]; then
@@ -63,10 +85,17 @@ if [ ! -L /etc/apache2/sites-available/elasticsearch.conf ]; then
     ln -s /home/vagrant/eea.elasticsearch/etc/dev/httpd/elasticsearch.conf /etc/apache2/sites-available/elasticsearch.conf
 fi
 
+if [ ! -L /etc/init.d/eea-search-dev ]; then
+    ln -s /home/vagrant/eea.elasticsearch/etc/dev/init.d/eea-search-dev /etc/init.d/eea-search-dev
+fi
+
 # Restart apache2
 service apache2 restart
 
 # Starting elasticsearch
 /root/elasticsearch/bin/elasticsearch
+
+# Starting eea-search
+sudo /etc/init.d/eea-search-dev start
 
 echo "Bootstrap complete!"
