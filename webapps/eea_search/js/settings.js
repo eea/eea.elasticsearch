@@ -1,1 +1,0 @@
-../../../eea/elasticsearch/js/settings.js

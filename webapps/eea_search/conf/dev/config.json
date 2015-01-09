@@ -1,0 +1,16 @@
+{
+    "http":{
+        "port":3011,
+        "base_path": "/search/"
+    },
+    "es":{
+        "host":"http://centaurus-dev.eea.europa.eu",
+        "path":"/elasticsearch/rdfdata/resource/_search"
+    },
+    "external_templates":{
+        "host" : "www.eea.europa.eu",
+        "head_path" : "/templates/v2/getRequiredHead?jsdisable=all",
+        "header_path" : "/templates/v2/getHeader?jsdisable=all",
+        "footer_path" : "/templates/v2/getFooter"
+    }
+}
