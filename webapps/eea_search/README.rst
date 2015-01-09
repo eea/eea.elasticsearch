@@ -20,3 +20,13 @@ pre-set to 'en'.
 ::
 
 predefined_filters: [{'term': {'language':'en'}}]
+
+=====
+Setup
+=====
+
+1. Add elasticsearch.conf in httpd config directory
+2. Add symlink to etc/{dev|production}/init.d/eea-search{-dev} in /etc/init.d
+3. /etc/init.d/eea-search{-dev} start
+4. in your browser go to $URL/search/invalidate_templates.
+5. go to $URL/search and check the results
