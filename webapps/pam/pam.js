@@ -16,7 +16,6 @@ nconf.file({file:'config.json'})
 
 // all environments
 console.log(nconf.get("http:port"));
-console.log("penis");
 app.set('port', process.env.PORT || nconf.get("http:port"));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
