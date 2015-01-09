@@ -1,0 +1,48 @@
+doctype html
+html
+    head
+        meta(http-equiv="content-type", content="text/html; charset=UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+
+        title EEA Advanced search &mdash; Global catalogue
+
+
+        script(type="text/javascript", src="/vendor/jquery/1.7.1/jquery-1.7.1.min.js")
+        script(type="text/javascript", src="/vendor/linkify/1.0/jquery.linkify-1.0-min.js")
+        script(type="text/javascript", src="/vendor/bootstrap/js/bootstrap.min.js")
+        script(src="/vendor/dist/libs/jquery.js")
+        script(src="/vendor/dist/jstree.min.js")
+        script(type="text/javascript", src="/vendor/jquery-ui-1.8.18.custom/jquery-ui-1.8.18.custom.min.js")
+
+        script(type="text/javascript").
+            var es_host="#{es_host}";
+            var es_path="#{es_path}";
+
+        script(type="text/javascript" src="/jquery.facetview.js")
+        script(type="text/javascript", src="#{base_path}js/search.js")
+        script(src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js")
+
+        link(rel="shortcut icon", type="image/x-icon", href="http://www.eea.europa.eu/favicon.ico")
+
+        link(rel="stylesheet", href="/vendor/jquery-ui-1.8.18.custom/jquery-ui-1.8.18.custom.css")
+        link(rel="stylesheet", href="/vendor/bootstrap/css/bootstrap.min.css")
+        link(rel="stylesheet", href="/vendor/dist/themes/default/style.min.css")
+        link(rel="stylesheet", href="/css/style.css")
+        link(rel="stylesheet", href="#{base_path}css/tiles.css")
+        link(rel="stylesheet", href="/css/facetview.css")
+        link(rel="stylesheet", href="#{base_path}css/style.css")
+
+        include ../external_templates/head.html
+
+    body(class="no-touch")
+        include ../external_templates/header.html
+        div(class="container")
+            div(class="content")
+                div(class="page-header")
+                    h1(style="dispaly:inline-block;") EEA Advanced search - Global catalogue
+                    div(class="facet-share")
+                        a(class="facetview-share")
+                            i(class="share-icon") Share this search
+                    div(class="facet-embed", style="display:inline-block; float:right")
+                div(class="facet-view-simple")
+        include ../external_templates/footer.html

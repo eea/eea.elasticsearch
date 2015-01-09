@@ -1,8 +1,8 @@
 /webapps/pam/external_templates
 /webapps/pam/node_modules/
 /webapps/pam/config.json
-/webapps/eea_search/config.json
 /webapps/eea_search/external_templates
+/webapps/eea_search/node_modules/
 /eea/external_templates
 .DS_STORE
 .vagrant

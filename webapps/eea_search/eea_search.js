@@ -12,13 +12,15 @@ var template = require('../common/lib/template')
 var app = express();
 
 // configuration from config.json
-nconf.file({file:'config.json'})
+// based on the running environment
+var nconfFile = 'conf/' + process.argv[2] + '/config.json';
+nconf.file({file: nconfFile});
 
 // all environments
-console.log(nconf.get("http:port"));
 app.set('port', process.env.PORT || nconf.get("http:port"));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
+app.set('nconf', nconf);
 app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
@@ -33,7 +35,6 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 app.get('/index', routes.index);
-app.get('/details', routes.details);
 app.get('/invalidate_templates', template.invalidate_templates(nconf));
 
 http.createServer(app).listen(app.get('port'), function(){

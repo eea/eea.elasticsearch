@@ -232,100 +232,98 @@ $(function($) {
   var today = getToday();
 
   var s_url = '';
-  var jsoninfo = $.getJSON('config.json', function(data) {
-    s_url = data.es.host + data.es.path;
-    var facetview_ob = $('.facet-view-simple').facetview({
-      search_url: s_url,
-      search_index: 'elasticsearch',
-      facets: [
-        {
-          'field': 'http://www.w3.org/1999/02/22-rdf-syntax-ns#type',
-          'display': 'Product Type',
-          'size': '50000',
-          'min_size': '10',
-          'order': 'term',
-          'operator': 'OR',
-          'facet_display_options': ['sort', 'checkbox']
-        },
-        {
-          'field': 'http://www.eea.europa.eu/portal_types#topic',
-          'display': 'EEA Topic',
-          'size': '100',
-          'min_size': '10',
-          'order': 'term',
-          'operator': 'AND',
-          'facet_display_options': ['sort', 'checkbox']
-        },
-        {
-          'field': 'http://purl.org/dc/terms/spatial',
-          'display': 'Spatial coverage',
-          'size': '100',
-          'min_size': '10',
-          'order': 'term',
-          'operator': 'AND',
-          'facet_display_options': ['sort', 'checkbox']
-        },
-        {
-          'field' : 'http://www.eea.europa.eu/ontologies.rdf#objectProvides',
-          'display' : 'Interface',
-          'size' : '100',
-          'min_size': '10',
-          'order': 'term',
-          'operator' : 'AND',
-          'facet_display_options': ['sort', 'checkbox']
-        }
-      ],
-      search_sortby: [
-        {
-          'field': 'http://purl.org/dc/terms/title',
-          'display_asc': 'Title a-z',
-          'display_desc': 'Title z-a'
-        },
-        {
-          'field': 'http://purl.org/dc/terms/issued',
-          'display_asc': 'Oldest',
-          'display_desc': 'Newest'
-        }
-      ],
-      sort: [{'http://purl.org/dc/terms/issued': {'order': 'desc'}}
-      ],
-      default_operator: 'AND',
-      default_freetext_fuzzify: '',
-      querystr_filtered_chars: ':?',
-      no_results_message: 'Your search did not return any results',
-      result_display: [],
-      add_undefined: true,
-      predefined_filters: [
-        {'term': {'language': language}},
-        {'term': {'http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState':
-                    'published'}},
-        {'range': {'http://purl.org/dc/terms/issued': {'lte': today}}},
-       // {'range': {'http://purl.org/dc/terms/expires': {'gte': today}}},
-        {'constant_score': {
-          'filter': {
-            'or': [
-              {'missing': {'field': 'http://purl.org/dc/terms/expires'}},
-              {'range': {'http://purl.org/dc/terms/expires': {'gte': today}}}
-            ]
-          }}
-        }
-      ],
-
-      hierarchy: appHierarchy,
-      pager_on_top: true,
-      permanent_filters: true,
-      post_search_callback: function() {
-        display_results();
-        hide_unused_options(blackList, whiteList);
-        add_EEA_settings();
-        add_iframe();
+  s_url = es_host + es_path;
+  var facetview_ob = $('.facet-view-simple').facetview({
+    search_url: s_url,
+    search_index: 'elasticsearch',
+    facets: [
+      {
+        'field': 'http://www.w3.org/1999/02/22-rdf-syntax-ns#type',
+        'display': 'Product Type',
+        'size': '50000',
+        'min_size': '10',
+        'order': 'term',
+        'operator': 'OR',
+        'facet_display_options': ['sort', 'checkbox']
       },
-      linkify: false,
-             paging: {
-                from: 0,
-                size: 20
-              }
-    });
+      {
+        'field': 'http://www.eea.europa.eu/portal_types#topic',
+        'display': 'EEA Topic',
+        'size': '100',
+        'min_size': '10',
+        'order': 'term',
+        'operator': 'AND',
+        'facet_display_options': ['sort', 'checkbox']
+      },
+      {
+        'field': 'http://purl.org/dc/terms/spatial',
+        'display': 'Spatial coverage',
+        'size': '100',
+        'min_size': '10',
+        'order': 'term',
+        'operator': 'AND',
+        'facet_display_options': ['sort', 'checkbox']
+      },
+      {
+        'field' : 'http://www.eea.europa.eu/ontologies.rdf#objectProvides',
+        'display' : 'Interface',
+        'size' : '100',
+        'min_size': '10',
+        'order': 'term',
+        'operator' : 'AND',
+        'facet_display_options': ['sort', 'checkbox']
+      }
+    ],
+    search_sortby: [
+      {
+        'field': 'http://purl.org/dc/terms/title',
+        'display_asc': 'Title a-z',
+        'display_desc': 'Title z-a'
+      },
+      {
+        'field': 'http://purl.org/dc/terms/issued',
+        'display_asc': 'Oldest',
+        'display_desc': 'Newest'
+      }
+    ],
+    sort: [{'http://purl.org/dc/terms/issued': {'order': 'desc'}}
+    ],
+    default_operator: 'AND',
+    default_freetext_fuzzify: '',
+    querystr_filtered_chars: ':?',
+    no_results_message: 'Your search did not return any results',
+    result_display: [],
+    add_undefined: true,
+    predefined_filters: [
+      {'term': {'language': language}},
+      {'term': {'http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState':
+                  'published'}},
+      {'range': {'http://purl.org/dc/terms/issued': {'lte': today}}},
+     // {'range': {'http://purl.org/dc/terms/expires': {'gte': today}}},
+      {'constant_score': {
+        'filter': {
+          'or': [
+            {'missing': {'field': 'http://purl.org/dc/terms/expires'}},
+            {'range': {'http://purl.org/dc/terms/expires': {'gte': today}}}
+          ]
+        }}
+      }
+    ],
+
+    hierarchy: appHierarchy,
+    pager_on_top: true,
+    permanent_filters: true,
+    post_search_callback: function() {
+      display_results();
+      hide_unused_options(blackList, whiteList);
+      add_EEA_settings();
+      add_iframe();
+    },
+    linkify: false,
+           paging: {
+              from: 0,
+              size: 20
+            }
   });
 
 });

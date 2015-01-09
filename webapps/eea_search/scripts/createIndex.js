@@ -1,5 +1,5 @@
 var countries = require('./util/countries.js');
-var api = require('./util/esAPI.js');
+var api = require('../../common/lib/esAPI.js');
 
 // Properties that are indexed into ElasticSearch
 var proplist = [
