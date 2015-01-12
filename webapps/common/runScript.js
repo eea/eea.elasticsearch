@@ -6,7 +6,8 @@ var options = {
 }
 
 console.log('Running: ' + process.argv[3]);
-var script = require('./' + process.argv[3]);
+var localPrefix = process.argv[3].charAt(0) === '/' ? '' : './';
+var script = require(localPrefix + process.argv[3]);
 script.run(options, {
     success: function(statusCode, header, body) {
         console.log('ResponseCode: ', statusCode);
