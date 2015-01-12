@@ -1,0 +1,43 @@
+doctype html
+html
+    head
+        title EEA database on climate change mitigation policies and measures in Europe &mdash; European Environment Agency
+
+        include ../external_templates/head.html
+        script(type='text/javascript').
+            var es_host="#{es_host}";
+            var es_path="#{es_path}";
+            var field_base="#{field_base}";
+        link(rel="shortcut icon", type="image/x-icon", href="http://www.eea.europa.eu/favicon.ico")
+        link(rel='stylesheet', href='#{base_path}stylesheets/bootstrap.min.css')
+        link(rel='stylesheet', href='#{base_path}stylesheets/facetview.css')
+        link(rel='stylesheet', href='#{base_path}stylesheets/style.css')
+
+        link(rel='stylesheet', href='#{base_path}stylesheets/jquery-ui-1.8.18.custom.css')
+
+        script(type='text/javascript', src='#{base_path}javascripts/jquery-1.7.1.min.js')
+        script(type='text/javascript', src='#{base_path}javascripts/bootstrap.min.js')
+        script(type='text/javascript', src='#{base_path}javascripts/jquery.tools.min.js')
+        script(type='text/javascript', src='#{base_path}javascripts/jquery.facetview.js')
+        script(type='text/javascript', src='#{base_path}javascripts/jquery.linkify-1.0-min.js')
+        script(type='text/javascript', src='#{base_path}javascripts/jquery-ui-1.8.18.custom.min.js')
+        script(type='text/javascript').
+            var base_path = "#{base_path}";
+        script(type='text/javascript', src='#{base_path}javascripts/aqstats.facetview.js')
+    body
+        include ../external_templates/header.html
+        div(id="visual-portal-wrapper")
+            div(id="portal-columns")
+                div(id="content",class="column-area")
+                    block content
+                    div(class="documentActions")
+                        h5(class="hiddenStructure") Document Actions
+                div(id="right-column", class="right-column-area")
+                    div(class="visualPadding")
+                div(class="visualClear")
+                div(class="visualization-info")
+                    h3 Data sources
+                    a(href="http://www.eea.europa.eu/data-and-maps/data/climate-change-mitigation-policies-and-measures-1") Climate change mitigation policies and measures
+                    span  provided by 
+                    a(href="http://www.eea.europa.eu") European Environment Agency (EEA)
+        include ../external_templates/footer.html

@@ -3,6 +3,8 @@ Changelog
 
 2.0-dev - (unreleased)
 ----------------------
+* Feature: started adding Air Quality statistics
+  [szabozo0 refs #21931]
 * Feature: added initial document on how to create new catalog applications
   [szabozo0 refs #21931]
 
