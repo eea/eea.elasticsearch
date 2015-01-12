@@ -8,8 +8,8 @@
 
 .notify_loading {
     width: 100%;
-    min-height: 120px;
-    background: url(http://www.eea.europa.eu/data-and-maps/find/global/++resource++faceted_images/ajax-loader.gif) no-repeat center top;
+    min-height: 30px;
+    background: url(http://www.eea.europa.eu/++resource++faceted_images/ajax-loader-small.gif) no-repeat center top;
 }
 
 .facetview_freetext {
