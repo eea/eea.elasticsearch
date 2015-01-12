@@ -7,6 +7,7 @@
 }
 
 .notify_loading {
+    margin-top: -30px;
     width: 100%;
     min-height: 30px;
     background: url(http://www.eea.europa.eu/++resource++faceted_images/ajax-loader-small.gif) no-repeat center top;
