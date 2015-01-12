@@ -319,6 +319,9 @@ $(function($) {
       add_EEA_settings();
       add_iframe();
     },
+    post_init_callback: function() {
+      add_EEA_settings();
+    },
     linkify: false,
            paging: {
               from: 0,
