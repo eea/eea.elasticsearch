@@ -21,7 +21,7 @@ curl -u eea:eea -XPUT 'http://localhost:9200/aqstatsdata' -d '{
   "mappings" : {
     "resources" : {
       "properties" : {
-        "http://reference.eionet.europa.eu/aq/ontology/station" : {
+        "http://reference.eionet.europa.eu/aq/ontology/observationVerification" : {
           "type" : "string",
           "analyzer" : "none"
         },
@@ -29,12 +29,15 @@ curl -u eea:eea -XPUT 'http://localhost:9200/aqstatsdata' -d '{
           "type" : "string",
           "analyzer" : "none"
         },
-        "http://reference.eionet.europa.eu/aq/ontology/pollutant" : {
+        "http://reference.eionet.europa.eu/aq/ontology/aggregationType" : {
           "type" : "string",
           "analyzer" : "none"
         },
-
-        "http://reference.eionet.europa.eu/aq/ontology/observationVerification" : {
+        "http://reference.eionet.europa.eu/aq/ontology/station" : {
+          "type" : "string",
+          "analyzer" : "none"
+        },
+        "http://reference.eionet.europa.eu/aq/ontology/sample" : {
           "type" : "string",
           "analyzer" : "none"
         },
@@ -42,7 +45,27 @@ curl -u eea:eea -XPUT 'http://localhost:9200/aqstatsdata' -d '{
           "type" : "string",
           "analyzer" : "none"
         },
-        "http://reference.eionet.europa.eu/aq/ontology/aggregationType" : {
+        "http://reference.eionet.europa.eu/aq/ontology/inspireNamespace" : {
+          "type" : "string",
+          "analyzer" : "none"
+        },
+        "http://reference.eionet.europa.eu/aq/ontology/procedure" : {
+          "type" : "string",
+          "analyzer" : "none"
+        },
+        "http://reference.eionet.europa.eu/aq/ontology/pollutant" : {
+          "type" : "string",
+          "analyzer" : "none"
+        },
+        "http://reference.eionet.europa.eu/aq/ontology/" : {
+          "type" : "string",
+          "analyzer" : "none"
+        },
+        "http://reference.eionet.europa.eu/aq/ontology/" : {
+          "type" : "string",
+          "analyzer" : "none"
+        },
+        "http://reference.eionet.europa.eu/aq/ontology/" : {
           "type" : "string",
           "analyzer" : "none"
         }
@@ -50,3 +73,5 @@ curl -u eea:eea -XPUT 'http://localhost:9200/aqstatsdata' -d '{
     }
   }
 }'
+
+
