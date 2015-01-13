@@ -1,4 +1,4 @@
-curl -u eea:eea -XPUT 'http://localhost:9200/pamdata' -d '{
+curl -u eea:eea -XPUT 'http://localhost:9200/aqstatsdata' -d '{
   "settings" : {
     "analysis" : {
       "analyzer" : {
@@ -21,41 +21,30 @@ curl -u eea:eea -XPUT 'http://localhost:9200/pamdata' -d '{
   "mappings" : {
     "resources" : {
       "properties" : {
-        "http://semantic.eea.europa.eu/project/pam/pam2014.csv#Country" : {
-          "type" : "string",
-          "analyzer" : "coma"
-        },
-        "http://semantic.eea.europa.eu/project/pam/pam2014.csv#PAMID"  : {
+        "http://reference.eionet.europa.eu/aq/ontology/station" : {
           "type" : "string",
           "analyzer" : "none"
         },
-        "http://semantic.eea.europa.eu/project/pam/pam2014.csv#Type_of_instrument" : {
+        "http://reference.eionet.europa.eu/aq/ontology/samplingPoint" : {
           "type" : "string",
-          "analyzer" : "coma"
+          "analyzer" : "none"
         },
-        "http://semantic.eea.europa.eu/project/pam/pam2014.csv#Affected_GHG" : {
+        "http://reference.eionet.europa.eu/aq/ontology/pollutant" : {
           "type" : "string",
-          "analyzer" : "coma"
+          "analyzer" : "none"
         },
-        "http://semantic.eea.europa.eu/project/pam/pam2014.csv#Targeted_sectors" : {
+
+        "http://reference.eionet.europa.eu/aq/ontology/observationVerification" : {
           "type" : "string",
-          "analyzer" : "coma"
+          "analyzer" : "none"
         },
-        "http://semantic.eea.europa.eu/project/pam/pam2014.csv#Projection_scenario_in_which_the_PAM_is_included" : {
+        "http://reference.eionet.europa.eu/aq/ontology/observationValidity" : {
           "type" : "string",
-          "analyzer" : "coma"
+          "analyzer" : "none"
         },
-        "http://semantic.eea.europa.eu/project/pam/pam2014.csv#Link_to_EU_Emissions_Trading_Scheme_ETS" : {
+        "http://reference.eionet.europa.eu/aq/ontology/aggregationType" : {
           "type" : "string",
-          "analyzer" : "coma"
-        },
-        "http://semantic.eea.europa.eu/project/pam/pam2014.csv#Type_of_implementing_entities" : {
-          "type" : "string",
-          "analyzer" : "coma"
-        },
-        "http://semantic.eea.europa.eu/project/pam/pam2014.csv#Related_EU_policies" : {
-          "type" : "string",
-          "analyzer" : "semicolon"
+          "analyzer" : "none"
         }
       }
     }

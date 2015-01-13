@@ -34,22 +34,12 @@ jQuery(document).ready(function($) {
         facets: [
             {'field':field_base + 'station', 'display': 'Station', 'size':'50', 'order': 'term'},
             {'field':field_base + 'samplingPoint', 'display': 'Sampling Point', 'size':'50', 'order': 'term'},
-            {'field':field_base + 'pollutant', 'display': 'Polluttant', 'size':'50', 'order': 'term'},
+            {'field':field_base + 'pollutant', 'display': 'Pollutant', 'size':'50', 'order': 'term'},
             {'field':field_base + 'observationVerification', 'display': 'Observation Verification', 'size':'50', 'order': 'term'},
             {'field':field_base + 'observationValidity', 'display': 'Observation Validity', 'size':'50', 'order': 'term'},
             {'field':field_base + 'datacapturePct', 'display': 'datacapturePct', 'size':'50', 'order': 'term'},
             {'field':field_base + 'airqualityValue', 'display': 'airqualityValue', 'size':'50', 'order': 'term'},
             {'field':field_base + 'aggregationType', 'display': 'aggregationType', 'size':'50', 'order': 'term'},
-
-        //    {'field':field_base + 'Link_to_EU_Emissions_Trading_Scheme_ETS', 'display': 'Link to EU Emissions Trading Scheme (ETS)', 'size':'50', 'order': 'term'},
-        //    {'field':field_base + 'Targeted_sectors', 'display': 'Targeted sectors', 'size':'50', 'order': 'term'},
-        //    {'field':field_base + 'Affected_GHG', 'display': 'Affected GHG', 'size':'50', 'order': 'term'},
-        //    {'field':field_base + 'Status', 'display': 'Status', 'size':'50', 'order': 'term'},
-        //    {'field':field_base + 'Projection_scenario_in_which_the_PAM_is_included', 'display': 'Projection scenario in which the PAM is included', 'size':'50', 'order': 'term'},
-        //    {'field':field_base + 'Type_of_instrument', 'display': 'Type of instrument', 'size':'50', 'order': 'term'},
-        //    {'field':field_base + 'Related_EU_policies', 'display': 'Related EU Policies', 'size':'50', 'order': 'term'},
-        //    {'field':field_base + 'Type_of_implementing_entities', 'display': 'Type of implementing entities', 'size':'50', 'order': 'term'},
-        //    {'field':field_base + '2020_total_kt_CO2', 'display': 'Total GHG savings by 2020 (in kt CO2 equivalent)', 'size':'1600', 'order': 'term'}
         ],
 
 
