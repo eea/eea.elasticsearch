@@ -2,10 +2,10 @@
 cluster.name: development
 
 ################################# Jetty Plugin ################################
-http.type: com.sonian.elasticsearch.http.jetty.JettyHttpServerTransportModule
-sonian.elasticsearch.http.jetty:
-    config: jetty.xml,jetty-hash-auth.xml,jetty-restrict-writes.xml
-
+#http.type: com.sonian.elasticsearch.http.jetty.JettyHttpServerTransportModule
+#sonian.elasticsearch.http.jetty:
+#    config: jetty.xml,jetty-hash-auth.xml,jetty-restrict-writes.xml
+#
 #################################### Index ####################################
 index:
   analysis:
@@ -175,6 +175,8 @@ path:
 ############################## Network And HTTP ###############################
 http:
   port: 9200
+  jsonp:
+   enable: true
 
 transport:
   tcp:

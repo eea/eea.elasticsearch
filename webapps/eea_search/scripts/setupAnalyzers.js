@@ -50,10 +50,11 @@ var rdfdataMappings = {
       'analyzer' : 'none'
     },
     'http://purl.org/dc/terms/title' : {
-      'type' : 'multi_field',
+      'type' : 'string',
       'fields' : {
-        'sort' : {'type' : 'string', 'analyzer' : 'default'},
-        'index' : {'type' : 'string', 'analyzer' : 'none'}
+        'toindex' : {'type' : 'string', 'analyzer' : 'default'},
+        'index' : {'type' : 'string', 'analyzer' : 'none'},
+        'http://purl.org/dc/terms/title': {'type': 'string', 'index': 'not_analyzed'}
       }
     }
 };
@@ -72,32 +73,10 @@ var mappings = {
     }
 };
 
-// Index title both as a whole and using the default analyzer
-var titleMappings = {
-    "resource": {
-        "properties": {
-            "http://purl.org/dc/terms/title" : {
-                "type": "multi_field",
-                "fields" : {
-                    "http://purl.org/dc/terms/title" : {
-                        "type" : "string",
-                        "index" : "not_analyzed"
-                    },
-                    "toindex" : {
-                        "type" : "string",
-                        "analyzer" : "default"
-                    }
-                }
-            }
-        }
-    }
-};
-
 // As part of the runScript skel
 var run = function(options, callbacks) {
     api.esAPI(options)
        .PUT('/rdfdata', mappings, callbacks)
-       .PUT('/rdfdata/resource/_mapping', titleMappings, callbacks)
        .execute();
 }
 module.exports = { run: run };
