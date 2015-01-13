@@ -134,14 +134,26 @@ jQuery(document).ready(function($) {
         }
     });
     var clean_base = field_base.replace(/\./gi,'_').replace(/\:/gi,'_');
-    var facet = $('[id="facetview_' + clean_base + '2020_total_kt_CO2"]')
+    var facet = $('[id="facetview_' + clean_base + 'airqualityValue"]')
     facet.addClass("facet_range_only");
-    facet.delegate("a.facetview_filtershow","click", function(event){
-        if (facet.find("a.facetview_filtershow").hasClass("facetview_open")){
-            facet.find("a.facetview_facetrange").click();
+
+    facet2 = $('[id="facetview_' + clean_base + 'datacapturePct"]')
+    facet2.addClass("facet_range_only");
+
+    $(".facet_range_only").delegate("a.facetview_filtershow","click", function(event){
+        var tmp_facet = $(event.target).closest("table");
+        if (tmp_facet.find("a.facetview_filtershow").hasClass("facetview_open")){
+            tmp_facet.find("a.facetview_facetrange").click();
         }
         else{
-            $('.facetview_facetrange_remove').click();
+            var facet_title = tmp_facet.find("a.facetview_filtershow").text().trim();
+            $('.facetview_rangecontainer').each(function(idx, facetrange){
+                var range_title = $(facetrange).children("h3").text().trim();
+                if (range_title === facet_title){
+                    $(facetrange).find('.facetview_facetrange_remove').click();
+                }
+            });
         }
     });
+
 });
