@@ -134,11 +134,9 @@ jQuery(document).ready(function($) {
         }
     });
     var clean_base = field_base.replace(/\./gi,'_').replace(/\:/gi,'_');
-    var facet = $('[id="facetview_' + clean_base + 'airqualityValue"]')
-    facet.addClass("facet_range_only");
 
-    facet2 = $('[id="facetview_' + clean_base + 'datacapturePct"]')
-    facet2.addClass("facet_range_only");
+    $('[id="facetview_' + clean_base + 'airqualityValue"]').addClass("facet_range_only");
+    $('[id="facetview_' + clean_base + 'datacapturePct"]').addClass("facet_range_only");
 
     $(".facet_range_only").delegate("a.facetview_filtershow","click", function(event){
         var tmp_facet = $(event.target).closest("table");
@@ -156,4 +154,16 @@ jQuery(document).ready(function($) {
         }
     });
 
+    $('#facetview').delegate(".facetview_rangecontainer","click",function(){
+        var range_title = $(event.target).closest(".facetview_rangecontainer").children("h3").text().trim();
+        $(".facetview_open").each(function(idx, facet){
+            var facet_title = $(facet).text().trim();
+            if (facet_title === range_title){
+                $(facet).removeClass("facetview_open");
+                $(facet).children('i').removeClass('icon-minus');
+                $(facet).children('i').addClass('icon-plus');
+
+            }
+        })
+    });
 });
