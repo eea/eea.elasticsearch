@@ -434,7 +434,9 @@ function sortNumber(a,b){
             "pushstate": true,
             "linkify": true,
             "default_operator": "OR",
-            "default_freetext_fuzzify": false
+            "default_freetext_fuzzify": false,
+            "include_id":false,
+            "id_label":""
         };
 
 
@@ -753,6 +755,9 @@ function sortNumber(a,b){
                     resultobj["records"].push(dataobj.hits.hits[item].fields[keys[0]]);
                 } else {
                     resultobj["records"].push(dataobj.hits.hits[item]._source);
+                }
+                if (options.include_id){
+                    resultobj["records"][resultobj["records"].length-1][options.id_label === "" ? "_id" : options.id_label] = dataobj.hits.hits[item]._id;
                 }
             }
             resultobj["start"] = "";
