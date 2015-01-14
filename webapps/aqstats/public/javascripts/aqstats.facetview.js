@@ -1,6 +1,7 @@
 function addHeaders(){
     $("#facetview_results").append("<thead>" +
                                         "<tr>" +
+                                            "<th>Details</th>"+
                                             "<th>observationVerification</th>"+
                                             "<th>samplingPoint</th>"+
                                             "<th>endPosition</th>"+
@@ -19,8 +20,19 @@ function addHeaders(){
                                     "</thead>");
 }
 
+function fixQueries(){
+    $(".detail_link").each(function(idx, detail_link){
+        var href = $(detail_link).attr("href");
+        var base = href.split("=")[0];
+        var aqstatid = href.split("=")[1];
+        $(detail_link)
+            .attr("href", base + "=" + encodeURIComponent(aqstatid));
+    })
+}
+
 function viewReady(){
     addHeaders();
+    fixQueries();
 }
 
 jQuery(document).ready(function($) {
@@ -31,10 +43,11 @@ jQuery(document).ready(function($) {
         enable_rangeselect: true,
         post_search_callback: viewReady,
         pushstate : false,
+        include_id : true,
+        id_label : "aqstat_id",
         facets: [
             {'field':field_base + 'observationVerification', 'display': 'Observation Verification', 'size':'50', 'order': 'term'},
             {'field':field_base + 'samplingPoint', 'display': 'Sampling Point', 'size':'50', 'order': 'term'},
-//            {'field':field_base + 'endPosition', 'display': 'End Position', 'size':'50', 'order': 'term'},
             {'field':field_base + 'aggregationType', 'display': 'aggregationType', 'size':'50', 'order': 'term'},
             {'field':field_base + 'station', 'display': 'Station', 'size':'50', 'order': 'term'},
             {'field':field_base + 'sample', 'display': 'Sample', 'size':'50', 'order': 'term'},
@@ -43,8 +56,6 @@ jQuery(document).ready(function($) {
             {'field':field_base + 'observationValidity', 'display': 'Observation Validity', 'size':'50', 'order': 'term'},
             {'field':field_base + 'inspireNamespace', 'display': 'Inspire Namespace', 'size':'50', 'order': 'term'},
             {'field':field_base + 'procedure', 'display': 'Procedure', 'size':'50', 'order': 'term'},
-//            {'field':field_base + 'inserted', 'display': 'Inserted', 'size':'50', 'order': 'term'},
-//            {'field':field_base + 'beginPosition', 'display': 'Begin Position', 'size':'50', 'order': 'term'},
             {'field':field_base + 'pollutant', 'display': 'Pollutant', 'size':'50', 'order': 'term'},
         ],
 
@@ -52,6 +63,12 @@ jQuery(document).ready(function($) {
         result_display: [
             [
                 {
+                    'pre':'<a class="detail_link" href="' + base_path + 'details?aqstatid=',
+                    'field': 'aqstat_id',
+                    'post': '">Details</a></td>'
+                },
+                {
+                    'post': '<td>',
                     'field': field_base + "observationVerification",
                     'post': '</td>'
                 },

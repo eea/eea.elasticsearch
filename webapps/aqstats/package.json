@@ -1,9 +1,9 @@
 {
-  "name": "pam",
+  "name": "aqstats",
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node pam.js"
+    "start": "node aqstats.js"
   },
   "dependencies": {
     "express": "3.4.0",

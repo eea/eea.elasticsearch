@@ -52,11 +52,11 @@ h4 {
   margin-bottom: 10px;
 }
 
-.pam_detail_table {
+.item_detail_table {
   width: 98%;
 }
 
-.pam_detail_table th{
+.item_detail_table th{
     text-align: left;
 }
 

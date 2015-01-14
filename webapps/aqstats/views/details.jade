@@ -19,127 +19,27 @@ block content
             a(href="http://www.eea.europa.eu/") Home
             span(class="breadcrumbSeparator")  / 
         span(id="breadcrumbs-1")
-            a(href="#{base_path}") Climate change policies and measures in Europe
+            a(href="#{base_path}") Air Quality statistics analysis
             span(class="breadcrumbSeparator")  / 
         span(id="breadcrumbs-2")
-            span(class="breadcrumbs-current")=  data.Name.value
+            span(class="breadcrumbs-current")=  data._id.value
 
-    h1= data.Name.value
-    table(class="pam_detail_table datatable")
+    h1= data._id.value
+    table(class="item_detail_table datatable")
         colgroup
             col(style="width: 25%")
             col(style="width: 75%")
-        +tr_th_td(data.Name)
-        +tr_th_td(data.Country)
-        +tr_th_td(data.Objective)
-        +tr_th_td(data.Description)
-        +tr_th_td(data.Type_of_instrument)
-        +tr_th_td(data.Status)
-        +tr_th_td(data.Start_year)
-        +tr_th_td(data.End_year)
-        +tr_th_td(data.Comment_on_implementation_period)
-        +tr_th_td(data.Projection_scenario_in_which_the_PAM_is_included)
-        +tr_th_td(data.Type_of_implementing_entities)
-        +tr_th_td(data.Name_of_implementing_entities)
-
-    h2 Policy coverage
-    table(class="pam_detail_table datatable")
-        colgroup
-            col(style="width: 25%")
-            col(style="width: 75%")
-        +tr_th_td(data.Affected_GHG)
-        +tr_th_td(data.Targeted_sectors)
-        +tr_th_td(data.Link_to_EU_Emissions_Trading_Scheme_ETS)
-
-    h2 Policy interactions
-    table(class="pam_detail_table datatable")
-        colgroup
-            col(style="width: 25%")
-            col(style="width: 75%")
-        +tr_th_td(data.Related_EU_policies)
-        +tr_th_td(data.Interaction_with_other_policies_and_measures_at_the_national_or_EU_level)
-        +tr_th_td(data.Details_on_policy_interactions)
-        +tr_th_td(data.Non_GHG_mitigation_benefits)
-
-    h2 Policy monitoring and evaluation
-    table(class="pam_detail_table datatable")
-        colgroup
-            col(style="width: 25%")
-            col(style="width: 75%")
-        +tr_th_td(data.Indicators_to_monitor_and_evaluate_implementation)
-
-    h2 'Ex-ante' estimate of the (projected) effect on GHG emissions and removals
-    p Annual savings [kt CO
-        sub 2 
-        equivalent per year]
-    table(class="pam_detail_table datatable")
-        colgroup
-            col(style="width: 25%")
-            col(style="width: 25%")
-            col(style="width: 25%")
-            col(style="width: 25%")
-        tr
-            th Year
-            th Total emissions
-            th ETS sectors
-            th Non-ETS sectors
-        tr
-            th 2015
-            +td(data.pam_2015_total_kt_CO2_equivalent_per_year)
-            +td(data.pam_2015_EU_ETS_kt_CO2)
-            +td(data.pam_2015_non_ETS_kt_CO2)
-        tr
-            th 2020
-            +td(data.pam_2020_total_kt_CO2)
-            +td(data.pam_2020_EU_ETS_kt_CO2)
-            +td(data.pam_2020_non_ETS_kt_CO2)
-        tr
-            th 2025
-            +td(data.pam_2025_total_kt_CO2)
-            +td(data.pam_2025_EU_ETS_kt_CO2)
-            +td(data.pam_2025_non_ETS_kt_CO2)
-        tr
-            th 2030
-            +td(data.pam_2030_total_kt_CO2)
-            +td(data.pam_2030_EU_ETS_kt_CO2)
-            +td(data.pam_2030_non_ETS_kt_CO2)
-
-    //-
-        h2 'Ex-post' estimate of the (current) effect on GHG emissions and removals
-    p Annual savings [kt CO
-        sub 2 
-        equivalent per year]
-    table(class="pam_detail_table datatable")
-        colgroup
-            col(style="width: 25%")
-            col(style="width: 75%")
-        +tr_th_td(data.Average_emission_reduction_kt_CO2)
-        +tr_th_td(data.Years_for_which_the_reduction_applies)
-        +tr_th_td(data.Basis_for_estimate)
-        +tr_th_td(data.Impact_included_in_another_policy_or_policy_package)
-        +tr_th_td(data.Other_policy_or_policy_package_in_which_the_impact_is_included)
-        +tr_th_td(data.Inclusion_of_savings_related_to_EU_policies)
-        +tr_th_td(data.Factors_affected_by_PAM)
-        +tr_th_td(data.Inclusion_of_estimate_in_projections)
-        +tr_th_td(data.Reference_source_of_estimation)
-
-
-
-    h2 Information on costs
-    table(class="pam_detail_table datatable")
-        colgroup
-            col(style="width: 25%")
-            col(style="width: 75%")
-        +tr_th_td(data.Costs_in_EUR_per_tonne_CO2_equivalent_reduced_sequestered)
-        +tr_th_td(data.Absolute_costs_per_year_in_million_EUR)
-        +tr_th_td(data.Description___basis_for_cost_estimate)
-        +tr_th_td(data.Documentation___source_of_cost_estimate)
-
-
-    h2 Other information
-    table(class="pam_detail_table datatable")
-        colgroup
-            col(style="width: 25%")
-            col(style="width: 75%")
-        +tr_th_td(data.Additional_comment)
-        +tr_th_td(data.Name_or_organisation_providing_information_on_policy)
+        +tr_th_td(data.observationVerification)
+        +tr_th_td(data.samplingPoint)
+        +tr_th_td(data.endPosition)
+        +tr_th_td(data.aggregationType)
+        +tr_th_td(data.station)
+        +tr_th_td(data.sample)
+        +tr_th_td(data.datacapturePct)
+        +tr_th_td(data.airqualityValue)
+        +tr_th_td(data.observationValidity)
+        +tr_th_td(data.inspireNamespace)
+        +tr_th_td(data.procedure)
+        +tr_th_td(data.inserted)
+        +tr_th_td(data.beginPosition)
+        +tr_th_td(data.pollutant)
