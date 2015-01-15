@@ -59,3 +59,16 @@ Create a new application from template
         CSS: are located in
             /var/local/es-dev/eea.elasticsearch/webapps/<new-app>/public/stylesheets
             The only css file you have to work on is the style.css, where you can make your customizations
+
+        Routes: located in
+            /var/local/es-dev/eea.elasticsearch/webapps/<new-app>/routes
+            This folder contains only one file, the index.js. It contains the naming mappings for the fields, and the query for the detail view.
+            The mapping contains 3 attributes:
+                - name: the name how it can be used in the detail view
+                - field: the name used in the result from elasticsearch
+                - label: the label what will be displayed on the detail view
+            The query for the detail page has 2 forms:
+                - when one of the fields is a unique id:
+                    in this case the query should look like: {"query":{"bool":{"must":[{"term":{"'+field_base + '<unique_id>":"'+req.query.<unique_id_value>+'"}}]}}}
+                - when we have no unique id and we use the _id from the results from elasticsearch:
+                    in this case the query should look like: '{"query":{"ids":{"values":["' + req.query.<id_value> + '"]}}}';
