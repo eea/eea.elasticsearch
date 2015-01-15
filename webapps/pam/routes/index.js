@@ -77,7 +77,7 @@ exports.details = function(req, res){
       return;
   }
 
-  var http = require('http');
+  var request = require('request');
 
   var query = '{"query":{"bool":{"must":[{"term":{"'+field_base + 'PAMID":"'+req.query.pamid+'"}}]}}}';
   query = encodeURIComponent(query);
@@ -85,26 +85,24 @@ exports.details = function(req, res){
     host: es_host,
     path: es_path + "?source="+ query
   };
-  var request = http.request(options, function (result) {
-    var data = '';
-    result.on('data', function (chunk) {
-        data += chunk;
-    });
-    result.on('end', function () {
+
+  request("http://"+options.host + options.path, function (error, response, body) {
+    if (!error && response.statusCode == 200) {
         try{
-            data = JSON.parse(data);
+            var data = JSON.parse(body);
             tmp_resultobj = {};
             tmp_resultobj["records"] = [];
 
             for ( var item = 0; item < data.hits.hits.length; item++ ) {
                 tmp_resultobj["records"].push(data.hits.hits[item]._source);
+                console.log(data.hits.hits[item]._id)
+                tmp_resultobj["records"][tmp_resultobj["records"].length - 1]._id = data.hits.hits[item]._id;
             }
             resultobj = {};
             for (var idx = 0; idx < fieldsMapping.length; idx++) {
                 resultobj[fieldsMapping[idx]['name']] = {'label':fieldsMapping[idx]['title'],
                                                     'value':tmp_resultobj["records"][0][fieldsMapping[idx]['field']]};
             }
-
             res.render('details', {data: resultobj,
                                    base_path: base_path,
                                    es_host: es_host,
@@ -119,10 +117,15 @@ exports.details = function(req, res){
                                    field_base: field_base});
         }
 
-    });
+    }
+    else {
+        if (!error && response.statusCode !== 200){
+            console.log(response.statusCode);
+        }
+        else {
+            console.log(error);
+        }
+    }
   });
-  request.on('error', function (e) {
-    console.log(e.message);
-  });
-  request.end();
+
 };

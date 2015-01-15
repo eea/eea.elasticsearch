@@ -90,6 +90,6 @@ exports.details = function(req, res){
             console.log(error);
         }
     }
-  })
+  });
 
 };
