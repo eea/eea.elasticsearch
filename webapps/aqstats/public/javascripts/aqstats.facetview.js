@@ -68,7 +68,7 @@ jQuery(document).ready(function($) {
                     'post': '">Details</a></td>'
                 },
                 {
-                    'post': '<td>',
+                    'pre': '<td>',
                     'field': field_base + "observationVerification",
                     'post': '</td>'
                 },
