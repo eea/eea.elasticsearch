@@ -81,6 +81,10 @@ Production setup
             - setup the range filters: if there are facets containing only number values, you can set them to be range filters, you only have to add to them the "facet_range_only" class:
                 $('[id="facetview_' + clean_base + '<number_field_name>"]').addClass("facet_range_only");
             - setup the table headers: modify the addHeaders method
+            - setup the link to the detail page:
+                For this you need a field what contains a unique value.
+                    - If you have one, like we had for pam app the pamid, you use that one and build the link to the detail page based on it.
+                    - If there is no field what can be used as a unique id, you can still use the id from elastic search, by simply setting on true the include_id option for facetview. Optionally you can set a custom name for that field by setting the option id_label : "<my_id_label".
             Note: In the case of the PAM app we had some small customizations for some fields(replaceNumbers method), depending on your new app you can remove them or add new ones, these customizations can be called either in the document.ready or in the viewReady (what is the called after each search)
 
 In the case of the PAM app we had some small customizations for some fields, depending on your new app you can remove them or add new ones
