@@ -65,7 +65,7 @@ var mappings = {
         }
     },
     'mappings': {
-        'resource': {
+        'resources': {
             'properties': pamdataMappings
         }
     }
