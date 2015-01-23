@@ -19,7 +19,7 @@ var analyzers = {
 
 // Proprety mappings for aqstatsdata
 // Describe how properties get indexed into ElasticSearch
-var pamdataMappings = {
+var aqstatsdataMappings = {
     "http://reference.eionet.europa.eu/aq/ontology/observationVerification" : {
         "type" : "string",
         "analyzer" : "none"
@@ -84,7 +84,7 @@ var mappings = {
     },
     'mappings': {
         'resources': {
-            'properties': pamdataMappings
+            'properties': aqstatsdataMappings
         }
     }
 };
