@@ -10,7 +10,7 @@ var sendRequest = function(method, url, auth, body, callbacks) {
     parsedUrl = urlparse.parse(url);
 
     options = {
-        host: parsedUrl.host,
+        host: parsedUrl.hostname,
         path: parsedUrl.path,
         method: method,
         auth: auth,
