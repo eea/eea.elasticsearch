@@ -1,10 +1,13 @@
 Changelog
 =========
 
-2.0-dev - (unreleased)
+2.1-dev - (unreleased)
 ----------------------
 * Feature: started adding Air Quality statistics
   [szabozo0 refs #21931]
+
+2.0 - (2015-01-22)
+------------------
 * Feature: added initial document on how to create new catalog applications
   [szabozo0 refs #21931]
 
