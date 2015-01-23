@@ -1,10 +1,10 @@
 {
     "http":{
-        "port":3020,
-        "base_path": "/aqstats/"
+        "port":3021,
+        "base_path": "/"
     },
     "es":{
-        "host":"centaurus-dev.eea.europa.eu",
+        "host":"centaurus.eea.europa.eu",
         "path":"/aqstatsdata/resources/_search",
         "field_base":"http://reference.eionet.europa.eu/aq/ontology/"
     },

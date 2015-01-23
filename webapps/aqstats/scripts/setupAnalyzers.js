@@ -56,18 +56,24 @@ var pamdataMappings = {
         "type" : "string",
         "analyzer" : "none"
     },
-    "http://reference.eionet.europa.eu/aq/ontology/" : {
-        "type" : "string",
+/*    "http://reference.eionet.europa.eu/aq/ontology/endPosition" : {
+        "type" : "date",
         "analyzer" : "none"
     },
-    "http://reference.eionet.europa.eu/aq/ontology/" : {
-        "type" : "string",
+    "http://reference.eionet.europa.eu/aq/ontology/inserted" : {
+        "type" : "date",
         "analyzer" : "none"
     },
-    "http://reference.eionet.europa.eu/aq/ontology/" : {
-        "type" : "string",
+    "http://reference.eionet.europa.eu/aq/ontology/beginPosition" : {
+        "type" : "date",
         "analyzer" : "none"
-    }
+    },*/ 
+/*    "http://reference.eionet.europa.eu/aq/ontology/datacapturePct" : {
+        "type" : "double",
+    },
+    "http://reference.eionet.europa.eu/aq/ontology/airqualityValue" : {
+        "type" : "double",
+    },*/
 };
 
 var mappings = {
