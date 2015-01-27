@@ -7,7 +7,7 @@ var reqBody = {
         "queryType" : "select",
         "query" : ["SELECT ?s ?p ?o WHERE { ?s a <http://reference.eionet.europa.eu/aq/ontology/ValidatedExceedence> ; ?p ?o}"],
         "addLanguage" : false,
-        "includeResourceURI" : false
+        "includeResourceURI" : true
     },
     "index" : {
         "index" : "aqstatsdata",

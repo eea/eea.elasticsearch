@@ -43,8 +43,6 @@ jQuery(document).ready(function($) {
         enable_rangeselect: true,
         post_search_callback: viewReady,
         pushstate : false,
-        include_id : true,
-        id_label : "aqstat_id",
         facets: [
             {'field':field_base + 'observationVerification', 'display': 'Observation Verification', 'size':'50', 'order': 'term'},
             {'field':field_base + 'samplingPoint', 'display': 'Sampling Point', 'size':'50', 'order': 'term'},
@@ -64,7 +62,7 @@ jQuery(document).ready(function($) {
             [
                 {
                     'pre':'<a class="detail_link" href="' + base_path + 'details?aqstatid=',
-                    'field': 'aqstat_id',
+                    'field': 'http://www.w3.org/1999/02/22-rdf-syntax-ns#about',
                     'post': '">Details</a></td>'
                 },
                 {
