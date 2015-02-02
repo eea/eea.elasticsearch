@@ -1,3 +1,10 @@
+NOTE
+====
+If you have used the version with es 0.90.3 installed please rebuild the box::
+
+    vagrant destroy
+    vagrant up
+
 1. Install Virtualbox and Vagrant
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -57,10 +64,6 @@ Change apache setting to allow all requests::
             Require all granted
     </Directory>
 
-Create a link for `eea_search/config.json`::
-
-    ln -s eea.elasticsearch/etc/dev/eea_search/config.json 
-          eea.elasticsearch/webapps/eea_search
 
 Optionally you can change the config to point to your local elasticsearch
 server.
