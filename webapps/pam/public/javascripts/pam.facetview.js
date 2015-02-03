@@ -106,14 +106,37 @@ jQuery(document).ready(function($) {
     });
     replaceNumbers();
     var clean_base = field_base.replace(/\./gi,'_').replace(/\:/gi,'_');
-    var facet = $('[id="facetview_' + clean_base + '2020_total_kt_CO2"]')
-    facet.addClass("facet_range_only");
-    facet.delegate("a.facetview_filtershow","click", function(event){
-        if (facet.find("a.facetview_filtershow").hasClass("facetview_open")){
-            facet.find("a.facetview_facetrange").click();
+
+    $('[id="facetview_' + clean_base + '2020_total_kt_CO2"]').addClass("facet_range_only");
+
+    $(".facet_range_only").delegate("a.facetview_filtershow","click", function(event){
+        var tmp_facet = $(event.target).closest("table");
+        if (tmp_facet.find("a.facetview_filtershow").hasClass("facetview_open")){
+            tmp_facet.find("a.facetview_facetrange").click();
         }
         else{
-            $('.facetview_facetrange_remove').click();
+            var facet_title = tmp_facet.find("a.facetview_filtershow").text().trim();
+            $('.facetview_rangecontainer').each(function(idx, facetrange){
+                var range_title = $(facetrange).children("h3").text().trim();
+                if (range_title === facet_title){
+                    $(facetrange).find('.facetview_facetrange_remove').click();
+                }
+            });
         }
     });
+
+    $('#facetview').delegate(".facetview_rangecontainer","click",function(){
+        var range_title = $(event.target).closest(".facetview_rangecontainer").children("h3").text().trim();
+        $(".facetview_open").each(function(idx, facet){
+            var facet_title = $(facet).text().trim();
+            if (facet_title === range_title){
+                $(facet).removeClass("facetview_open");
+                $(facet).children('i').removeClass('icon-minus');
+                $(facet).children('i').addClass('icon-plus');
+
+            }
+        })
+    });
+
+
 });

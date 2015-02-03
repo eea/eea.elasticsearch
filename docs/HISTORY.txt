@@ -3,6 +3,8 @@ Changelog
 
 2.1-dev - (unreleased)
 ----------------------
+* Feature: started adding Air Quality statistics
+  [szabozo0 refs #21931]
 
 2.0 - (2015-01-22)
 ------------------
