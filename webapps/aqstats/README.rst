@@ -47,7 +47,12 @@ before adding the data. Analyzers must be configured before the data is added.
 
 Nodejs required modules
 =======================
-The following modules are required by the PAM application:
+The following modules are required by the PAM application: express, jade, nconf
+Install:
+    inside the nodejs web app directory (eea.elasticsearch/eea/elasticsearch/pam)
+    npm install
+
+Alternatively you can install them manually
 
 1. express - web application framework for node (http://expressjs.com/2x)
 
