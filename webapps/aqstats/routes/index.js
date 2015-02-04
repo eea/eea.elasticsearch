@@ -24,7 +24,7 @@ var fieldsMapping = [
     {'name' : 'procedure', 'field' : field_base +'procedure', 'title' : 'procedure'},
     {'name' : 'inserted', 'field' : field_base +'inserted', 'title' : 'inserted'},
     {'name' : 'beginPosition', 'field' : field_base +'beginPosition', 'title' : 'beginPosition'},
-    {'name' : 'pollutant', 'field' : field_base +'pollutant', 'title' : ''},
+    {'name' : 'pollutant', 'field' : field_base +'pollutant', 'title' : 'Pollutant'},
 ];
 
 exports.index = function(req, res){
