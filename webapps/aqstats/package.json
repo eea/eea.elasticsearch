@@ -9,6 +9,7 @@
     "express": "3.4.0",
     "jade": "*",
     "nconf": "*",
-    "request": "*"
+    "request": "*",
+    "sparql-client": "*"
   }
 }
