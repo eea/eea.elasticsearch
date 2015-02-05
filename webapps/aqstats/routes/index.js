@@ -13,9 +13,13 @@ var fieldsMapping = [
     {'name' : '_id', 'field' : '_id', 'title' : '_id'},
     {'name' : 'observationVerification', 'field' : field_base + 'observationVerification', 'title' : 'observationVerification'},
     {'name' : 'samplingPoint', 'field' : field_base + 'samplingPoint', 'title' : 'samplingPoint'},
+    {'name' : 'samplingpoint_lat', 'field' : field_base +'samplingpoint_lat', 'title' : 'samplingpoint latitude'},
+    {'name' : 'samplingpoint_lon', 'field' : field_base +'samplingpoint_lat', 'title' : 'samplingpoint longitude'},
     {'name' : 'endPosition', 'field' : field_base + 'endPosition', 'title' : 'endPosition'},
     {'name' : 'aggregationType', 'field' : field_base +'aggregationType', 'title' : 'aggregationType'},
     {'name' : 'station', 'field' : field_base +'station', 'title' : 'station'},
+    {'name' : 'station_lat', 'field' : field_base +'station_lat', 'title' : 'station latitude'},
+    {'name' : 'station_lon', 'field' : field_base +'station_lat', 'title' : 'station longitude'},
     {'name' : 'sample', 'field' : field_base +'sample', 'title' : 'sample'},
     {'name' : 'datacapturePct', 'field' : field_base +'datacapturePct', 'title' : 'datacapturePct'},
     {'name' : 'airqualityValue', 'field' : field_base +'airqualityValue', 'title' : 'airqualityValue'},
@@ -25,6 +29,7 @@ var fieldsMapping = [
     {'name' : 'inserted', 'field' : field_base +'inserted', 'title' : 'inserted'},
     {'name' : 'beginPosition', 'field' : field_base +'beginPosition', 'title' : 'beginPosition'},
     {'name' : 'pollutant', 'field' : field_base +'pollutant', 'title' : 'Pollutant'},
+    {'name' : 'updated', 'field' : field_base +'updated', 'title' : 'updated'}
 ];
 
 exports.index = function(req, res){

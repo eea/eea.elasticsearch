@@ -4,9 +4,13 @@ function addHeaders(){
                                             "<th>Details</th>"+
                                             "<th>observationVerification</th>"+
                                             "<th>samplingPoint</th>"+
+                                            "<th>samplingPoint latitude</th>"+
+                                            "<th>samplingPoint longitude</th>"+
                                             "<th>endPosition</th>"+
                                             "<th>aggregationType</th>"+
                                             "<th>station</th>"+
+                                            "<th>station latitude</th>"+
+                                            "<th>station longitude</th>"+
                                             "<th>sample</th>"+
                                             "<th>datacapturePct</th>"+
                                             "<th>airqualityValue</th>"+
@@ -16,6 +20,7 @@ function addHeaders(){
                                             "<th>inserted</th>"+
                                             "<th>beginPosition</th>"+
                                             "<th>pollutant</th>"+
+                                            "<th>updated</th>"+
                                         "</tr>"+
                                     "</thead>");
 }
@@ -77,6 +82,16 @@ jQuery(document).ready(function($) {
                 },
                 {
                     'pre': '<td>',
+                    'field': field_base + "samplingpoint_lat",
+                    'post': '</td>'
+                },
+                {
+                    'pre': '<td>',
+                    'field': field_base + "samplingpoint_lon",
+                    'post': '</td>'
+                },
+                {
+                    'pre': '<td>',
                     'field': field_base + "endPosition",
                     'post': '</td>'
                 },
@@ -88,6 +103,16 @@ jQuery(document).ready(function($) {
                 {
                     'pre': '<td>',
                     'field': field_base + "station",
+                    'post': '</td>'
+                },
+                {
+                    'pre': '<td>',
+                    'field': field_base + "station_lat",
+                    'post': '</td>'
+                },
+                {
+                    'pre': '<td>',
+                    'field': field_base + "station_lon",
                     'post': '</td>'
                 },
                 {
@@ -135,6 +160,11 @@ jQuery(document).ready(function($) {
                     'field': field_base + "pollutant",
                     'post': '</td>'
                 },
+                {
+                    'pre': '<td>',
+                    'field': field_base + "updated",
+                    'post': '</td>'
+                }
 
             ]
         ],
