@@ -1,13 +1,14 @@
 var api = require('../../common/lib/esAPI.js');
 
-var queryTemplate = "SELECT ?s ?p ?o WHERE" +
-                        "{"+
-                            "{ ?s a <http://reference.eionet.europa.eu/aq/ontology/ValidatedExceedence> ; ?p ?o FILTER(isLiteral(?o))}"+
-                            "UNION"+
-                            "{?s a <http://reference.eionet.europa.eu/aq/ontology/ValidatedExceedence> ; ?p ?o1 ."+
-                                "?o1 <http://www.w3.org/2000/01/rdf-schema#label> ?o  }"+
-                        "<filter>"+
-                        "}";
+var queryTemplate =
+"SELECT ?s ?p ?o WHERE\
+    {\
+        {?s a <http://reference.eionet.europa.eu/aq/ontology/ValidatedExceedence> ; ?p ?o FILTER(isLiteral(?o))}\
+        UNION\
+        {?s a <http://reference.eionet.europa.eu/aq/ontology/ValidatedExceedence> ; ?p ?o1 .\
+            ?o1 <http://www.w3.org/2000/01/rdf-schema#label> ?o  }\
+        <filter>\
+    }";
 
 var filterTemplate = "FILTER (str(?s) in (<slist>))"
 
