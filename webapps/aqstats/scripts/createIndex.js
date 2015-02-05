@@ -51,7 +51,9 @@ var run = function(options, callbacks) {
                 slist = slist + '"' + results.results.bindings[i].s.value +'"'
                 step++;
                 if ((step === filterLength) || (i === results.results.bindings.length - 1)){
-                    reqBody.eeaRDF.query.push(queryTemplate.split("<filter>").join(filterTemplate.split("<slist>").join(slist)));
+                    var filter = filterTemplate.split("<slist>").join(slist);
+                    var query = queryTemplate.split("<filter>").join(filter);
+                    reqBody.eeaRDF.query.push(query);
                     step = 0;
                     slist = "";
                 }
