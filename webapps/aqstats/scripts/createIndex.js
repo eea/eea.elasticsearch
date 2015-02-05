@@ -11,7 +11,7 @@ var queryTemplate = "SELECT ?s ?p ?o WHERE" +
 
 var filterTemplate = "FILTER (str(?s) in (<slist>))"
 
-var filterLength = 5;
+var filterLength = 1000;
 
 var sQuery = "SELECT ?s WHERE { ?s a <http://reference.eionet.europa.eu/aq/ontology/ValidatedExceedence>} order by ?s"
 
@@ -49,7 +49,7 @@ var run = function(options, callbacks) {
                 }
                 slist = slist + '"' + results.results.bindings[i].s.value +'"'
                 step++;
-                if (step === filterLength){
+                if ((step === filterLength) || (i === results.results.bindings.length - 1)){
                     reqBody.eeaRDF.query.push(queryTemplate.split("<filter>").join(filterTemplate.split("<slist>").join(slist)));
                     step = 0;
                     slist = "";
