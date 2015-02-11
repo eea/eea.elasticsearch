@@ -36,7 +36,7 @@ SELECT ?s (if(bound(?pr), ?pr, ?p) as ?p) (if (bound(?isdate), year(?o), if (bou
         UNION\
         {?s a aqr:ValidatedExceedence ; ?p ?o .\
             FILTER (str(?p) = 'http://reference.eionet.europa.eu/aq/ontology/datacapturePct')\
-            { SELECT (<http://reference.eionet.europa.eu/aq/ontology/datacapturePct.datacaptu\re> as ?pr) WHERE { } }\
+            { SELECT (<http://reference.eionet.europa.eu/aq/ontology/datacapturePct.datacapture> as ?pr) WHERE { } }\
             { SELECT ('true' as ?isnumber) WHERE { } }\
         }\
         UNION\
@@ -147,7 +147,7 @@ var filterTemplate = "FILTER (str(?s) in (<slist>))"
 
 var filterLength = 1000;
 
-var sQuery = "SELECT ?s WHERE { ?s a <http://reference.eionet.europa.eu/aq/ontology/ValidatedExceedence>} order by ?s limit 10"
+var sQuery = "SELECT ?s WHERE { ?s a <http://reference.eionet.europa.eu/aq/ontology/ValidatedExceedence>} order by ?s"
 
 
 var reqBody = {
@@ -191,7 +191,6 @@ var run = function(options, callbacks) {
                     slist = "";
                 }
             }
-console.log(reqBody.eeaRDF.query);
             api.esAPI(options)
                 .PUT('/_river/aqstats/_meta', reqBody, callbacks).execute();
 
