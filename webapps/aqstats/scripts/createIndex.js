@@ -20,31 +20,31 @@ var queryTemplate =
         {?s a <http://reference.eionet.europa.eu/aq/ontology/ValidatedExceedence> ; ?p ?o .\
             FILTER (str(?p) in ('http://reference.eionet.europa.eu/aq/ontology/beginPosition'))\
             { SELECT <http://reference.eionet.europa.eu/aq/ontology/beginPosition.year> as ?pr WHERE { } }\
-            { SELECT "true" as ?isdate WHERE { } }\
+            { SELECT 'true' as ?isdate WHERE { } }\
         }\
         UNION\
         {?s a <http://reference.eionet.europa.eu/aq/ontology/ValidatedExceedence> ; ?p ?o .\
             FILTER (str(?p) = 'http://reference.eionet.europa.eu/aq/ontology/airqualityValue')\
             { SELECT <http://reference.eionet.europa.eu/aq/ontology/airqualityValue.aqvalue> as ?pr WHERE { } }\
-            { SELECT "true" as ?isnumber WHERE { } }\
+            { SELECT 'true' as ?isnumber WHERE { } }\
         }\
         UNION\
         {?s a <http://reference.eionet.europa.eu/aq/ontology/ValidatedExceedence> ; ?p ?o .\
             FILTER (str(?p) = 'http://reference.eionet.europa.eu/aq/ontology/datacapturePct')\
             { SELECT <http://reference.eionet.europa.eu/aq/ontology/datacapturePct.datacapture> as ?pr WHERE { } }\
-            { SELECT "true" as ?isnumber WHERE { } }\
+            { SELECT 'true' as ?isnumber WHERE { } }\
         }\
         UNION\
         {?s a <http://reference.eionet.europa.eu/aq/ontology/ValidatedExceedence> ; ?p ?o .\
             FILTER (str(?p) = 'http://reference.eionet.europa.eu/aq/ontology/station_lat')\
             { SELECT <http://reference.eionet.europa.eu/aq/ontology/station_lat.stationlatitude> as ?pr WHERE { } }\
-            { SELECT "true" as ?iscoord WHERE { } }\
+            { SELECT 'true' as ?iscoord WHERE { } }\
         }\
         UNION\
         {?s a <http://reference.eionet.europa.eu/aq/ontology/ValidatedExceedence> ; ?p ?o .\
             FILTER (str(?p) = 'http://reference.eionet.europa.eu/aq/ontology/station_lon')\
             { SELECT <http://reference.eionet.europa.eu/aq/ontology/station_lon.stationlongitude> as ?pr WHERE { } }\
-            { SELECT "true" as ?iscoord WHERE { } }\
+            { SELECT 'true' as ?iscoord WHERE { } }\
         }\
         UNION\
         {?s a <http://reference.eionet.europa.eu/aq/ontology/ValidatedExceedence> ; ?p ?o1 .\
