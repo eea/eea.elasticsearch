@@ -79,13 +79,61 @@ var queryTemplate =
         {?s a <http://reference.eionet.europa.eu/aq/ontology/ValidatedExceedence> ; ?p ?o1 .\
             ?o1 <http://reference.eionet.europa.eu/aq/ontology/inletHeight> ?o\
             FILTER (str(?p) = 'http://reference.eionet.europa.eu/aq/ontology/sample')\
-            {SELECT <http://reference.eionet.europa.eu/aq/ontology/sample.inletHeight> as ?pr WHERE { } }\
+            { SELECT <http://reference.eionet.europa.eu/aq/ontology/sample.inletHeight> as ?pr WHERE { } }\
         }\
         UNION\
         {?s a <http://reference.eionet.europa.eu/aq/ontology/ValidatedExceedence> ; ?p ?o1 .\
             ?o1 <http://reference.eionet.europa.eu/aq/ontology/kerbDistance> ?o\
             FILTER (str(?p) = 'http://reference.eionet.europa.eu/aq/ontology/sample')\
             { SELECT <http://reference.eionet.europa.eu/aq/ontology/sample.kerbdistance> as ?pr WHERE { } }\
+        }\
+        UNION\
+        {?s a <http://reference.eionet.europa.eu/aq/ontology/ValidatedExceedence> ; ?p ?o1 .\
+            ?o1 <http://reference.eionet.europa.eu/aq/ontology/zone> ?o2 .\
+            ?o2 <http://reference.eionet.europa.eu/aq/ontology/inspireId> ?o\
+            FILTER (str(?p) = 'http://reference.eionet.europa.eu/aq/ontology/samplingPoint')\
+            { SELECT <http://reference.eionet.europa.eu/aq/ontology/samplingPoint.zone> as ?pr WHERE { } }\
+        }\
+        UNION\
+        {?s a <http://reference.eionet.europa.eu/aq/ontology/ValidatedExceedence> ; ?p ?o1 .\
+            ?o1 <http://reference.eionet.europa.eu/aq/ontology/zone> ?o2 .\
+            ?o2 <http://www.w3.org/2000/01/rdf-schema#label> ?o\
+            FILTER (str(?p) = 'http://reference.eionet.europa.eu/aq/ontology/samplingPoint')\
+            { SELECT <http://reference.eionet.europa.eu/aq/ontology/samplingPoint.zoneLabel> as ?pr WHERE { } }\
+        }\
+        UNION\
+        {?s a <http://reference.eionet.europa.eu/aq/ontology/ValidatedExceedence> ; ?p ?o1 .\
+            ?o1 <http://reference.eionet.europa.eu/aq/ontology/zone> ?o2 .\
+            ?o2 <http://reference.eionet.europa.eu/aq/ontology/zoneType> ?o3.\
+            ?o3 <http://www.w3.org/2000/01/rdf-schema#label> ?o\
+            FILTER (str(?p) = 'http://reference.eionet.europa.eu/aq/ontology/samplingPoint')\
+            { SELECT <http://reference.eionet.europa.eu/aq/ontology/samplingPoint.zoneType> as ?pr WHERE { } }\
+        }\
+        UNION\
+        {?s a <http://reference.eionet.europa.eu/aq/ontology/ValidatedExceedence> ; ?p ?o1 .\
+            ?o1 <http://reference.eionet.europa.eu/aq/ontology/zone> ?o2 .\
+            ?o2 <http://purl.org/dc/terms/spatial> ?o3.\
+            ?o3 <http://www.w3.org/2000/01/rdf-schema#label> ?o\
+            FILTER (str(?p) = 'http://reference.eionet.europa.eu/aq/ontology/samplingPoint')\
+            { SELECT <http://reference.eionet.europa.eu/aq/ontology/samplingPoint.zoneCountryLabel> as ?pr WHERE { } }\
+        }\
+        UNION\
+        {?s a <http://reference.eionet.europa.eu/aq/ontology/ValidatedExceedence> ; ?p ?o1 .\
+            ?o1 <http://reference.eionet.europa.eu/aq/ontology/inspireId> ?o\
+            FILTER (str(?p) = 'http://reference.eionet.europa.eu/aq/ontology/samplingPoint')\
+            { SELECT <http://reference.eionet.europa.eu/aq/ontology/samplingPoint.samplingPoint> as ?pr WHERE { } }\
+        }\
+        UNION\
+        {?s a <http://reference.eionet.europa.eu/aq/ontology/ValidatedExceedence> ; ?p ?o1 .\
+            ?o1 <http://reference.eionet.europa.eu/aq/ontology/inspireId> ?o\
+            FILTER (str(?p) = 'http://reference.eionet.europa.eu/aq/ontology/sample')\
+            { SELECT <http://reference.eionet.europa.eu/aq/ontology/sample.sample> as ?pr WHERE { } }\
+        }\
+        UNION\
+        {?s a <http://reference.eionet.europa.eu/aq/ontology/ValidatedExceedence> ; ?p ?o1 .\
+            ?o1 <http://reference.eionet.europa.eu/aq/ontology/inspireId> ?o\
+            FILTER (str(?p) = 'http://reference.eionet.europa.eu/aq/ontology/procedure')\
+            { SELECT <http://reference.eionet.europa.eu/aq/ontology/procedure.procedure> as ?pr WHERE { } }\
         }\
         <filter>\
     }";
