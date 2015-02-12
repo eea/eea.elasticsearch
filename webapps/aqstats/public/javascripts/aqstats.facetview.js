@@ -2,25 +2,31 @@ function addHeaders(){
     $("#facetview_results").append("<thead>" +
                                         "<tr>" +
                                             "<th>Details</th>"+
-                                            "<th>observationVerification</th>"+
-                                            "<th>samplingPoint</th>"+
-                                            "<th>samplingPoint latitude</th>"+
-                                            "<th>samplingPoint longitude</th>"+
-                                            "<th>endPosition</th>"+
-                                            "<th>aggregationType</th>"+
-                                            "<th>station</th>"+
-                                            "<th>station latitude</th>"+
-                                            "<th>station longitude</th>"+
-                                            "<th>sample</th>"+
-                                            "<th>datacapturePct</th>"+
-                                            "<th>airqualityValue</th>"+
-                                            "<th>observationValidity</th>"+
-                                            "<th>inspireNamespace</th>"+
-                                            "<th>procedure</th>"+
-                                            "<th>inserted</th>"+
-                                            "<th>beginPosition</th>"+
-                                            "<th>pollutant</th>"+
-                                            "<th>updated</th>"+
+                                            "<th>Namespace</th>"+
+                                            "<th>Station</th>"+
+                                            "<th>AggregationType</th>"+
+                                            "<th>ReportingMetric</th>"+
+                                            "<th>Year</th>"+
+                                            "<th>Pollutant</th>"+
+                                            "<th>AQvalue</th>"+
+                                            "<th>DataCapture</th>"+
+                                            "<th>ValidityFlag</th>"+
+                                            "<th>VerificationFlag</th>"+
+                                            "<th>StationType</th>"+
+                                            "<th>StationArea</th>"+
+                                            "<th>StationLatitude</th>"+
+                                            "<th>StationLongitude</th>"+
+                                            "<th>AnalyticalTechnique</th>"+
+                                            "<th>MeasurementType</th>"+
+                                            "<th>InletHeight</th>"+
+                                            "<th>KerbDistance</th>"+
+                                            "<th>Zone</th>"+
+                                            "<th>ZoneLabel</th>"+
+                                            "<th>ZoneType</th>"+
+                                            "<th>ZoneCountryLabel</th>"+
+                                            "<th>SamplingPoint</th>"+
+                                            "<th>Sample</th>"+
+                                            "<th>Procedure</th>"+
                                         "</tr>"+
                                     "</thead>");
 }
@@ -49,17 +55,17 @@ jQuery(document).ready(function($) {
         post_search_callback: viewReady,
         pushstate : false,
         facets: [
-            {'field':field_base + 'observationVerification', 'display': 'Observation Verification', 'size':'50', 'order': 'term'},
-            {'field':field_base + 'samplingPoint', 'display': 'Sampling Point', 'size':'50', 'order': 'term'},
-            {'field':field_base + 'aggregationType', 'display': 'aggregationType', 'size':'50', 'order': 'term'},
-            {'field':field_base + 'station', 'display': 'Station', 'size':'50', 'order': 'term'},
-            {'field':field_base + 'sample', 'display': 'Sample', 'size':'50', 'order': 'term'},
-            {'field':field_base + 'datacapturePct', 'display': 'datacapturePct', 'size':'100000', 'order': 'term'},
-            {'field':field_base + 'airqualityValue', 'display': 'airqualityValue', 'size':'100000', 'order': 'term'},
-            {'field':field_base + 'observationValidity', 'display': 'Observation Validity', 'size':'50', 'order': 'term'},
-            {'field':field_base + 'inspireNamespace', 'display': 'Inspire Namespace', 'size':'50', 'order': 'term'},
-            {'field':field_base + 'procedure', 'display': 'Procedure', 'size':'50', 'order': 'term'},
+            {'field':field_base + 'inspireNamespace', 'display': 'Namespace', 'size':'50', 'order': 'term'},
+            {'field':field_base + 'beginPosition', 'display': 'Year', 'size':'50', 'order': 'term'}, //?
             {'field':field_base + 'pollutant', 'display': 'Pollutant', 'size':'50', 'order': 'term'},
+            {'field':field_base + 'aggregationType', 'display': 'AggregationType', 'size':'50', 'order': 'term'},
+            {'field':field_base + 'airqualityValue', 'display': 'AQvalue', 'size':'10000000', 'order': 'term'},
+            {'field':field_base + 'datacapturePct', 'display': 'DataCapture', 'size':'10000000', 'order': 'term'},
+            {'field':field_base + 'samplingPoint_stationtype', 'display': 'StationType', 'size':'50', 'order': 'term'},
+            {'field':field_base + 'station_stationarea', 'display': 'StationArea', 'size':'50', 'order': 'term'},
+            {'field':field_base + 'procedure_analyticaltechnique', 'display': 'AnalyticalTechnique', 'size':'50', 'order': 'term'},
+            {'field':field_base + 'samplingPoint_zone', 'display': 'Zone', 'size':'50', 'order': 'term'},
+            {'field':field_base + 'samplingPoint_zoneCountryLabel', 'display': 'ZoneCountryLabel', 'size':'50', 'order': 'term'},
         ],
 
 
@@ -72,32 +78,7 @@ jQuery(document).ready(function($) {
                 },
                 {
                     'pre': '<td>',
-                    'field': field_base + "observationVerification",
-                    'post': '</td>'
-                },
-                {
-                    'pre': '<td>',
-                    'field': field_base + "samplingPoint",
-                    'post': '</td>'
-                },
-                {
-                    'pre': '<td>',
-                    'field': field_base + "samplingpoint_lat",
-                    'post': '</td>'
-                },
-                {
-                    'pre': '<td>',
-                    'field': field_base + "samplingpoint_lon",
-                    'post': '</td>'
-                },
-                {
-                    'pre': '<td>',
-                    'field': field_base + "endPosition",
-                    'post': '</td>'
-                },
-                {
-                    'pre': '<td>',
-                    'field': field_base + "aggregationType",
+                    'field': field_base + "inspireNamespace",
                     'post': '</td>'
                 },
                 {
@@ -107,47 +88,12 @@ jQuery(document).ready(function($) {
                 },
                 {
                     'pre': '<td>',
-                    'field': field_base + "station_lat",
+                    'field': field_base + "aggregationType",
                     'post': '</td>'
                 },
                 {
                     'pre': '<td>',
-                    'field': field_base + "station_lon",
-                    'post': '</td>'
-                },
-                {
-                    'pre': '<td>',
-                    'field': field_base + "sample",
-                    'post': '</td>'
-                },
-                {
-                    'pre': '<td>',
-                    'field': field_base + "datacapturePct",
-                    'post': '</td>'
-                },
-                {
-                    'pre': '<td>',
-                    'field': field_base + "airqualityValue",
-                    'post': '</td>'
-                },
-                {
-                    'pre': '<td>',
-                    'field': field_base + "observationValidity",
-                    'post': '</td>'
-                },
-                {
-                    'pre': '<td>',
-                    'field': field_base + "inspireNamespace",
-                    'post': '</td>'
-                },
-                {
-                    'pre': '<td>',
-                    'field': field_base + "procedure",
-                    'post': '</td>'
-                },
-                {
-                    'pre': '<td>',
-                    'field': field_base + "inserted",
+                    'field': field_base + "aggregationType_reportingmetric",
                     'post': '</td>'
                 },
                 {
@@ -162,7 +108,97 @@ jQuery(document).ready(function($) {
                 },
                 {
                     'pre': '<td>',
-                    'field': field_base + "updated",
+                    'field': field_base + "airqualityValue",
+                    'post': '</td>'
+                },
+                {
+                    'pre': '<td>',
+                    'field': field_base + "datacapturePct",
+                    'post': '</td>'
+                },
+                {
+                    'pre': '<td>',
+                    'field': field_base + "observationValidity",
+                    'post': '</td>'
+                },
+                {
+                    'pre': '<td>',
+                    'field': field_base + "observationVerification",
+                    'post': '</td>'
+                },
+                {
+                    'pre': '<td>',
+                    'field': field_base + "samplingPoint_stationtype",
+                    'post': '</td>'
+                },
+                {
+                    'pre': '<td>',
+                    'field': field_base + "station_stationarea",
+                    'post': '</td>'
+                },
+                {
+                    'pre': '<td>',
+                    'field': field_base + "station_lat",
+                    'post': '</td>'
+                },
+                {
+                    'pre': '<td>',
+                    'field': field_base + "station_lon",
+                    'post': '</td>'
+                },
+                {
+                    'pre': '<td>',
+                    'field': field_base + "procedure_analyticaltechnique",
+                    'post': '</td>'
+                },
+                {
+                    'pre': '<td>',
+                    'field': field_base + "procedure_measurementtype",
+                    'post': '</td>'
+                },
+                {
+                    'pre': '<td>',
+                    'field': field_base + "sample_inletHeight",
+                    'post': '</td>'
+                },
+                {
+                    'pre': '<td>',
+                    'field': field_base + "sample_kerbdistance",
+                    'post': '</td>'
+                },
+                {
+                    'pre': '<td>',
+                    'field': field_base + "samplingPoint_zone",
+                    'post': '</td>'
+                },
+                {
+                    'pre': '<td>',
+                    'field': field_base + "samplingPoint_zoneLabel",
+                    'post': '</td>'
+                },
+                {
+                    'pre': '<td>',
+                    'field': field_base + "samplingPoint_zoneType",
+                    'post': '</td>'
+                },
+                {
+                    'pre': '<td>',
+                    'field': field_base + "samplingPoint_zoneCountryLabel",
+                    'post': '</td>'
+                },
+                {
+                    'pre': '<td>',
+                    'field': field_base + "samplingPoint_samplingPoint",
+                    'post': '</td>'
+                },
+                {
+                    'pre': '<td>',
+                    'field': field_base + "sample_sample",
+                    'post': '</td>'
+                },
+                {
+                    'pre': '<td>',
+                    'field': field_base + "procedure_procedure",
                     'post': '</td>'
                 }
 

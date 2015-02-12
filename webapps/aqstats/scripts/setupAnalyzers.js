@@ -20,35 +20,7 @@ var analyzers = {
 // Proprety mappings for aqstatsdata
 // Describe how properties get indexed into ElasticSearch
 var aqstatsdataMappings = {
-    "http://reference.eionet.europa.eu/aq/ontology/observationVerification" : {
-        "type" : "string",
-        "analyzer" : "none"
-    },
-    "http://reference.eionet.europa.eu/aq/ontology/samplingPoint" : {
-        "type" : "string",
-        "analyzer" : "none"
-    },
-    "http://reference.eionet.europa.eu/aq/ontology/aggregationType" : {
-        "type" : "string",
-        "analyzer" : "none"
-    },
-    "http://reference.eionet.europa.eu/aq/ontology/station" : {
-        "type" : "string",
-        "analyzer" : "none"
-    },
-    "http://reference.eionet.europa.eu/aq/ontology/sample" : {
-        "type" : "string",
-        "analyzer" : "none"
-    },
-    "http://reference.eionet.europa.eu/aq/ontology/observationValidity" : {
-        "type" : "string",
-        "analyzer" : "none"
-    },
     "http://reference.eionet.europa.eu/aq/ontology/inspireNamespace" : {
-        "type" : "string",
-        "analyzer" : "none"
-    },
-    "http://reference.eionet.europa.eu/aq/ontology/procedure" : {
         "type" : "string",
         "analyzer" : "none"
     },
@@ -56,24 +28,30 @@ var aqstatsdataMappings = {
         "type" : "string",
         "analyzer" : "none"
     },
-/*    "http://reference.eionet.europa.eu/aq/ontology/endPosition" : {
-        "type" : "date",
+    "http://reference.eionet.europa.eu/aq/ontology/aggregationType" : {
+        "type" : "string",
         "analyzer" : "none"
     },
-    "http://reference.eionet.europa.eu/aq/ontology/inserted" : {
-        "type" : "date",
+    "http://reference.eionet.europa.eu/aq/ontology/samplingPoint_stationtype" : {
+        "type" : "string",
         "analyzer" : "none"
     },
-    "http://reference.eionet.europa.eu/aq/ontology/beginPosition" : {
-        "type" : "date",
+    "http://reference.eionet.europa.eu/aq/ontology/station_stationarea" : {
+        "type" : "string",
         "analyzer" : "none"
-    },*/ 
-/*    "http://reference.eionet.europa.eu/aq/ontology/datacapturePct" : {
-        "type" : "double",
     },
-    "http://reference.eionet.europa.eu/aq/ontology/airqualityValue" : {
-        "type" : "double",
-    },*/
+    "http://reference.eionet.europa.eu/aq/ontology/procedure_analyticaltechnique" : {
+        "type" : "string",
+        "analyzer" : "none"
+    },
+    "http://reference.eionet.europa.eu/aq/ontology/samplingPoint_zone" : {
+        "type" : "string",
+        "analyzer" : "none"
+    },
+    "http://reference.eionet.europa.eu/aq/ontology/samplingPoint_zoneCountryLabel" : {
+        "type" : "string",
+        "analyzer" : "none"
+    }
 };
 
 var mappings = {
