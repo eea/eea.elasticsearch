@@ -54,6 +54,7 @@ jQuery(document).ready(function($) {
         enable_rangeselect: true,
         post_search_callback: viewReady,
         pushstate : false,
+        default_sort:{'field':field_base + 'inspireNamespace', order:'asc'},
         facets: [
             {'field':field_base + 'inspireNamespace', 'display': 'Namespace', 'size':'50', 'order': 'term'},
             {'field':field_base + 'beginPosition', 'display': 'Year', 'size':'50', 'order': 'term'}, //?

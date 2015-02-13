@@ -436,7 +436,8 @@ function sortNumber(a,b){
             "default_operator": "OR",
             "default_freetext_fuzzify": false,
             "include_id":false,
-            "id_label":""
+            "id_label":"",
+            "default_sort":{}
         };
 
 
@@ -1136,6 +1137,13 @@ function sortNumber(a,b){
             } else {
                 options.q = $(options.searchbox_class).last().val();
             };
+
+            //set the default sort
+            if ((options.sort.length === 0) && (!jQuery.isEmptyObject(options.default_sort))){
+                var sort = {};
+                sort[options.default_sort.field] = {order:options.default_sort.order};
+                options.sort.push(sort);
+            }
             // make the search query
             var qrystr = elasticsearchquery();
             // augment the URL bar if possible
@@ -1171,7 +1179,7 @@ function sortNumber(a,b){
                 dosearch();
             }
         };
-        
+
         // change the search result order
         var order = function(event) {
             event.preventDefault();
