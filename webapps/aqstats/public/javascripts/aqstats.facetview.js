@@ -57,11 +57,11 @@ jQuery(document).ready(function($) {
         default_sort:{'field':field_base + 'inspireNamespace', order:'asc'},
         facets: [
             {'field':field_base + 'inspireNamespace', 'display': 'Namespace', 'size':'50', 'order': 'term'},
-            {'field':field_base + 'beginPosition', 'display': 'Year', 'size':'50', 'order': 'term'}, //?
+            {'field':field_base + 'beginPosition_year', 'display': 'Year', 'size':'50', 'order': 'term'}, //?
             {'field':field_base + 'pollutant', 'display': 'Pollutant', 'size':'50', 'order': 'term'},
             {'field':field_base + 'aggregationType', 'display': 'AggregationType', 'size':'50', 'order': 'term'},
-            {'field':field_base + 'airqualityValue', 'display': 'AQvalue', 'size':'10000000', 'order': 'term'},
-            {'field':field_base + 'datacapturePct', 'display': 'DataCapture', 'size':'10000000', 'order': 'term'},
+            {'field':field_base + 'airqualityValue_aqvalue', 'display': 'AQvalue', 'size':'10000000', 'order': 'term'},
+            {'field':field_base + 'datacapturePct_datacapture', 'display': 'DataCapture', 'size':'10000000', 'order': 'term'},
             {'field':field_base + 'samplingPoint_stationtype', 'display': 'StationType', 'size':'50', 'order': 'term'},
             {'field':field_base + 'station_stationarea', 'display': 'StationArea', 'size':'50', 'order': 'term'},
             {'field':field_base + 'procedure_analyticaltechnique', 'display': 'AnalyticalTechnique', 'size':'50', 'order': 'term'},
@@ -99,7 +99,7 @@ jQuery(document).ready(function($) {
                 },
                 {
                     'pre': '<td>',
-                    'field': field_base + "beginPosition",
+                    'field': field_base + "beginPosition_year",
                     'post': '</td>'
                 },
                 {
@@ -109,12 +109,12 @@ jQuery(document).ready(function($) {
                 },
                 {
                     'pre': '<td>',
-                    'field': field_base + "airqualityValue",
+                    'field': field_base + "airqualityValue_aqvalue",
                     'post': '</td>'
                 },
                 {
                     'pre': '<td>',
-                    'field': field_base + "datacapturePct",
+                    'field': field_base + "datacapturePct_datacapture",
                     'post': '</td>'
                 },
                 {
@@ -139,12 +139,12 @@ jQuery(document).ready(function($) {
                 },
                 {
                     'pre': '<td>',
-                    'field': field_base + "station_lat",
+                    'field': field_base + "station_lat_stationlatitude",
                     'post': '</td>'
                 },
                 {
                     'pre': '<td>',
-                    'field': field_base + "station_lon",
+                    'field': field_base + "station_lon_stationlongitude",
                     'post': '</td>'
                 },
                 {
@@ -213,8 +213,8 @@ jQuery(document).ready(function($) {
     });
     var clean_base = field_base.replace(/\./gi,'_').replace(/\:/gi,'_');
 
-    $('[id="facetview_' + clean_base + 'airqualityValue"]').addClass("facet_range_only");
-    $('[id="facetview_' + clean_base + 'datacapturePct"]').addClass("facet_range_only");
+    $('[id="facetview_' + clean_base + 'airqualityValue_aqvalue"]').addClass("facet_range_only");
+    $('[id="facetview_' + clean_base + 'datacapturePct_datacapture"]').addClass("facet_range_only");
 
     $(".facet_range_only").delegate("a.facetview_filtershow","click", function(event){
         var tmp_facet = $(event.target).closest("table");

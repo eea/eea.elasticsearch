@@ -15,16 +15,16 @@ var fieldsMapping = [
     {'name' : 'station', 'field' : field_base + 'station', 'title' : 'Station'},
     {'name' : 'aggregationType', 'field' : field_base + 'aggregationType', 'title' : 'AggregationType'},
     {'name' : 'aggregationType_reportingmetric', 'field' : field_base + 'aggregationType_reportingmetric', 'title' : 'ReportingMetric'},
-    {'name' : 'beginPosition', 'field' : field_base + 'beginPosition', 'title' : 'Year'},
+    {'name' : 'beginPosition', 'field' : field_base + 'beginPosition_year', 'title' : 'Year'},
     {'name' : 'pollutant', 'field' : field_base + 'pollutant', 'title' : 'Pollutant'},
-    {'name' : 'airqualityValue', 'field' : field_base + 'airqualityValue', 'title' : 'AQvalue'},
-    {'name' : 'datacapturePct', 'field' : field_base + 'datacapturePct', 'title' : 'DataCapture'},
+    {'name' : 'airqualityValue_aqvalue', 'field' : field_base + 'airqualityValue_aqvalue', 'title' : 'AQvalue'},
+    {'name' : 'datacapturePct_datacapture', 'field' : field_base + 'datacapturePct_datacapture', 'title' : 'DataCapture'},
     {'name' : 'observationValidity', 'field' : field_base + 'observationValidity', 'title' : 'ValidityFlag'},
     {'name' : 'observationVerification', 'field' : field_base + 'observationVerification', 'title' : 'VerificationFlag'},
     {'name' : 'samplingPoint_stationtype', 'field' : field_base + 'samplingPoint_stationtype', 'title' : 'StationType'},
     {'name' : 'station_stationarea', 'field' : field_base + 'station_stationarea', 'title' : 'StationArea'},
-    {'name' : 'station_lat', 'field' : field_base + 'station_lat', 'title' : 'StationLatitude'},
-    {'name' : 'station_lon', 'field' : field_base + 'station_lon', 'title' : 'StationLongitude'},
+    {'name' : 'station_lat_stationlatitude', 'field' : field_base + 'station_lat_stationlatitude', 'title' : 'StationLatitude'},
+    {'name' : 'station_lon_stationlongitude', 'field' : field_base + 'station_lon_stationlongitude', 'title' : 'StationLongitude'},
     {'name' : 'procedure_analyticaltechnique', 'field' : field_base + 'procedure_analyticaltechnique', 'title' : 'AnalyticalTechnique'},
     {'name' : 'procedure_measurementtype', 'field' : field_base + 'procedure_measurementtype', 'title' : 'MeasurementType'},
     {'name' : 'sample_inletHeight', 'field' : field_base + 'sample_inletHeight', 'title' : 'InletHeight'},
@@ -38,7 +38,6 @@ var fieldsMapping = [
     {'name' : 'procedure_procedure', 'field' : field_base + 'procedure_procedure', 'title' : 'Procedure'}
 ];
 
-console.log(fieldsMapping)
 exports.index = function(req, res){
   res.render('index', {title: 'aqstat',
                        base_path: base_path,
@@ -71,7 +70,6 @@ exports.details = function(req, res){
 
             for ( var item = 0; item < data.hits.hits.length; item++ ) {
                 tmp_resultobj["records"].push(data.hits.hits[item]._source);
-                console.log(data.hits.hits[item]._id)
                 tmp_resultobj["records"][tmp_resultobj["records"].length - 1]._id = data.hits.hits[item]._id;
             }
             resultobj = {};
