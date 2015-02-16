@@ -47,6 +47,9 @@ function viewReady(){
 }
 
 jQuery(document).ready(function($) {
+    var default_sort = [{}, {}];
+    default_sort[0][field_base + 'inspireNamespace'] = {"order": 'asc'};
+    default_sort[1][field_base + 'beginPosition_year'] = {"order": 'asc'};
     $('.facet-view-simple').facetview({
         search_url: 'http://' + es_host + es_path,
         search_index: 'elasticsearch',
@@ -54,7 +57,8 @@ jQuery(document).ready(function($) {
         enable_rangeselect: true,
         post_search_callback: viewReady,
         pushstate : false,
-        default_sort:{'field':field_base + 'inspireNamespace', order:'asc'},
+        search_sortby:[{'display':'namespace', 'field':field_base + 'inspireNamespace'},{'display':'year','field':field_base + 'beginPosition_year'}],
+        default_sort: default_sort,
         facets: [
             {'field':field_base + 'inspireNamespace', 'display': 'Namespace', 'size':'50', 'order': 'term'},
             {'field':field_base + 'beginPosition_year', 'display': 'Year', 'size':'50', 'order': 'term'}, //?

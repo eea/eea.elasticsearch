@@ -1140,9 +1140,7 @@ function sortNumber(a,b){
 
             //set the default sort
             if ((options.sort.length === 0) && (!jQuery.isEmptyObject(options.default_sort))){
-                var sort = {};
-                sort[options.default_sort.field] = {order:options.default_sort.order};
-                options.sort.push(sort);
+                options.sort = options.default_sort;
             }
             // make the search query
             var qrystr = elasticsearchquery();
