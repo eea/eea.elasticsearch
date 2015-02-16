@@ -1,7 +1,7 @@
 {
     "http":{
-        "port":3020,
-        "base_path": "/aqstats/"
+        "port":3000,
+        "base_path": "/"
     },
     "es":{
         "host":"centaurus-dev.eea.europa.eu",

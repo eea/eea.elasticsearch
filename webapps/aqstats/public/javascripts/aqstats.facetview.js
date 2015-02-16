@@ -57,7 +57,6 @@ jQuery(document).ready(function($) {
         enable_rangeselect: true,
         post_search_callback: viewReady,
         pushstate : false,
-        search_sortby:[{'display':'namespace', 'field':field_base + 'inspireNamespace'},{'display':'year','field':field_base + 'beginPosition_year'}],
         default_sort: default_sort,
         facets: [
             {'field':field_base + 'inspireNamespace', 'display': 'Namespace', 'size':'50', 'order': 'term'},
