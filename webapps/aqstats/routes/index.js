@@ -35,7 +35,21 @@ var fieldsMapping = [
     {'name' : 'samplingPoint_zoneCountryLabel', 'field' : field_base + 'samplingPoint_zoneCountryLabel', 'title' : 'ZoneCountryLabel'},
     {'name' : 'samplingPoint_samplingPoint', 'field' : field_base + 'samplingPoint_samplingPoint', 'title' : 'SamplingPoint'},
     {'name' : 'sample_sample', 'field' : field_base + 'sample_sample', 'title' : 'Sample'},
-    {'name' : 'procedure_procedure', 'field' : field_base + 'procedure_procedure', 'title' : 'Procedure'}
+    {'name' : 'procedure_procedure', 'field' : field_base + 'procedure_procedure', 'title' : 'Procedure'},
+    {'name' : 'station_link', 'field' : field_base + 'station_link', 'title' : 'station_link'},
+    {'name' : 'aggregationType_link', 'field' : field_base + 'aggregationType_link', 'title' : 'aggregationType_link'},
+    {'name' : 'aggregationType_reportingmetric_link', 'field' : field_base + 'aggregationType_reportingmetric_link', 'title' : 'aggregationType_reportingmetric_link'},
+    {'name' : 'pollutant_link', 'field' : field_base + 'pollutant_link', 'title' : 'pollutant_link'},
+    {'name' : 'samplingPoint_stationtype_link', 'field' : field_base + 'samplingPoint_stationtype_link', 'title' : 'samplingPoint_stationtype_link'},
+    {'name' : 'station_stationarea_link', 'field' : field_base + 'station_stationarea_link', 'title' : 'station_stationarea_link'},
+    {'name' : 'procedure_analyticaltechnique_link', 'field' : field_base + 'procedure_analyticaltechnique_link', 'title' : 'procedure_analyticaltechnique_link'},
+    {'name' : 'procedure_measurementtype_link', 'field' : field_base + 'procedure_measurementtype_link', 'title' : 'procedure_measurementtype_link'},
+    {'name' : 'sample_link', 'field' : field_base + 'sample_link', 'title' : 'sample_link'},
+    {'name' : 'samplingPoint_zone_link', 'field' : field_base + 'samplingPoint_zone_link', 'title' : 'samplingPoint_zone_link'},
+    {'name' : 'samplingPoint_zoneType_link', 'field' : field_base + 'samplingPoint_zoneType_link', 'title' : 'samplingPoint_zoneType_link'},
+    {'name' : 'samplingPoint_zoneCountryLabel_link', 'field' : field_base + 'samplingPoint_zoneCountryLabel_link', 'title' : 'samplingPoint_zoneCountryLabel_link'},
+    {'name' : 'samplingPoint_link', 'field' : field_base + 'samplingPoint_link', 'title' : 'samplingPoint_link'},
+    {'name' : 'procedure_link', 'field' : field_base + 'procedure_link', 'title' : 'procedure_link'}
 ];
 
 exports.index = function(req, res){
