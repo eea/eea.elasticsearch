@@ -140,6 +140,87 @@ SELECT ?s ?p (if (bound(?isdate), year(?o_orig), (if (bound(?isnumber), round(?o
             { SELECT (<http://reference.eionet.europa.eu/aq/ontology/station_lon_stationlongitude> as ?p) WHERE { } }\
             { SELECT ('true' as ?iscoord) WHERE { } }\
         }\
+        UNION\
+        {?s a aqr:ValidatedExceedence ; ?p1 ?o_orig .\
+            FILTER (str(?p1) = 'http://reference.eionet.europa.eu/aq/ontology/station')\
+            { SELECT (<http://reference.eionet.europa.eu/aq/ontology/station_link> as ?p) WHERE { } }\
+        }\
+        UNION\
+        {?s a aqr:ValidatedExceedence ; ?p1 ?o_orig .\
+            FILTER (str(?p1) = 'http://reference.eionet.europa.eu/aq/ontology/aggregationType')\
+            { SELECT (<http://reference.eionet.europa.eu/aq/ontology/aggregationType_link> as ?p) WHERE { } }\
+        }\
+        UNION\
+        {?s a aqr:ValidatedExceedence ; ?p1 ?o1 .\
+            ?o1 aqdd:broaderMetric ?o_orig .\
+            FILTER (str(?p1) in ('http://reference.eionet.europa.eu/aq/ontology/aggregationType'))\
+            { SELECT (<http://reference.eionet.europa.eu/aq/ontology/aggregationType_reportingmetric_link> as ?p) WHERE { } }\
+        }\
+        UNION\
+        {?s a aqr:ValidatedExceedence ; ?p1 ?o_orig .\
+            FILTER (str(?p1) = 'http://reference.eionet.europa.eu/aq/ontology/pollutant')\
+            { SELECT (<http://reference.eionet.europa.eu/aq/ontology/pollutant_link> as ?p) WHERE { } }\
+        }\
+        UNION\
+        {?s a aqr:ValidatedExceedence ; ?p1 ?o1 .\
+            ?o1 aqr:relevantEmissions ?o2 .\
+            ?o2 aqr:stationClassification ?o_orig .\
+            FILTER (str(?p1) = 'http://reference.eionet.europa.eu/aq/ontology/samplingPoint')\
+            { SELECT (<http://reference.eionet.europa.eu/aq/ontology/samplingPoint_stationtype_link> as ?p) WHERE { } }\
+        }\
+        UNION\
+        {?s a aqr:ValidatedExceedence ; ?p1 ?o1 .\
+            ?o1 aqr:areaClassification ?o_orig .\
+            FILTER (str(?p1) = 'http://reference.eionet.europa.eu/aq/ontology/station')\
+            { SELECT (<http://reference.eionet.europa.eu/aq/ontology/station_stationarea_link> as ?p) WHERE { } }\
+        }\
+        UNION\
+        {?s a aqr:ValidatedExceedence ; ?p1 ?o1 .\
+            ?o1 aqr:analyticalTechnique ?o_orig .\
+            FILTER (str(?p1) = 'http://reference.eionet.europa.eu/aq/ontology/procedure')\
+            { SELECT (<http://reference.eionet.europa.eu/aq/ontology/procedure_analyticaltechnique_link> as ?p) WHERE { } }\
+        }\
+        UNION\
+        {?s a aqr:ValidatedExceedence ; ?p1 ?o1 .\
+            ?o1 aqr:measurementType ?o_orig .\
+            FILTER (str(?p1) = 'http://reference.eionet.europa.eu/aq/ontology/procedure')\
+            { SELECT (<http://reference.eionet.europa.eu/aq/ontology/procedure_measurementtype_link> as ?p) WHERE { } }\
+        }\
+        UNION\
+        {?s a aqr:ValidatedExceedence ; ?p1 ?o_orig .\
+            FILTER (str(?p1) = 'http://reference.eionet.europa.eu/aq/ontology/sample')\
+            { SELECT (<http://reference.eionet.europa.eu/aq/ontology/sample_link> as ?p) WHERE { } }\
+        }\
+        UNION\
+        {?s a aqr:ValidatedExceedence ; ?p1 ?o1 .\
+            ?o1 aqr:zone ?o_orig .\
+            FILTER (str(?p1) = 'http://reference.eionet.europa.eu/aq/ontology/samplingPoint')\
+            { SELECT (<http://reference.eionet.europa.eu/aq/ontology/samplingPoint_zone_link> as ?p) WHERE { } }\
+        }\
+        UNION\
+        {?s a aqr:ValidatedExceedence ; ?p1 ?o1 .\
+            ?o1 aqr:zone ?o2 .\
+            ?o2 aqr:zoneType ?o_orig.\
+            FILTER (str(?p1) = 'http://reference.eionet.europa.eu/aq/ontology/samplingPoint')\
+            { SELECT (<http://reference.eionet.europa.eu/aq/ontology/samplingPoint_zoneType_link> as ?p) WHERE { } }\
+        }\
+        UNION\
+        {?s a aqr:ValidatedExceedence ; ?p1 ?o1 .\
+            ?o1 aqr:zone ?o2 .\
+            ?o2 dcterms:spatial ?o_orig.\
+            FILTER (str(?p1) = 'http://reference.eionet.europa.eu/aq/ontology/samplingPoint')\
+            { SELECT (<http://reference.eionet.europa.eu/aq/ontology/samplingPoint_zoneCountryLabel_link> as ?p) WHERE { } }\
+        }\
+        UNION\
+        {?s a aqr:ValidatedExceedence ; ?p1 ?o_orig .\
+            FILTER (str(?p1) = 'http://reference.eionet.europa.eu/aq/ontology/samplingPoint')\
+            { SELECT (<http://reference.eionet.europa.eu/aq/ontology/samplingPoint_link> as ?p) WHERE { } }\
+        }\
+        UNION\
+        {?s a aqr:ValidatedExceedence ; ?p1 ?o_orig .\
+            FILTER (str(?p1) = 'http://reference.eionet.europa.eu/aq/ontology/procedure')\
+            { SELECT (<http://reference.eionet.europa.eu/aq/ontology/procedure_link> as ?p) WHERE { } }\
+        }\
         <filter>\
 }";
 

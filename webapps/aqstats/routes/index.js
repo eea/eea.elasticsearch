@@ -77,6 +77,7 @@ exports.details = function(req, res){
                 resultobj[fieldsMapping[idx]['name']] = {'label':fieldsMapping[idx]['title'],
                                                     'value':tmp_resultobj["records"][0][fieldsMapping[idx]['field']]};
             }
+            resultobj['exceedence_href'] = {'label':'exceedence_href', value:encodeURIComponent(resultobj['_id'].value)};
             res.render('details', {data: resultobj,
                                    base_path: base_path,
                                    es_host: es_host,

@@ -81,3 +81,20 @@
     word-wrap:break-word;
     max-width:224px;
 }
+
+.item_detail_table.datatable td div{
+    float:left;
+}
+
+.item_detail_table.datatable td a{
+    float:left;
+    margin-top: -4px;
+}
+
+.title_with_link div{
+    float:left;
+}
+
+#content h2.title_with_link a{
+    padding:0 !important;
+}

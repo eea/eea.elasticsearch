@@ -1,16 +1,18 @@
 extends layout
 
-mixin tr_th_td(item)
+mixin tr_th_td(item, link_item)
     if(item)
         tr
             th= item.label
-            td= item.value
+            if(link_item)
+                td
+                    div= item.value
+                    +ext_link(link_item.value)
+            else
+                td= item.value
 
-mixin td(item)
-    if(item)
-        td= item.value
-    else
-        td 
+mixin ext_link(link)
+    a(href= "http://cr.eionet.europa.eu/factsheet.action?uri="+link class="ui-icon ui-icon-extlink" title="go to definition")
 
 block content
     div(id="portal-breadcrumbs")
@@ -25,6 +27,11 @@ block content
             span(class="breadcrumbs-current")=  data._id.value
 
     h1= data._id.value
+
+    h2(class="title_with_link")
+       div Exceedence details
+       +ext_link(data.exceedence_href.value)
+
     table(class="item_detail_table datatable")
         colgroup
             col(style="width: 25%")
