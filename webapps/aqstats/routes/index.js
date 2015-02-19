@@ -87,11 +87,17 @@ exports.details = function(req, res){
                 tmp_resultobj["records"][tmp_resultobj["records"].length - 1]._id = data.hits.hits[item]._id;
             }
             resultobj = {};
+            var value;
             for (var idx = 0; idx < fieldsMapping.length; idx++) {
-                resultobj[fieldsMapping[idx]['name']] = {'label':fieldsMapping[idx]['title'],
-                                                    'value':tmp_resultobj["records"][0][fieldsMapping[idx]['field']]};
+                value = tmp_resultobj["records"][0][fieldsMapping[idx]['field']];
+                label = fieldsMapping[idx]['title'];
+                if (label.substr(label.length - 5,5) === "_link"){
+                    value = encodeURIComponent(value);
+                }
+                resultobj[fieldsMapping[idx]['name']] = {'label':label, 'value':value};
             }
             resultobj['exceedence_href'] = {'label':'exceedence_href', value:encodeURIComponent(resultobj['_id'].value)};
+console.log(resultobj);
             res.render('details', {data: resultobj,
                                    base_path: base_path,
                                    es_host: es_host,

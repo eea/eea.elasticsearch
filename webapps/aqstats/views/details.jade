@@ -1,7 +1,7 @@
 extends layout
 
 mixin tr_th_td(item, link_item)
-    if(item)
+    if(item && item.value)
         tr
             th= item.label
             if(link_item)
@@ -12,8 +12,9 @@ mixin tr_th_td(item, link_item)
                 td= item.value
 
 mixin ext_link(link)
-    a(href= "http://cr.eionet.europa.eu/factsheet.action?uri="+link class="ui-icon ui-icon-extlink" title="go to definition")
-
+    a(href= "http://cr.eionet.europa.eu/factsheet.action?uri="+link  title="go to source" class="detail_extlink")
+        span source
+        span(class="ui-icon ui-icon-extlink")
 block content
     div(id="portal-breadcrumbs")
         span(id="breadcrumbs-you-are-here") You are here: 
@@ -28,36 +29,36 @@ block content
 
     h1= data._id.value
 
-    h2(class="title_with_link")
-       div Exceedence details
-       +ext_link(data.exceedence_href.value)
+    h2(class="title_with_link") 
+        span Exceedence details
+        +ext_link(data.exceedence_href.value)
 
     table(class="item_detail_table datatable")
         colgroup
             col(style="width: 25%")
             col(style="width: 75%")
         +tr_th_td(data.inspireNamespace)
-        +tr_th_td(data.station)
-        +tr_th_td(data.aggregationType)
-        +tr_th_td(data.aggregationType_reportingmetric)
-        +tr_th_td(data.beginPosition_year)
-        +tr_th_td(data.pollutant)
+        +tr_th_td(data.station, data.station_link)
+        +tr_th_td(data.aggregationType, data.aggregationType_link)
+        +tr_th_td(data.aggregationType_reportingmetric, data.aggregationType_reportingmetric_link)
+        +tr_th_td(data.beginPosition)
+        +tr_th_td(data.pollutant, data.pollutant_link)
         +tr_th_td(data.airqualityValue_aqvalue)
         +tr_th_td(data.datacapturePct_datacapture)
         +tr_th_td(data.observationValidity)
         +tr_th_td(data.observationVerification)
-        +tr_th_td(data.samplingPoint_stationtype)
-        +tr_th_td(data.station_stationarea)
+        +tr_th_td(data.samplingPoint_stationtype, data.samplingPoint_stationtype_link)
+        +tr_th_td(data.station_stationarea, data.station_stationarea_link)
         +tr_th_td(data.station_lat_stationlatitude)
         +tr_th_td(data.station_lon_stationlongitude)
-        +tr_th_td(data.procedure_analyticaltechnique)
-        +tr_th_td(data.procedure_measurementtype)
-        +tr_th_td(data.sample_inletHeight)
-        +tr_th_td(data.sample_kerbdistance)
-        +tr_th_td(data.samplingPoint_zone)
+        +tr_th_td(data.procedure_analyticaltechnique, data.procedure_analyticaltechnique_link)
+        +tr_th_td(data.procedure_measurementtype, data.procedure_measurementtype_link)
+        +tr_th_td(data.sample_inletHeight, data.sample_link)
+        +tr_th_td(data.sample_kerbdistance, data.sample_link)
+        +tr_th_td(data.samplingPoint_zone, data.samplingPoint_zone_link)
         +tr_th_td(data.samplingPoint_zoneLabel)
-        +tr_th_td(data.samplingPoint_zoneType)
-        +tr_th_td(data.samplingPoint_zoneCountryLabel)
-        +tr_th_td(data.samplingPoint_samplingPoint)
-        +tr_th_td(data.sample_sample)
-        +tr_th_td(data.procedure_procedure)
+        +tr_th_td(data.samplingPoint_zoneType, data.samplingPoint_zoneType_link)
+        +tr_th_td(data.samplingPoint_zoneCountryLabel, data.samplingPoint_zoneCountryLabel_link)
+        +tr_th_td(data.samplingPoint_samplingPoint, data.samplingPoint_link)
+        +tr_th_td(data.sample_sample, data.sample_link)
+        +tr_th_td(data.procedure_procedure, data.procedure_link)

@@ -88,13 +88,32 @@
 
 .item_detail_table.datatable td a{
     float:left;
-    margin-top: -4px;
 }
 
-.title_with_link div{
+#content a.detail_extlink, #content a.detail_extlink:visited, #content a.detail_extlink:hover {
+    display:block;
+    margin-left:10px;
+    font-size:10px;
+    font-weight:normal;
+    color:rgb(52,111,131) !important;
     float:left;
 }
 
-#content h2.title_with_link a{
-    padding:0 !important;
+#content h2 {
+    float:left;
+}
+#content a.detail_extlink:hover{
+    font-weight:bold;
+}
+
+a.detail_extlink span{
+    float:left;
+}
+
+a.detail_extlink span.ui-icon{
+    margin-top:-3px;
+}
+
+.title_with_link span{
+    float:left;
 }
