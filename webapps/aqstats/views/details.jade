@@ -6,15 +6,13 @@ mixin tr_th_td(item, link_item)
             th= item.label
             if(link_item)
                 td
-                    div= item.value
-                    +ext_link(link_item.value)
+                    +ext_link(item, link_item.value)
             else
                 td= item.value
 
-mixin ext_link(link)
-    a(href= "http://cr.eionet.europa.eu/factsheet.action?uri="+link  title="go to source" class="detail_extlink")
-        span source
-        span(class="ui-icon ui-icon-extlink")
+mixin ext_link(item, url)
+    a(href= "http://cr.eionet.europa.eu/factsheet.action?uri=" +url  title="go to source details" class="detail_extlink")= item.value
+
 block content
     div(id="portal-breadcrumbs")
         span(id="breadcrumbs-you-are-here") You are here: 
@@ -31,7 +29,6 @@ block content
 
     h2(class="title_with_link") 
         span Exceedence details
-        +ext_link(data.exceedence_href.value)
 
     table(class="item_detail_table datatable")
         colgroup

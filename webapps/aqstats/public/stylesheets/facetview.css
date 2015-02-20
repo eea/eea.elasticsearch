@@ -92,7 +92,6 @@
 
 #content a.detail_extlink, #content a.detail_extlink:visited, #content a.detail_extlink:hover {
     display:block;
-    margin-left:10px;
     font-size:10px;
     font-weight:normal;
     color:rgb(52,111,131) !important;
