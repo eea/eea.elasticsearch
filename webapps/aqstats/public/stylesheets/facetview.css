@@ -90,6 +90,11 @@
     float:left;
 }
 
+.item_detail_table.datatable td span.simple-value{
+    float:left;
+    padding-left: 6px;
+}
+
 #content a.detail_extlink, #content a.detail_extlink:visited, #content a.detail_extlink:hover {
     display:block;
     font-size:10px;
@@ -103,16 +108,4 @@
 }
 #content a.detail_extlink:hover{
     font-weight:bold;
-}
-
-a.detail_extlink span{
-    float:left;
-}
-
-a.detail_extlink span.ui-icon{
-    margin-top:-3px;
-}
-
-.title_with_link span{
-    float:left;
 }

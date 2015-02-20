@@ -8,7 +8,8 @@ mixin tr_th_td(item, link_item)
                 td
                     +ext_link(item, link_item.value)
             else
-                td= item.value
+                td
+                    span(class="simple-value")= item.value
 
 mixin ext_link(item, url)
     a(href= "http://cr.eionet.europa.eu/factsheet.action?uri=" +url  title="go to source details" class="detail_extlink")= item.value
@@ -23,17 +24,17 @@ block content
             a(href="#{base_path}") Air Quality statistics analysis
             span(class="breadcrumbSeparator")  / 
         span(id="breadcrumbs-2")
-            span(class="breadcrumbs-current")=  data._id.value
+            span(class="breadcrumbs-current")= data._shorttitle.value
 
-    h1= data._id.value
-
-    h2(class="title_with_link") 
-        span Exceedence details
+    h1
+        span Validated exceedence for 
+        span= data._shorttitle.value
 
     table(class="item_detail_table datatable")
         colgroup
             col(style="width: 25%")
             col(style="width: 75%")
+        +tr_th_td(data._shorttitle, data.exceedence_link)
         +tr_th_td(data.inspireNamespace)
         +tr_th_td(data.station, data.station_link)
         +tr_th_td(data.aggregationType, data.aggregationType_link)

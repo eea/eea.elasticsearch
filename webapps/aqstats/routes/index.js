@@ -49,7 +49,8 @@ var fieldsMapping = [
     {'name' : 'samplingPoint_zoneType_link', 'field' : field_base + 'samplingPoint_zoneType_link', 'title' : 'samplingPoint_zoneType_link'},
     {'name' : 'samplingPoint_zoneCountryLabel_link', 'field' : field_base + 'samplingPoint_zoneCountryLabel_link', 'title' : 'samplingPoint_zoneCountryLabel_link'},
     {'name' : 'samplingPoint_link', 'field' : field_base + 'samplingPoint_link', 'title' : 'samplingPoint_link'},
-    {'name' : 'procedure_link', 'field' : field_base + 'procedure_link', 'title' : 'procedure_link'}
+    {'name' : 'procedure_link', 'field' : field_base + 'procedure_link', 'title' : 'procedure_link'},
+    {'name' : '_shorttitle', 'field' : field_base + '_shorttitle', 'title' : 'Title'}
 ];
 
 exports.index = function(req, res){
@@ -96,8 +97,8 @@ exports.details = function(req, res){
                 }
                 resultobj[fieldsMapping[idx]['name']] = {'label':label, 'value':value};
             }
-            resultobj['exceedence_href'] = {'label':'exceedence_href', value:encodeURIComponent(resultobj['_id'].value)};
-console.log(resultobj);
+            resultobj['exceedence_link'] = {'label':'exceedence_link', value:encodeURIComponent(resultobj['_id'].value)};
+            resultobj['_shorttitle'].value = resultobj['_id'].value.split('/')[resultobj['_id'].value.split('/').length - 1];
             res.render('details', {data: resultobj,
                                    base_path: base_path,
                                    es_host: es_host,
