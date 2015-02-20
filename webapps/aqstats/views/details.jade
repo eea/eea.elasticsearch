@@ -14,6 +14,9 @@ mixin tr_th_td(item, link_item)
 mixin ext_link(item, url)
     a(href= "http://cr.eionet.europa.eu/factsheet.action?uri=" +url  title="go to source details" class="detail_extlink")= item.value
 
+block title
+    title= "Validated exceedence for " + data._shorttitle.value
+
 block content
     div(id="portal-breadcrumbs")
         span(id="breadcrumbs-you-are-here") You are here: 
@@ -27,8 +30,7 @@ block content
             span(class="breadcrumbs-current")= data._shorttitle.value
 
     h1
-        span Validated exceedence for 
-        span= data._shorttitle.value
+        span= "Validated exceedence for " + data._shorttitle.value
 
     table(class="item_detail_table datatable")
         colgroup
