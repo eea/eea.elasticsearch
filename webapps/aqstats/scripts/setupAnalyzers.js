@@ -51,6 +51,10 @@ var aqstatsdataMappings = {
     "http://reference.eionet.europa.eu/aq/ontology/samplingPoint_zoneCountryLabel" : {
         "type" : "string",
         "analyzer" : "none"
+    },
+    "http://reference.eionet.europa.eu/aq/ontology/station_geo_pos" : {
+        "type" : "geo_point",
+        "analyzer" : "none"
     }
 };
 
