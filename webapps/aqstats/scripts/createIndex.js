@@ -6,7 +6,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\
 PREFIX aqr: <http://reference.eionet.europa.eu/aq/ontology/>\
 PREFIX aqdd: <http://dd.eionet.europa.eu/property/>\
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>\
-SELECT ?s ?p (if (bound(?isgeo), fn:concat(?geo_lat,',',?geo_lon), (if (bound(?isdate), year(?o_orig), (if (bound(?isnumber), round(?o_orig*100)/100, (if (bound(?iscoord), round(?o_orig*10000)/10000, ?o_orig))))))) as ?o)\
+SELECT ?s ?p (if (bound(?isgeo), concat(str(?geo_lat),',',str(?geo_lon)), (if (bound(?isdate), year(?o_orig), (if (bound(?isnumber), round(?o_orig*100)/100, (if (bound(?iscoord), round(?o_orig*10000)/10000, ?o_orig))))))) as ?o)\
 WHERE\
     {\
         {?s a aqr:ValidatedExceedence ; ?p ?o_orig FILTER(isLiteral(?o_orig))\
@@ -224,8 +224,8 @@ WHERE\
         }\
         UNION\
         {?s a aqr:ValidatedExceedence;\
-              aqr:station_lon ?geo_lat;\
-              aqr:station_lat ?geo_lon\
+              aqr:station_lon ?geo_lon;\
+              aqr:station_lat ?geo_lat\
               { SELECT (<http://reference.eionet.europa.eu/aq/ontology/station_geo_pos> as ?p) WHERE { }}\
               { SELECT ('true' as ?isgeo) WHERE { } }\
         }\
