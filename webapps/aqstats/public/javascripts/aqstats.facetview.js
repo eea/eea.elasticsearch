@@ -38,12 +38,25 @@ function fixQueries(){
         var aqstatid = href.split("=")[1];
         $(detail_link)
             .attr("href", base + "=" + encodeURIComponent(aqstatid));
+    });
+}
+function fixDataTitles(){
+    var th_list = [];
+    $("#facetview_results thead th").each(function(idx, th){
+        th_list.push($(th).text());
+
     })
+    $("#facetview_results tr").each(function(tr_idx, tr){
+        $(tr).find("td").each(function(td_idx, td){
+            $(td).attr("data-title", th_list[td_idx]);
+        });
+    });
 }
 
 function viewReady(){
     addHeaders();
     fixQueries();
+    fixDataTitles();
 }
 
 jQuery(document).ready(function($) {

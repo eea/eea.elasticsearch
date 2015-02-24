@@ -119,3 +119,11 @@ h4 {
 .facet_range_only tr.facetview_filtervalue{
     display:none !important;
 }
+
+.facetview_results tbody{
+    display:table-row-group!important;
+}
+
+.span9 {
+    overflow-x: scroll;
+}
