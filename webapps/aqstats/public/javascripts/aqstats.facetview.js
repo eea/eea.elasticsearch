@@ -68,6 +68,7 @@ jQuery(document).ready(function($) {
         search_index: 'elasticsearch',
         initial_search: false,
         enable_rangeselect: true,
+        enable_geoselect: true,
         post_search_callback: viewReady,
         pushstate : false,
         default_sort: default_sort,
@@ -83,6 +84,7 @@ jQuery(document).ready(function($) {
             {'field':field_base + 'procedure_analyticaltechnique', 'display': 'AnalyticalTechnique', 'size':'50', 'order': 'term'},
             {'field':field_base + 'samplingPoint_zone', 'display': 'Zone', 'size':'50', 'order': 'term'},
             {'field':field_base + 'samplingPoint_zoneCountryLabel', 'display': 'ZoneCountryLabel', 'size':'50', 'order': 'term'},
+            {'field':field_base + 'station_geo_pos', 'display': 'Geo location', 'size':'10000000', 'order': 'term'}
         ],
 
 
@@ -231,6 +233,7 @@ jQuery(document).ready(function($) {
 
     $('[id="facetview_' + clean_base + 'airqualityValue_aqvalue"]').addClass("facet_range_only");
     $('[id="facetview_' + clean_base + 'datacapturePct_datacapture"]').addClass("facet_range_only");
+    $('[id="facetview_' + clean_base + 'station_geo_pos"]').addClass("facet_geo_only");
 
     $(".facet_range_only").delegate("a.facetview_filtershow","click", function(event){
         var tmp_facet = $(event.target).closest("table");
@@ -248,7 +251,7 @@ jQuery(document).ready(function($) {
         }
     });
 
-    $('#facetview').delegate(".facetview_rangecontainer","click",function(){
+    $('#facetview').delegate(".facetview_rangecontainer .facetview_facetrange_remove","click",function(){
         var range_title = $(event.target).closest(".facetview_rangecontainer").children("h3").text().trim();
         $(".facetview_open").each(function(idx, facet){
             var facet_title = $(facet).text().trim();
@@ -260,4 +263,35 @@ jQuery(document).ready(function($) {
             }
         })
     });
+
+    $(".facet_geo_only").delegate("a.facetview_filtershow","click", function(event){
+        var tmp_facet = $(event.target).closest("table");
+        if (tmp_facet.find("a.facetview_filtershow").hasClass("facetview_open")){
+            tmp_facet.find("a.facetview_facetgeo").click();
+        }
+        else{
+            var facet_title = tmp_facet.find("a.facetview_filtershow").text().trim();
+            $('.facetview_geocontainer').each(function(idx, facetgeo){
+                var geo_title = $(facetgeo).children("h3").text().trim();
+                if (geo_title === facet_title){
+                    $(facetgeo).find('.facetview_facetgeo_remove').click();
+                }
+            });
+        }
+    });
+
+    $('#facetview').delegate(".facetview_geocontainer .facetview_facetrange_remove","click",function(){
+        var geo_title = $(event.target).closest(".facetview_geocontainer").children("h3").text().trim();
+        $(".facetview_open").each(function(idx, facet){
+            var facet_title = $(facet).text().trim();
+            if (facet_title === geo_title){
+                $(facet).removeClass("facetview_open");
+                $(facet).children('i').removeClass('icon-minus');
+                $(facet).children('i').addClass('icon-plus');
+
+            }
+        })
+    });
+
+
 });

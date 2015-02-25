@@ -1,6 +1,9 @@
 @media only screen and (max-width: 1024px) {
 
 /* Force table to not be like tables anymore */
+    table#facetview_results{
+        display:table !important;
+    }
     #facetview_rightcol table,
     #facetview_rightcol thead,
     #facetview_rightcol tbody,
@@ -27,6 +30,7 @@
         padding-left: 50%;
         white-space: normal;
         text-align:left;
+        min-height:18px;
     }
 
     #facetview_rightcol td:before {

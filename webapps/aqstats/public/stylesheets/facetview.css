@@ -36,7 +36,8 @@
     -webkit-border-radius: 5px;
     border-radius: 5px;
 }
-.facetview_rangecontainer{
+.facetview_rangecontainer,
+.facetview_geocontainer{
     border:1px solid #ccc; 
     padding:5px; 
     margin-bottom:5px;
@@ -108,4 +109,13 @@
 }
 #content a.detail_extlink:hover{
     font-weight:bold;
+}
+.facetview_geocontainer input{
+    margin: 0 0 21px 0;
+    background: #ecf4ff;
+    height: 24px;
+}
+.facetview_geocontainer span{
+    float:left;
+    width:200px;
 }

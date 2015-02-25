@@ -111,12 +111,15 @@ h4 {
     padding-top: 58px !important;
 }
 
-.facetview_facetrange {
+.facetview_facetrange,
+.facetview_facetgeo {
     display:none;
 }
 
 .facet_range_only div.facetview_filteroptions,
-.facet_range_only tr.facetview_filtervalue{
+.facet_range_only tr.facetview_filtervalue,
+.facet_geo_only div.facetview_filteroptions,
+.facet_geo_only tr.facetview_filtervalue{
     display:none !important;
 }
 
@@ -124,6 +127,7 @@ h4 {
     display:table-row-group!important;
 }
 
-.span9 {
+.span9 table#facetview_results{
+    display:block !important;
     overflow-x: scroll;
 }
