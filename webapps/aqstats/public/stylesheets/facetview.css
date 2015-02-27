@@ -118,4 +118,14 @@
 .facetview_geocontainer span{
     float:left;
     width:200px;
+    color: rgb(45, 116, 156);
+}
+.facetview_geocontainer ul{
+    background:none;
+    border:none;
+    margin:0 !important;
+}
+#content .facetview_geocontainer a.geo-facet-type{
+    color: rgb(45, 116, 156) !important;
+    font-weight: bold;
 }
