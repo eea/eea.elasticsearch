@@ -73,6 +73,7 @@ jQuery(document).ready(function($) {
         pushstate : false,
         default_sort: default_sort,
         facets: [
+//            {'field':'_id', 'display': '_id', 'order': 'term'},
             {'field':field_base + 'inspireNamespace', 'display': 'Namespace', 'size':'50', 'order': 'term'},
             {'field':field_base + 'beginPosition_year', 'display': 'Year', 'size':'50', 'order': 'term'}, //?
             {'field':field_base + 'pollutant', 'display': 'Pollutant', 'size':'50', 'order': 'term'},
@@ -259,7 +260,6 @@ jQuery(document).ready(function($) {
                 $(facet).removeClass("facetview_open");
                 $(facet).children('i').removeClass('icon-minus');
                 $(facet).children('i').addClass('icon-plus');
-
             }
         })
     });
@@ -280,7 +280,7 @@ jQuery(document).ready(function($) {
         }
     });
 
-    $('#facetview').delegate(".facetview_geocontainer .facetview_facetrange_remove","click",function(){
+    $('#facetview').delegate(".facetview_geocontainer .facetview_facetgeo_remove","click",function(){
         var geo_title = $(event.target).closest(".facetview_geocontainer").children("h3").text().trim();
         $(".facetview_open").each(function(idx, facet){
             var facet_title = $(facet).text().trim();
@@ -288,7 +288,6 @@ jQuery(document).ready(function($) {
                 $(facet).removeClass("facetview_open");
                 $(facet).children('i').removeClass('icon-minus');
                 $(facet).children('i').addClass('icon-plus');
-
             }
         })
     });

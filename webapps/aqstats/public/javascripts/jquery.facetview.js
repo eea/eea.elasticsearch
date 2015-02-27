@@ -1171,9 +1171,6 @@ function sortNumber(a,b){
                     bool['must'].push(pobj);
                 }
             }
-            if (!$.isEmptyObject(filter)){
-                qs['filter'] = filter;
-            }
             if (bool) {
                 if ( options.q != "" ) {
                     var qryval = { 'query': fuzzify(options.q) };
@@ -1182,7 +1179,12 @@ function sortNumber(a,b){
                     bool['must'].push( {'query_string': qryval } );
                 };
                 nested ? bool['must'].push(nested) : "";
-                qs['query'] = {'bool': bool};
+                qs['query'] = {};
+                qs['query']['filtered'] = {};
+                qs['query']['filtered']['query'] = {'bool': bool};
+                if (!$.isEmptyObject(filter)){
+                    qs['query']['filtered']['filter'] = filter;
+                }
             } else {
                 if ( options.q != "" ) {
                     var qryval = { 'query': fuzzify(options.q) };
@@ -1242,6 +1244,10 @@ function sortNumber(a,b){
             // make the search query
             var qrystr = elasticsearchquery();
             // augment the URL bar if possible
+            if (options.previousQuerystr === qrystr){
+                return;
+            }
+            options.previousQuerystr = qrystr;
             if ( options.pushstate ) {
                 var currurl = '?source=' + options.querystring;
                 window.history.pushState("","search",currurl);
