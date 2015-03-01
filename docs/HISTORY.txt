@@ -3,6 +3,8 @@ Changelog
 
 2.2.dev0 - (unreleased)
 -----------------------
+* Change: re-labeled search facets.
+  [demarant] 
 
 2.1 - (2015-02-16)
 ------------------

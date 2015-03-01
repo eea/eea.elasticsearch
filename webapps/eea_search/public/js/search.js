@@ -239,7 +239,7 @@ $(function($) {
     facets: [
       {
         'field': 'http://www.w3.org/1999/02/22-rdf-syntax-ns#type',
-        'display': 'Product Type',
+        'display': 'Content type',
         'size': '50000',
         'min_size': '10',
         'order': 'term',
@@ -248,7 +248,7 @@ $(function($) {
       },
       {
         'field': 'http://www.eea.europa.eu/portal_types#topic',
-        'display': 'EEA Topic',
+        'display': 'Topic',
         'size': '100',
         'min_size': '10',
         'order': 'term',
@@ -257,7 +257,7 @@ $(function($) {
       },
       {
         'field': 'http://purl.org/dc/terms/spatial',
-        'display': 'Spatial coverage',
+        'display': 'Country',
         'size': '100',
         'min_size': '10',
         'order': 'term',
