@@ -57,6 +57,7 @@ var normObj = {
     "Kosovo (UNSCR 1244/99)" : "Kosovo",
     "Macedonia (FYR)" : "Macedonia",
     "Default" : "Various other issues",
+    "Collection - old style" : "Collection",
     "http://www.eea.europa.eu/portal_vocabularies/themes/acidification" : "Air pollution",
     "http://www.eea.europa.eu/portal_vocabularies/themes/air_quality" : "Air pollution",
     "http://www.eea.europa.eu/portal_vocabularies/themes/nature" : "Biodiversity",
@@ -104,10 +105,18 @@ var indexQuery = [
         "CONSTRUCT {?s ?p ?o} WHERE { graph ?g { ?s ?p ?o } . FILTER (str(?g) = concat(str(?s),\"/@@rdf\")) . ?s a <http://www.eea.europa.eu/portal_types/PressRelease#PressRelease> . ?s ?p ?o }",
         "CONSTRUCT {?s ?p ?o} WHERE { graph ?g { ?s ?p ?o } . FILTER (str(?g) = concat(str(?s),\"/@@rdf\")) . ?s a <http://www.eea.europa.eu/portal_types/Report#Report> . ?s ?p ?o }",
         "CONSTRUCT {?s ?p ?o} WHERE { graph ?g { ?s ?p ?o } . FILTER (str(?g) = concat(str(?s),\"/@@rdf\")) . ?s a <http://www.eea.europa.eu/portal_types/SOERKeyFact#SOERKeyFact> . ?s ?p ?o }",
+        "CONSTRUCT {?s ?p ?o} WHERE { graph ?g { ?s ?p ?o } . FILTER (str(?g) = concat(str(?s),\"/@@rdf\")) . ?s a <http://www.eea.europa.eu/portal_types/Fiche#Fiche> . ?s ?p ?o }",
+        "CONSTRUCT {?s ?p ?o} WHERE { graph ?g { ?s ?p ?o } . FILTER (str(?g) = concat(str(?s),\"/@@rdf\")) . ?s a <http://www.eea.europa.eu/portal_types/Folder#Folder> . ?s ?p ?o }",
         "CONSTRUCT {?s ?p ?o} WHERE { graph ?g { ?s ?p ?o } . FILTER (str(?g) = concat(str(?s),\"/@@rdf\")) . ?s a <http://www.eea.europa.eu/portal_types/SOERMessage#SOERMessage> . ?s ?p ?o }"];
 
 // Sync conditions
 var syncConditions = [
+    "{?resource a <http://www.eea.europa.eu/portal_types/Infographic#Infographic> } UNION ",
+    "{?resource a <http://www.eea.europa.eu/portal_types/Sparql#Sparql> } UNION ",
+    "{?resource a <http://www.eea.europa.eu/portal_types/Topic#Topic> } UNION ",
+    "{?resource a <http://www.eea.europa.eu/portal_types/Collection#Collection> } UNION ",
+    "{?resource a <http://www.eea.europa.eu/portal_types/Folder#Folder> } UNION ",
+    "{?resource a <http://www.eea.europa.eu/portal_types/Fiche#Fiche> } UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/Article#Article> } UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/Assessment#Assessment>} UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/AssessmentAssessmentPart#AssessmentPart>} UNION ",
