@@ -6,7 +6,7 @@
     "es":{
         "host":"centaurus-dev.eea.europa.eu",
         "path":"/elasticsearch/aqstatsdata/resources/_search",
-        "field_base":"http://reference.eionet.europa.eu/aq/ontology/"
+        "field_base":""
     },
     "external_templates":{
         "host" : "www.eea.europa.eu",

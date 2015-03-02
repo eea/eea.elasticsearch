@@ -20,39 +20,39 @@ var analyzers = {
 // Proprety mappings for aqstatsdata
 // Describe how properties get indexed into ElasticSearch
 var aqstatsdataMappings = {
-    "http://reference.eionet.europa.eu/aq/ontology/inspireNamespace" : {
+    "inspireNamespace" : {
         "type" : "string",
         "analyzer" : "none"
     },
-    "http://reference.eionet.europa.eu/aq/ontology/pollutant" : {
+    "pollutant" : {
         "type" : "string",
         "analyzer" : "none"
     },
-    "http://reference.eionet.europa.eu/aq/ontology/aggregationType" : {
+    "aggregationType" : {
         "type" : "string",
         "analyzer" : "none"
     },
-    "http://reference.eionet.europa.eu/aq/ontology/samplingPoint_stationtype" : {
+    "samplingPoint_stationtype" : {
         "type" : "string",
         "analyzer" : "none"
     },
-    "http://reference.eionet.europa.eu/aq/ontology/station_stationarea" : {
+    "station_stationarea" : {
         "type" : "string",
         "analyzer" : "none"
     },
-    "http://reference.eionet.europa.eu/aq/ontology/procedure_analyticaltechnique" : {
+    "procedure_analyticaltechnique" : {
         "type" : "string",
         "analyzer" : "none"
     },
-    "http://reference.eionet.europa.eu/aq/ontology/samplingPoint_zone" : {
+    "samplingPoint_zone" : {
         "type" : "string",
         "analyzer" : "none"
     },
-    "http://reference.eionet.europa.eu/aq/ontology/samplingPoint_zoneCountryLabel" : {
+    "samplingPoint_zoneCountryLabel" : {
         "type" : "string",
         "analyzer" : "none"
     },
-    "http://reference.eionet.europa.eu/aq/ontology/station_geo_pos" : {
+    "station_geo_pos" : {
         "type" : "geo_point",
         "analyzer" : "none"
     }

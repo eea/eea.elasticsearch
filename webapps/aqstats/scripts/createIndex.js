@@ -1,5 +1,62 @@
 var api = require('../../common/lib/esAPI.js');
 
+var fields = [
+    "http://reference.eionet.europa.eu/aq/ontology/aggregationType_link",
+    "http://reference.eionet.europa.eu/aq/ontology/sample_inletHeight",
+    "http://reference.eionet.europa.eu/aq/ontology/procedure_procedure",
+    "http://reference.eionet.europa.eu/aq/ontology/sample_link",
+    "http://reference.eionet.europa.eu/aq/ontology/samplingPoint_zoneCountryLabel_link",
+    "http://reference.eionet.europa.eu/aq/ontology/procedure_link",
+    "http://reference.eionet.europa.eu/aq/ontology/datacapturePct_datacapture",
+    "http://reference.eionet.europa.eu/aq/ontology/samplingPoint_zone",
+    "http://reference.eionet.europa.eu/aq/ontology/samplingpoint_lat",
+    "http://reference.eionet.europa.eu/aq/ontology/station_link",
+    "http://reference.eionet.europa.eu/aq/ontology/procedure",
+    "http://reference.eionet.europa.eu/aq/ontology/beginPosition_year",
+    "http://reference.eionet.europa.eu/aq/ontology/station_stationarea",
+    "http://reference.eionet.europa.eu/aq/ontology/inserted",
+    "http://reference.eionet.europa.eu/aq/ontology/station_geo_pos",
+    "http://reference.eionet.europa.eu/aq/ontology/aggregationType_reportingmetric",
+    "http://reference.eionet.europa.eu/aq/ontology/station_stationarea_link",
+    "http://reference.eionet.europa.eu/aq/ontology/observationVerification",
+    "http://reference.eionet.europa.eu/aq/ontology/station_lon",
+    "http://reference.eionet.europa.eu/aq/ontology/endPosition",
+    "http://reference.eionet.europa.eu/aq/ontology/sample",
+    "http://reference.eionet.europa.eu/aq/ontology/samplingPoint_zoneType",
+    "http://reference.eionet.europa.eu/aq/ontology/station_lon_stationlongitude",
+    "http://reference.eionet.europa.eu/aq/ontology/samplingPoint_stationtype",
+    "http://reference.eionet.europa.eu/aq/ontology/sample_kerbdistance",
+    "http://reference.eionet.europa.eu/aq/ontology/pollutant",
+    "http://reference.eionet.europa.eu/aq/ontology/beginPosition",
+    "http://reference.eionet.europa.eu/aq/ontology/samplingPoint_stationtype_link",
+    "http://reference.eionet.europa.eu/aq/ontology/station_lat_stationlatitude",
+    "http://reference.eionet.europa.eu/aq/ontology/samplingPoint_zone_link",
+    "http://reference.eionet.europa.eu/aq/ontology/procedure_analyticaltechnique",
+    "http://reference.eionet.europa.eu/aq/ontology/procedure_measurementtype",
+    "http://reference.eionet.europa.eu/aq/ontology/samplingpoint_lon",
+    "http://reference.eionet.europa.eu/aq/ontology/samplingPoint_zoneCountryLabel",
+    "http://reference.eionet.europa.eu/aq/ontology/station_lat",
+    "http://reference.eionet.europa.eu/aq/ontology/procedure_measurementtype_link",
+    "http://reference.eionet.europa.eu/aq/ontology/samplingPoint_samplingPoint",
+    "http://reference.eionet.europa.eu/aq/ontology/procedure_analyticaltechnique_link",
+    "http://reference.eionet.europa.eu/aq/ontology/sample_sample",
+    "http://reference.eionet.europa.eu/aq/ontology/unit",
+    "http://reference.eionet.europa.eu/aq/ontology/updated",
+    "http://reference.eionet.europa.eu/aq/ontology/samplingPoint",
+    "http://reference.eionet.europa.eu/aq/ontology/aggregationType",
+    "http://reference.eionet.europa.eu/aq/ontology/station",
+    "http://reference.eionet.europa.eu/aq/ontology/aggregationType_reportingmetric_link",
+    "http://reference.eionet.europa.eu/aq/ontology/airqualityValue",
+    "http://reference.eionet.europa.eu/aq/ontology/datacapturePct",
+    "http://reference.eionet.europa.eu/aq/ontology/samplingPoint_zoneLabel",
+    "http://reference.eionet.europa.eu/aq/ontology/observationValidity",
+    "http://reference.eionet.europa.eu/aq/ontology/airqualityValue_aqvalue",
+    "http://reference.eionet.europa.eu/aq/ontology/inspireNamespace",
+    "http://reference.eionet.europa.eu/aq/ontology/samplingPoint_link",
+    "http://reference.eionet.europa.eu/aq/ontology/samplingPoint_zoneType_link",
+    "http://reference.eionet.europa.eu/aq/ontology/pollutant_link",
+];
+
 var queryTemplate =
 "PREFIX dcterms: <http://purl.org/dc/terms/>\
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\
@@ -238,6 +295,12 @@ var filterLength = 100;
 
 var sQuery = "SELECT ?s WHERE { ?s a <http://reference.eionet.europa.eu/aq/ontology/ValidatedExceedence>} order by ?s"
 
+var normProp = {};
+for (var i = 0; i < fields.length; i++){
+    normProp[fields[i]] = fields[i].split("/")[fields[i].split("/").length - 1];
+}
+
+console.log(normProp);
 
 var reqBody = {
     "type": "eeaRDF",
@@ -246,7 +309,8 @@ var reqBody = {
         "queryType" : "select",
         "query" : [],
         "addLanguage" : false,
-        "includeResourceURI" : true
+        "includeResourceURI" : true,
+        "normProp" : normProp
     },
     "index" : {
         "index" : "aqstatsdata",
