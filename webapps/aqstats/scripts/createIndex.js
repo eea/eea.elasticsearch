@@ -300,8 +300,6 @@ for (var i = 0; i < fields.length; i++){
     normProp[fields[i]] = fields[i].split("/")[fields[i].split("/").length - 1];
 }
 
-console.log(normProp);
-
 var reqBody = {
     "type": "eeaRDF",
     "eeaRDF" : {
