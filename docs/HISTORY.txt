@@ -3,6 +3,8 @@ Changelog
 
 2.2.dev0 - (unreleased)
 -----------------------
+* Change: added basic doc on how to re-create an application index.
+  [demarant]
 * Feature: added more types for eea_search
   [demarant]
 * Change: re-labeled search facets.
