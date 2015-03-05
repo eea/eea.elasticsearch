@@ -7,9 +7,12 @@ e.g.
 
 If you want to remove data and re-index everything again, these are the steps:
 
-> ./runScript.js centaurus-dev.eea.europa.eu/elasticsearch ../eea_search/removeRiver
-> ./runScript.js centaurus-dev.eea.europa.eu/elasticsearch ../eea_search/removeData
-> ./runScript.js centaurus-dev.eea.europa.eu/elasticsearch ../eea_search/setupAnalyzers
-> ./runScript.js centaurus-dev.eea.europa.eu/elasticsearch ../eea_search/createIndex
+./runScript.js centaurus-dev.eea.europa.eu/elasticsearch ../eea_search/removeRiver
+
+./runScript.js centaurus-dev.eea.europa.eu/elasticsearch ../eea_search/removeData
+
+./runScript.js centaurus-dev.eea.europa.eu/elasticsearch ../eea_search/setupAnalyzers
+
+./runScript.js centaurus-dev.eea.europa.eu/elasticsearch ../eea_search/createIndex
 
 
