@@ -1,6 +1,9 @@
 Changelog
 =========
 
+2.3.dev0 - (unreleased)
+-----------------------
+
 2.2 - (2015-03-17)
 ------------------
 * Change: added basic doc on how to re-create an application index.
