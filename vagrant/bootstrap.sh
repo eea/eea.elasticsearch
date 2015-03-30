@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-RIVER_VERSION=1.5.0
+RIVER_VERSION=1.5.3
 
 sudo apt-get update
 sudo apt-get install unzip -y
