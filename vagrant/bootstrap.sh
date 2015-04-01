@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 RIVER_VERSION=1.5.3
+ES_VERSION=1.4.4
 
 sudo apt-get update
 sudo apt-get install unzip -y
@@ -30,13 +31,13 @@ echo "}"              >> /etc/rc.d/init.d/functions
 
 echo -n "Installing elasticsearch..."
 if [ ! -d /root/elasticsearch ]; then
-    rm -f elasticsearch-1.4.2.zip
-    rm -rf elasticsearch-1.4.2
+    rm -f elasticsearch-*.zip
+    rm -rf elasticsearch-[0-9]*
     rm -rf /root/elasticsearch
-    wget -q https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.4.2.zip
-    unzip elasticsearch-1.4.2.zip
-    mv elasticsearch-1.4.2 /root/elasticsearch
-    rm elasticsearch-1.4.2.zip
+    wget -q https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-$ES_VERSION.zip
+    unzip elasticsearch-$ES_VERSION.zip
+    mv elasticsearch-$ES_VERSION /root/elasticsearch
+    rm elasticsearch-$ES_VERSION.zip
 
     rm -rf /root/elasticsearch/config
     ln -s /home/vagrant/eea.elasticsearch/etc/dev/config /root/elasticsearch/config
