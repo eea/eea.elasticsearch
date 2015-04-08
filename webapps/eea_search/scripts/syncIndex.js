@@ -7,6 +7,7 @@ var reqBody = {
         "endpoint": config.endpoint,
         "indexType": "sync",
         "syncConditions": config.syncConditions,
+        "graphSyncConditions": "FILTER (str(?graph) = concat(str(?resource), \"/@@rdf\"))",
         "syncTimeProp": config.syncTimeProp,
         "startTime": "",
         "queryType": config.queryType,
