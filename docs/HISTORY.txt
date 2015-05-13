@@ -11,7 +11,7 @@ Changelog
 * Feature: added more types for eea_search
   [demarant]
 * Change: re-labeled search facets.
-  [demarant] 
+  [demarant]
 
 2.1 - (2015-02-16)
 ------------------
