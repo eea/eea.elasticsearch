@@ -1,7 +1,14 @@
+WARNING
+===============
+
+**Notice:** This repository has been replaced by a better and dockerised version https://github.com/eea/eea.docker.searchservices
+
 ==================
 EEA ElasticSearch
 ==================
 |elasticsearch logo|
+
+REPLACED BY https://github.com/eea/eea.docker.searchservices
 
 .. image:: http://ci.eionet.europa.eu/job/Elasticsearch%20RDF%20River%20Plugin/badge/icon
   :target: http://ci.eionet.europa.eu/job/Elasticsearch%20RDF%20River%20Plugin/lastBuild
