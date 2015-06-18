@@ -1,12 +1,12 @@
-WARNING
-===============
-
-**Notice:** This repository has been replaced by a better and dockerised version https://github.com/eea/eea.docker.searchservices
-
 ==================
 EEA ElasticSearch
 ==================
 |elasticsearch logo|
+
+WARNING
+===============
+
+**Notice:** This repository has been replaced by a better and dockerised version https://github.com/eea/eea.docker.searchservices
 
 REPLACED BY https://github.com/eea/eea.docker.searchservices
 
