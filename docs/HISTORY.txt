@@ -1,8 +1,8 @@
 Changelog
 =========
 
-2.3.dev0 - (unreleased)
------------------------
+2.3 - (2017-03-20)
+------------------
 * Bug fix: Get resources over https
   [avoinea refs #82562]
 
