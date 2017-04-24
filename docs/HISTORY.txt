@@ -4,7 +4,7 @@ Changelog
 2.4.dev0 - (unreleased)
 -----------------------
 * Change: updated package information
-[eduard-fironda]
+  [eduard-fironda]
 
 2.3 - (2017-03-20)
 ------------------
